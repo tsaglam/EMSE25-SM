@@ -1,4 +1,4 @@
-This folder contains the implementation of our contributions based on JPlag. Note that they are already integrated into the release version of JPlag.
+This folder contains the implementation of the defence mechanisms based on JPlag. Note that they are already integrated into the release version of JPlag.
 IMPORTANT: JPlag is licensed under GPL-3.0.
 
 How to Use
@@ -9,7 +9,7 @@ How to Use
 3. Add "-h" to see all options.
 4. Specify the language via "-l".
 5. Enable subsequence match merging via "--match-merging"
-6. For the Java and C++ languages use "--normalize" for token sequence normalization.
+6. For the Java and C++ languages, use "--normalize" for token sequence normalization.
 
 Where to Find the Code
 ----------------------
