@@ -1,0 +1,72 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,119
+SardasKrustall.java,insert line 15: `int count = 0;` on try 0,0.9973890339425587,1.0,119
+SardasKrustall.java,insert line 115: `String[] messages;` on try 0,0.9583333333333334,1.0,119
+SardasKrustall.java,insert line 13: `int min;` on try 0,0.9454545454545454,1.0,119
+SardasKrustall.java,insert line 92: `boolean done = false;` on try 0,0.9430051813471503,1.0,119
+SardasKrustall.java,insert line 101: `int min;` on try 0,0.9405684754521964,1.0,119
+SardasKrustall.java,"insert line 115: `int x, y;` on try 0",0.9203084832904884,1.0,119
+SardasKrustall.java,insert line 29: `int j = 0;` on try 0,0.9179487179487179,1.0,119
+SardasKrustall.java,insert line 108: `int j = 0;` on try 0,0.9156010230179028,1.0,119
+SardasKrustall.java,insert line 90: `int index = 0;` on try 0,0.8775510204081632,1.0,119
+SardasKrustall.java,insert line 11: `int j = 0;` on try 0,0.8651399491094147,1.0,119
+SardasKrustall.java,insert line 121: `index++;` on try 0,0.8629441624365483,1.0,119
+SardasKrustall.java,insert line 84: `int max;` on try 0,0.8607594936708861,1.0,119
+SardasKrustall.java,insert line 35: `int index = 0;` on try 0,0.8333333333333334,1.0,119
+SardasKrustall.java,insert line 115: `int min;` on try 0,0.8211586901763224,1.0,119
+SardasKrustall.java,insert line 114: `int j = 0;` on try 1,0.8190954773869347,1.0,119
+SardasKrustall.java,insert line 58: `double x;` on try 0,0.8170426065162907,1.0,119
+SardasKrustall.java,insert line 27: `int intInput;` on try 0,0.785,1.0,119
+SardasKrustall.java,insert line 25: `int count = 0;` on try 0,0.7281795511221946,1.0,119
+SardasKrustall.java,insert line 124: `int max;` on try 0,0.681592039800995,1.0,119
+SardasKrustall.java,insert line 113: `boolean done = false;` on try 0,0.630272952853598,1.0,119
+SardasKrustall.java,insert line 48: `double w;` on try 0,0.6287128712871287,1.0,119
+SardasKrustall.java,insert line 103: `boolean debug = false;` on try 1,0.6074074074074074,1.0,119
+SardasKrustall.java,insert line 78: `int count = 0;` on try 1,0.6059113300492611,1.0,119
+SardasKrustall.java,insert line 127: `index++;` on try 0,0.6044226044226044,1.0,119
+SardasKrustall.java,"insert line 56: `int x, y;` on try 0",0.5672371638141809,1.0,119
+SardasKrustall.java,"insert line 94: `int x, y;` on try 0",0.5547445255474452,1.0,119
+SardasKrustall.java,insert line 109: `int count = 0;` on try 0,0.5436893203883495,1.0,119
+SardasKrustall.java,insert line 13: `int max;` on try 1,0.5423728813559322,1.0,119
+SardasKrustall.java,insert line 32: `int min;` on try 0,0.5410628019323671,1.0,119
+SardasKrustall.java,insert line 119: `index++;` on try 0,0.5397590361445783,1.0,119
+SardasKrustall.java,insert line 100: `double w;` on try 0,0.5336538461538461,1.0,119
+SardasKrustall.java,insert line 66: `boolean done = false;` on try 1,0.5227817745803357,1.0,119
+SardasKrustall.java,insert line 123: `boolean debug = false;` on try 0,0.5215311004784688,1.0,119
+SardasKrustall.java,insert line 69: `int i = 0;` on try 1,0.5011933174224343,1.0,119
+SardasKrustall.java,insert line 91: `int min;` on try 0,0.4666666666666667,1.0,119
+SardasKrustall.java,insert line 82: `int max;` on try 0,0.4418052256532066,1.0,119
+SardasKrustall.java,"insert line 120: `String output = """";` on try 1",0.3886255924170616,1.0,119
+SardasKrustall.java,insert line 102: `int max;` on try 1,0.3877068557919622,1.0,119
+SardasKrustall.java,insert line 48: `String[] messages;` on try 0,0.37735849056603776,1.0,119
+SardasKrustall.java,"insert line 31: `int x, y;` on try 0",0.3755868544600939,1.0,119
+SardasKrustall.java,insert line 155: `boolean done = false;` on try 0,0.3747072599531616,1.0,119
+SardasKrustall.java,insert line 63: `int count = 0;` on try 1,0.3691588785046729,1.0,119
+SardasKrustall.java,insert line 119: `done = true;` on try 1,0.3682983682983683,1.0,119
+SardasKrustall.java,insert line 99: `int j = 0;` on try 1,0.3627906976744186,1.0,119
+SardasKrustall.java,insert line 92: `double w;` on try 1,0.3619489559164733,1.0,119
+SardasKrustall.java,insert line 98: `String[] messages;` on try 0,0.3055555555555556,1.0,119
+SardasKrustall.java,insert line 37: `int max;` on try 0,0.30484988452655887,1.0,119
+SardasKrustall.java,insert line 111: `int j = 0;` on try 1,0.30414746543778803,1.0,119
+SardasKrustall.java,insert line 149: `String[] messages;` on try 0,0.30344827586206896,1.0,119
+SardasKrustall.java,insert line 17: `double w;` on try 2,0.30275229357798167,1.0,119
+SardasKrustall.java,insert line 86: `boolean done = false;` on try 2,0.2791762013729977,1.0,119
+SardasKrustall.java,insert line 162: `int max;` on try 2,0.2785388127853881,1.0,119
+SardasKrustall.java,insert line 94: `int index = 0;` on try 3,0.27790432801822323,1.0,119
+SardasKrustall.java,insert line 158: `boolean debug = false;` on try 0,0.2772727272727273,1.0,119
+SardasKrustall.java,insert line 93: `int min;` on try 1,0.2766439909297052,1.0,119
+SardasKrustall.java,"insert line 85: `int x, y;` on try 0",0.25733634311512416,1.0,119
+SardasKrustall.java,"insert line 64: `String output = """";` on try 1",0.25675675675675674,1.0,119
+SardasKrustall.java,insert line 50: `boolean done = false;` on try 1,0.24719101123595505,1.0,119
+SardasKrustall.java,insert line 108: `boolean done = false;` on try 0,0.24663677130044842,1.0,119
+SardasKrustall.java,"insert line 140: `int x, y;` on try 0",0.24553571428571427,1.0,119
+SardasKrustall.java,insert line 29: `String[] messages;` on try 1,0.24053452115812918,1.0,119
+SardasKrustall.java,"insert line 151: `int x, y;` on try 4",0.2394678492239468,1.0,119
+SardasKrustall.java,insert line 179: `double w;` on try 3,0.23893805309734514,1.0,119
+SardasKrustall.java,insert line 42: `int max;` on try 2,0.23841059602649006,1.0,119
+SardasKrustall.java,"insert line 81: `String output = """";` on try 1",0.2290748898678414,1.0,119
+SardasKrustall.java,insert line 46: `int min;` on try 1,0.189010989010989,1.0,119
+SardasKrustall.java,insert line 184: `boolean done = false;` on try 4,0.18859649122807018,1.0,119
+SardasKrustall.java,insert line 72: `int index = 0;` on try 1,0.18818380743982493,1.0,119
+SardasKrustall.java,insert line 57: `int count = 0;` on try 6,0.18777292576419213,1.0,119
+SardasKrustall.java,insert line 1: `import java.util.LinkedList;` on try 7,0.18736383442265794,0.9973890339425587,119

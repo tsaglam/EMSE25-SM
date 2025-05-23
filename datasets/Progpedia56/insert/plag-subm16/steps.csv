@@ -1,0 +1,47 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,78
+prob24.java,insert line 62: `int j = 0;` on try 0,0.9959839357429718,1.0,78
+prob24.java,insert line 8: `boolean debug = false;` on try 0,0.936,1.0,78
+prob24.java,insert line 33: `double w;` on try 0,0.9322709163346613,1.0,78
+prob24.java,"insert line 52: `int x, y;` on try 0",0.924901185770751,1.0,78
+prob24.java,insert line 74: `int count = 0;` on try 0,0.9212598425196851,1.0,78
+prob24.java,insert line 73: `int min;` on try 0,0.8941176470588236,1.0,78
+prob24.java,insert line 30: `int max;` on try 0,0.8671875,1.0,78
+prob24.java,insert line 29: `String[] messages;` on try 0,0.8560311284046692,1.0,78
+prob24.java,insert line 4: `import java.util.*;` on try 1,0.8527131782945736,0.9959839357429718,78
+prob24.java,"insert line 53: `int x, y;` on try 0",0.823076923076923,0.9959839357429718,78
+prob24.java,insert line 61: `boolean done = false;` on try 0,0.7739463601532567,0.9959839357429718,78
+prob24.java,insert line 1: `import java.util.LinkedList;` on try 0,0.7709923664122137,0.992,78
+prob24.java,insert line 29: `int count = 0;` on try 0,0.7376425855513308,0.992,78
+prob24.java,insert line 27: `int min;` on try 0,0.7045454545454546,0.992,78
+prob24.java,insert line 62: `boolean debug = false;` on try 0,0.7018867924528301,0.992,78
+prob24.java,insert line 73: `boolean debug = false;` on try 0,0.6842105263157895,0.992,78
+prob24.java,insert line 68: `int index = 0;` on try 2,0.6666666666666666,0.992,78
+prob24.java,insert line 94: `int max;` on try 0,0.5895522388059702,0.992,78
+prob24.java,insert line 80: `double w;` on try 4,0.5204460966542751,0.992,78
+prob24.java,insert line 13: `int max;` on try 0,0.5555555555555556,0.992,78
+prob24.java,insert line 44: `int count = 0;` on try 1,0.5018450184501845,0.992,78
+prob24.java,insert line 49: `boolean done = false;` on try 2,0.5,0.992,78
+prob24.java,insert line 26: `int index = 0;` on try 3,0.4542124542124542,0.992,78
+prob24.java,insert line 75: `int max;` on try 0,0.3722627737226277,0.992,78
+prob24.java,insert line 83: `String[] messages;` on try 3,0.3709090909090909,0.992,78
+prob24.java,insert line 97: `int max;` on try 0,0.3695652173913043,0.992,78
+prob24.java,"insert line 89: `String output = """";` on try 1",0.36823104693140796,0.992,78
+prob24.java,"insert line 54: `int x, y;` on try 1",0.3225806451612903,0.992,78
+prob24.java,insert line 92: `int i = 0;` on try 1,0.32142857142857145,0.992,78
+prob24.java,insert line 52: `int j = 0;` on try 0,0.3202846975088968,0.992,78
+prob24.java,insert line 79: `int j = 0;` on try 1,0.3191489361702128,0.992,78
+prob24.java,insert line 106: `int max;` on try 0,0.31802120141342755,0.992,78
+prob24.java,insert line 76: `String[] messages;` on try 3,0.31690140845070425,0.992,78
+prob24.java,insert line 67: `index++;` on try 1,0.3157894736842105,0.992,78
+prob24.java,insert line 64: `boolean done = false;` on try 3,0.3146853146853147,0.992,78
+prob24.java,insert line 60: `int intInput;` on try 1,0.29965156794425085,0.992,78
+prob24.java,insert line 12: `int i = 0;` on try 2,0.2986111111111111,0.992,78
+prob24.java,insert line 106: `index++;` on try 1,0.2975778546712803,0.992,78
+prob24.java,insert line 96: `boolean done = false;` on try 2,0.296551724137931,0.992,78
+prob24.java,insert line 112: `int max;` on try 4,0.29553264604810997,0.992,78
+prob24.java,insert line 111: `Double valor;` on try 7,0.2945205479452055,0.992,78
+prob24.java,insert line 29: `index++;` on try 6,0.2935153583617747,0.992,78
+prob24.java,"insert line 42: `String output = """";` on try 9",0.2925170068027211,0.992,78
+prob24.java,insert line 76: `int i = 0;` on try 7,0.29152542372881357,0.992,78
+prob24.java,insert line 61: `boolean debug = false;` on try 9,0.22972972972972974,0.992,78

@@ -1,0 +1,818 @@
+id,type,token,location,code
+1,TRANSLATIONUNITDECLARATION,"/data/00000056/submissions/05354536_24_201008648/twentyfour.java",,""
+2,RECORDDECLARATION,"no",twentyfour.java(5:1-21:2),"class no{
+	
+	double x, y;
+	double dist;
+	List<no> adj;
+	no pai;
+	boolean uspai;
+	
+	no(double x1, double y1) {
+		x = x1;
+		y = y1;
+		dist = 999999.0;
+		uspai = false;
+		pai = null;
+		adj=new LinkedList<no>();
+	}
+}"
+3,RECORDDECLARATION,"graf",twentyfour.java(23:1-29:2),"class graf{
+	
+	List<no> v;
+	graf(){
+		v=new LinkedList<no>();
+	}
+}"
+4,RECORDDECLARATION,"twentyfour",twentyfour.java(31:1-127:2),"public class twentyfour {
+
+	public static void prim(graf g, no r) {
+		
+		r.dist = 0;
+		LinkedList<no> q = new LinkedList<no>();
+		LinkedList<no> caminho = new LinkedList<no>();
+		for (no n:g.v)
+			q.add(n);
+		
+		caminho.add(r);
+
+		
+		while (!q.isEmpty()) {
+			
+			int index= extrair(q,caminho);
+			no u = q.remove(index-1);
+			
+			//System.out.println(index);
+			
+			//System.out.println(q.toString() + "" ""+ caminho.toString());
+			
+			double dist = 9999999.0;
+			for (no adj:caminho)
+				if (adj != u) {
+					dist = Math.sqrt(((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y)));
+
+					if (dist < u.dist) {
+						u.dist = dist;
+						u.pai = u;
+					}
+					
+				}
+			caminho.add(u);
+		}
+	}
+
+	private static int extrair(List<no> q, List<no> cam) {
+		
+		double dist=99999999.0;
+		int i=0;
+		int index=i;
+		for(no q2:q){
+			i++;
+			for(no cami:cam){
+				//double dist2=99999.0;
+				//if(q2!=cami){
+					double dist2 = Math.sqrt(((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y)));
+					if(dist2<dist){
+						dist=dist2;
+						index=i;
+					}
+				//}
+			}
+		}
+		return index;
+	}
+
+	public static void main(String[] args) {
+
+		@SuppressWarnings(""resource"")
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		double count = 0;
+		graf g = new graf();
+		for (int i = 0; i < n; i++){
+			g.v.add(new no(in.nextDouble(), in.nextDouble()));
+			//for(no temp:g.v)
+				//g.v.get(i).adj.add(temp);
+			/*for(no adjs:g.v.get(i).adj){
+				double dist = Math.sqrt(((adjs.x - g.v.get(i).x) * (adjs.x - g.v.get(i).x)) + ((adjs.y - g.v.get(i).y) * (adjs.y - g.v.get(i).y)));
+				if(dist>0 && dist<g.v.get(i).dist)
+					g.v.get(i).dist=dist;
+				*/	
+			//}
+		}
+		
+		//for (int i = 0; i < n; i++)
+			//System.out.print("" ++++ "" +g.v.get(i));
+		
+		prim(g, g.v.get(0));
+		
+		//for (int i = 0; i < n; i++)
+			//System.out.println(""\n\n""+g.v.get(i)+"" "" +g.v.get(i).dist + "" ""+ g.v.get(i).pai);
+		
+		for (int i = 0; i < n; i++)
+			if (!g.v.get(i).uspai) {
+				//System.out.println(g.v.get(i).dist);
+				count += g.v.get(i).dist;
+				g.v.get(i).uspai = true;
+			}
+		System.out.println(String.format(""%.2f"", count));
+	}
+	
+}"
+5,INCLUDEDECLARATION,"java.util.LinkedList",,""
+6,INCLUDEDECLARATION,"java.util.List",,""
+7,INCLUDEDECLARATION,"java.util.Scanner",,""
+8,FIELDDECLARATION,"this",,""
+9,FIELDDECLARATION,"x",twentyfour.java(7:2-7:14),"x"
+10,FIELDDECLARATION,"dist",twentyfour.java(8:2-8:14),"dist"
+11,FIELDDECLARATION,"adj",twentyfour.java(9:2-9:15),"adj"
+12,FIELDDECLARATION,"pai",twentyfour.java(10:2-10:9),"pai"
+13,FIELDDECLARATION,"uspai",twentyfour.java(11:2-11:16),"uspai"
+14,CONSTRUCTORDECLARATION,"no",twentyfour.java(13:2-20:3),"no(double x1, double y1) {
+		x = x1;
+		y = y1;
+		dist = 999999.0;
+		uspai = false;
+		pai = null;
+		adj=new LinkedList<no>();
+	}"
+15,COMPOUNDSTATEMENT,"",twentyfour.java(13:27-20:3),"{
+		x = x1;
+		y = y1;
+		dist = 999999.0;
+		uspai = false;
+		pai = null;
+		adj=new LinkedList<no>();
+	}"
+16,PARAMVARIABLEDECLARATION,"x1",twentyfour.java(13:5-13:14),"double x1"
+17,PARAMVARIABLEDECLARATION,"y1",twentyfour.java(13:16-13:25),"double y1"
+18,DECLAREDREFERENCEEXPRESSION,"this",twentyfour.java(14:3-14:4),"this"
+19,RETURNSTATEMENT,"",,""
+20,BINARYOPERATOR,"=",twentyfour.java(14:3-14:10),"x = x1;"
+21,BINARYOPERATOR,"=",twentyfour.java(15:3-15:10),"y = y1;"
+22,BINARYOPERATOR,"=",twentyfour.java(16:3-16:19),"dist = 999999.0;"
+23,BINARYOPERATOR,"=",twentyfour.java(17:3-17:17),"uspai = false;"
+24,BINARYOPERATOR,"=",twentyfour.java(18:3-18:14),"pai = null;"
+25,BINARYOPERATOR,"=",twentyfour.java(19:3-19:28),"adj=new LinkedList<no>();"
+26,MEMBEREXPRESSION,"pai",twentyfour.java(18:3-18:6),"pai"
+27,LITERAL,"",twentyfour.java(18:9-18:13),"null"
+28,DECLAREDREFERENCEEXPRESSION,"this",twentyfour.java(19:3-19:6),"this"
+29,DECLAREDREFERENCEEXPRESSION,"this",twentyfour.java(18:3-18:6),"this"
+30,MEMBEREXPRESSION,"dist",twentyfour.java(16:3-16:7),"dist"
+31,LITERAL,"",twentyfour.java(16:10-16:18),"999999.0"
+32,DECLAREDREFERENCEEXPRESSION,"this",twentyfour.java(17:3-17:8),"this"
+33,DECLAREDREFERENCEEXPRESSION,"this",twentyfour.java(16:3-16:7),"this"
+34,MEMBEREXPRESSION,"adj",twentyfour.java(19:3-19:6),"adj"
+35,NEWEXPRESSION,"",twentyfour.java(19:7-19:27),"new LinkedList<no>()"
+36,CONSTRUCTEXPRESSION,"",twentyfour.java(19:7-19:27),"new LinkedList<no>()"
+37,MEMBEREXPRESSION,"x",twentyfour.java(14:3-14:4),"x"
+38,DECLAREDREFERENCEEXPRESSION,"x1",twentyfour.java(14:7-14:9),"x1"
+39,DECLAREDREFERENCEEXPRESSION,"this",twentyfour.java(15:3-15:4),"this"
+40,MEMBEREXPRESSION,"uspai",twentyfour.java(17:3-17:8),"uspai"
+41,LITERAL,"",twentyfour.java(17:11-17:16),"false"
+42,MEMBEREXPRESSION,"y",twentyfour.java(15:3-15:4),"y"
+43,DECLAREDREFERENCEEXPRESSION,"y1",twentyfour.java(15:7-15:9),"y1"
+44,FIELDDECLARATION,"this",,""
+45,METHODDECLARATION,"prim",twentyfour.java(33:2-67:3),"public static void prim(graf g, no r) {
+		
+		r.dist = 0;
+		LinkedList<no> q = new LinkedList<no>();
+		LinkedList<no> caminho = new LinkedList<no>();
+		for (no n:g.v)
+			q.add(n);
+		
+		caminho.add(r);
+
+		
+		while (!q.isEmpty()) {
+			
+			int index= extrair(q,caminho);
+			no u = q.remove(index-1);
+			
+			//System.out.println(index);
+			
+			//System.out.println(q.toString() + "" ""+ caminho.toString());
+			
+			double dist = 9999999.0;
+			for (no adj:caminho)
+				if (adj != u) {
+					dist = Math.sqrt(((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y)));
+
+					if (dist < u.dist) {
+						u.dist = dist;
+						u.pai = u;
+					}
+					
+				}
+			caminho.add(u);
+		}
+	}"
+46,METHODDECLARATION,"extrair",twentyfour.java(69:2-89:3),"private static int extrair(List<no> q, List<no> cam) {
+		
+		double dist=99999999.0;
+		int i=0;
+		int index=i;
+		for(no q2:q){
+			i++;
+			for(no cami:cam){
+				//double dist2=99999.0;
+				//if(q2!=cami){
+					double dist2 = Math.sqrt(((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y)));
+					if(dist2<dist){
+						dist=dist2;
+						index=i;
+					}
+				//}
+			}
+		}
+		return index;
+	}"
+47,METHODDECLARATION,"main",twentyfour.java(91:2-125:3),"public static void main(String[] args) {
+
+		@SuppressWarnings(""resource"")
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		double count = 0;
+		graf g = new graf();
+		for (int i = 0; i < n; i++){
+			g.v.add(new no(in.nextDouble(), in.nextDouble()));
+			//for(no temp:g.v)
+				//g.v.get(i).adj.add(temp);
+			/*for(no adjs:g.v.get(i).adj){
+				double dist = Math.sqrt(((adjs.x - g.v.get(i).x) * (adjs.x - g.v.get(i).x)) + ((adjs.y - g.v.get(i).y) * (adjs.y - g.v.get(i).y)));
+				if(dist>0 && dist<g.v.get(i).dist)
+					g.v.get(i).dist=dist;
+				*/	
+			//}
+		}
+		
+		//for (int i = 0; i < n; i++)
+			//System.out.print("" ++++ "" +g.v.get(i));
+		
+		prim(g, g.v.get(0));
+		
+		//for (int i = 0; i < n; i++)
+			//System.out.println(""\n\n""+g.v.get(i)+"" "" +g.v.get(i).dist + "" ""+ g.v.get(i).pai);
+		
+		for (int i = 0; i < n; i++)
+			if (!g.v.get(i).uspai) {
+				//System.out.println(g.v.get(i).dist);
+				count += g.v.get(i).dist;
+				g.v.get(i).uspai = true;
+			}
+		System.out.println(String.format(""%.2f"", count));
+	}"
+48,CONSTRUCTORDECLARATION,"twentyfour",,""
+49,VARIABLEDECLARATION,"this",,""
+50,COMPOUNDSTATEMENT,"",twentyfour.java(69:55-89:3),"{
+		
+		double dist=99999999.0;
+		int i=0;
+		int index=i;
+		for(no q2:q){
+			i++;
+			for(no cami:cam){
+				//double dist2=99999.0;
+				//if(q2!=cami){
+					double dist2 = Math.sqrt(((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y)));
+					if(dist2<dist){
+						dist=dist2;
+						index=i;
+					}
+				//}
+			}
+		}
+		return index;
+	}"
+51,PARAMVARIABLEDECLARATION,"q",twentyfour.java(69:29-69:39),"List<no> q"
+52,PARAMVARIABLEDECLARATION,"cam",twentyfour.java(69:41-69:53),"List<no> cam"
+53,LITERAL,"",twentyfour.java(71:15-71:25),"99999999.0"
+54,RETURNSTATEMENT,"",twentyfour.java(88:3-88:16),"return index;"
+55,DECLARATIONSTATEMENT,"",twentyfour.java(71:3-71:26),"double dist=99999999.0;"
+56,DECLARATIONSTATEMENT,"",twentyfour.java(72:3-72:11),"int i=0;"
+57,DECLARATIONSTATEMENT,"",twentyfour.java(73:3-73:15),"int index=i;"
+58,FOREACHSTATEMENT,"",twentyfour.java(74:3-87:4),"for(no q2:q){
+			i++;
+			for(no cami:cam){
+				//double dist2=99999.0;
+				//if(q2!=cami){
+					double dist2 = Math.sqrt(((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y)));
+					if(dist2<dist){
+						dist=dist2;
+						index=i;
+					}
+				//}
+			}
+		}"
+59,VARIABLEDECLARATION,"dist",twentyfour.java(71:10-71:25),"dist=99999999.0"
+60,VARIABLEDECLARATION,"i",twentyfour.java(72:7-72:10),"i=0"
+61,VARIABLEDECLARATION,"index",twentyfour.java(73:7-73:14),"index=i"
+62,DECLAREDREFERENCEEXPRESSION,"q",twentyfour.java(74:13-74:14),"q"
+63,DECLAREDREFERENCEEXPRESSION,"index",twentyfour.java(88:10-88:15),"index"
+64,DECLAREDREFERENCEEXPRESSION,"i",twentyfour.java(73:13-73:14),"i"
+65,LITERAL,"",twentyfour.java(72:9-72:10),"0"
+66,DECLARATIONSTATEMENT,"",twentyfour.java(74:7-74:12),"no q2"
+67,COMPOUNDSTATEMENT,"",twentyfour.java(74:15-87:4),"{
+			i++;
+			for(no cami:cam){
+				//double dist2=99999.0;
+				//if(q2!=cami){
+					double dist2 = Math.sqrt(((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y)));
+					if(dist2<dist){
+						dist=dist2;
+						index=i;
+					}
+				//}
+			}
+		}"
+68,VARIABLEDECLARATION,"q2",twentyfour.java(74:10-74:12),"q2"
+69,DECLAREDREFERENCEEXPRESSION,"i",twentyfour.java(75:4-75:5),"i"
+70,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+71,UNARYOPERATOR,"++",twentyfour.java(75:4-75:8),"i++;"
+72,FOREACHSTATEMENT,"",twentyfour.java(76:4-86:5),"for(no cami:cam){
+				//double dist2=99999.0;
+				//if(q2!=cami){
+					double dist2 = Math.sqrt(((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y)));
+					if(dist2<dist){
+						dist=dist2;
+						index=i;
+					}
+				//}
+			}"
+73,DECLAREDREFERENCEEXPRESSION,"cam",twentyfour.java(76:16-76:19),"cam"
+74,DECLARATIONSTATEMENT,"",twentyfour.java(76:8-76:15),"no cami"
+75,COMPOUNDSTATEMENT,"",twentyfour.java(76:20-86:5),"{
+				//double dist2=99999.0;
+				//if(q2!=cami){
+					double dist2 = Math.sqrt(((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y)));
+					if(dist2<dist){
+						dist=dist2;
+						index=i;
+					}
+				//}
+			}"
+76,VARIABLEDECLARATION,"cami",twentyfour.java(76:11-76:15),"cami"
+77,DECLAREDREFERENCEEXPRESSION,"cami",twentyfour.java(79:33-79:37),"cami"
+78,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+79,DECLARATIONSTATEMENT,"",twentyfour.java(79:6-80:47),"double dist2 = Math.sqrt(((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y)));"
+80,IFSTATEMENT,"",twentyfour.java(81:6-84:7),"if(dist2<dist){
+						dist=dist2;
+						index=i;
+					}"
+81,VARIABLEDECLARATION,"dist2",twentyfour.java(79:13-80:46),"dist2 = Math.sqrt(((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y)))"
+82,COMPOUNDSTATEMENT,"",twentyfour.java(81:20-84:7),"{
+						dist=dist2;
+						index=i;
+					}"
+83,BINARYOPERATOR,"<",twentyfour.java(81:9-81:19),"dist2<dist"
+84,DECLAREDREFERENCEEXPRESSION,"dist",twentyfour.java(82:7-82:11),"dist"
+85,DECLAREDREFERENCEEXPRESSION,"dist2",twentyfour.java(81:9-81:14),"dist2"
+86,DECLAREDREFERENCEEXPRESSION,"dist",twentyfour.java(81:15-81:19),"dist"
+87,BINARYOPERATOR,"=",twentyfour.java(82:7-82:18),"dist=dist2;"
+88,BINARYOPERATOR,"=",twentyfour.java(83:7-83:15),"index=i;"
+89,DECLAREDREFERENCEEXPRESSION,"index",twentyfour.java(83:7-83:12),"index"
+90,DECLAREDREFERENCEEXPRESSION,"i",twentyfour.java(83:13-83:14),"i"
+91,DECLAREDREFERENCEEXPRESSION,"dist2",twentyfour.java(82:12-82:17),"dist2"
+92,STATICCALLEXPRESSION,"sqrt",twentyfour.java(79:21-80:46),"Math.sqrt(((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y)))"
+93,BINARYOPERATOR,"+",twentyfour.java(79:31-80:45),"((cami.x - q2.x) * (cami.x - q2.x))
+							+ ((cami.y - q2.y) * (cami.y - q2.y))"
+94,BINARYOPERATOR,"*",twentyfour.java(79:32-79:65),"(cami.x - q2.x) * (cami.x - q2.x)"
+95,BINARYOPERATOR,"*",twentyfour.java(80:11-80:44),"(cami.y - q2.y) * (cami.y - q2.y)"
+96,BINARYOPERATOR,"-",twentyfour.java(79:33-79:46),"cami.x - q2.x"
+97,BINARYOPERATOR,"-",twentyfour.java(79:51-79:64),"cami.x - q2.x"
+98,DECLAREDREFERENCEEXPRESSION,"cami",twentyfour.java(80:12-80:16),"cami"
+99,MEMBEREXPRESSION,"x",twentyfour.java(79:33-79:39),"cami.x"
+100,MEMBEREXPRESSION,"x",twentyfour.java(79:42-79:46),"q2.x"
+101,DECLAREDREFERENCEEXPRESSION,"cami",twentyfour.java(79:51-79:55),"cami"
+102,DECLAREDREFERENCEEXPRESSION,"q2",twentyfour.java(79:42-79:44),"q2"
+103,MEMBEREXPRESSION,"x",twentyfour.java(79:51-79:57),"cami.x"
+104,MEMBEREXPRESSION,"x",twentyfour.java(79:60-79:64),"q2.x"
+105,DECLAREDREFERENCEEXPRESSION,"q2",twentyfour.java(79:60-79:62),"q2"
+106,BINARYOPERATOR,"-",twentyfour.java(80:12-80:25),"cami.y - q2.y"
+107,BINARYOPERATOR,"-",twentyfour.java(80:30-80:43),"cami.y - q2.y"
+108,MEMBEREXPRESSION,"y",twentyfour.java(80:30-80:36),"cami.y"
+109,MEMBEREXPRESSION,"y",twentyfour.java(80:39-80:43),"q2.y"
+110,DECLAREDREFERENCEEXPRESSION,"cami",twentyfour.java(80:30-80:34),"cami"
+111,DECLAREDREFERENCEEXPRESSION,"q2",twentyfour.java(80:39-80:41),"q2"
+112,MEMBEREXPRESSION,"y",twentyfour.java(80:12-80:18),"cami.y"
+113,MEMBEREXPRESSION,"y",twentyfour.java(80:21-80:25),"q2.y"
+114,DECLAREDREFERENCEEXPRESSION,"q2",twentyfour.java(80:21-80:23),"q2"
+115,VARIABLEDECLARATION,"this",,""
+116,COMPOUNDSTATEMENT,"",twentyfour.java(91:41-125:3),"{
+
+		@SuppressWarnings(""resource"")
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		double count = 0;
+		graf g = new graf();
+		for (int i = 0; i < n; i++){
+			g.v.add(new no(in.nextDouble(), in.nextDouble()));
+			//for(no temp:g.v)
+				//g.v.get(i).adj.add(temp);
+			/*for(no adjs:g.v.get(i).adj){
+				double dist = Math.sqrt(((adjs.x - g.v.get(i).x) * (adjs.x - g.v.get(i).x)) + ((adjs.y - g.v.get(i).y) * (adjs.y - g.v.get(i).y)));
+				if(dist>0 && dist<g.v.get(i).dist)
+					g.v.get(i).dist=dist;
+				*/	
+			//}
+		}
+		
+		//for (int i = 0; i < n; i++)
+			//System.out.print("" ++++ "" +g.v.get(i));
+		
+		prim(g, g.v.get(0));
+		
+		//for (int i = 0; i < n; i++)
+			//System.out.println(""\n\n""+g.v.get(i)+"" "" +g.v.get(i).dist + "" ""+ g.v.get(i).pai);
+		
+		for (int i = 0; i < n; i++)
+			if (!g.v.get(i).uspai) {
+				//System.out.println(g.v.get(i).dist);
+				count += g.v.get(i).dist;
+				g.v.get(i).uspai = true;
+			}
+		System.out.println(String.format(""%.2f"", count));
+	}"
+117,PARAMVARIABLEDECLARATION,"args",twentyfour.java(91:26-91:39),"String[] args"
+118,DECLAREDREFERENCEEXPRESSION,"System",twentyfour.java(94:28-94:34),"System"
+119,RETURNSTATEMENT,"",,""
+120,DECLARATIONSTATEMENT,"",twentyfour.java(93:3-94:39),"@SuppressWarnings(""resource"")
+		Scanner in = new Scanner(System.in);"
+121,DECLARATIONSTATEMENT,"",twentyfour.java(95:3-95:24),"int n = in.nextInt();"
+122,DECLARATIONSTATEMENT,"",twentyfour.java(96:3-96:20),"double count = 0;"
+123,DECLARATIONSTATEMENT,"",twentyfour.java(97:3-97:23),"graf g = new graf();"
+124,FORSTATEMENT,"",twentyfour.java(98:3-108:4),"for (int i = 0; i < n; i++){
+			g.v.add(new no(in.nextDouble(), in.nextDouble()));
+			//for(no temp:g.v)
+				//g.v.get(i).adj.add(temp);
+			/*for(no adjs:g.v.get(i).adj){
+				double dist = Math.sqrt(((adjs.x - g.v.get(i).x) * (adjs.x - g.v.get(i).x)) + ((adjs.y - g.v.get(i).y) * (adjs.y - g.v.get(i).y)));
+				if(dist>0 && dist<g.v.get(i).dist)
+					g.v.get(i).dist=dist;
+				*/	
+			//}
+		}"
+125,CALLEXPRESSION,"prim",twentyfour.java(113:3-113:23),"prim(g, g.v.get(0));"
+126,FORSTATEMENT,"",twentyfour.java(118:3-123:5),"for (int i = 0; i < n; i++)
+			if (!g.v.get(i).uspai) {
+				//System.out.println(g.v.get(i).dist);
+				count += g.v.get(i).dist;
+				g.v.get(i).uspai = true;
+			}"
+127,MEMBERCALLEXPRESSION,"println",twentyfour.java(124:3-124:52),"System.out.println(String.format(""%.2f"", count));"
+128,VARIABLEDECLARATION,"in",twentyfour.java(94:11-94:38),"in = new Scanner(System.in)"
+129,VARIABLEDECLARATION,"n",twentyfour.java(95:7-95:23),"n = in.nextInt()"
+130,VARIABLEDECLARATION,"count",twentyfour.java(96:10-96:19),"count = 0"
+131,VARIABLEDECLARATION,"g",twentyfour.java(97:8-97:22),"g = new graf()"
+132,LITERAL,"",twentyfour.java(96:18-96:19),"0"
+133,IFSTATEMENT,"",twentyfour.java(119:4-123:5),"if (!g.v.get(i).uspai) {
+				//System.out.println(g.v.get(i).dist);
+				count += g.v.get(i).dist;
+				g.v.get(i).uspai = true;
+			}"
+134,DECLARATIONSTATEMENT,"",twentyfour.java(118:8-118:17),"int i = 0"
+135,BINARYOPERATOR,"<",twentyfour.java(118:19-118:24),"i < n"
+136,UNARYOPERATOR,"++",twentyfour.java(118:26-118:29),"i++"
+137,VARIABLEDECLARATION,"i",twentyfour.java(118:12-118:17),"i = 0"
+138,DECLAREDREFERENCEEXPRESSION,"g",twentyfour.java(119:9-119:10),"g"
+139,DECLAREDREFERENCEEXPRESSION,"System",twentyfour.java(124:3-124:9),"System"
+140,LITERAL,"",twentyfour.java(118:16-118:17),"0"
+141,DECLAREDREFERENCEEXPRESSION,"i",twentyfour.java(118:19-118:20),"i"
+142,UNARYOPERATOR,"!",twentyfour.java(119:8-119:25),"!g.v.get(i).uspai"
+143,COMPOUNDSTATEMENT,"",twentyfour.java(119:27-123:5),"{
+				//System.out.println(g.v.get(i).dist);
+				count += g.v.get(i).dist;
+				g.v.get(i).uspai = true;
+			}"
+144,DECLAREDREFERENCEEXPRESSION,"count",twentyfour.java(121:5-121:10),"count"
+145,DECLAREDREFERENCEEXPRESSION,"i",twentyfour.java(118:26-118:27),"i"
+146,MEMBEREXPRESSION,"uspai",twentyfour.java(119:9-119:25),"g.v.get(i).uspai"
+147,MEMBERCALLEXPRESSION,"get",twentyfour.java(119:9-119:19),"g.v.get(i)"
+148,DECLAREDREFERENCEEXPRESSION,"get",twentyfour.java(119:13-119:16),"get"
+149,DECLAREDREFERENCEEXPRESSION,"i",twentyfour.java(119:17-119:18),"i"
+150,MEMBEREXPRESSION,"v",twentyfour.java(119:9-119:12),"g.v"
+151,BINARYOPERATOR,"+=",twentyfour.java(121:5-121:30),"count += g.v.get(i).dist;"
+152,BINARYOPERATOR,"=",twentyfour.java(122:5-122:29),"g.v.get(i).uspai = true;"
+153,MEMBEREXPRESSION,"dist",twentyfour.java(121:14-121:29),"g.v.get(i).dist"
+154,DECLAREDREFERENCEEXPRESSION,"g",twentyfour.java(122:5-122:6),"g"
+155,DECLAREDREFERENCEEXPRESSION,"g",twentyfour.java(121:14-121:15),"g"
+156,MEMBERCALLEXPRESSION,"get",twentyfour.java(121:14-121:24),"g.v.get(i)"
+157,DECLAREDREFERENCEEXPRESSION,"get",twentyfour.java(121:18-121:21),"get"
+158,DECLAREDREFERENCEEXPRESSION,"i",twentyfour.java(121:22-121:23),"i"
+159,MEMBEREXPRESSION,"v",twentyfour.java(121:14-121:17),"g.v"
+160,MEMBEREXPRESSION,"uspai",twentyfour.java(122:5-122:21),"g.v.get(i).uspai"
+161,LITERAL,"",twentyfour.java(122:24-122:28),"true"
+162,MEMBERCALLEXPRESSION,"get",twentyfour.java(122:5-122:15),"g.v.get(i)"
+163,DECLAREDREFERENCEEXPRESSION,"get",twentyfour.java(122:9-122:12),"get"
+164,DECLAREDREFERENCEEXPRESSION,"i",twentyfour.java(122:13-122:14),"i"
+165,MEMBEREXPRESSION,"v",twentyfour.java(122:5-122:8),"g.v"
+166,DECLAREDREFERENCEEXPRESSION,"n",twentyfour.java(118:23-118:24),"n"
+167,COMPOUNDSTATEMENT,"",twentyfour.java(98:30-108:4),"{
+			g.v.add(new no(in.nextDouble(), in.nextDouble()));
+			//for(no temp:g.v)
+				//g.v.get(i).adj.add(temp);
+			/*for(no adjs:g.v.get(i).adj){
+				double dist = Math.sqrt(((adjs.x - g.v.get(i).x) * (adjs.x - g.v.get(i).x)) + ((adjs.y - g.v.get(i).y) * (adjs.y - g.v.get(i).y)));
+				if(dist>0 && dist<g.v.get(i).dist)
+					g.v.get(i).dist=dist;
+				*/	
+			//}
+		}"
+168,DECLARATIONSTATEMENT,"",twentyfour.java(98:8-98:17),"int i = 0"
+169,BINARYOPERATOR,"<",twentyfour.java(98:19-98:24),"i < n"
+170,UNARYOPERATOR,"++",twentyfour.java(98:26-98:29),"i++"
+171,VARIABLEDECLARATION,"i",twentyfour.java(98:12-98:17),"i = 0"
+172,DECLAREDREFERENCEEXPRESSION,"g",twentyfour.java(99:4-99:5),"g"
+173,DECLAREDREFERENCEEXPRESSION,"g",twentyfour.java(113:8-113:9),"g"
+174,MEMBERCALLEXPRESSION,"add",twentyfour.java(99:4-99:54),"g.v.add(new no(in.nextDouble(), in.nextDouble()));"
+175,DECLAREDREFERENCEEXPRESSION,"i",twentyfour.java(98:26-98:27),"i"
+176,DECLAREDREFERENCEEXPRESSION,"add",twentyfour.java(99:8-99:11),"add"
+177,NEWEXPRESSION,"",twentyfour.java(99:12-99:52),"new no(in.nextDouble(), in.nextDouble())"
+178,MEMBEREXPRESSION,"v",twentyfour.java(99:4-99:7),"g.v"
+179,DECLAREDREFERENCEEXPRESSION,"in",twentyfour.java(99:19-99:21),"in"
+180,CONSTRUCTEXPRESSION,"",twentyfour.java(99:12-99:52),"new no(in.nextDouble(), in.nextDouble())"
+181,CONSTRUCTORDECLARATION,"no",,""
+182,MEMBERCALLEXPRESSION,"nextDouble",twentyfour.java(99:36-99:51),"in.nextDouble()"
+183,MEMBERCALLEXPRESSION,"nextDouble",twentyfour.java(99:19-99:34),"in.nextDouble()"
+184,DECLAREDREFERENCEEXPRESSION,"nextDouble",twentyfour.java(99:22-99:32),"nextDouble"
+185,PARAMVARIABLEDECLARATION,"double0",,""
+186,DECLAREDREFERENCEEXPRESSION,"in",twentyfour.java(99:36-99:38),"in"
+187,DECLAREDREFERENCEEXPRESSION,"nextDouble",twentyfour.java(99:39-99:49),"nextDouble"
+188,PARAMVARIABLEDECLARATION,"double1",,""
+189,DECLAREDREFERENCEEXPRESSION,"i",twentyfour.java(98:19-98:20),"i"
+190,DECLAREDREFERENCEEXPRESSION,"n",twentyfour.java(98:23-98:24),"n"
+191,LITERAL,"",twentyfour.java(98:16-98:17),"0"
+192,CONSTRUCTEXPRESSION,"",twentyfour.java(97:12-97:22),"new graf()"
+193,DECLAREDREFERENCEEXPRESSION,"in",twentyfour.java(95:11-95:13),"in"
+194,NEWEXPRESSION,"",twentyfour.java(94:16-94:38),"new Scanner(System.in)"
+195,CONSTRUCTEXPRESSION,"",twentyfour.java(94:16-94:38),"new Scanner(System.in)"
+196,MEMBEREXPRESSION,"in",twentyfour.java(94:28-94:37),"System.in"
+197,NEWEXPRESSION,"",twentyfour.java(97:12-97:22),"new graf()"
+198,CONSTRUCTORDECLARATION,"graf",,""
+199,METHODDECLARATION,"prim",,""
+200,MEMBERCALLEXPRESSION,"get",twentyfour.java(113:11-113:21),"g.v.get(0)"
+201,DECLAREDREFERENCEEXPRESSION,"get",twentyfour.java(113:15-113:18),"get"
+202,PARAMVARIABLEDECLARATION,"e1",,""
+203,LITERAL,"",twentyfour.java(113:19-113:20),"0"
+204,MEMBEREXPRESSION,"v",twentyfour.java(113:11-113:14),"g.v"
+205,DECLAREDREFERENCEEXPRESSION,"g",twentyfour.java(113:11-113:12),"g"
+206,PARAMVARIABLEDECLARATION,"graf0",,""
+207,MEMBERCALLEXPRESSION,"nextInt",twentyfour.java(95:11-95:23),"in.nextInt()"
+208,DECLAREDREFERENCEEXPRESSION,"nextInt",twentyfour.java(95:14-95:21),"nextInt"
+209,DECLAREDREFERENCEEXPRESSION,"println",twentyfour.java(124:14-124:21),"println"
+210,STATICCALLEXPRESSION,"format",twentyfour.java(124:22-124:50),"String.format(""%.2f"", count)"
+211,DECLAREDREFERENCEEXPRESSION,"count",twentyfour.java(124:44-124:49),"count"
+212,LITERAL,"",twentyfour.java(124:36-124:42),"""%.2f"""
+213,MEMBEREXPRESSION,"out",twentyfour.java(124:3-124:13),"System.out"
+214,VARIABLEDECLARATION,"this",,""
+215,COMPOUNDSTATEMENT,"",twentyfour.java(33:40-67:3),"{
+		
+		r.dist = 0;
+		LinkedList<no> q = new LinkedList<no>();
+		LinkedList<no> caminho = new LinkedList<no>();
+		for (no n:g.v)
+			q.add(n);
+		
+		caminho.add(r);
+
+		
+		while (!q.isEmpty()) {
+			
+			int index= extrair(q,caminho);
+			no u = q.remove(index-1);
+			
+			//System.out.println(index);
+			
+			//System.out.println(q.toString() + "" ""+ caminho.toString());
+			
+			double dist = 9999999.0;
+			for (no adj:caminho)
+				if (adj != u) {
+					dist = Math.sqrt(((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y)));
+
+					if (dist < u.dist) {
+						u.dist = dist;
+						u.pai = u;
+					}
+					
+				}
+			caminho.add(u);
+		}
+	}"
+216,PARAMVARIABLEDECLARATION,"g",twentyfour.java(33:26-33:32),"graf g"
+217,PARAMVARIABLEDECLARATION,"r",twentyfour.java(33:34-33:38),"no r"
+218,DECLAREDREFERENCEEXPRESSION,"r",twentyfour.java(35:3-35:4),"r"
+219,RETURNSTATEMENT,"",,""
+220,BINARYOPERATOR,"=",twentyfour.java(35:3-35:14),"r.dist = 0;"
+221,DECLARATIONSTATEMENT,"",twentyfour.java(36:3-36:43),"LinkedList<no> q = new LinkedList<no>();"
+222,DECLARATIONSTATEMENT,"",twentyfour.java(37:3-37:49),"LinkedList<no> caminho = new LinkedList<no>();"
+223,FOREACHSTATEMENT,"",twentyfour.java(38:3-39:13),"for (no n:g.v)
+			q.add(n);"
+224,MEMBERCALLEXPRESSION,"add",twentyfour.java(41:3-41:18),"caminho.add(r);"
+225,WHILESTATEMENT,"",twentyfour.java(44:3-66:4),"while (!q.isEmpty()) {
+			
+			int index= extrair(q,caminho);
+			no u = q.remove(index-1);
+			
+			//System.out.println(index);
+			
+			//System.out.println(q.toString() + "" ""+ caminho.toString());
+			
+			double dist = 9999999.0;
+			for (no adj:caminho)
+				if (adj != u) {
+					dist = Math.sqrt(((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y)));
+
+					if (dist < u.dist) {
+						u.dist = dist;
+						u.pai = u;
+					}
+					
+				}
+			caminho.add(u);
+		}"
+226,VARIABLEDECLARATION,"q",twentyfour.java(36:18-36:42),"q = new LinkedList<no>()"
+227,VARIABLEDECLARATION,"caminho",twentyfour.java(37:18-37:48),"caminho = new LinkedList<no>()"
+228,NEWEXPRESSION,"",twentyfour.java(37:28-37:48),"new LinkedList<no>()"
+229,CONSTRUCTEXPRESSION,"",twentyfour.java(37:28-37:48),"new LinkedList<no>()"
+230,UNARYOPERATOR,"!",twentyfour.java(44:10-44:22),"!q.isEmpty()"
+231,COMPOUNDSTATEMENT,"",twentyfour.java(44:24-66:4),"{
+			
+			int index= extrair(q,caminho);
+			no u = q.remove(index-1);
+			
+			//System.out.println(index);
+			
+			//System.out.println(q.toString() + "" ""+ caminho.toString());
+			
+			double dist = 9999999.0;
+			for (no adj:caminho)
+				if (adj != u) {
+					dist = Math.sqrt(((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y)));
+
+					if (dist < u.dist) {
+						u.dist = dist;
+						u.pai = u;
+					}
+					
+				}
+			caminho.add(u);
+		}"
+232,DECLAREDREFERENCEEXPRESSION,"q",twentyfour.java(46:23-46:24),"q"
+233,DECLARATIONSTATEMENT,"",twentyfour.java(46:4-46:34),"int index= extrair(q,caminho);"
+234,DECLARATIONSTATEMENT,"",twentyfour.java(47:4-47:29),"no u = q.remove(index-1);"
+235,DECLARATIONSTATEMENT,"",twentyfour.java(53:4-53:28),"double dist = 9999999.0;"
+236,FOREACHSTATEMENT,"",twentyfour.java(54:4-64:6),"for (no adj:caminho)
+				if (adj != u) {
+					dist = Math.sqrt(((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y)));
+
+					if (dist < u.dist) {
+						u.dist = dist;
+						u.pai = u;
+					}
+					
+				}"
+237,MEMBERCALLEXPRESSION,"add",twentyfour.java(65:4-65:19),"caminho.add(u);"
+238,VARIABLEDECLARATION,"index",twentyfour.java(46:8-46:33),"index= extrair(q,caminho)"
+239,VARIABLEDECLARATION,"u",twentyfour.java(47:7-47:28),"u = q.remove(index-1)"
+240,VARIABLEDECLARATION,"dist",twentyfour.java(53:11-53:27),"dist = 9999999.0"
+241,DECLAREDREFERENCEEXPRESSION,"q",twentyfour.java(44:11-44:12),"q"
+242,LITERAL,"",twentyfour.java(53:18-53:27),"9999999.0"
+243,DECLARATIONSTATEMENT,"",twentyfour.java(54:9-54:15),"no adj"
+244,DECLAREDREFERENCEEXPRESSION,"caminho",twentyfour.java(54:16-54:23),"caminho"
+245,IFSTATEMENT,"",twentyfour.java(55:5-64:6),"if (adj != u) {
+					dist = Math.sqrt(((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y)));
+
+					if (dist < u.dist) {
+						u.dist = dist;
+						u.pai = u;
+					}
+					
+				}"
+246,VARIABLEDECLARATION,"adj",twentyfour.java(54:12-54:15),"adj"
+247,DECLAREDREFERENCEEXPRESSION,"adj",twentyfour.java(55:9-55:12),"adj"
+248,DECLAREDREFERENCEEXPRESSION,"caminho",twentyfour.java(65:4-65:11),"caminho"
+249,BINARYOPERATOR,"!=",twentyfour.java(55:9-55:17),"adj != u"
+250,COMPOUNDSTATEMENT,"",twentyfour.java(55:19-64:6),"{
+					dist = Math.sqrt(((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y)));
+
+					if (dist < u.dist) {
+						u.dist = dist;
+						u.pai = u;
+					}
+					
+				}"
+251,DECLAREDREFERENCEEXPRESSION,"dist",twentyfour.java(56:6-56:10),"dist"
+252,BINARYOPERATOR,"=",twentyfour.java(56:6-57:43),"dist = Math.sqrt(((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y)));"
+253,IFSTATEMENT,"",twentyfour.java(59:6-62:7),"if (dist < u.dist) {
+						u.dist = dist;
+						u.pai = u;
+					}"
+254,COMPOUNDSTATEMENT,"",twentyfour.java(59:25-62:7),"{
+						u.dist = dist;
+						u.pai = u;
+					}"
+255,BINARYOPERATOR,"<",twentyfour.java(59:10-59:23),"dist < u.dist"
+256,DECLAREDREFERENCEEXPRESSION,"u",twentyfour.java(60:7-60:8),"u"
+257,BINARYOPERATOR,"=",twentyfour.java(60:7-60:21),"u.dist = dist;"
+258,BINARYOPERATOR,"=",twentyfour.java(61:7-61:17),"u.pai = u;"
+259,MEMBEREXPRESSION,"pai",twentyfour.java(61:7-61:12),"u.pai"
+260,DECLAREDREFERENCEEXPRESSION,"u",twentyfour.java(61:15-61:16),"u"
+261,DECLAREDREFERENCEEXPRESSION,"u",twentyfour.java(61:7-61:8),"u"
+262,MEMBEREXPRESSION,"dist",twentyfour.java(60:7-60:13),"u.dist"
+263,DECLAREDREFERENCEEXPRESSION,"dist",twentyfour.java(60:16-60:20),"dist"
+264,DECLAREDREFERENCEEXPRESSION,"dist",twentyfour.java(59:10-59:14),"dist"
+265,MEMBEREXPRESSION,"dist",twentyfour.java(59:17-59:23),"u.dist"
+266,DECLAREDREFERENCEEXPRESSION,"u",twentyfour.java(59:17-59:18),"u"
+267,STATICCALLEXPRESSION,"sqrt",twentyfour.java(56:13-57:42),"Math.sqrt(((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y)))"
+268,DECLAREDREFERENCEEXPRESSION,"adj",twentyfour.java(56:25-56:28),"adj"
+269,BINARYOPERATOR,"+",twentyfour.java(56:23-57:41),"((adj.x - u.x) * (adj.x - u.x))
+							+ ((adj.y - u.y) * (adj.y - u.y))"
+270,BINARYOPERATOR,"*",twentyfour.java(56:24-56:53),"(adj.x - u.x) * (adj.x - u.x)"
+271,BINARYOPERATOR,"*",twentyfour.java(57:11-57:40),"(adj.y - u.y) * (adj.y - u.y)"
+272,BINARYOPERATOR,"-",twentyfour.java(57:12-57:23),"adj.y - u.y"
+273,BINARYOPERATOR,"-",twentyfour.java(57:28-57:39),"adj.y - u.y"
+274,MEMBEREXPRESSION,"y",twentyfour.java(57:28-57:33),"adj.y"
+275,MEMBEREXPRESSION,"y",twentyfour.java(57:36-57:39),"u.y"
+276,DECLAREDREFERENCEEXPRESSION,"adj",twentyfour.java(57:28-57:31),"adj"
+277,DECLAREDREFERENCEEXPRESSION,"u",twentyfour.java(57:36-57:37),"u"
+278,MEMBEREXPRESSION,"y",twentyfour.java(57:12-57:17),"adj.y"
+279,MEMBEREXPRESSION,"y",twentyfour.java(57:20-57:23),"u.y"
+280,DECLAREDREFERENCEEXPRESSION,"u",twentyfour.java(57:20-57:21),"u"
+281,DECLAREDREFERENCEEXPRESSION,"adj",twentyfour.java(57:12-57:15),"adj"
+282,BINARYOPERATOR,"-",twentyfour.java(56:25-56:36),"adj.x - u.x"
+283,BINARYOPERATOR,"-",twentyfour.java(56:41-56:52),"adj.x - u.x"
+284,MEMBEREXPRESSION,"x",twentyfour.java(56:41-56:46),"adj.x"
+285,MEMBEREXPRESSION,"x",twentyfour.java(56:49-56:52),"u.x"
+286,DECLAREDREFERENCEEXPRESSION,"u",twentyfour.java(56:49-56:50),"u"
+287,DECLAREDREFERENCEEXPRESSION,"adj",twentyfour.java(56:41-56:44),"adj"
+288,MEMBEREXPRESSION,"x",twentyfour.java(56:25-56:30),"adj.x"
+289,MEMBEREXPRESSION,"x",twentyfour.java(56:33-56:36),"u.x"
+290,DECLAREDREFERENCEEXPRESSION,"u",twentyfour.java(56:33-56:34),"u"
+291,DECLAREDREFERENCEEXPRESSION,"u",twentyfour.java(55:16-55:17),"u"
+292,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+293,DECLAREDREFERENCEEXPRESSION,"q",twentyfour.java(47:11-47:12),"q"
+294,MEMBERCALLEXPRESSION,"remove",twentyfour.java(47:11-47:28),"q.remove(index-1)"
+295,DECLAREDREFERENCEEXPRESSION,"remove",twentyfour.java(47:13-47:19),"remove"
+296,BINARYOPERATOR,"-",twentyfour.java(47:20-47:27),"index-1"
+297,DECLAREDREFERENCEEXPRESSION,"index",twentyfour.java(47:20-47:25),"index"
+298,LITERAL,"",twentyfour.java(47:26-47:27),"1"
+299,DECLAREDREFERENCEEXPRESSION,"add",twentyfour.java(65:12-65:15),"add"
+300,DECLAREDREFERENCEEXPRESSION,"u",twentyfour.java(65:16-65:17),"u"
+301,CALLEXPRESSION,"extrair",twentyfour.java(46:15-46:33),"extrair(q,caminho)"
+302,METHODDECLARATION,"extrair",,""
+303,DECLAREDREFERENCEEXPRESSION,"caminho",twentyfour.java(46:25-46:32),"caminho"
+304,PARAMVARIABLEDECLARATION,"java.util.linkedlist0",,""
+305,PARAMVARIABLEDECLARATION,"java.util.linkedlist1",,""
+306,MEMBERCALLEXPRESSION,"isEmpty",twentyfour.java(44:11-44:22),"q.isEmpty()"
+307,DECLAREDREFERENCEEXPRESSION,"isEmpty",twentyfour.java(44:13-44:20),"isEmpty"
+308,DECLARATIONSTATEMENT,"",twentyfour.java(38:8-38:12),"no n"
+309,MEMBEREXPRESSION,"v",twentyfour.java(38:13-38:16),"g.v"
+310,MEMBERCALLEXPRESSION,"add",twentyfour.java(39:4-39:13),"q.add(n);"
+311,VARIABLEDECLARATION,"n",twentyfour.java(38:11-38:12),"n"
+312,DECLAREDREFERENCEEXPRESSION,"q",twentyfour.java(39:4-39:5),"q"
+313,DECLAREDREFERENCEEXPRESSION,"caminho",twentyfour.java(41:3-41:10),"caminho"
+314,DECLAREDREFERENCEEXPRESSION,"g",twentyfour.java(38:13-38:14),"g"
+315,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+316,DECLAREDREFERENCEEXPRESSION,"add",twentyfour.java(39:6-39:9),"add"
+317,DECLAREDREFERENCEEXPRESSION,"n",twentyfour.java(39:10-39:11),"n"
+318,DECLAREDREFERENCEEXPRESSION,"add",twentyfour.java(41:11-41:14),"add"
+319,DECLAREDREFERENCEEXPRESSION,"r",twentyfour.java(41:15-41:16),"r"
+320,MEMBEREXPRESSION,"dist",twentyfour.java(35:3-35:9),"r.dist"
+321,LITERAL,"",twentyfour.java(35:12-35:13),"0"
+322,CONSTRUCTEXPRESSION,"",twentyfour.java(36:22-36:42),"new LinkedList<no>()"
+323,NEWEXPRESSION,"",twentyfour.java(36:22-36:42),"new LinkedList<no>()"
+324,FIELDDECLARATION,"this",,""
+325,FIELDDECLARATION,"v",twentyfour.java(25:2-25:13),"v"
+326,CONSTRUCTORDECLARATION,"graf",twentyfour.java(26:2-28:3),"graf(){
+		v=new LinkedList<no>();
+	}"
+327,COMPOUNDSTATEMENT,"",twentyfour.java(26:8-28:3),"{
+		v=new LinkedList<no>();
+	}"
+328,DECLAREDREFERENCEEXPRESSION,"this",twentyfour.java(27:3-27:4),"this"
+329,RETURNSTATEMENT,"",,""
+330,BINARYOPERATOR,"=",twentyfour.java(27:3-27:26),"v=new LinkedList<no>();"
+331,MEMBEREXPRESSION,"v",twentyfour.java(27:3-27:4),"v"
+332,NEWEXPRESSION,"",twentyfour.java(27:5-27:25),"new LinkedList<no>()"
+333,CONSTRUCTEXPRESSION,"",twentyfour.java(27:5-27:25),"new LinkedList<no>()"

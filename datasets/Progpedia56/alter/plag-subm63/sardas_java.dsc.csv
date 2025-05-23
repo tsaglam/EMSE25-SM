@@ -1,0 +1,770 @@
+id,type,token,location,code
+1,TRANSLATIONUNITDECLARATION,"/data/00000056/submissions/07514383_21_201106422/sardas.java",,""
+2,RECORDDECLARATION,"Node",sardas.java(4:1-21:2),"class Node {
+	public boolean visited;
+	public double x;
+	public double y;
+	public LinkedList<Edge> adj;
+
+	Node(double x, double y){
+		visited = false;
+		this.x = x;
+		this.y = y;
+		adj = new LinkedList<Edge>();
+	}
+
+	public void addEdge (Edge a){
+		adj.add(a);
+
+	}
+}"
+3,RECORDDECLARATION,"Graph",sardas.java(23:1-91:2),"class Graph {
+	public LinkedList<Node> nodes; 
+	public double ink;
+
+	Graph() {
+		nodes = new LinkedList<Node>();
+		ink = 0.0;
+	}
+
+	public void addNode (Node a) {
+		nodes.add(a);
+	}
+
+	public void populate() {
+		LinkedList<Node> temp = new LinkedList<Node>();
+		temp.addAll(nodes);
+		Node parent;
+		Node aux;
+		parent = temp.removeFirst();
+		while(!temp.isEmpty()){
+			for (Node a : temp) {	
+				parent.addEdge(makeEdge(parent,a));
+				a.addEdge(makeEdge(a,parent));
+			}
+			parent = temp.removeFirst();
+		}
+		
+	}
+
+	public Edge makeEdge(Node a, Node b) {
+		return new Edge(a,b);
+	}
+
+
+	public double prim(){
+		double aux = Double.POSITIVE_INFINITY;
+		LinkedList<Node> stuff = new LinkedList<Node>();
+		stuff.addAll(nodes);
+		LinkedList<Edge> edges = new LinkedList<Edge>();
+		Node node = null;
+		Edge auxedge = null;
+		node = stuff.removeFirst();
+		node.visited = true;
+			
+		while(!stuff.isEmpty()){
+			aux = Double.POSITIVE_INFINITY;
+			edges.addAll(node.adj);
+			for (Edge a : edges) {
+				if(!(a.target.visited)){
+					if(aux > a.weight) { 
+						aux = a.weight;
+						auxedge = a;
+					}
+
+				}
+				
+
+			}
+			if (aux != Double.POSITIVE_INFINITY) {
+					ink += aux;
+					auxedge.target.visited = true;
+					node = stuff.remove(stuff.indexOf(auxedge.target));
+			}
+		}
+
+		return ink;
+
+	}
+}"
+4,RECORDDECLARATION,"Edge",sardas.java(93:1-107:2),"class Edge {
+
+	public double weight;
+	public Node target;
+	public Node from;
+
+	Edge (Node from, Node target) {
+		this.target = target;
+		this.from = from;
+		weight = Math.sqrt(Math.pow(from.x - target.x, 2) + Math.pow(from.y - target.y, 2));
+	}
+
+
+
+}"
+5,RECORDDECLARATION,"sardas",sardas.java(110:1-135:2),"public class sardas {
+
+	public static void main (String args[]) {
+		Scanner input = new Scanner(System.in);
+		Graph g = new Graph();
+		double x, y, ink;
+		
+		int n = input.nextInt();
+		
+		while (n!=0){
+			x = input.nextDouble();
+			y = input.nextDouble();
+			Node toAdd = new Node(x,y);
+			g.addNode(toAdd);
+			n--;
+		}
+
+		g.populate();
+
+		ink = g.prim();
+
+		System.out.printf(""%.2f\n"", ink);
+
+	}
+
+}"
+6,INCLUDEDECLARATION,"java.util",,""
+7,INCLUDEDECLARATION,"java.io",,""
+8,FIELDDECLARATION,"this",,""
+9,METHODDECLARATION,"main",sardas.java(112:2-133:3),"public static void main (String args[]) {
+		Scanner input = new Scanner(System.in);
+		Graph g = new Graph();
+		double x, y, ink;
+		
+		int n = input.nextInt();
+		
+		while (n!=0){
+			x = input.nextDouble();
+			y = input.nextDouble();
+			Node toAdd = new Node(x,y);
+			g.addNode(toAdd);
+			n--;
+		}
+
+		g.populate();
+
+		ink = g.prim();
+
+		System.out.printf(""%.2f\n"", ink);
+
+	}"
+10,CONSTRUCTORDECLARATION,"sardas",,""
+11,VARIABLEDECLARATION,"this",,""
+12,COMPOUNDSTATEMENT,"",sardas.java(112:42-133:3),"{
+		Scanner input = new Scanner(System.in);
+		Graph g = new Graph();
+		double x, y, ink;
+		
+		int n = input.nextInt();
+		
+		while (n!=0){
+			x = input.nextDouble();
+			y = input.nextDouble();
+			Node toAdd = new Node(x,y);
+			g.addNode(toAdd);
+			n--;
+		}
+
+		g.populate();
+
+		ink = g.prim();
+
+		System.out.printf(""%.2f\n"", ink);
+
+	}"
+13,PARAMVARIABLEDECLARATION,"args",sardas.java(112:27-112:40),"String args[]"
+14,DECLAREDREFERENCEEXPRESSION,"System",sardas.java(113:31-113:37),"System"
+15,RETURNSTATEMENT,"",,""
+16,DECLARATIONSTATEMENT,"",sardas.java(113:3-113:42),"Scanner input = new Scanner(System.in);"
+17,DECLARATIONSTATEMENT,"",sardas.java(114:3-114:25),"Graph g = new Graph();"
+18,DECLARATIONSTATEMENT,"",sardas.java(115:3-115:20),"double x, y, ink;"
+19,DECLARATIONSTATEMENT,"",sardas.java(117:3-117:27),"int n = input.nextInt();"
+20,WHILESTATEMENT,"",sardas.java(119:3-125:4),"while (n!=0){
+			x = input.nextDouble();
+			y = input.nextDouble();
+			Node toAdd = new Node(x,y);
+			g.addNode(toAdd);
+			n--;
+		}"
+21,MEMBERCALLEXPRESSION,"populate",sardas.java(127:3-127:16),"g.populate();"
+22,BINARYOPERATOR,"=",sardas.java(129:3-129:18),"ink = g.prim();"
+23,MEMBERCALLEXPRESSION,"printf",sardas.java(131:3-131:36),"System.out.printf(""%.2f\n"", ink);"
+24,VARIABLEDECLARATION,"input",sardas.java(113:11-113:41),"input = new Scanner(System.in)"
+25,VARIABLEDECLARATION,"g",sardas.java(114:9-114:24),"g = new Graph()"
+26,VARIABLEDECLARATION,"x",sardas.java(115:10-115:11),"x"
+27,VARIABLEDECLARATION,"y",sardas.java(115:13-115:14),"y"
+28,VARIABLEDECLARATION,"ink",sardas.java(115:16-115:19),"ink"
+29,VARIABLEDECLARATION,"n",sardas.java(117:7-117:26),"n = input.nextInt()"
+30,CONSTRUCTEXPRESSION,"",sardas.java(114:13-114:24),"new Graph()"
+31,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+32,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+33,DECLAREDREFERENCEEXPRESSION,"ink",sardas.java(129:3-129:6),"ink"
+34,MEMBERCALLEXPRESSION,"prim",sardas.java(129:9-129:17),"g.prim()"
+35,DECLAREDREFERENCEEXPRESSION,"System",sardas.java(131:3-131:9),"System"
+36,DECLAREDREFERENCEEXPRESSION,"prim",sardas.java(129:11-129:15),"prim"
+37,METHODDECLARATION,"prim",,""
+38,DECLAREDREFERENCEEXPRESSION,"g",sardas.java(129:9-129:10),"g"
+39,BINARYOPERATOR,"!=",sardas.java(119:10-119:14),"n!=0"
+40,COMPOUNDSTATEMENT,"",sardas.java(119:15-125:4),"{
+			x = input.nextDouble();
+			y = input.nextDouble();
+			Node toAdd = new Node(x,y);
+			g.addNode(toAdd);
+			n--;
+		}"
+41,DECLAREDREFERENCEEXPRESSION,"x",sardas.java(120:4-120:5),"x"
+42,DECLAREDREFERENCEEXPRESSION,"g",sardas.java(127:3-127:4),"g"
+43,BINARYOPERATOR,"=",sardas.java(120:4-120:27),"x = input.nextDouble();"
+44,BINARYOPERATOR,"=",sardas.java(121:4-121:27),"y = input.nextDouble();"
+45,DECLARATIONSTATEMENT,"",sardas.java(122:4-122:31),"Node toAdd = new Node(x,y);"
+46,MEMBERCALLEXPRESSION,"addNode",sardas.java(123:4-123:21),"g.addNode(toAdd);"
+47,UNARYOPERATOR,"--",sardas.java(124:4-124:8),"n--;"
+48,VARIABLEDECLARATION,"toAdd",sardas.java(122:9-122:30),"toAdd = new Node(x,y)"
+49,DECLAREDREFERENCEEXPRESSION,"n",sardas.java(119:10-119:11),"n"
+50,DECLAREDREFERENCEEXPRESSION,"y",sardas.java(121:4-121:5),"y"
+51,MEMBERCALLEXPRESSION,"nextDouble",sardas.java(121:8-121:26),"input.nextDouble()"
+52,DECLAREDREFERENCEEXPRESSION,"x",sardas.java(122:26-122:27),"x"
+53,DECLAREDREFERENCEEXPRESSION,"input",sardas.java(121:8-121:13),"input"
+54,DECLAREDREFERENCEEXPRESSION,"nextDouble",sardas.java(121:14-121:24),"nextDouble"
+55,DECLAREDREFERENCEEXPRESSION,"g",sardas.java(123:4-123:5),"g"
+56,DECLAREDREFERENCEEXPRESSION,"n",sardas.java(124:4-124:5),"n"
+57,DECLAREDREFERENCEEXPRESSION,"addNode",sardas.java(123:6-123:13),"addNode"
+58,METHODDECLARATION,"addNode",,""
+59,DECLAREDREFERENCEEXPRESSION,"toAdd",sardas.java(123:14-123:19),"toAdd"
+60,PARAMVARIABLEDECLARATION,"node0",,""
+61,MEMBERCALLEXPRESSION,"nextDouble",sardas.java(120:8-120:26),"input.nextDouble()"
+62,DECLAREDREFERENCEEXPRESSION,"input",sardas.java(120:8-120:13),"input"
+63,DECLAREDREFERENCEEXPRESSION,"nextDouble",sardas.java(120:14-120:24),"nextDouble"
+64,NEWEXPRESSION,"",sardas.java(122:17-122:30),"new Node(x,y)"
+65,CONSTRUCTEXPRESSION,"",sardas.java(122:17-122:30),"new Node(x,y)"
+66,CONSTRUCTORDECLARATION,"Node",,""
+67,DECLAREDREFERENCEEXPRESSION,"y",sardas.java(122:28-122:29),"y"
+68,PARAMVARIABLEDECLARATION,"double1",,""
+69,PARAMVARIABLEDECLARATION,"double0",,""
+70,LITERAL,"",sardas.java(119:13-119:14),"0"
+71,DECLAREDREFERENCEEXPRESSION,"printf",sardas.java(131:14-131:20),"printf"
+72,DECLAREDREFERENCEEXPRESSION,"ink",sardas.java(131:31-131:34),"ink"
+73,LITERAL,"",sardas.java(131:21-131:29),"""%.2f\n"""
+74,MEMBEREXPRESSION,"out",sardas.java(131:3-131:13),"System.out"
+75,NEWEXPRESSION,"",sardas.java(113:19-113:41),"new Scanner(System.in)"
+76,CONSTRUCTEXPRESSION,"",sardas.java(113:19-113:41),"new Scanner(System.in)"
+77,MEMBEREXPRESSION,"in",sardas.java(113:31-113:40),"System.in"
+78,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+79,DECLAREDREFERENCEEXPRESSION,"input",sardas.java(117:11-117:16),"input"
+80,NEWEXPRESSION,"",sardas.java(114:13-114:24),"new Graph()"
+81,CONSTRUCTORDECLARATION,"Graph",,""
+82,MEMBERCALLEXPRESSION,"nextInt",sardas.java(117:11-117:26),"input.nextInt()"
+83,DECLAREDREFERENCEEXPRESSION,"nextInt",sardas.java(117:17-117:24),"nextInt"
+84,DECLAREDREFERENCEEXPRESSION,"populate",sardas.java(127:5-127:13),"populate"
+85,METHODDECLARATION,"populate",,""
+86,FIELDDECLARATION,"this",,""
+87,FIELDDECLARATION,"nodes",sardas.java(24:2-24:32),"nodes"
+88,FIELDDECLARATION,"ink",sardas.java(25:2-25:20),"ink"
+89,METHODDECLARATION,"addNode",sardas.java(32:2-34:3),"public void addNode (Node a) {
+		nodes.add(a);
+	}"
+90,METHODDECLARATION,"populate",sardas.java(36:2-50:3),"public void populate() {
+		LinkedList<Node> temp = new LinkedList<Node>();
+		temp.addAll(nodes);
+		Node parent;
+		Node aux;
+		parent = temp.removeFirst();
+		while(!temp.isEmpty()){
+			for (Node a : temp) {	
+				parent.addEdge(makeEdge(parent,a));
+				a.addEdge(makeEdge(a,parent));
+			}
+			parent = temp.removeFirst();
+		}
+		
+	}"
+91,METHODDECLARATION,"makeEdge",sardas.java(52:2-54:3),"public Edge makeEdge(Node a, Node b) {
+		return new Edge(a,b);
+	}"
+92,METHODDECLARATION,"prim",sardas.java(57:2-90:3),"public double prim(){
+		double aux = Double.POSITIVE_INFINITY;
+		LinkedList<Node> stuff = new LinkedList<Node>();
+		stuff.addAll(nodes);
+		LinkedList<Edge> edges = new LinkedList<Edge>();
+		Node node = null;
+		Edge auxedge = null;
+		node = stuff.removeFirst();
+		node.visited = true;
+			
+		while(!stuff.isEmpty()){
+			aux = Double.POSITIVE_INFINITY;
+			edges.addAll(node.adj);
+			for (Edge a : edges) {
+				if(!(a.target.visited)){
+					if(aux > a.weight) { 
+						aux = a.weight;
+						auxedge = a;
+					}
+
+				}
+				
+
+			}
+			if (aux != Double.POSITIVE_INFINITY) {
+					ink += aux;
+					auxedge.target.visited = true;
+					node = stuff.remove(stuff.indexOf(auxedge.target));
+			}
+		}
+
+		return ink;
+
+	}"
+93,CONSTRUCTORDECLARATION,"Graph",sardas.java(27:2-30:3),"Graph() {
+		nodes = new LinkedList<Node>();
+		ink = 0.0;
+	}"
+94,VARIABLEDECLARATION,"this",,""
+95,COMPOUNDSTATEMENT,"",sardas.java(32:31-34:3),"{
+		nodes.add(a);
+	}"
+96,PARAMVARIABLEDECLARATION,"a",sardas.java(32:23-32:29),"Node a"
+97,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(33:3-33:8),"this"
+98,RETURNSTATEMENT,"",,""
+99,MEMBERCALLEXPRESSION,"add",sardas.java(33:3-33:16),"nodes.add(a);"
+100,DECLAREDREFERENCEEXPRESSION,"add",sardas.java(33:9-33:12),"add"
+101,DECLAREDREFERENCEEXPRESSION,"a",sardas.java(33:13-33:14),"a"
+102,MEMBEREXPRESSION,"nodes",sardas.java(33:3-33:8),"nodes"
+103,VARIABLEDECLARATION,"this",,""
+104,COMPOUNDSTATEMENT,"",sardas.java(57:22-90:3),"{
+		double aux = Double.POSITIVE_INFINITY;
+		LinkedList<Node> stuff = new LinkedList<Node>();
+		stuff.addAll(nodes);
+		LinkedList<Edge> edges = new LinkedList<Edge>();
+		Node node = null;
+		Edge auxedge = null;
+		node = stuff.removeFirst();
+		node.visited = true;
+			
+		while(!stuff.isEmpty()){
+			aux = Double.POSITIVE_INFINITY;
+			edges.addAll(node.adj);
+			for (Edge a : edges) {
+				if(!(a.target.visited)){
+					if(aux > a.weight) { 
+						aux = a.weight;
+						auxedge = a;
+					}
+
+				}
+				
+
+			}
+			if (aux != Double.POSITIVE_INFINITY) {
+					ink += aux;
+					auxedge.target.visited = true;
+					node = stuff.remove(stuff.indexOf(auxedge.target));
+			}
+		}
+
+		return ink;
+
+	}"
+105,DECLAREDREFERENCEEXPRESSION,"Double",sardas.java(58:16-58:22),"Double"
+106,RETURNSTATEMENT,"",sardas.java(88:3-88:14),"return ink;"
+107,DECLARATIONSTATEMENT,"",sardas.java(58:3-58:41),"double aux = Double.POSITIVE_INFINITY;"
+108,DECLARATIONSTATEMENT,"",sardas.java(59:3-59:51),"LinkedList<Node> stuff = new LinkedList<Node>();"
+109,MEMBERCALLEXPRESSION,"addAll",sardas.java(60:3-60:23),"stuff.addAll(nodes);"
+110,DECLARATIONSTATEMENT,"",sardas.java(61:3-61:51),"LinkedList<Edge> edges = new LinkedList<Edge>();"
+111,DECLARATIONSTATEMENT,"",sardas.java(62:3-62:20),"Node node = null;"
+112,DECLARATIONSTATEMENT,"",sardas.java(63:3-63:23),"Edge auxedge = null;"
+113,BINARYOPERATOR,"=",sardas.java(64:3-64:30),"node = stuff.removeFirst();"
+114,BINARYOPERATOR,"=",sardas.java(65:3-65:23),"node.visited = true;"
+115,WHILESTATEMENT,"",sardas.java(67:3-86:4),"while(!stuff.isEmpty()){
+			aux = Double.POSITIVE_INFINITY;
+			edges.addAll(node.adj);
+			for (Edge a : edges) {
+				if(!(a.target.visited)){
+					if(aux > a.weight) { 
+						aux = a.weight;
+						auxedge = a;
+					}
+
+				}
+				
+
+			}
+			if (aux != Double.POSITIVE_INFINITY) {
+					ink += aux;
+					auxedge.target.visited = true;
+					node = stuff.remove(stuff.indexOf(auxedge.target));
+			}
+		}"
+116,VARIABLEDECLARATION,"aux",sardas.java(58:10-58:40),"aux = Double.POSITIVE_INFINITY"
+117,VARIABLEDECLARATION,"stuff",sardas.java(59:20-59:50),"stuff = new LinkedList<Node>()"
+118,VARIABLEDECLARATION,"edges",sardas.java(61:20-61:50),"edges = new LinkedList<Edge>()"
+119,VARIABLEDECLARATION,"node",sardas.java(62:8-62:19),"node = null"
+120,VARIABLEDECLARATION,"auxedge",sardas.java(63:8-63:22),"auxedge = null"
+121,MEMBEREXPRESSION,"visited",sardas.java(65:3-65:15),"node.visited"
+122,LITERAL,"",sardas.java(65:18-65:22),"true"
+123,DECLAREDREFERENCEEXPRESSION,"stuff",sardas.java(67:10-67:15),"stuff"
+124,DECLAREDREFERENCEEXPRESSION,"node",sardas.java(65:3-65:7),"node"
+125,MEMBEREXPRESSION,"ink",sardas.java(88:10-88:13),"ink"
+126,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(88:10-88:13),"this"
+127,LITERAL,"",sardas.java(62:15-62:19),"null"
+128,DECLAREDREFERENCEEXPRESSION,"addAll",sardas.java(60:9-60:15),"addAll"
+129,CONSTRUCTEXPRESSION,"",sardas.java(61:28-61:50),"new LinkedList<Edge>()"
+130,MEMBEREXPRESSION,"nodes",sardas.java(60:16-60:21),"nodes"
+131,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(60:16-60:21),"this"
+132,DECLAREDREFERENCEEXPRESSION,"stuff",sardas.java(60:3-60:8),"stuff"
+133,DECLAREDREFERENCEEXPRESSION,"node",sardas.java(64:3-64:7),"node"
+134,MEMBERCALLEXPRESSION,"removeFirst",sardas.java(64:10-64:29),"stuff.removeFirst()"
+135,DECLAREDREFERENCEEXPRESSION,"stuff",sardas.java(64:10-64:15),"stuff"
+136,DECLAREDREFERENCEEXPRESSION,"removeFirst",sardas.java(64:16-64:27),"removeFirst"
+137,NEWEXPRESSION,"",sardas.java(61:28-61:50),"new LinkedList<Edge>()"
+138,NEWEXPRESSION,"",sardas.java(59:28-59:50),"new LinkedList<Node>()"
+139,CONSTRUCTEXPRESSION,"",sardas.java(59:28-59:50),"new LinkedList<Node>()"
+140,MEMBEREXPRESSION,"POSITIVE_INFINITY",sardas.java(58:16-58:40),"Double.POSITIVE_INFINITY"
+141,UNARYOPERATOR,"!",sardas.java(67:9-67:25),"!stuff.isEmpty()"
+142,COMPOUNDSTATEMENT,"",sardas.java(67:26-86:4),"{
+			aux = Double.POSITIVE_INFINITY;
+			edges.addAll(node.adj);
+			for (Edge a : edges) {
+				if(!(a.target.visited)){
+					if(aux > a.weight) { 
+						aux = a.weight;
+						auxedge = a;
+					}
+
+				}
+				
+
+			}
+			if (aux != Double.POSITIVE_INFINITY) {
+					ink += aux;
+					auxedge.target.visited = true;
+					node = stuff.remove(stuff.indexOf(auxedge.target));
+			}
+		}"
+143,DECLAREDREFERENCEEXPRESSION,"aux",sardas.java(68:4-68:7),"aux"
+144,MEMBERCALLEXPRESSION,"isEmpty",sardas.java(67:10-67:25),"stuff.isEmpty()"
+145,DECLAREDREFERENCEEXPRESSION,"isEmpty",sardas.java(67:16-67:23),"isEmpty"
+146,BINARYOPERATOR,"=",sardas.java(68:4-68:35),"aux = Double.POSITIVE_INFINITY;"
+147,MEMBERCALLEXPRESSION,"addAll",sardas.java(69:4-69:27),"edges.addAll(node.adj);"
+148,FOREACHSTATEMENT,"",sardas.java(70:4-80:5),"for (Edge a : edges) {
+				if(!(a.target.visited)){
+					if(aux > a.weight) { 
+						aux = a.weight;
+						auxedge = a;
+					}
+
+				}
+				
+
+			}"
+149,IFSTATEMENT,"",sardas.java(81:4-85:5),"if (aux != Double.POSITIVE_INFINITY) {
+					ink += aux;
+					auxedge.target.visited = true;
+					node = stuff.remove(stuff.indexOf(auxedge.target));
+			}"
+150,COMPOUNDSTATEMENT,"",sardas.java(81:41-85:5),"{
+					ink += aux;
+					auxedge.target.visited = true;
+					node = stuff.remove(stuff.indexOf(auxedge.target));
+			}"
+151,BINARYOPERATOR,"!=",sardas.java(81:8-81:39),"aux != Double.POSITIVE_INFINITY"
+152,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(82:6-82:9),"this"
+153,DECLAREDREFERENCEEXPRESSION,"aux",sardas.java(81:8-81:11),"aux"
+154,MEMBEREXPRESSION,"POSITIVE_INFINITY",sardas.java(81:15-81:39),"Double.POSITIVE_INFINITY"
+155,DECLAREDREFERENCEEXPRESSION,"Double",sardas.java(81:15-81:21),"Double"
+156,BINARYOPERATOR,"+=",sardas.java(82:6-82:17),"ink += aux;"
+157,BINARYOPERATOR,"=",sardas.java(83:6-83:36),"auxedge.target.visited = true;"
+158,BINARYOPERATOR,"=",sardas.java(84:6-84:57),"node = stuff.remove(stuff.indexOf(auxedge.target));"
+159,DECLAREDREFERENCEEXPRESSION,"node",sardas.java(84:6-84:10),"node"
+160,MEMBERCALLEXPRESSION,"remove",sardas.java(84:13-84:56),"stuff.remove(stuff.indexOf(auxedge.target))"
+161,DECLAREDREFERENCEEXPRESSION,"remove",sardas.java(84:19-84:25),"remove"
+162,MEMBERCALLEXPRESSION,"indexOf",sardas.java(84:26-84:55),"stuff.indexOf(auxedge.target)"
+163,DECLAREDREFERENCEEXPRESSION,"stuff",sardas.java(84:13-84:18),"stuff"
+164,DECLAREDREFERENCEEXPRESSION,"stuff",sardas.java(84:26-84:31),"stuff"
+165,DECLAREDREFERENCEEXPRESSION,"indexOf",sardas.java(84:32-84:39),"indexOf"
+166,MEMBEREXPRESSION,"target",sardas.java(84:40-84:54),"auxedge.target"
+167,DECLAREDREFERENCEEXPRESSION,"auxedge",sardas.java(84:40-84:47),"auxedge"
+168,MEMBEREXPRESSION,"visited",sardas.java(83:6-83:28),"auxedge.target.visited"
+169,LITERAL,"",sardas.java(83:31-83:35),"true"
+170,MEMBEREXPRESSION,"target",sardas.java(83:6-83:20),"auxedge.target"
+171,DECLAREDREFERENCEEXPRESSION,"auxedge",sardas.java(83:6-83:13),"auxedge"
+172,MEMBEREXPRESSION,"ink",sardas.java(82:6-82:9),"ink"
+173,DECLAREDREFERENCEEXPRESSION,"aux",sardas.java(82:13-82:16),"aux"
+174,DECLAREDREFERENCEEXPRESSION,"addAll",sardas.java(69:10-69:16),"addAll"
+175,DECLAREDREFERENCEEXPRESSION,"edges",sardas.java(70:18-70:23),"edges"
+176,MEMBEREXPRESSION,"adj",sardas.java(69:17-69:25),"node.adj"
+177,DECLAREDREFERENCEEXPRESSION,"node",sardas.java(69:17-69:21),"node"
+178,DECLAREDREFERENCEEXPRESSION,"edges",sardas.java(69:4-69:9),"edges"
+179,DECLARATIONSTATEMENT,"",sardas.java(70:9-70:15),"Edge a"
+180,COMPOUNDSTATEMENT,"",sardas.java(70:25-80:5),"{
+				if(!(a.target.visited)){
+					if(aux > a.weight) { 
+						aux = a.weight;
+						auxedge = a;
+					}
+
+				}
+				
+
+			}"
+181,VARIABLEDECLARATION,"a",sardas.java(70:14-70:15),"a"
+182,DECLAREDREFERENCEEXPRESSION,"a",sardas.java(71:10-71:11),"a"
+183,IFSTATEMENT,"",sardas.java(71:5-77:6),"if(!(a.target.visited)){
+					if(aux > a.weight) { 
+						aux = a.weight;
+						auxedge = a;
+					}
+
+				}"
+184,COMPOUNDSTATEMENT,"",sardas.java(71:28-77:6),"{
+					if(aux > a.weight) { 
+						aux = a.weight;
+						auxedge = a;
+					}
+
+				}"
+185,UNARYOPERATOR,"!",sardas.java(71:8-71:27),"!(a.target.visited)"
+186,DECLAREDREFERENCEEXPRESSION,"aux",sardas.java(72:9-72:12),"aux"
+187,MEMBEREXPRESSION,"visited",sardas.java(71:10-71:26),"a.target.visited"
+188,MEMBEREXPRESSION,"target",sardas.java(71:10-71:18),"a.target"
+189,IFSTATEMENT,"",sardas.java(72:6-75:7),"if(aux > a.weight) { 
+						aux = a.weight;
+						auxedge = a;
+					}"
+190,COMPOUNDSTATEMENT,"",sardas.java(72:25-75:7),"{ 
+						aux = a.weight;
+						auxedge = a;
+					}"
+191,BINARYOPERATOR,">",sardas.java(72:9-72:23),"aux > a.weight"
+192,DECLAREDREFERENCEEXPRESSION,"aux",sardas.java(73:7-73:10),"aux"
+193,MEMBEREXPRESSION,"weight",sardas.java(72:15-72:23),"a.weight"
+194,DECLAREDREFERENCEEXPRESSION,"a",sardas.java(72:15-72:16),"a"
+195,BINARYOPERATOR,"=",sardas.java(73:7-73:22),"aux = a.weight;"
+196,BINARYOPERATOR,"=",sardas.java(74:7-74:19),"auxedge = a;"
+197,DECLAREDREFERENCEEXPRESSION,"auxedge",sardas.java(74:7-74:14),"auxedge"
+198,DECLAREDREFERENCEEXPRESSION,"a",sardas.java(74:17-74:18),"a"
+199,MEMBEREXPRESSION,"weight",sardas.java(73:13-73:21),"a.weight"
+200,DECLAREDREFERENCEEXPRESSION,"a",sardas.java(73:13-73:14),"a"
+201,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+202,MEMBEREXPRESSION,"POSITIVE_INFINITY",sardas.java(68:10-68:34),"Double.POSITIVE_INFINITY"
+203,DECLAREDREFERENCEEXPRESSION,"Double",sardas.java(68:10-68:16),"Double"
+204,LITERAL,"",sardas.java(63:18-63:22),"null"
+205,COMPOUNDSTATEMENT,"",sardas.java(27:10-30:3),"{
+		nodes = new LinkedList<Node>();
+		ink = 0.0;
+	}"
+206,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(28:3-28:8),"this"
+207,RETURNSTATEMENT,"",,""
+208,BINARYOPERATOR,"=",sardas.java(28:3-28:34),"nodes = new LinkedList<Node>();"
+209,BINARYOPERATOR,"=",sardas.java(29:3-29:13),"ink = 0.0;"
+210,MEMBEREXPRESSION,"ink",sardas.java(29:3-29:6),"ink"
+211,LITERAL,"",sardas.java(29:9-29:12),"0.0"
+212,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(29:3-29:6),"this"
+213,MEMBEREXPRESSION,"nodes",sardas.java(28:3-28:8),"nodes"
+214,NEWEXPRESSION,"",sardas.java(28:11-28:33),"new LinkedList<Node>()"
+215,CONSTRUCTEXPRESSION,"",sardas.java(28:11-28:33),"new LinkedList<Node>()"
+216,VARIABLEDECLARATION,"this",,""
+217,COMPOUNDSTATEMENT,"",sardas.java(52:39-54:3),"{
+		return new Edge(a,b);
+	}"
+218,PARAMVARIABLEDECLARATION,"a",sardas.java(52:23-52:29),"Node a"
+219,PARAMVARIABLEDECLARATION,"b",sardas.java(52:31-52:37),"Node b"
+220,DECLAREDREFERENCEEXPRESSION,"a",sardas.java(53:19-53:20),"a"
+221,RETURNSTATEMENT,"",sardas.java(53:3-53:24),"return new Edge(a,b);"
+222,NEWEXPRESSION,"",sardas.java(53:10-53:23),"new Edge(a,b)"
+223,CONSTRUCTEXPRESSION,"",sardas.java(53:10-53:23),"new Edge(a,b)"
+224,CONSTRUCTORDECLARATION,"Edge",,""
+225,DECLAREDREFERENCEEXPRESSION,"b",sardas.java(53:21-53:22),"b"
+226,PARAMVARIABLEDECLARATION,"node0",,""
+227,PARAMVARIABLEDECLARATION,"node1",,""
+228,VARIABLEDECLARATION,"this",,""
+229,COMPOUNDSTATEMENT,"",sardas.java(36:25-50:3),"{
+		LinkedList<Node> temp = new LinkedList<Node>();
+		temp.addAll(nodes);
+		Node parent;
+		Node aux;
+		parent = temp.removeFirst();
+		while(!temp.isEmpty()){
+			for (Node a : temp) {	
+				parent.addEdge(makeEdge(parent,a));
+				a.addEdge(makeEdge(a,parent));
+			}
+			parent = temp.removeFirst();
+		}
+		
+	}"
+230,CONSTRUCTEXPRESSION,"",sardas.java(37:27-37:49),"new LinkedList<Node>()"
+231,RETURNSTATEMENT,"",,""
+232,DECLARATIONSTATEMENT,"",sardas.java(37:3-37:50),"LinkedList<Node> temp = new LinkedList<Node>();"
+233,MEMBERCALLEXPRESSION,"addAll",sardas.java(38:3-38:22),"temp.addAll(nodes);"
+234,DECLARATIONSTATEMENT,"",sardas.java(39:3-39:15),"Node parent;"
+235,DECLARATIONSTATEMENT,"",sardas.java(40:3-40:12),"Node aux;"
+236,BINARYOPERATOR,"=",sardas.java(41:3-41:31),"parent = temp.removeFirst();"
+237,WHILESTATEMENT,"",sardas.java(42:3-48:4),"while(!temp.isEmpty()){
+			for (Node a : temp) {	
+				parent.addEdge(makeEdge(parent,a));
+				a.addEdge(makeEdge(a,parent));
+			}
+			parent = temp.removeFirst();
+		}"
+238,VARIABLEDECLARATION,"temp",sardas.java(37:20-37:49),"temp = new LinkedList<Node>()"
+239,VARIABLEDECLARATION,"parent",sardas.java(39:8-39:14),"parent"
+240,VARIABLEDECLARATION,"aux",sardas.java(40:8-40:11),"aux"
+241,NEWEXPRESSION,"",sardas.java(37:27-37:49),"new LinkedList<Node>()"
+242,DECLAREDREFERENCEEXPRESSION,"temp",sardas.java(38:3-38:7),"temp"
+243,DECLAREDREFERENCEEXPRESSION,"parent",sardas.java(41:3-41:9),"parent"
+244,MEMBERCALLEXPRESSION,"removeFirst",sardas.java(41:12-41:30),"temp.removeFirst()"
+245,DECLAREDREFERENCEEXPRESSION,"temp",sardas.java(42:10-42:14),"temp"
+246,DECLAREDREFERENCEEXPRESSION,"removeFirst",sardas.java(41:17-41:28),"removeFirst"
+247,DECLAREDREFERENCEEXPRESSION,"temp",sardas.java(41:12-41:16),"temp"
+248,UNARYOPERATOR,"!",sardas.java(42:9-42:24),"!temp.isEmpty()"
+249,COMPOUNDSTATEMENT,"",sardas.java(42:25-48:4),"{
+			for (Node a : temp) {	
+				parent.addEdge(makeEdge(parent,a));
+				a.addEdge(makeEdge(a,parent));
+			}
+			parent = temp.removeFirst();
+		}"
+250,DECLAREDREFERENCEEXPRESSION,"temp",sardas.java(43:18-43:22),"temp"
+251,MEMBERCALLEXPRESSION,"isEmpty",sardas.java(42:10-42:24),"temp.isEmpty()"
+252,DECLAREDREFERENCEEXPRESSION,"isEmpty",sardas.java(42:15-42:22),"isEmpty"
+253,FOREACHSTATEMENT,"",sardas.java(43:4-46:5),"for (Node a : temp) {	
+				parent.addEdge(makeEdge(parent,a));
+				a.addEdge(makeEdge(a,parent));
+			}"
+254,BINARYOPERATOR,"=",sardas.java(47:4-47:32),"parent = temp.removeFirst();"
+255,DECLAREDREFERENCEEXPRESSION,"parent",sardas.java(47:4-47:10),"parent"
+256,MEMBERCALLEXPRESSION,"removeFirst",sardas.java(47:13-47:31),"temp.removeFirst()"
+257,DECLAREDREFERENCEEXPRESSION,"temp",sardas.java(47:13-47:17),"temp"
+258,DECLAREDREFERENCEEXPRESSION,"removeFirst",sardas.java(47:18-47:29),"removeFirst"
+259,DECLARATIONSTATEMENT,"",sardas.java(43:9-43:15),"Node a"
+260,COMPOUNDSTATEMENT,"",sardas.java(43:24-46:5),"{	
+				parent.addEdge(makeEdge(parent,a));
+				a.addEdge(makeEdge(a,parent));
+			}"
+261,VARIABLEDECLARATION,"a",sardas.java(43:14-43:15),"a"
+262,DECLAREDREFERENCEEXPRESSION,"parent",sardas.java(44:5-44:11),"parent"
+263,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+264,MEMBERCALLEXPRESSION,"addEdge",sardas.java(44:5-44:40),"parent.addEdge(makeEdge(parent,a));"
+265,MEMBERCALLEXPRESSION,"addEdge",sardas.java(45:5-45:35),"a.addEdge(makeEdge(a,parent));"
+266,DECLAREDREFERENCEEXPRESSION,"addEdge",sardas.java(44:12-44:19),"addEdge"
+267,METHODDECLARATION,"addEdge",,""
+268,DECLAREDREFERENCEEXPRESSION,"a",sardas.java(45:5-45:6),"a"
+269,CALLEXPRESSION,"makeEdge",sardas.java(44:20-44:38),"makeEdge(parent,a)"
+270,DECLAREDREFERENCEEXPRESSION,"parent",sardas.java(44:29-44:35),"parent"
+271,METHODDECLARATION,"makeEdge",,""
+272,DECLAREDREFERENCEEXPRESSION,"a",sardas.java(44:36-44:37),"a"
+273,PARAMVARIABLEDECLARATION,"edge0",,""
+274,PARAMVARIABLEDECLARATION,"node0",,""
+275,PARAMVARIABLEDECLARATION,"node1",,""
+276,DECLAREDREFERENCEEXPRESSION,"addEdge",sardas.java(45:7-45:14),"addEdge"
+277,CALLEXPRESSION,"makeEdge",sardas.java(45:15-45:33),"makeEdge(a,parent)"
+278,DECLAREDREFERENCEEXPRESSION,"a",sardas.java(45:24-45:25),"a"
+279,DECLAREDREFERENCEEXPRESSION,"parent",sardas.java(45:26-45:32),"parent"
+280,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+281,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+282,DECLAREDREFERENCEEXPRESSION,"addAll",sardas.java(38:8-38:14),"addAll"
+283,MEMBEREXPRESSION,"nodes",sardas.java(38:15-38:20),"nodes"
+284,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(38:15-38:20),"this"
+285,FIELDDECLARATION,"this",,""
+286,FIELDDECLARATION,"weight",sardas.java(95:2-95:23),"weight"
+287,FIELDDECLARATION,"target",sardas.java(96:2-96:21),"target"
+288,FIELDDECLARATION,"from",sardas.java(97:2-97:19),"from"
+289,CONSTRUCTORDECLARATION,"Edge",sardas.java(99:2-103:3),"Edge (Node from, Node target) {
+		this.target = target;
+		this.from = from;
+		weight = Math.sqrt(Math.pow(from.x - target.x, 2) + Math.pow(from.y - target.y, 2));
+	}"
+290,COMPOUNDSTATEMENT,"",sardas.java(99:32-103:3),"{
+		this.target = target;
+		this.from = from;
+		weight = Math.sqrt(Math.pow(from.x - target.x, 2) + Math.pow(from.y - target.y, 2));
+	}"
+291,PARAMVARIABLEDECLARATION,"from",sardas.java(99:8-99:17),"Node from"
+292,PARAMVARIABLEDECLARATION,"target",sardas.java(99:19-99:30),"Node target"
+293,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(100:3-100:7),"this"
+294,RETURNSTATEMENT,"",,""
+295,BINARYOPERATOR,"=",sardas.java(100:3-100:24),"this.target = target;"
+296,BINARYOPERATOR,"=",sardas.java(101:3-101:20),"this.from = from;"
+297,BINARYOPERATOR,"=",sardas.java(102:3-102:87),"weight = Math.sqrt(Math.pow(from.x - target.x, 2) + Math.pow(from.y - target.y, 2));"
+298,MEMBEREXPRESSION,"target",sardas.java(100:3-100:14),"this.target"
+299,DECLAREDREFERENCEEXPRESSION,"target",sardas.java(100:17-100:23),"target"
+300,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(101:3-101:7),"this"
+301,MEMBEREXPRESSION,"weight",sardas.java(102:3-102:9),"weight"
+302,STATICCALLEXPRESSION,"sqrt",sardas.java(102:12-102:86),"Math.sqrt(Math.pow(from.x - target.x, 2) + Math.pow(from.y - target.y, 2))"
+303,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(102:3-102:9),"this"
+304,DECLAREDREFERENCEEXPRESSION,"from",sardas.java(102:31-102:35),"from"
+305,BINARYOPERATOR,"+",sardas.java(102:22-102:85),"Math.pow(from.x - target.x, 2) + Math.pow(from.y - target.y, 2)"
+306,STATICCALLEXPRESSION,"pow",sardas.java(102:22-102:52),"Math.pow(from.x - target.x, 2)"
+307,STATICCALLEXPRESSION,"pow",sardas.java(102:55-102:85),"Math.pow(from.y - target.y, 2)"
+308,LITERAL,"",sardas.java(102:83-102:84),"2"
+309,BINARYOPERATOR,"-",sardas.java(102:64-102:81),"from.y - target.y"
+310,MEMBEREXPRESSION,"y",sardas.java(102:64-102:70),"from.y"
+311,MEMBEREXPRESSION,"y",sardas.java(102:73-102:81),"target.y"
+312,DECLAREDREFERENCEEXPRESSION,"target",sardas.java(102:73-102:79),"target"
+313,DECLAREDREFERENCEEXPRESSION,"from",sardas.java(102:64-102:68),"from"
+314,LITERAL,"",sardas.java(102:50-102:51),"2"
+315,BINARYOPERATOR,"-",sardas.java(102:31-102:48),"from.x - target.x"
+316,MEMBEREXPRESSION,"x",sardas.java(102:31-102:37),"from.x"
+317,MEMBEREXPRESSION,"x",sardas.java(102:40-102:48),"target.x"
+318,DECLAREDREFERENCEEXPRESSION,"target",sardas.java(102:40-102:46),"target"
+319,MEMBEREXPRESSION,"from",sardas.java(101:3-101:12),"this.from"
+320,DECLAREDREFERENCEEXPRESSION,"from",sardas.java(101:15-101:19),"from"
+321,FIELDDECLARATION,"this",,""
+322,FIELDDECLARATION,"visited",sardas.java(5:2-5:25),"visited"
+323,FIELDDECLARATION,"x",sardas.java(6:2-6:18),"x"
+324,FIELDDECLARATION,"y",sardas.java(7:2-7:18),"y"
+325,FIELDDECLARATION,"adj",sardas.java(8:2-8:30),"adj"
+326,METHODDECLARATION,"addEdge",sardas.java(17:2-20:3),"public void addEdge (Edge a){
+		adj.add(a);
+
+	}"
+327,CONSTRUCTORDECLARATION,"Node",sardas.java(10:2-15:3),"Node(double x, double y){
+		visited = false;
+		this.x = x;
+		this.y = y;
+		adj = new LinkedList<Edge>();
+	}"
+328,COMPOUNDSTATEMENT,"",sardas.java(10:26-15:3),"{
+		visited = false;
+		this.x = x;
+		this.y = y;
+		adj = new LinkedList<Edge>();
+	}"
+329,PARAMVARIABLEDECLARATION,"x",sardas.java(10:7-10:15),"double x"
+330,PARAMVARIABLEDECLARATION,"y",sardas.java(10:17-10:25),"double y"
+331,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(11:3-11:10),"this"
+332,RETURNSTATEMENT,"",,""
+333,BINARYOPERATOR,"=",sardas.java(11:3-11:19),"visited = false;"
+334,BINARYOPERATOR,"=",sardas.java(12:3-12:14),"this.x = x;"
+335,BINARYOPERATOR,"=",sardas.java(13:3-13:14),"this.y = y;"
+336,BINARYOPERATOR,"=",sardas.java(14:3-14:32),"adj = new LinkedList<Edge>();"
+337,MEMBEREXPRESSION,"visited",sardas.java(11:3-11:10),"visited"
+338,LITERAL,"",sardas.java(11:13-11:18),"false"
+339,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(12:3-12:7),"this"
+340,MEMBEREXPRESSION,"y",sardas.java(13:3-13:9),"this.y"
+341,DECLAREDREFERENCEEXPRESSION,"y",sardas.java(13:12-13:13),"y"
+342,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(14:3-14:6),"this"
+343,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(13:3-13:7),"this"
+344,MEMBEREXPRESSION,"adj",sardas.java(14:3-14:6),"adj"
+345,NEWEXPRESSION,"",sardas.java(14:9-14:31),"new LinkedList<Edge>()"
+346,CONSTRUCTEXPRESSION,"",sardas.java(14:9-14:31),"new LinkedList<Edge>()"
+347,MEMBEREXPRESSION,"x",sardas.java(12:3-12:9),"this.x"
+348,DECLAREDREFERENCEEXPRESSION,"x",sardas.java(12:12-12:13),"x"
+349,VARIABLEDECLARATION,"this",,""
+350,COMPOUNDSTATEMENT,"",sardas.java(17:30-20:3),"{
+		adj.add(a);
+
+	}"
+351,PARAMVARIABLEDECLARATION,"a",sardas.java(17:23-17:29),"Edge a"
+352,DECLAREDREFERENCEEXPRESSION,"this",sardas.java(18:3-18:6),"this"
+353,RETURNSTATEMENT,"",,""
+354,MEMBERCALLEXPRESSION,"add",sardas.java(18:3-18:14),"adj.add(a);"
+355,DECLAREDREFERENCEEXPRESSION,"add",sardas.java(18:7-18:10),"add"
+356,DECLAREDREFERENCEEXPRESSION,"a",sardas.java(18:11-18:12),"a"
+357,MEMBEREXPRESSION,"adj",sardas.java(18:3-18:6),"adj"

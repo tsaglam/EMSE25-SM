@@ -1,0 +1,770 @@
+id,type,token,location,code
+1,TRANSLATIONUNITDECLARATION,"/data/00000056/submissions/05553650_24_201305217/prob24.java",,""
+2,RECORDDECLARATION,"heapi",prob24.java(5:1-13:2),"class heapi {
+	int index;
+	Double valor;
+
+	heapi(int index, Double valor) {
+		this.index = index;
+		this.valor = valor;
+	}
+}"
+3,RECORDDECLARATION,"prob24",prob24.java(15:1-93:2),"class prob24 {
+	static int n;
+	static int c;
+	static Double total=0.00;
+	static Double key[];
+	static int parent[];
+	static boolean[] vis;
+	static boolean[] vis2;
+
+	public static void main(String args[]) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		n = Integer.parseInt(in.readLine());
+
+		Double[][] a = new Double[n][2];
+		Double[][] dist = new Double[n][n];
+		Double[] key = new Double[n];
+		int[] parent = new int[n];
+		boolean[] vis = new boolean[n];
+		boolean[] vis2 = new boolean[n];
+
+		prob24.key = key;
+		prob24.parent = parent;
+		prob24.vis = vis;
+		prob24.vis2 = vis2;
+
+		PriorityQueue<heapi> heap = new PriorityQueue<heapi>(n, new Comparator<heapi>() {
+    		@Override
+    		public int compare(heapi o1, heapi o2) {
+        		return (o1.valor.compareTo(o2.valor));
+    		}
+		});
+
+		for(int i=0; i<n; i++) {
+			String input[] = in.readLine().split("" "");
+			a[i][0] = Double.parseDouble(input[0]);
+			a[i][1] = Double.parseDouble(input[1]);
+		}
+
+		for(int i=0; i<n; i++) {
+			for(int j=i+1; j<n; j++) {
+				Double primeiro = (a[j][0] - a[i][0])*(a[j][0] - a[i][0]);
+				Double segundo = (a[j][1] - a[i][1])*(a[j][1] - a[i][1]);
+				dist[i][j] = Math.sqrt(primeiro + segundo);
+				dist[j][i] = Math.sqrt(primeiro + segundo);
+			}
+		}
+		prim(a, dist, heap, 0);
+		String result = String.format(""%.2f"", total);
+		System.out.println(result.replaceAll("","", "".""));
+	}
+
+	static void prim(Double[][] a, Double[][] dist, PriorityQueue<heapi> heap, int x) {
+		for(int i=0; i<n; i++) {
+			key[i] = Double.POSITIVE_INFINITY;
+			parent[i] = -1;
+		}
+		key[x] = 0.0;
+		heap.add(new heapi(x, key[x]));
+		while(!heap.isEmpty()) {
+			heapi s = heap.poll();
+			int u = s.index;
+
+			if(!vis[u]) { 
+				vis[u] = true; 
+				total += key[u];
+			}
+
+			for(int i=0; i<n; i++) {
+				if(!vis[i] && dist[u][i] < key[i]) {
+
+					parent[i] = u;
+					key[i] = dist[u][i];
+					heap.add(new heapi(i, key[i]));
+				}
+			}
+		}
+	}
+}"
+4,INCLUDEDECLARATION,"java.util",,""
+5,INCLUDEDECLARATION,"java.io",,""
+6,INCLUDEDECLARATION,"java.text",,""
+7,FIELDDECLARATION,"this",,""
+8,FIELDDECLARATION,"n",prob24.java(16:2-16:15),"n"
+9,FIELDDECLARATION,"c",prob24.java(17:2-17:15),"c"
+10,FIELDDECLARATION,"total",prob24.java(18:2-18:27),"total = 0.00"
+11,FIELDDECLARATION,"key",prob24.java(19:2-19:22),"key"
+12,FIELDDECLARATION,"parent",prob24.java(20:2-20:22),"parent"
+13,FIELDDECLARATION,"vis",prob24.java(21:2-21:23),"vis"
+14,FIELDDECLARATION,"vis2",prob24.java(22:2-22:24),"vis2"
+15,METHODDECLARATION,"main",prob24.java(24:2-65:3),"public static void main(String args[]) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		n = Integer.parseInt(in.readLine());
+
+		Double[][] a = new Double[n][2];
+		Double[][] dist = new Double[n][n];
+		Double[] key = new Double[n];
+		int[] parent = new int[n];
+		boolean[] vis = new boolean[n];
+		boolean[] vis2 = new boolean[n];
+
+		prob24.key = key;
+		prob24.parent = parent;
+		prob24.vis = vis;
+		prob24.vis2 = vis2;
+
+		PriorityQueue<heapi> heap = new PriorityQueue<heapi>(n, new Comparator<heapi>() {
+    		@Override
+    		public int compare(heapi o1, heapi o2) {
+        		return (o1.valor.compareTo(o2.valor));
+    		}
+		});
+
+		for(int i=0; i<n; i++) {
+			String input[] = in.readLine().split("" "");
+			a[i][0] = Double.parseDouble(input[0]);
+			a[i][1] = Double.parseDouble(input[1]);
+		}
+
+		for(int i=0; i<n; i++) {
+			for(int j=i+1; j<n; j++) {
+				Double primeiro = (a[j][0] - a[i][0])*(a[j][0] - a[i][0]);
+				Double segundo = (a[j][1] - a[i][1])*(a[j][1] - a[i][1]);
+				dist[i][j] = Math.sqrt(primeiro + segundo);
+				dist[j][i] = Math.sqrt(primeiro + segundo);
+			}
+		}
+		prim(a, dist, heap, 0);
+		String result = String.format(""%.2f"", total);
+		System.out.println(result.replaceAll("","", "".""));
+	}"
+16,METHODDECLARATION,"prim",prob24.java(67:2-92:3),"static void prim(Double[][] a, Double[][] dist, PriorityQueue<heapi> heap, int x) {
+		for(int i=0; i<n; i++) {
+			key[i] = Double.POSITIVE_INFINITY;
+			parent[i] = -1;
+		}
+		key[x] = 0.0;
+		heap.add(new heapi(x, key[x]));
+		while(!heap.isEmpty()) {
+			heapi s = heap.poll();
+			int u = s.index;
+
+			if(!vis[u]) { 
+				vis[u] = true; 
+				total += key[u];
+			}
+
+			for(int i=0; i<n; i++) {
+				if(!vis[i] && dist[u][i] < key[i]) {
+
+					parent[i] = u;
+					key[i] = dist[u][i];
+					heap.add(new heapi(i, key[i]));
+				}
+			}
+		}
+	}"
+17,CONSTRUCTORDECLARATION,"prob24",,""
+18,VARIABLEDECLARATION,"this",,""
+19,COMPOUNDSTATEMENT,"",prob24.java(24:60-65:3),"{
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		n = Integer.parseInt(in.readLine());
+
+		Double[][] a = new Double[n][2];
+		Double[][] dist = new Double[n][n];
+		Double[] key = new Double[n];
+		int[] parent = new int[n];
+		boolean[] vis = new boolean[n];
+		boolean[] vis2 = new boolean[n];
+
+		prob24.key = key;
+		prob24.parent = parent;
+		prob24.vis = vis;
+		prob24.vis2 = vis2;
+
+		PriorityQueue<heapi> heap = new PriorityQueue<heapi>(n, new Comparator<heapi>() {
+    		@Override
+    		public int compare(heapi o1, heapi o2) {
+        		return (o1.valor.compareTo(o2.valor));
+    		}
+		});
+
+		for(int i=0; i<n; i++) {
+			String input[] = in.readLine().split("" "");
+			a[i][0] = Double.parseDouble(input[0]);
+			a[i][1] = Double.parseDouble(input[1]);
+		}
+
+		for(int i=0; i<n; i++) {
+			for(int j=i+1; j<n; j++) {
+				Double primeiro = (a[j][0] - a[i][0])*(a[j][0] - a[i][0]);
+				Double segundo = (a[j][1] - a[i][1])*(a[j][1] - a[i][1]);
+				dist[i][j] = Math.sqrt(primeiro + segundo);
+				dist[j][i] = Math.sqrt(primeiro + segundo);
+			}
+		}
+		prim(a, dist, heap, 0);
+		String result = String.format(""%.2f"", total);
+		System.out.println(result.replaceAll("","", "".""));
+	}"
+20,PARAMVARIABLEDECLARATION,"args",prob24.java(24:26-24:39),"String args[]"
+21,OBJECTTYPE,"IOException",,""
+22,DECLAREDREFERENCEEXPRESSION,"System",prob24.java(25:64-25:70),"System"
+23,RETURNSTATEMENT,"",,""
+24,DECLARATIONSTATEMENT,"",prob24.java(25:3-25:76),"BufferedReader in = new BufferedReader(new InputStreamReader(System.in));"
+25,BINARYOPERATOR,"=",prob24.java(27:3-27:39),"n = Integer.parseInt(in.readLine());"
+26,DECLARATIONSTATEMENT,"",prob24.java(29:3-29:35),"Double[][] a = new Double[n][2];"
+27,DECLARATIONSTATEMENT,"",prob24.java(30:3-30:38),"Double[][] dist = new Double[n][n];"
+28,DECLARATIONSTATEMENT,"",prob24.java(31:3-31:32),"Double[] key = new Double[n];"
+29,DECLARATIONSTATEMENT,"",prob24.java(32:3-32:29),"int[] parent = new int[n];"
+30,DECLARATIONSTATEMENT,"",prob24.java(33:3-33:34),"boolean[] vis = new boolean[n];"
+31,DECLARATIONSTATEMENT,"",prob24.java(34:3-34:35),"boolean[] vis2 = new boolean[n];"
+32,BINARYOPERATOR,"=",prob24.java(36:3-36:20),"prob24.key = key;"
+33,BINARYOPERATOR,"=",prob24.java(37:3-37:26),"prob24.parent = parent;"
+34,BINARYOPERATOR,"=",prob24.java(38:3-38:20),"prob24.vis = vis;"
+35,BINARYOPERATOR,"=",prob24.java(39:3-39:22),"prob24.vis2 = vis2;"
+36,DECLARATIONSTATEMENT,"",prob24.java(41:3-46:6),"PriorityQueue<heapi> heap = new PriorityQueue<heapi>(n, new Comparator<heapi>() {
+    		@Override
+    		public int compare(heapi o1, heapi o2) {
+        		return (o1.valor.compareTo(o2.valor));
+    		}
+		});"
+37,FORSTATEMENT,"",prob24.java(48:3-52:4),"for(int i=0; i<n; i++) {
+			String input[] = in.readLine().split("" "");
+			a[i][0] = Double.parseDouble(input[0]);
+			a[i][1] = Double.parseDouble(input[1]);
+		}"
+38,FORSTATEMENT,"",prob24.java(54:3-61:4),"for(int i=0; i<n; i++) {
+			for(int j=i+1; j<n; j++) {
+				Double primeiro = (a[j][0] - a[i][0])*(a[j][0] - a[i][0]);
+				Double segundo = (a[j][1] - a[i][1])*(a[j][1] - a[i][1]);
+				dist[i][j] = Math.sqrt(primeiro + segundo);
+				dist[j][i] = Math.sqrt(primeiro + segundo);
+			}
+		}"
+39,CALLEXPRESSION,"prim",prob24.java(62:3-62:26),"prim(a, dist, heap, 0);"
+40,DECLARATIONSTATEMENT,"",prob24.java(63:3-63:48),"String result = String.format(""%.2f"", total);"
+41,MEMBERCALLEXPRESSION,"println",prob24.java(64:3-64:51),"System.out.println(result.replaceAll("","", "".""));"
+42,VARIABLEDECLARATION,"in",prob24.java(25:18-25:75),"in = new BufferedReader(new InputStreamReader(System.in))"
+43,VARIABLEDECLARATION,"a",prob24.java(29:14-29:34),"a = new Double[n][2]"
+44,VARIABLEDECLARATION,"dist",prob24.java(30:14-30:37),"dist = new Double[n][n]"
+45,VARIABLEDECLARATION,"key",prob24.java(31:12-31:31),"key = new Double[n]"
+46,VARIABLEDECLARATION,"parent",prob24.java(32:9-32:28),"parent = new int[n]"
+47,VARIABLEDECLARATION,"vis",prob24.java(33:13-33:33),"vis = new boolean[n]"
+48,VARIABLEDECLARATION,"vis2",prob24.java(34:13-34:34),"vis2 = new boolean[n]"
+49,VARIABLEDECLARATION,"heap",prob24.java(41:24-46:5),"heap = new PriorityQueue<heapi>(n, new Comparator<heapi>() {
+    		@Override
+    		public int compare(heapi o1, heapi o2) {
+        		return (o1.valor.compareTo(o2.valor));
+    		}
+		})"
+50,VARIABLEDECLARATION,"result",prob24.java(63:10-63:47),"result = String.format(""%.2f"", total)"
+51,NEWEXPRESSION,"",prob24.java(25:23-25:75),"new BufferedReader(new InputStreamReader(System.in))"
+52,CONSTRUCTEXPRESSION,"",prob24.java(25:23-25:75),"new BufferedReader(new InputStreamReader(System.in))"
+53,NEWEXPRESSION,"",prob24.java(25:42-25:74),"new InputStreamReader(System.in)"
+54,CONSTRUCTEXPRESSION,"",prob24.java(25:42-25:74),"new InputStreamReader(System.in)"
+55,MEMBEREXPRESSION,"in",prob24.java(25:64-25:73),"System.in"
+56,ARRAYCREATIONEXPRESSION,"",prob24.java(33:19-33:33),"new boolean[n]"
+57,MEMBEREXPRESSION,"n",prob24.java(33:31-33:32),"n"
+58,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(33:31-33:32),"prob24"
+59,METHODDECLARATION,"prim",,""
+60,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(62:8-62:9),"a"
+61,DECLAREDREFERENCEEXPRESSION,"dist",prob24.java(62:11-62:15),"dist"
+62,DECLAREDREFERENCEEXPRESSION,"heap",prob24.java(62:17-62:21),"heap"
+63,LITERAL,"",prob24.java(62:23-62:24),"0"
+64,LITERAL,"",prob24.java(63:33-63:39),"""%.2f"""
+65,PARAMVARIABLEDECLARATION,"java.lang.doublePtrPtr1",,""
+66,PARAMVARIABLEDECLARATION,"java.lang.doublePtrPtr0",,""
+67,PARAMVARIABLEDECLARATION,"java.util.priorityqueue2",,""
+68,PARAMVARIABLEDECLARATION,"int3",,""
+69,ARRAYCREATIONEXPRESSION,"",prob24.java(29:18-29:34),"new Double[n][2]"
+70,MEMBEREXPRESSION,"n",prob24.java(29:29-29:30),"n"
+71,LITERAL,"",prob24.java(29:32-29:33),"2"
+72,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(29:29-29:30),"prob24"
+73,LITERAL,"",prob24.java(48:13-48:14),"0"
+74,MEMBEREXPRESSION,"vis2",prob24.java(39:3-39:14),"prob24.vis2"
+75,DECLAREDREFERENCEEXPRESSION,"vis2",prob24.java(39:17-39:21),"vis2"
+76,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(41:56-41:57),"prob24"
+77,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(39:3-39:9),"prob24"
+78,MEMBEREXPRESSION,"vis",prob24.java(38:3-38:13),"prob24.vis"
+79,DECLAREDREFERENCEEXPRESSION,"vis",prob24.java(38:16-38:19),"vis"
+80,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(38:3-38:9),"prob24"
+81,ARRAYCREATIONEXPRESSION,"",prob24.java(34:20-34:34),"new boolean[n]"
+82,MEMBEREXPRESSION,"n",prob24.java(34:32-34:33),"n"
+83,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(34:32-34:33),"prob24"
+84,MEMBEREXPRESSION,"key",prob24.java(36:3-36:13),"prob24.key"
+85,DECLAREDREFERENCEEXPRESSION,"key",prob24.java(36:16-36:19),"key"
+86,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(37:3-37:9),"prob24"
+87,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(36:3-36:9),"prob24"
+88,ARRAYCREATIONEXPRESSION,"",prob24.java(30:21-30:37),"new Double[n][n]"
+89,MEMBEREXPRESSION,"n",prob24.java(30:32-30:33),"n"
+90,MEMBEREXPRESSION,"n",prob24.java(30:35-30:36),"n"
+91,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(30:35-30:36),"prob24"
+92,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(30:32-30:33),"prob24"
+93,COMPOUNDSTATEMENT,"",prob24.java(48:26-52:4),"{
+			String input[] = in.readLine().split("" "");
+			a[i][0] = Double.parseDouble(input[0]);
+			a[i][1] = Double.parseDouble(input[1]);
+		}"
+94,DECLARATIONSTATEMENT,"",prob24.java(48:7-48:14),"int i=0"
+95,BINARYOPERATOR,"<",prob24.java(48:16-48:19),"i<n"
+96,UNARYOPERATOR,"++",prob24.java(48:21-48:24),"i++"
+97,VARIABLEDECLARATION,"i",prob24.java(48:11-48:14),"i=0"
+98,DECLAREDREFERENCEEXPRESSION,"in",prob24.java(49:21-49:23),"in"
+99,LITERAL,"",prob24.java(54:13-54:14),"0"
+100,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(48:21-48:22),"i"
+101,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(48:16-48:17),"i"
+102,DECLARATIONSTATEMENT,"",prob24.java(49:4-49:46),"String input[] = in.readLine().split("" "");"
+103,BINARYOPERATOR,"=",prob24.java(50:4-50:43),"a[i][0] = Double.parseDouble(input[0]);"
+104,BINARYOPERATOR,"=",prob24.java(51:4-51:43),"a[i][1] = Double.parseDouble(input[1]);"
+105,VARIABLEDECLARATION,"input",prob24.java(49:11-49:45),"input[] = in.readLine().split("" "")"
+106,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(51:4-51:11),"a[i][1]"
+107,STATICCALLEXPRESSION,"parseDouble",prob24.java(51:14-51:42),"Double.parseDouble(input[1])"
+108,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(51:33-51:41),"input[1]"
+109,DECLAREDREFERENCEEXPRESSION,"input",prob24.java(51:33-51:38),"input"
+110,LITERAL,"",prob24.java(51:39-51:40),"1"
+111,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(51:4-51:8),"a[i]"
+112,LITERAL,"",prob24.java(51:9-51:10),"1"
+113,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(51:4-51:5),"a"
+114,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(51:6-51:7),"i"
+115,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(50:4-50:11),"a[i][0]"
+116,STATICCALLEXPRESSION,"parseDouble",prob24.java(50:14-50:42),"Double.parseDouble(input[0])"
+117,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(50:33-50:41),"input[0]"
+118,DECLAREDREFERENCEEXPRESSION,"input",prob24.java(50:33-50:38),"input"
+119,LITERAL,"",prob24.java(50:39-50:40),"0"
+120,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(50:4-50:8),"a[i]"
+121,LITERAL,"",prob24.java(50:9-50:10),"0"
+122,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(50:4-50:5),"a"
+123,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(50:6-50:7),"i"
+124,MEMBERCALLEXPRESSION,"split",prob24.java(49:21-49:45),"in.readLine().split("" "")"
+125,DECLAREDREFERENCEEXPRESSION,"split",prob24.java(49:35-49:40),"split"
+126,LITERAL,"",prob24.java(49:41-49:44),""" """
+127,MEMBERCALLEXPRESSION,"readLine",prob24.java(49:21-49:34),"in.readLine()"
+128,DECLAREDREFERENCEEXPRESSION,"readLine",prob24.java(49:24-49:32),"readLine"
+129,MEMBEREXPRESSION,"n",prob24.java(48:18-48:19),"n"
+130,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(48:18-48:19),"prob24"
+131,MEMBEREXPRESSION,"parent",prob24.java(37:3-37:16),"prob24.parent"
+132,DECLAREDREFERENCEEXPRESSION,"parent",prob24.java(37:19-37:25),"parent"
+133,DECLAREDREFERENCEEXPRESSION,"println",prob24.java(64:14-64:21),"println"
+134,MEMBERCALLEXPRESSION,"replaceAll",prob24.java(64:22-64:49),"result.replaceAll("","", ""."")"
+135,MEMBEREXPRESSION,"out",prob24.java(64:3-64:13),"System.out"
+136,DECLAREDREFERENCEEXPRESSION,"System",prob24.java(64:3-64:9),"System"
+137,DECLAREDREFERENCEEXPRESSION,"result",prob24.java(64:22-64:28),"result"
+138,DECLAREDREFERENCEEXPRESSION,"replaceAll",prob24.java(64:29-64:39),"replaceAll"
+139,LITERAL,"",prob24.java(64:45-64:48),"""."""
+140,LITERAL,"",prob24.java(64:40-64:43),""","""
+141,ARRAYCREATIONEXPRESSION,"",prob24.java(31:18-31:31),"new Double[n]"
+142,MEMBEREXPRESSION,"n",prob24.java(31:29-31:30),"n"
+143,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(31:29-31:30),"prob24"
+144,MEMBEREXPRESSION,"n",prob24.java(27:3-27:4),"n"
+145,STATICCALLEXPRESSION,"parseInt",prob24.java(27:7-27:38),"Integer.parseInt(in.readLine())"
+146,MEMBERCALLEXPRESSION,"readLine",prob24.java(27:24-27:37),"in.readLine()"
+147,DECLAREDREFERENCEEXPRESSION,"readLine",prob24.java(27:27-27:35),"readLine"
+148,DECLAREDREFERENCEEXPRESSION,"in",prob24.java(27:24-27:26),"in"
+149,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(27:3-27:4),"prob24"
+150,STATICCALLEXPRESSION,"format",prob24.java(63:19-63:47),"String.format(""%.2f"", total)"
+151,MEMBEREXPRESSION,"total",prob24.java(63:41-63:46),"total"
+152,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(63:41-63:46),"prob24"
+153,ARRAYCREATIONEXPRESSION,"",prob24.java(32:18-32:28),"new int[n]"
+154,MEMBEREXPRESSION,"n",prob24.java(32:26-32:27),"n"
+155,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(32:26-32:27),"prob24"
+156,COMPOUNDSTATEMENT,"",prob24.java(54:26-61:4),"{
+			for(int j=i+1; j<n; j++) {
+				Double primeiro = (a[j][0] - a[i][0])*(a[j][0] - a[i][0]);
+				Double segundo = (a[j][1] - a[i][1])*(a[j][1] - a[i][1]);
+				dist[i][j] = Math.sqrt(primeiro + segundo);
+				dist[j][i] = Math.sqrt(primeiro + segundo);
+			}
+		}"
+157,DECLARATIONSTATEMENT,"",prob24.java(54:7-54:14),"int i=0"
+158,BINARYOPERATOR,"<",prob24.java(54:16-54:19),"i<n"
+159,UNARYOPERATOR,"++",prob24.java(54:21-54:24),"i++"
+160,VARIABLEDECLARATION,"i",prob24.java(54:11-54:14),"i=0"
+161,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(55:14-55:15),"i"
+162,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(54:21-54:22),"i"
+163,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(54:16-54:17),"i"
+164,FORSTATEMENT,"",prob24.java(55:4-60:5),"for(int j=i+1; j<n; j++) {
+				Double primeiro = (a[j][0] - a[i][0])*(a[j][0] - a[i][0]);
+				Double segundo = (a[j][1] - a[i][1])*(a[j][1] - a[i][1]);
+				dist[i][j] = Math.sqrt(primeiro + segundo);
+				dist[j][i] = Math.sqrt(primeiro + segundo);
+			}"
+165,COMPOUNDSTATEMENT,"",prob24.java(55:29-60:5),"{
+				Double primeiro = (a[j][0] - a[i][0])*(a[j][0] - a[i][0]);
+				Double segundo = (a[j][1] - a[i][1])*(a[j][1] - a[i][1]);
+				dist[i][j] = Math.sqrt(primeiro + segundo);
+				dist[j][i] = Math.sqrt(primeiro + segundo);
+			}"
+166,DECLARATIONSTATEMENT,"",prob24.java(55:8-55:17),"int j=i+1"
+167,BINARYOPERATOR,"<",prob24.java(55:19-55:22),"j<n"
+168,UNARYOPERATOR,"++",prob24.java(55:24-55:27),"j++"
+169,VARIABLEDECLARATION,"j",prob24.java(55:12-55:17),"j=i+1"
+170,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(56:24-56:25),"a"
+171,DECLARATIONSTATEMENT,"",prob24.java(56:5-56:63),"Double primeiro = (a[j][0] - a[i][0])*(a[j][0] - a[i][0]);"
+172,DECLARATIONSTATEMENT,"",prob24.java(57:5-57:62),"Double segundo = (a[j][1] - a[i][1])*(a[j][1] - a[i][1]);"
+173,BINARYOPERATOR,"=",prob24.java(58:5-58:48),"dist[i][j] = Math.sqrt(primeiro + segundo);"
+174,BINARYOPERATOR,"=",prob24.java(59:5-59:48),"dist[j][i] = Math.sqrt(primeiro + segundo);"
+175,VARIABLEDECLARATION,"primeiro",prob24.java(56:12-56:62),"primeiro = (a[j][0] - a[i][0])*(a[j][0] - a[i][0])"
+176,VARIABLEDECLARATION,"segundo",prob24.java(57:12-57:61),"segundo = (a[j][1] - a[i][1])*(a[j][1] - a[i][1])"
+177,DECLAREDREFERENCEEXPRESSION,"j",prob24.java(55:24-55:25),"j"
+178,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(59:5-59:15),"dist[j][i]"
+179,STATICCALLEXPRESSION,"sqrt",prob24.java(59:18-59:47),"Math.sqrt(primeiro + segundo)"
+180,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(59:5-59:12),"dist[j]"
+181,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(59:13-59:14),"i"
+182,DECLAREDREFERENCEEXPRESSION,"primeiro",prob24.java(59:28-59:36),"primeiro"
+183,DECLAREDREFERENCEEXPRESSION,"dist",prob24.java(59:5-59:9),"dist"
+184,DECLAREDREFERENCEEXPRESSION,"j",prob24.java(59:10-59:11),"j"
+185,BINARYOPERATOR,"+",prob24.java(59:28-59:46),"primeiro + segundo"
+186,DECLAREDREFERENCEEXPRESSION,"segundo",prob24.java(59:39-59:46),"segundo"
+187,DECLAREDREFERENCEEXPRESSION,"dist",prob24.java(58:5-58:9),"dist"
+188,BINARYOPERATOR,"*",prob24.java(57:22-57:61),"(a[j][1] - a[i][1])*(a[j][1] - a[i][1])"
+189,BINARYOPERATOR,"-",prob24.java(57:23-57:40),"a[j][1] - a[i][1]"
+190,BINARYOPERATOR,"-",prob24.java(57:43-57:60),"a[j][1] - a[i][1]"
+191,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(57:23-57:30),"a[j][1]"
+192,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(57:33-57:40),"a[i][1]"
+193,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(57:43-57:44),"a"
+194,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(57:23-57:27),"a[j]"
+195,LITERAL,"",prob24.java(57:28-57:29),"1"
+196,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(57:33-57:34),"a"
+197,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(57:23-57:24),"a"
+198,DECLAREDREFERENCEEXPRESSION,"j",prob24.java(57:25-57:26),"j"
+199,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(57:33-57:37),"a[i]"
+200,LITERAL,"",prob24.java(57:38-57:39),"1"
+201,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(57:35-57:36),"i"
+202,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(57:43-57:50),"a[j][1]"
+203,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(57:53-57:60),"a[i][1]"
+204,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(57:43-57:47),"a[j]"
+205,LITERAL,"",prob24.java(57:48-57:49),"1"
+206,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(57:53-57:54),"a"
+207,DECLAREDREFERENCEEXPRESSION,"j",prob24.java(57:45-57:46),"j"
+208,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(57:53-57:57),"a[i]"
+209,LITERAL,"",prob24.java(57:58-57:59),"1"
+210,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(57:55-57:56),"i"
+211,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(58:5-58:15),"dist[i][j]"
+212,STATICCALLEXPRESSION,"sqrt",prob24.java(58:18-58:47),"Math.sqrt(primeiro + segundo)"
+213,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(58:5-58:12),"dist[i]"
+214,DECLAREDREFERENCEEXPRESSION,"j",prob24.java(58:13-58:14),"j"
+215,DECLAREDREFERENCEEXPRESSION,"primeiro",prob24.java(58:28-58:36),"primeiro"
+216,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(58:10-58:11),"i"
+217,BINARYOPERATOR,"+",prob24.java(58:28-58:46),"primeiro + segundo"
+218,DECLAREDREFERENCEEXPRESSION,"segundo",prob24.java(58:39-58:46),"segundo"
+219,BINARYOPERATOR,"*",prob24.java(56:23-56:62),"(a[j][0] - a[i][0])*(a[j][0] - a[i][0])"
+220,BINARYOPERATOR,"-",prob24.java(56:24-56:41),"a[j][0] - a[i][0]"
+221,BINARYOPERATOR,"-",prob24.java(56:44-56:61),"a[j][0] - a[i][0]"
+222,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(56:24-56:31),"a[j][0]"
+223,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(56:34-56:41),"a[i][0]"
+224,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(56:44-56:45),"a"
+225,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(56:34-56:38),"a[i]"
+226,LITERAL,"",prob24.java(56:39-56:40),"0"
+227,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(56:34-56:35),"a"
+228,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(56:36-56:37),"i"
+229,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(56:24-56:28),"a[j]"
+230,LITERAL,"",prob24.java(56:29-56:30),"0"
+231,DECLAREDREFERENCEEXPRESSION,"j",prob24.java(56:26-56:27),"j"
+232,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(56:44-56:51),"a[j][0]"
+233,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(56:54-56:61),"a[i][0]"
+234,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(56:54-56:58),"a[i]"
+235,LITERAL,"",prob24.java(56:59-56:60),"0"
+236,DECLAREDREFERENCEEXPRESSION,"a",prob24.java(56:54-56:55),"a"
+237,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(56:56-56:57),"i"
+238,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(56:44-56:48),"a[j]"
+239,LITERAL,"",prob24.java(56:49-56:50),"0"
+240,DECLAREDREFERENCEEXPRESSION,"j",prob24.java(56:46-56:47),"j"
+241,DECLAREDREFERENCEEXPRESSION,"j",prob24.java(55:19-55:20),"j"
+242,MEMBEREXPRESSION,"n",prob24.java(55:21-55:22),"n"
+243,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(55:21-55:22),"prob24"
+244,BINARYOPERATOR,"+",prob24.java(55:14-55:17),"i+1"
+245,LITERAL,"",prob24.java(55:16-55:17),"1"
+246,MEMBEREXPRESSION,"n",prob24.java(54:18-54:19),"n"
+247,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(54:18-54:19),"prob24"
+248,NEWEXPRESSION,"",prob24.java(41:31-46:5),"new PriorityQueue<heapi>(n, new Comparator<heapi>() {
+    		@Override
+    		public int compare(heapi o1, heapi o2) {
+        		return (o1.valor.compareTo(o2.valor));
+    		}
+		})"
+249,CONSTRUCTEXPRESSION,"",prob24.java(41:31-46:5),"new PriorityQueue<heapi>(n, new Comparator<heapi>() {
+    		@Override
+    		public int compare(heapi o1, heapi o2) {
+        		return (o1.valor.compareTo(o2.valor));
+    		}
+		})"
+250,NEWEXPRESSION,"",prob24.java(41:59-46:4),"new Comparator<heapi>() {
+    		@Override
+    		public int compare(heapi o1, heapi o2) {
+        		return (o1.valor.compareTo(o2.valor));
+    		}
+		}"
+251,MEMBEREXPRESSION,"n",prob24.java(41:56-41:57),"n"
+252,CONSTRUCTEXPRESSION,"",prob24.java(41:59-46:4),"new Comparator<heapi>() {
+    		@Override
+    		public int compare(heapi o1, heapi o2) {
+        		return (o1.valor.compareTo(o2.valor));
+    		}
+		}"
+253,LITERAL,"",prob24.java(18:22-18:26),"0.00"
+254,VARIABLEDECLARATION,"this",,""
+255,COMPOUNDSTATEMENT,"",prob24.java(67:84-92:3),"{
+		for(int i=0; i<n; i++) {
+			key[i] = Double.POSITIVE_INFINITY;
+			parent[i] = -1;
+		}
+		key[x] = 0.0;
+		heap.add(new heapi(x, key[x]));
+		while(!heap.isEmpty()) {
+			heapi s = heap.poll();
+			int u = s.index;
+
+			if(!vis[u]) { 
+				vis[u] = true; 
+				total += key[u];
+			}
+
+			for(int i=0; i<n; i++) {
+				if(!vis[i] && dist[u][i] < key[i]) {
+
+					parent[i] = u;
+					key[i] = dist[u][i];
+					heap.add(new heapi(i, key[i]));
+				}
+			}
+		}
+	}"
+256,PARAMVARIABLEDECLARATION,"a",prob24.java(67:19-67:31),"Double[][] a"
+257,PARAMVARIABLEDECLARATION,"dist",prob24.java(67:33-67:48),"Double[][] dist"
+258,PARAMVARIABLEDECLARATION,"heap",prob24.java(67:50-67:75),"PriorityQueue<heapi> heap"
+259,PARAMVARIABLEDECLARATION,"x",prob24.java(67:77-67:82),"int x"
+260,LITERAL,"",prob24.java(68:13-68:14),"0"
+261,RETURNSTATEMENT,"",,""
+262,FORSTATEMENT,"",prob24.java(68:3-71:4),"for(int i=0; i<n; i++) {
+			key[i] = Double.POSITIVE_INFINITY;
+			parent[i] = -1;
+		}"
+263,BINARYOPERATOR,"=",prob24.java(72:3-72:16),"key[x] = 0.0;"
+264,MEMBERCALLEXPRESSION,"add",prob24.java(73:3-73:34),"heap.add(new heapi(x, key[x]));"
+265,WHILESTATEMENT,"",prob24.java(74:3-91:4),"while(!heap.isEmpty()) {
+			heapi s = heap.poll();
+			int u = s.index;
+
+			if(!vis[u]) { 
+				vis[u] = true; 
+				total += key[u];
+			}
+
+			for(int i=0; i<n; i++) {
+				if(!vis[i] && dist[u][i] < key[i]) {
+
+					parent[i] = u;
+					key[i] = dist[u][i];
+					heap.add(new heapi(i, key[i]));
+				}
+			}
+		}"
+266,DECLAREDREFERENCEEXPRESSION,"add",prob24.java(73:8-73:11),"add"
+267,DECLAREDREFERENCEEXPRESSION,"heap",prob24.java(74:10-74:14),"heap"
+268,NEWEXPRESSION,"",prob24.java(73:12-73:32),"new heapi(x, key[x])"
+269,DECLAREDREFERENCEEXPRESSION,"heap",prob24.java(73:3-73:7),"heap"
+270,DECLAREDREFERENCEEXPRESSION,"x",prob24.java(73:22-73:23),"x"
+271,CONSTRUCTEXPRESSION,"",prob24.java(73:12-73:32),"new heapi(x, key[x])"
+272,CONSTRUCTORDECLARATION,"heapi",prob26.java(20:2-23:3),"heapi(int index, Double valor) {
+		this.index = index;
+		this.valor = valor;
+	}"
+273,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(73:25-73:31),"key[x]"
+274,PARAMVARIABLEDECLARATION,"index",prob26.java(20:8-20:17),"int index"
+275,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(73:25-73:28),"prob24"
+276,MEMBEREXPRESSION,"key",prob24.java(73:25-73:28),"key"
+277,DECLAREDREFERENCEEXPRESSION,"x",prob24.java(73:29-73:30),"x"
+278,PARAMVARIABLEDECLARATION,"valor",prob26.java(20:19-20:31),"Double valor"
+279,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(72:3-72:9),"key[x]"
+280,LITERAL,"",prob24.java(72:12-72:15),"0.0"
+281,MEMBEREXPRESSION,"key",prob24.java(72:3-72:6),"key"
+282,DECLAREDREFERENCEEXPRESSION,"x",prob24.java(72:7-72:8),"x"
+283,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(72:3-72:6),"prob24"
+284,COMPOUNDSTATEMENT,"",prob24.java(68:26-71:4),"{
+			key[i] = Double.POSITIVE_INFINITY;
+			parent[i] = -1;
+		}"
+285,DECLARATIONSTATEMENT,"",prob24.java(68:7-68:14),"int i=0"
+286,BINARYOPERATOR,"<",prob24.java(68:16-68:19),"i<n"
+287,UNARYOPERATOR,"++",prob24.java(68:21-68:24),"i++"
+288,VARIABLEDECLARATION,"i",prob24.java(68:11-68:14),"i=0"
+289,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(69:4-69:7),"prob24"
+290,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(68:16-68:17),"i"
+291,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(68:21-68:22),"i"
+292,MEMBEREXPRESSION,"n",prob24.java(68:18-68:19),"n"
+293,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(68:18-68:19),"prob24"
+294,BINARYOPERATOR,"=",prob24.java(69:4-69:38),"key[i] = Double.POSITIVE_INFINITY;"
+295,BINARYOPERATOR,"=",prob24.java(70:4-70:19),"parent[i] = -1;"
+296,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(69:4-69:10),"key[i]"
+297,MEMBEREXPRESSION,"POSITIVE_INFINITY",prob24.java(69:13-69:37),"Double.POSITIVE_INFINITY"
+298,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(70:4-70:10),"prob24"
+299,DECLAREDREFERENCEEXPRESSION,"Double",prob24.java(69:13-69:19),"Double"
+300,MEMBEREXPRESSION,"key",prob24.java(69:4-69:7),"key"
+301,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(69:8-69:9),"i"
+302,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(70:4-70:13),"parent[i]"
+303,UNARYOPERATOR,"-",prob24.java(70:16-70:18),"-1"
+304,MEMBEREXPRESSION,"parent",prob24.java(70:4-70:10),"parent"
+305,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(70:11-70:12),"i"
+306,LITERAL,"",prob24.java(70:17-70:18),"1"
+307,UNARYOPERATOR,"!",prob24.java(74:9-74:24),"!heap.isEmpty()"
+308,COMPOUNDSTATEMENT,"",prob24.java(74:26-91:4),"{
+			heapi s = heap.poll();
+			int u = s.index;
+
+			if(!vis[u]) { 
+				vis[u] = true; 
+				total += key[u];
+			}
+
+			for(int i=0; i<n; i++) {
+				if(!vis[i] && dist[u][i] < key[i]) {
+
+					parent[i] = u;
+					key[i] = dist[u][i];
+					heap.add(new heapi(i, key[i]));
+				}
+			}
+		}"
+309,DECLAREDREFERENCEEXPRESSION,"heap",prob24.java(75:14-75:18),"heap"
+310,MEMBERCALLEXPRESSION,"isEmpty",prob24.java(74:10-74:24),"heap.isEmpty()"
+311,DECLAREDREFERENCEEXPRESSION,"isEmpty",prob24.java(74:15-74:22),"isEmpty"
+312,DECLARATIONSTATEMENT,"",prob24.java(75:4-75:26),"heapi s = heap.poll();"
+313,DECLARATIONSTATEMENT,"",prob24.java(76:4-76:20),"int u = s.index;"
+314,IFSTATEMENT,"",prob24.java(78:4-81:5),"if(!vis[u]) { 
+				vis[u] = true; 
+				total += key[u];
+			}"
+315,FORSTATEMENT,"",prob24.java(83:4-90:5),"for(int i=0; i<n; i++) {
+				if(!vis[i] && dist[u][i] < key[i]) {
+
+					parent[i] = u;
+					key[i] = dist[u][i];
+					heap.add(new heapi(i, key[i]));
+				}
+			}"
+316,VARIABLEDECLARATION,"s",prob24.java(75:10-75:25),"s = heap.poll()"
+317,VARIABLEDECLARATION,"u",prob24.java(76:8-76:19),"u = s.index"
+318,DECLAREDREFERENCEEXPRESSION,"s",prob24.java(76:12-76:13),"s"
+319,COMPOUNDSTATEMENT,"",prob24.java(83:27-90:5),"{
+				if(!vis[i] && dist[u][i] < key[i]) {
+
+					parent[i] = u;
+					key[i] = dist[u][i];
+					heap.add(new heapi(i, key[i]));
+				}
+			}"
+320,DECLARATIONSTATEMENT,"",prob24.java(83:8-83:15),"int i=0"
+321,BINARYOPERATOR,"<",prob24.java(83:17-83:20),"i<n"
+322,UNARYOPERATOR,"++",prob24.java(83:22-83:25),"i++"
+323,VARIABLEDECLARATION,"i",prob24.java(83:12-83:15),"i=0"
+324,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(84:9-84:12),"prob24"
+325,LITERAL,"",prob24.java(83:14-83:15),"0"
+326,COMPOUNDSTATEMENT,"",prob24.java(78:16-81:5),"{ 
+				vis[u] = true; 
+				total += key[u];
+			}"
+327,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(83:17-83:18),"i"
+328,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(83:22-83:23),"i"
+329,IFSTATEMENT,"",prob24.java(84:5-89:6),"if(!vis[i] && dist[u][i] < key[i]) {
+
+					parent[i] = u;
+					key[i] = dist[u][i];
+					heap.add(new heapi(i, key[i]));
+				}"
+330,COMPOUNDSTATEMENT,"",prob24.java(84:40-89:6),"{
+
+					parent[i] = u;
+					key[i] = dist[u][i];
+					heap.add(new heapi(i, key[i]));
+				}"
+331,BINARYOPERATOR,"&&",prob24.java(84:8-84:38),"!vis[i] && dist[u][i] < key[i]"
+332,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(86:6-86:12),"prob24"
+333,BINARYOPERATOR,"=",prob24.java(86:6-86:20),"parent[i] = u;"
+334,BINARYOPERATOR,"=",prob24.java(87:6-87:26),"key[i] = dist[u][i];"
+335,MEMBERCALLEXPRESSION,"add",prob24.java(88:6-88:37),"heap.add(new heapi(i, key[i]));"
+336,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(86:6-86:15),"parent[i]"
+337,DECLAREDREFERENCEEXPRESSION,"u",prob24.java(86:18-86:19),"u"
+338,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(87:6-87:9),"prob24"
+339,MEMBEREXPRESSION,"parent",prob24.java(86:6-86:12),"parent"
+340,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(86:13-86:14),"i"
+341,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(87:6-87:12),"key[i]"
+342,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(87:15-87:25),"dist[u][i]"
+343,DECLAREDREFERENCEEXPRESSION,"heap",prob24.java(88:6-88:10),"heap"
+344,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(87:15-87:22),"dist[u]"
+345,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(87:23-87:24),"i"
+346,DECLAREDREFERENCEEXPRESSION,"dist",prob24.java(87:15-87:19),"dist"
+347,DECLAREDREFERENCEEXPRESSION,"u",prob24.java(87:20-87:21),"u"
+348,MEMBEREXPRESSION,"key",prob24.java(87:6-87:9),"key"
+349,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(87:10-87:11),"i"
+350,DECLAREDREFERENCEEXPRESSION,"add",prob24.java(88:11-88:14),"add"
+351,NEWEXPRESSION,"",prob24.java(88:15-88:35),"new heapi(i, key[i])"
+352,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(88:25-88:26),"i"
+353,CONSTRUCTEXPRESSION,"",prob24.java(88:15-88:35),"new heapi(i, key[i])"
+354,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(88:28-88:34),"key[i]"
+355,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(88:28-88:31),"prob24"
+356,MEMBEREXPRESSION,"key",prob24.java(88:28-88:31),"key"
+357,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(88:32-88:33),"i"
+358,UNARYOPERATOR,"!",prob24.java(84:8-84:15),"!vis[i]"
+359,BINARYOPERATOR,"<",prob24.java(84:19-84:38),"dist[u][i] < key[i]"
+360,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(84:19-84:29),"dist[u][i]"
+361,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(84:32-84:38),"key[i]"
+362,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(84:19-84:26),"dist[u]"
+363,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(84:27-84:28),"i"
+364,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(84:32-84:35),"prob24"
+365,DECLAREDREFERENCEEXPRESSION,"dist",prob24.java(84:19-84:23),"dist"
+366,DECLAREDREFERENCEEXPRESSION,"u",prob24.java(84:24-84:25),"u"
+367,MEMBEREXPRESSION,"key",prob24.java(84:32-84:35),"key"
+368,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(84:36-84:37),"i"
+369,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(84:9-84:15),"vis[i]"
+370,MEMBEREXPRESSION,"vis",prob24.java(84:9-84:12),"vis"
+371,DECLAREDREFERENCEEXPRESSION,"i",prob24.java(84:13-84:14),"i"
+372,MEMBEREXPRESSION,"n",prob24.java(83:19-83:20),"n"
+373,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(83:19-83:20),"prob24"
+374,MEMBERCALLEXPRESSION,"poll",prob24.java(75:14-75:25),"heap.poll()"
+375,DECLAREDREFERENCEEXPRESSION,"poll",prob24.java(75:19-75:23),"poll"
+376,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(78:8-78:11),"prob24"
+377,MEMBEREXPRESSION,"index",prob24.java(76:12-76:19),"s.index"
+378,UNARYOPERATOR,"!",prob24.java(78:7-78:14),"!vis[u]"
+379,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(79:5-79:8),"prob24"
+380,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(78:8-78:14),"vis[u]"
+381,MEMBEREXPRESSION,"vis",prob24.java(78:8-78:11),"vis"
+382,DECLAREDREFERENCEEXPRESSION,"u",prob24.java(78:12-78:13),"u"
+383,BINARYOPERATOR,"=",prob24.java(79:5-79:19),"vis[u] = true;"
+384,BINARYOPERATOR,"+=",prob24.java(80:5-80:21),"total += key[u];"
+385,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(79:5-79:11),"vis[u]"
+386,LITERAL,"",prob24.java(79:14-79:18),"true"
+387,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(80:5-80:10),"prob24"
+388,MEMBEREXPRESSION,"vis",prob24.java(79:5-79:8),"vis"
+389,DECLAREDREFERENCEEXPRESSION,"u",prob24.java(79:9-79:10),"u"
+390,MEMBEREXPRESSION,"total",prob24.java(80:5-80:10),"total"
+391,ARRAYSUBSCRIPTIONEXPRESSION,"",prob24.java(80:14-80:20),"key[u]"
+392,MEMBEREXPRESSION,"key",prob24.java(80:14-80:17),"key"
+393,DECLAREDREFERENCEEXPRESSION,"u",prob24.java(80:18-80:19),"u"
+394,DECLAREDREFERENCEEXPRESSION,"prob24",prob24.java(80:14-80:17),"prob24"
+395,FIELDDECLARATION,"this",,""
+396,FIELDDECLARATION,"index",prob24.java(6:2-6:12),"index"
+397,FIELDDECLARATION,"valor",prob24.java(7:2-7:15),"valor"
+398,CONSTRUCTORDECLARATION,"heapi",prob24.java(9:2-12:3),"heapi(int index, Double valor) {
+		this.index = index;
+		this.valor = valor;
+	}"
+399,COMPOUNDSTATEMENT,"",prob24.java(9:33-12:3),"{
+		this.index = index;
+		this.valor = valor;
+	}"
+400,PARAMVARIABLEDECLARATION,"index",prob24.java(9:8-9:17),"int index"
+401,PARAMVARIABLEDECLARATION,"valor",prob24.java(9:19-9:31),"Double valor"
+402,DECLAREDREFERENCEEXPRESSION,"this",prob24.java(10:3-10:7),"this"
+403,RETURNSTATEMENT,"",,""
+404,BINARYOPERATOR,"=",prob24.java(10:3-10:22),"this.index = index;"
+405,BINARYOPERATOR,"=",prob24.java(11:3-11:22),"this.valor = valor;"
+406,MEMBEREXPRESSION,"index",prob24.java(10:3-10:13),"this.index"
+407,DECLAREDREFERENCEEXPRESSION,"index",prob24.java(10:16-10:21),"index"
+408,DECLAREDREFERENCEEXPRESSION,"this",prob24.java(11:3-11:7),"this"
+409,MEMBEREXPRESSION,"valor",prob24.java(11:3-11:13),"this.valor"
+410,DECLAREDREFERENCEEXPRESSION,"valor",prob24.java(11:16-11:21),"valor"

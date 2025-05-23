@@ -1,0 +1,30 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,50
+Main.java,insert line 26: `int max;` on try 0,0.9936305732484076,1.0,50
+Main.java,insert line 47: `boolean debug = false;` on try 0,0.8860759493670886,1.0,50
+Main.java,insert line 24: `boolean done = false;` on try 0,0.8176100628930818,1.0,50
+Main.java,insert line 51: `boolean debug = false;` on try 1,0.8125,1.0,50
+Main.java,insert line 17: `int i = 0;` on try 0,0.8074534161490683,1.0,50
+Main.java,insert line 32: `int count = 0;` on try 0,0.7530864197530864,1.0,50
+Main.java,"insert line 43: `int x, y;` on try 0",0.6585365853658537,1.0,50
+Main.java,insert line 9: `int intInput;` on try 1,0.6545454545454545,1.0,50
+Main.java,insert line 42: `int max;` on try 0,0.6265060240963856,1.0,50
+Main.java,insert line 32: `int count = 0;` on try 0,0.6227544910179641,1.0,50
+Main.java,insert line 8: `int min;` on try 0,0.5952380952380952,1.0,50
+Main.java,insert line 41: `boolean debug = false;` on try 1,0.5443786982248521,1.0,50
+Main.java,insert line 25: `int min;` on try 0,0.5058823529411764,1.0,50
+Main.java,insert line 39: `String[] messages;` on try 0,0.39766081871345027,1.0,50
+Main.java,insert line 16: `int j = 0;` on try 1,0.2441860465116279,1.0,50
+Main.java,insert line 53: `double w;` on try 0,0.24277456647398843,1.0,50
+Main.java,insert line 13: `double w;` on try 1,0.2413793103448276,1.0,50
+Main.java,insert line 58: `double w;` on try 0,0.24,1.0,50
+Main.java,insert line 61: `int index = 0;` on try 1,0.23863636363636365,1.0,50
+Main.java,insert line 51: `double w;` on try 3,0.23728813559322035,1.0,50
+Main.java,insert line 47: `done = true;` on try 2,0.23595505617977527,1.0,50
+Main.java,insert line 12: `boolean debug = false;` on try 1,0.2346368715083799,1.0,50
+Main.java,"insert line 36: `int x, y;` on try 2",0.23204419889502761,1.0,50
+Main.java,"insert line 60: `int x, y;` on try 3",0.22950819672131148,1.0,50
+Main.java,insert line 62: `int max;` on try 1,0.22826086956521738,1.0,50
+Main.java,insert line 30: `int indexOfField;` on try 2,0.22702702702702704,1.0,50
+Main.java,insert line 67: `int j = 0;` on try 1,0.22580645161290322,1.0,50
+Main.java,insert line 34: `double w;` on try 2,0.22459893048128343,1.0,50

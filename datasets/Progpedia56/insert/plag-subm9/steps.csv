@@ -1,0 +1,54 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,80
+twentyfour.java,insert line 73: `String[] messages;` on try 0,0.995850622406639,1.0,80
+twentyfour.java,insert line 44: `int max;` on try 0,0.9917355371900827,1.0,80
+twentyfour.java,insert line 51: `double w;` on try 0,0.9382716049382716,1.0,80
+twentyfour.java,insert line 15: `boolean debug = false;` on try 0,0.9344262295081968,1.0,80
+twentyfour.java,insert line 41: `double w;` on try 0,0.8979591836734694,1.0,80
+twentyfour.java,insert line 48: `boolean done = false;` on try 0,0.8943089430894309,1.0,80
+twentyfour.java,insert line 77: `double w;` on try 0,0.8744939271255061,1.0,80
+twentyfour.java,insert line 51: `int min;` on try 0,0.8709677419354839,1.0,80
+twentyfour.java,"insert line 13: `String output = """";` on try 0",0.8514056224899599,1.0,80
+twentyfour.java,insert line 29: `String[] messages;` on try 0,0.848,1.0,80
+twentyfour.java,"insert line 77: `int x, y;` on try 0",0.7777777777777778,1.0,80
+twentyfour.java,insert line 39: `int j = 0;` on try 0,0.7351778656126482,1.0,80
+twentyfour.java,insert line 25: `int count = 0;` on try 0,0.7007874015748031,1.0,80
+twentyfour.java,insert line 18: `no pai;` on try 0,0.6901960784313725,1.0,80
+twentyfour.java,insert line 90: `boolean debug = false;` on try 0,0.5703125,1.0,80
+twentyfour.java,insert line 15: `int min;` on try 0,0.5680933852140078,1.0,80
+twentyfour.java,insert line 70: `int max;` on try 0,0.5658914728682171,1.0,80
+twentyfour.java,insert line 36: `int count = 0;` on try 0,0.5096525096525096,1.0,80
+twentyfour.java,insert line 97: `int max;` on try 0,0.5076923076923077,1.0,80
+twentyfour.java,insert line 86: `int j = 0;` on try 0,0.5057471264367817,1.0,80
+twentyfour.java,insert line 11: `boolean done = false;` on try 0,0.48854961832061067,1.0,80
+twentyfour.java,insert line 75: `int max;` on try 0,0.4714828897338403,1.0,80
+twentyfour.java,insert line 70: `int count = 0;` on try 0,0.45454545454545453,1.0,80
+twentyfour.java,insert line 78: `boolean done = false;` on try 0,0.44528301886792454,1.0,80
+twentyfour.java,"insert line 75: `String output = """";` on try 0",0.44360902255639095,1.0,80
+twentyfour.java,insert line 27: `no pai;` on try 0,0.37453183520599254,1.0,80
+twentyfour.java,insert line 53: `boolean debug = false;` on try 0,0.373134328358209,1.0,80
+twentyfour.java,insert line 87: `boolean done = false;` on try 0,0.3420074349442379,1.0,80
+twentyfour.java,insert line 49: `boolean done = false;` on try 1,0.34074074074074073,1.0,80
+twentyfour.java,insert line 102: `int j = 0;` on try 0,0.33948339483394835,1.0,80
+twentyfour.java,insert line 72: `int intInput;` on try 0,0.33088235294117646,1.0,80
+twentyfour.java,insert line 108: `int j = 0;` on try 0,0.32967032967032966,1.0,80
+twentyfour.java,insert line 44: `int min;` on try 1,0.31386861313868614,1.0,80
+twentyfour.java,"insert line 71: `int x, y;` on try 1",0.2318840579710145,1.0,80
+twentyfour.java,insert line 69: `String[] messages;` on try 0,0.23104693140794225,1.0,80
+twentyfour.java,"insert line 41: `int x, y;` on try 2",0.15770609318996415,1.0,80
+twentyfour.java,insert line 63: `int max;` on try 2,0.15714285714285714,1.0,80
+twentyfour.java,insert line 22: `int index = 0;` on try 0,0.15658362989323843,1.0,80
+twentyfour.java,insert line 98: `int index = 0;` on try 0,0.15602836879432624,1.0,80
+twentyfour.java,insert line 45: `int intInput;` on try 3,0.15547703180212014,1.0,80
+twentyfour.java,insert line 115: `index++;` on try 2,0.15492957746478872,1.0,80
+twentyfour.java,insert line 92: `int min;` on try 2,0.0912280701754386,1.0,80
+twentyfour.java,insert line 13: `int max;` on try 0,0.09090909090909091,1.0,80
+twentyfour.java,insert line 105: `done = true;` on try 1,0.09059233449477352,1.0,80
+twentyfour.java,"insert line 61: `String output = """";` on try 2",0.09027777777777778,1.0,80
+twentyfour.java,insert line 77: `int j = 0;` on try 1,0.08996539792387544,1.0,80
+twentyfour.java,insert line 102: `int min;` on try 2,0.0896551724137931,1.0,80
+twentyfour.java,insert line 58: `int max;` on try 6,0.08934707903780069,1.0,80
+twentyfour.java,insert line 87: `int min;` on try 8,0.08904109589041095,1.0,80
+twentyfour.java,insert line 82: `boolean debug = false;` on try 7,0.08873720136518772,1.0,80
+twentyfour.java,insert line 73: `int from;` on try 4,0.08843537414965986,1.0,80
+twentyfour.java,insert line 4: `import java.util.HashMap;` on try 5,0.08813559322033898,0.995850622406639,80

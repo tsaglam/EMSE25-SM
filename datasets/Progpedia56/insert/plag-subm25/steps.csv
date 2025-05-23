@@ -1,0 +1,57 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,99
+EX191.java,insert line 83: `int min;` on try 0,0.9966101694915255,1.0,99
+EX191.java,"insert line 65: `int x, y;` on try 0",0.98989898989899,1.0,99
+EX191.java,insert line 38: `int min;` on try 0,0.9865771812080537,1.0,99
+EX191.java,insert line 75: `int min;` on try 0,0.9832775919732442,1.0,99
+EX191.java,insert line 33: `boolean done = false;` on try 0,0.9266666666666666,1.0,99
+EX191.java,insert line 31: `int v;` on try 0,0.9102990033222591,1.0,99
+EX191.java,insert line 36: `int min;` on try 0,0.9072847682119205,1.0,99
+EX191.java,insert line 103: `int j = 0;` on try 0,0.8778877887788779,1.0,99
+EX191.java,insert line 80: `int max;` on try 0,0.8552631578947368,1.0,99
+EX191.java,insert line 86: `int max;` on try 0,0.819672131147541,1.0,99
+EX191.java,insert line 104: `String[] messages;` on try 0,0.803921568627451,1.0,99
+EX191.java,insert line 8: `int min;` on try 0,0.755700325732899,1.0,99
+EX191.java,insert line 17: `double w;` on try 0,0.7532467532467533,1.0,99
+EX191.java,insert line 31: `int max;` on try 0,0.7184466019417476,1.0,99
+EX191.java,insert line 88: `String[] messages;` on try 0,0.6516129032258065,1.0,99
+EX191.java,insert line 104: `int index = 0;` on try 0,0.6109324758842444,1.0,99
+EX191.java,insert line 48: `double w;` on try 1,0.5897435897435898,1.0,99
+EX191.java,insert line 59: `double w;` on try 0,0.5878594249201278,1.0,99
+EX191.java,insert line 24: `String[] messages;` on try 0,0.5859872611464968,1.0,99
+EX191.java,insert line 66: `int max;` on try 0,0.5523809523809524,1.0,99
+EX191.java,insert line 11: `int i = 0;` on try 0,0.5379746835443038,1.0,99
+EX191.java,insert line 84: `int j = 0;` on try 1,0.5110410094637224,1.0,99
+EX191.java,"insert line 32: `int x, y;` on try 1",0.45141065830721006,1.0,99
+EX191.java,insert line 75: `int j = 0;` on try 0,0.425,1.0,99
+EX191.java,insert line 111: `int indexOfField;` on try 0,0.367601246105919,1.0,99
+EX191.java,insert line 22: `int i = 0;` on try 0,0.3105590062111801,1.0,99
+EX191.java,insert line 95: `boolean done = false;` on try 1,0.30959752321981426,1.0,99
+EX191.java,insert line 86: `String[] messages;` on try 0,0.2962962962962963,1.0,99
+EX191.java,insert line 125: `int min;` on try 0,0.2953846153846154,1.0,99
+EX191.java,insert line 84: `int min;` on try 1,0.22699386503067484,1.0,99
+EX191.java,insert line 24: `int max;` on try 1,0.22629969418960244,1.0,99
+EX191.java,insert line 112: `double cost;` on try 0,0.22560975609756098,1.0,99
+EX191.java,insert line 116: `int i = 0;` on try 0,0.22492401215805471,1.0,99
+EX191.java,insert line 107: `boolean done = false;` on try 2,0.22424242424242424,1.0,99
+EX191.java,insert line 75: `boolean done = false;` on try 0,0.22356495468277945,1.0,99
+EX191.java,insert line 113: `done = true;` on try 3,0.22289156626506024,1.0,99
+EX191.java,insert line 61: `int min;` on try 1,0.1981981981981982,1.0,99
+EX191.java,"insert line 113: `String output = """";` on try 0",0.19760479041916168,1.0,99
+EX191.java,insert line 94: `double w;` on try 0,0.19701492537313434,1.0,99
+EX191.java,insert line 55: `boolean done = false;` on try 0,0.16666666666666666,1.0,99
+EX191.java,insert line 47: `int j = 0;` on try 2,0.1661721068249258,1.0,99
+EX191.java,insert line 88: `boolean debug = false;` on try 0,0.16568047337278108,1.0,99
+EX191.java,insert line 62: `int index = 0;` on try 1,0.11209439528023599,1.0,99
+EX191.java,insert line 59: `int count = 0;` on try 1,0.11176470588235295,1.0,99
+EX191.java,insert line 142: `boolean done = false;` on try 2,0.11143695014662756,1.0,99
+EX191.java,insert line 41: `int j = 0;` on try 0,0.1111111111111111,1.0,99
+EX191.java,"insert line 26: `int x, y;` on try 2",0.11046511627906977,1.0,99
+EX191.java,insert line 84: `int count = 0;` on try 2,0.11014492753623188,1.0,99
+EX191.java,insert line 108: `int index = 0;` on try 6,0.10982658959537572,1.0,99
+EX191.java,insert line 97: `int count = 0;` on try 2,0.10951008645533142,1.0,99
+EX191.java,insert line 70: `int max;` on try 2,0.10919540229885058,1.0,99
+EX191.java,insert line 39: `String[] messages;` on try 2,0.10888252148997135,1.0,99
+EX191.java,insert line 2: `import java.util.HashMap;` on try 6,0.10857142857142857,0.9966101694915255,99
+EX191.java,insert line 122: `int u;` on try 7,0.10826210826210826,0.9966101694915255,99
+EX191.java,insert line 82: `String[] messages;` on try 1,0.10795454545454546,0.9966101694915255,99

@@ -1,0 +1,180 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,316
+Ex21.java,insert line 288: `int count = 0;` on try 0,0.9990375360923965,1.0,316
+Ex21.java,insert line 236: `int j = 0;` on try 0,0.9980769230769231,1.0,316
+Ex21.java,insert line 240: `boolean debug = false;` on try 0,0.989433237271854,1.0,316
+Ex21.java,insert line 310: `int min;` on try 0,0.9884836852207294,1.0,316
+Ex21.java,insert line 97: `int min;` on try 0,0.987535953978907,1.0,316
+Ex21.java,insert line 235: `int count = 0;` on try 0,0.9808429118773946,1.0,316
+Ex21.java,insert line 166: `boolean debug = false;` on try 0,0.9799043062200957,1.0,316
+Ex21.java,"insert line 205: `int x, y;` on try 0",0.9780324737344794,1.0,316
+Ex21.java,"insert line 117: `int x, y;` on try 0",0.9761677788369876,1.0,316
+Ex21.java,insert line 202: `int j = 0;` on try 0,0.9676190476190476,1.0,316
+Ex21.java,insert line 33: `boolean debug = false;` on try 0,0.966698382492864,1.0,316
+Ex21.java,insert line 27: `double w;` on try 0,0.9657794676806084,1.0,316
+Ex21.java,insert line 271: `int j = 0;` on try 0,0.9648622981956315,1.0,316
+Ex21.java,insert line 149: `int count = 0;` on try 0,0.9639468690702088,1.0,316
+Ex21.java,insert line 89: `int index = 0;` on try 0,0.9630331753554502,1.0,316
+Ex21.java,insert line 309: `int index = 0;` on try 1,0.9621212121212122,1.0,316
+Ex21.java,insert line 319: `boolean debug = false;` on try 0,0.9555345316934721,1.0,316
+Ex21.java,insert line 225: `int j = 0;` on try 0,0.9546313799621928,1.0,316
+Ex21.java,insert line 17: `String[] messages;` on try 0,0.9537299338999056,1.0,316
+Ex21.java,insert line 270: `boolean done = false;` on try 0,0.939622641509434,1.0,316
+Ex21.java,insert line 263: `double w;` on try 0,0.9387370405278039,1.0,316
+Ex21.java,insert line 250: `double w;` on try 0,0.9378531073446328,1.0,316
+Ex21.java,insert line 276: `Entry<T> minElem = mMin;` on try 0,0.9369708372530574,1.0,316
+Ex21.java,insert line 25: `int count = 0;` on try 0,0.9285714285714286,1.0,316
+Ex21.java,"insert line 46: `int x, y;` on try 0",0.926829268292683,1.0,316
+Ex21.java,insert line 35: `int max;` on try 0,0.9240862230552952,1.0,316
+Ex21.java,insert line 67: `boolean done = false;` on try 0,0.9232209737827716,1.0,316
+Ex21.java,insert line 225: `double w;` on try 0,0.9148737137511693,1.0,316
+Ex21.java,insert line 260: `int i = 0;` on try 0,0.9102803738317757,1.0,316
+Ex21.java,insert line 66: `int max;` on try 0,0.907563025210084,1.0,316
+Ex21.java,insert line 129: `int j = 0;` on try 0,0.8955223880597015,1.0,316
+Ex21.java,insert line 294: `int count = 0;` on try 0,0.8946877912395154,1.0,316
+Ex21.java,insert line 328: `String[] messages;` on try 1,0.8752327746741154,1.0,316
+Ex21.java,insert line 85: `int count = 0;` on try 0,0.8744186046511628,1.0,316
+Ex21.java,insert line 225: `int min;` on try 0,0.8513011152416357,1.0,316
+Ex21.java,insert line 74: `double w;` on try 0,0.8505106778087279,1.0,316
+Ex21.java,"insert line 349: `int x, y;` on try 0",0.8415199258572753,1.0,316
+Ex21.java,insert line 207: `int min;` on try 0,0.8407407407407408,1.0,316
+Ex21.java,insert line 174: `int min;` on try 0,0.8270120259019427,1.0,316
+Ex21.java,insert line 147: `String[] messages;` on try 0,0.8262476894639557,1.0,316
+Ex21.java,insert line 332: `int min;` on try 0,0.8254847645429363,1.0,316
+Ex21.java,"insert line 203: `int x, y;` on try 0",0.8129032258064516,1.0,316
+Ex21.java,insert line 350: `boolean debug = false;` on try 0,0.7937384898710865,1.0,316
+Ex21.java,insert line 28: `int index = 0;` on try 1,0.7930082796688133,1.0,316
+Ex21.java,"insert line 95: `int x, y;` on try 0",0.7823691460055097,1.0,316
+Ex21.java,insert line 147: `boolean debug = false;` on try 1,0.7743119266055046,1.0,316
+Ex21.java,insert line 332: `double w;` on try 0,0.7552703941338221,1.0,316
+Ex21.java,"insert line 220: `int x, y;` on try 2",0.7483989021043,1.0,316
+Ex21.java,"insert line 198: `String output = """";` on try 0",0.7477148080438757,1.0,316
+Ex21.java,insert line 104: `int j = 0;` on try 1,0.7470319634703196,1.0,316
+Ex21.java,insert line 310: `int i = 0;` on try 0,0.7408759124087592,1.0,316
+Ex21.java,insert line 32: `int j = 0;` on try 1,0.7347310847766636,1.0,316
+Ex21.java,insert line 203: `String[] messages;` on try 0,0.7285974499089253,1.0,316
+Ex21.java,insert line 42: `int j = 0;` on try 0,0.707916287534122,1.0,316
+Ex21.java,insert line 306: `int min;` on try 1,0.6872727272727273,1.0,316
+Ex21.java,insert line 92: `int min;` on try 1,0.6866485013623979,1.0,316
+Ex21.java,insert line 292: `int max;` on try 0,0.6678765880217786,1.0,316
+Ex21.java,insert line 23: `int min;` on try 1,0.6563916591115141,1.0,316
+Ex21.java,insert line 321: `String[] messages;` on try 0,0.644927536231884,1.0,316
+Ex21.java,insert line 351: `int j = 0;` on try 2,0.644343891402715,1.0,316
+Ex21.java,insert line 74: `int j = 0;` on try 1,0.6238698010849909,1.0,316
+Ex21.java,insert line 313: `int j = 0;` on try 0,0.6233062330623306,1.0,316
+Ex21.java,insert line 5: `import java.util.HashMap;` on try 2,0.6227436823104693,0.9990281827016521,316
+Ex21.java,insert line 70: `int count = 0;` on try 1,0.6185752930568079,0.9990281827016521,316
+Ex21.java,insert line 235: `double w;` on try 0,0.618018018018018,0.9990281827016521,316
+Ex21.java,insert line 198: `int min;` on try 0,0.6048604860486049,0.9990281827016521,316
+Ex21.java,insert line 267: `String[] messages;` on try 2,0.60431654676259,0.9990281827016521,316
+Ex21.java,insert line 87: `int min;` on try 1,0.5893980233602875,0.9990281827016521,316
+Ex21.java,insert line 382: `int j = 0;` on try 0,0.5888689407540395,0.9990281827016521,316
+Ex21.java,insert line 276: `boolean done = false;` on try 1,0.5865470852017938,0.9990281827016521,316
+Ex21.java,insert line 85: `boolean debug = false;` on try 1,0.5824372759856631,0.9990281827016521,316
+Ex21.java,insert line 368: `int i = 0;` on try 0,0.5819158460161146,0.9990281827016521,316
+Ex21.java,insert line 336: `double w;` on try 1,0.5706618962432916,0.9990281827016521,316
+Ex21.java,insert line 43: `boolean done = false;` on try 1,0.5701519213583557,0.9990281827016521,316
+Ex21.java,insert line 37: `boolean debug = false;` on try 0,0.5535714285714286,0.9990281827016521,316
+Ex21.java,insert line 298: `int index = 0;` on try 0,0.5334522747546833,0.9990281827016521,316
+Ex21.java,insert line 349: `int j = 0;` on try 0,0.5258467023172906,0.9990281827016521,316
+Ex21.java,insert line 358: `int count = 0;` on try 0,0.5253784505788067,0.9990281827016521,316
+Ex21.java,insert line 60: `int index = 0;` on try 2,0.5249110320284698,0.9990281827016521,316
+Ex21.java,insert line 373: `int min;` on try 0,0.5244444444444445,0.9990281827016521,316
+Ex21.java,insert line 56: `int i = 0;` on try 1,0.5239786856127886,0.9990281827016521,316
+Ex21.java,insert line 106: `int max;` on try 2,0.5164152617568767,0.9990281827016521,316
+Ex21.java,"insert line 136: `int x, y;` on try 1",0.5155004428697962,0.9990281827016521,316
+Ex21.java,insert line 101: `int j = 0;` on try 0,0.5150442477876106,0.9990281827016521,316
+Ex21.java,insert line 239: `int min;` on try 1,0.5128205128205128,0.9990281827016521,316
+Ex21.java,insert line 69: `int max;` on try 1,0.49823321554770317,0.9990281827016521,316
+Ex21.java,insert line 126: `double w;` on try 2,0.4907325684024713,0.9990281827016521,316
+Ex21.java,insert line 145: `boolean debug = false;` on try 0,0.47619047619047616,0.9990281827016521,316
+Ex21.java,insert line 160: `double w;` on try 1,0.47577092511013214,0.9990281827016521,316
+Ex21.java,insert line 65: `int j = 0;` on try 1,0.45422535211267606,0.9990281827016521,316
+Ex21.java,insert line 354: `boolean debug = false;` on try 0,0.44854881266490765,0.9990281827016521,316
+Ex21.java,insert line 392: `int max;` on try 0,0.44815465729349735,0.9990281827016521,316
+Ex21.java,insert line 168: `int index = 0;` on try 1,0.44600526777875327,0.9990281827016521,316
+Ex21.java,insert line 277: `String[] messages;` on try 2,0.4368421052631579,0.9990281827016521,316
+Ex21.java,insert line 205: `int min;` on try 0,0.4364592462751972,0.9990281827016521,316
+Ex21.java,insert line 139: `int index = 0;` on try 1,0.43257443082311736,0.9990281827016521,316
+Ex21.java,insert line 1: `import java.util.HashMap;` on try 1,0.4321959755030621,0.9980582524271845,316
+Ex21.java,insert line 49: `int min;` on try 1,0.4160839160839161,0.9980582524271845,316
+Ex21.java,insert line 234: `int count = 0;` on try 0,0.4,0.9980582524271845,316
+Ex21.java,"insert line 168: `int x, y;` on try 2",0.3801220575414124,0.9980582524271845,316
+Ex21.java,insert line 270: `int j = 0;` on try 0,0.3797909407665505,0.9980582524271845,316
+Ex21.java,insert line 357: `boolean debug = false;` on try 2,0.37946040034812883,0.9980582524271845,316
+Ex21.java,insert line 122: `String[] messages;` on try 1,0.37217391304347824,0.9980582524271845,316
+Ex21.java,insert line 335: `int count = 0;` on try 0,0.37185056472632494,0.9980582524271845,316
+Ex21.java,insert line 368: `boolean done = false;` on try 3,0.3559027777777778,0.9980582524271845,316
+Ex21.java,insert line 243: `double w;` on try 0,0.35559410234171723,0.9980582524271845,316
+Ex21.java,insert line 382: `int max;` on try 1,0.35528596187175043,0.9980582524271845,316
+Ex21.java,insert line 222: `double w;` on try 1,0.3515151515151515,0.9980582524271845,316
+Ex21.java,insert line 286: `boolean debug = false;` on try 1,0.35121107266435986,0.9980582524271845,316
+Ex21.java,insert line 69: `boolean debug = false;` on try 2,0.3509075194468453,0.9980582524271845,316
+Ex21.java,insert line 332: `int i = 0;` on try 3,0.35060449050086356,0.9980582524271845,316
+Ex21.java,insert line 161: `boolean debug = false;` on try 2,0.3468507333908542,0.9980582524271845,316
+Ex21.java,insert line 96: `String[] messages;` on try 1,0.34655172413793106,0.9980582524271845,316
+Ex21.java,insert line 383: `int index = 0;` on try 2,0.3462532299741602,0.9980582524271845,316
+Ex21.java,insert line 231: `int min;` on try 0,0.3304647160068847,0.9980582524271845,316
+Ex21.java,insert line 288: `String[] messages;` on try 5,0.3301805674978504,0.9980582524271845,316
+Ex21.java,insert line 351: `int max;` on try 2,0.32989690721649484,0.9980582524271845,316
+Ex21.java,insert line 119: `double w;` on try 1,0.3296137339055794,0.9980582524271845,316
+Ex21.java,insert line 37: `int index = 0;` on try 4,0.3293310463121784,0.9980582524271845,316
+Ex21.java,insert line 8: `import java.util.HashMap;` on try 0,0.32904884318766064,0.997090203685742,316
+Ex21.java,insert line 73: `int min;` on try 3,0.3287671232876712,0.997090203685742,316
+Ex21.java,insert line 195: `boolean done = false;` on try 0,0.32164242942686055,0.997090203685742,316
+Ex21.java,"insert line 189: `int x, y;` on try 1",0.3142613151152861,0.997090203685742,316
+Ex21.java,insert line 75: `int min;` on try 1,0.31399317406143346,0.997090203685742,316
+Ex21.java,insert line 289: `int max;` on try 1,0.3137254901960784,0.997090203685742,316
+Ex21.java,insert line 53: `int index = 0;` on try 2,0.313458262350937,0.997090203685742,316
+Ex21.java,insert line 68: `int i = 0;` on try 2,0.3131914893617021,0.997090203685742,316
+Ex21.java,insert line 233: `String[] messages;` on try 2,0.3129251700680272,0.997090203685742,316
+Ex21.java,insert line 386: `int count = 0;` on try 7,0.31265930331350894,0.997090203685742,316
+Ex21.java,insert line 267: `int count = 0;` on try 2,0.29541595925297115,0.997090203685742,316
+Ex21.java,"insert line 196: `int x, y;` on try 5",0.27796610169491526,0.997090203685742,316
+Ex21.java,insert line 177: `String[] messages;` on try 2,0.2777307366638442,0.997090203685742,316
+Ex21.java,insert line 138: `boolean debug = false;` on try 2,0.2673434856175973,0.997090203685742,316
+Ex21.java,insert line 108: `int index = 0;` on try 4,0.26711749788672867,0.997090203685742,316
+Ex21.java,insert line 137: `int count = 0;` on try 6,0.24493243243243243,0.997090203685742,316
+Ex21.java,insert line 147: `int max;` on try 3,0.24135021097046414,0.997090203685742,316
+Ex21.java,insert line 230: `int index = 0;` on try 4,0.2411467116357504,0.997090203685742,316
+Ex21.java,insert line 125: `String[] messages;` on try 1,0.2409435551811289,0.997090203685742,316
+Ex21.java,"insert line 432: `int x, y;` on try 3",0.24053826745164003,0.997090203685742,316
+Ex21.java,insert line 31: `int j = 0;` on try 1,0.24033613445378152,0.997090203685742,316
+Ex21.java,insert line 163: `int index = 0;` on try 0,0.23509655751469352,0.997090203685742,316
+Ex21.java,insert line 276: `int index = 0;` on try 0,0.2348993288590604,0.997090203685742,316
+Ex21.java,insert line 444: `boolean done = false;` on try 2,0.2347024308466052,0.997090203685742,316
+Ex21.java,insert line 155: `boolean done = false;` on try 3,0.21440536013400335,0.997090203685742,316
+Ex21.java,insert line 148: `int max;` on try 2,0.21422594142259413,0.997090203685742,316
+Ex21.java,insert line 24: `int i = 0;` on try 4,0.1956521739130435,0.997090203685742,316
+Ex21.java,insert line 348: `int count = 0;` on try 0,0.19548872180451127,0.997090203685742,316
+Ex21.java,insert line 391: `String[] messages;` on try 1,0.19532554257095158,0.997090203685742,316
+Ex21.java,insert line 72: `boolean done = false;` on try 3,0.195162635529608,0.997090203685742,316
+Ex21.java,insert line 59: `int max;` on try 1,0.195,0.997090203685742,316
+Ex21.java,insert line 245: `int j = 0;` on try 2,0.1948376353039134,0.997090203685742,316
+Ex21.java,insert line 447: `String[] messages;` on try 1,0.194675540765391,0.997090203685742,316
+Ex21.java,insert line 405: `int min;` on try 3,0.19451371571072318,0.997090203685742,316
+Ex21.java,insert line 185: `int min;` on try 3,0.19435215946843853,0.997090203685742,316
+Ex21.java,insert line 173: `String[] messages;` on try 0,0.1941908713692946,0.997090203685742,316
+Ex21.java,insert line 23: `int intInput;` on try 9,0.19402985074626866,0.997090203685742,316
+Ex21.java,insert line 45: `int count = 0;` on try 4,0.19386909693454846,0.997090203685742,316
+Ex21.java,insert line 316: `int count = 0;` on try 7,0.19370860927152317,0.997090203685742,316
+Ex21.java,"insert line 318: `String output = """";` on try 5",0.1935483870967742,0.997090203685742,316
+Ex21.java,"insert line 146: `int x, y;` on try 4",0.19322873658133774,0.997090203685742,316
+Ex21.java,insert line 269: `int index = 0;` on try 4,0.19306930693069307,0.997090203685742,316
+Ex21.java,insert line 178: `int j = 0;` on try 4,0.19291014014839242,0.997090203685742,316
+Ex21.java,insert line 112: `int index = 0;` on try 8,0.1927512355848435,0.997090203685742,316
+Ex21.java,insert line 3: `import java.util.NoSuchElementException;` on try 7,0.1925925925925926,0.9961240310077519,316
+Ex21.java,insert line 269: `int count = 0;` on try 6,0.1924342105263158,0.9961240310077519,316
+Ex21.java,insert line 190: `int min;` on try 4,0.1922760887428102,0.9961240310077519,316
+Ex21.java,insert line 115: `index++;` on try 9,0.1921182266009852,0.9961240310077519,316
+Ex21.java,insert line 127: `boolean done = false;` on try 6,0.1837571780147662,0.9961240310077519,316
+Ex21.java,insert line 428: `int index = 0;` on try 5,0.18360655737704917,0.9961240310077519,316
+Ex21.java,insert line 31: `int max;` on try 9,0.18345618345618345,0.9961240310077519,316
+Ex21.java,insert line 458: `index++;` on try 4,0.18330605564648117,0.9961240310077519,316
+Ex21.java,insert line 304: `int i = 0;` on try 5,0.18315617334423548,0.9961240310077519,316
+Ex21.java,insert line 387: `double w;` on try 9,0.1830065359477124,0.9961240310077519,316
+Ex21.java,insert line 336: `double w;` on try 5,0.18285714285714286,0.9961240310077519,316
+Ex21.java,insert line 71: `String[] messages;` on try 6,0.18270799347471453,0.9961240310077519,316
+Ex21.java,insert line 323: `int j = 0;` on try 5,0.18255908720456399,0.9961240310077519,316
+Ex21.java,"insert line 107: `String output = """";` on try 7",0.16775244299674266,0.9961240310077519,316
+Ex21.java,insert line 367: `boolean done = false;` on try 8,0.1676159479251424,0.9961240310077519,316

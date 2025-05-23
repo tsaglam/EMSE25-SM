@@ -1,0 +1,55 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,104
+Freckles.java,insert line 76: `int min;` on try 0,0.996742671009772,1.0,104
+Freckles.java,insert line 103: `int min;` on try 0,0.9675324675324676,1.0,104
+Freckles.java,insert line 6: `int index = 0;` on try 0,0.919093851132686,1.0,104
+Freckles.java,insert line 73: `String[] messages;` on try 0,0.8838709677419355,1.0,104
+Freckles.java,insert line 11: `int min;` on try 0,0.8810289389067524,1.0,104
+Freckles.java,insert line 42: `double w;` on try 0,0.8782051282051282,1.0,104
+Freckles.java,insert line 47: `int count = 0;` on try 0,0.8306709265175719,1.0,104
+Freckles.java,insert line 10: `boolean done = false;` on try 0,0.7579617834394905,1.0,104
+Freckles.java,insert line 17: `boolean done = false;` on try 0,0.7301587301587301,1.0,104
+Freckles.java,insert line 15: `boolean done = false;` on try 0,0.7278481012658228,1.0,104
+Freckles.java,insert line 28: `double w;` on try 0,0.7255520504731862,1.0,104
+Freckles.java,insert line 48: `int count = 0;` on try 0,0.7232704402515723,1.0,104
+Freckles.java,insert line 102: `int count = 0;` on try 0,0.7210031347962382,1.0,104
+Freckles.java,"insert line 20: `String output = """";` on try 0",0.71875,1.0,104
+Freckles.java,insert line 5: `double w;` on try 0,0.7165109034267912,1.0,104
+Freckles.java,insert line 47: `int count = 0;` on try 0,0.7080745341614907,1.0,104
+Freckles.java,insert line 15: `int rankB = rank;` on try 0,0.7058823529411765,1.0,104
+Freckles.java,insert line 38: `int max;` on try 1,0.6728395061728395,1.0,104
+Freckles.java,insert line 56: `int i = 0;` on try 0,0.6707692307692308,1.0,104
+Freckles.java,insert line 112: `int i = 0;` on try 0,0.6441717791411042,1.0,104
+Freckles.java,insert line 98: `boolean debug = false;` on try 0,0.6116207951070336,1.0,104
+Freckles.java,insert line 90: `int count = 0;` on try 0,0.6097560975609756,1.0,104
+Freckles.java,"insert line 108: `int x, y;` on try 0",0.593939393939394,1.0,104
+Freckles.java,insert line 71: `int index = 0;` on try 0,0.5921450151057401,1.0,104
+Freckles.java,insert line 9: `double y;` on try 0,0.5903614457831325,1.0,104
+Freckles.java,insert line 112: `int index = 0;` on try 0,0.5885885885885885,1.0,104
+Freckles.java,insert line 41: `boolean debug = false;` on try 0,0.5748502994011976,1.0,104
+Freckles.java,insert line 92: `double w;` on try 0,0.573134328358209,1.0,104
+Freckles.java,"insert line 43: `int x, y;` on try 0",0.56973293768546,1.0,104
+Freckles.java,insert line 26: `int index = 0;` on try 1,0.5207100591715976,1.0,104
+Freckles.java,insert line 107: `int max;` on try 0,0.5073746312684366,1.0,104
+Freckles.java,insert line 91: `int max;` on try 0,0.5,1.0,104
+Freckles.java,insert line 50: `int j = 0;` on try 0,0.4340175953079179,1.0,104
+Freckles.java,insert line 52: `String[] messages;` on try 1,0.4327485380116959,1.0,104
+Freckles.java,insert line 75: `int min;` on try 1,0.4198250728862974,1.0,104
+Freckles.java,insert line 102: `int max;` on try 1,0.4186046511627907,1.0,104
+Freckles.java,insert line 31: `int min;` on try 1,0.3826086956521739,1.0,104
+Freckles.java,insert line 78: `double w;` on try 0,0.3815028901734104,1.0,104
+Freckles.java,insert line 47: `int index = 0;` on try 1,0.3804034582132565,1.0,104
+Freckles.java,insert line 96: `int i = 0;` on try 0,0.367816091954023,1.0,104
+Freckles.java,insert line 56: `int count = 0;` on try 0,0.3667621776504298,1.0,104
+Freckles.java,insert line 77: `int max;` on try 0,0.36,1.0,104
+Freckles.java,insert line 86: `String[] messages;` on try 0,0.3475783475783476,1.0,104
+Freckles.java,"insert line 114: `int x, y;` on try 1",0.34560906515580736,1.0,104
+Freckles.java,insert line 69: `boolean debug = false;` on try 0,0.3333333333333333,1.0,104
+Freckles.java,insert line 99: `int j = 0;` on try 0,0.3267605633802817,1.0,104
+Freckles.java,insert line 11: `int j = 0;` on try 2,0.3258426966292135,1.0,104
+Freckles.java,insert line 39: `int i = 0;` on try 4,0.32492997198879553,1.0,104
+Freckles.java,insert line 138: `int min;` on try 0,0.3240223463687151,1.0,104
+Freckles.java,insert line 30: `int min;` on try 2,0.27298050139275765,1.0,104
+Freckles.java,insert line 43: `done = true;` on try 2,0.2722222222222222,1.0,104
+Freckles.java,insert line 39: `done = true;` on try 9,0.27146814404432135,1.0,104
+Freckles.java,insert line 101: `int intInput;` on try 8,0.24861878453038674,1.0,104

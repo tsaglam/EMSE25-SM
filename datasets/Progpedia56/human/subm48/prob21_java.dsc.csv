@@ -1,0 +1,541 @@
+id,type,token,location,code
+1,TRANSLATIONUNITDECLARATION,"/data/00000056/submissions/07758711_21_201404984/prob21.java",,""
+2,RECORDDECLARATION,"prob21",prob21.java(3:1-55:2),"public class prob21{
+    static double INF=99999999.0;
+
+    public static void main(String args[])
+    {
+	Scanner in=new Scanner(System.in);
+  
+	double p[][]=new double[101][101];
+	double ax[]=new double[101];
+	double ay[]=new double[101];
+	double dis[]=new double[101];
+	boolean used[]=new boolean[101];
+	int n,i,j;
+	n=in.nextInt();
+	for(i=0;i< n;i++){
+	    ax[i]=in.nextDouble();
+	    ay[i]=in.nextDouble();
+        }
+	for(i=0;i<n;i++)
+	    for(j=0;j<n;j++) 
+		p[i][j]=INF;
+	for(i=0;i< n;i++)
+	    for(j=i+1;j< n;j++){
+		double v=(ax[i]-ax[j])*(ax[i]-ax[j])+(ay[i]-ay[j])*(ay[i]-ay[j]);
+		v=Math.sqrt(v);
+		if(v< p[i][j])
+		    p[i][j]=p[j][i]=v;
+	    }
+	for(i=0;i< n;i++)
+	    dis[i]=p[0][i];
+	Arrays.fill(used,false);
+	dis[0]=0;
+	used[0]=true;
+	double ans=0;
+	for(i=0;i<n-1;i++){
+	    double min=INF;
+	    int tag=-1;
+	    for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]< min){
+		    min=dis[j];
+		    tag=j;
+		}
+	    }
+	    used[tag]=true;
+	    ans+=min;
+	    for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]>p[tag][j])
+		    dis[j]=p[tag][j];
+	    }
+	}
+	System.out.printf(""%.2f\n"",ans);
+    }
+}"
+3,INCLUDEDECLARATION,"java.util.Scanner",,""
+4,INCLUDEDECLARATION,"java.util.Arrays",,""
+5,FIELDDECLARATION,"this",,""
+6,FIELDDECLARATION,"INF",prob21.java(4:5-4:34),"INF = 99999999.0"
+7,METHODDECLARATION,"main",prob21.java(6:5-54:6),"public static void main(String args[])
+    {
+	Scanner in=new Scanner(System.in);
+  
+	double p[][]=new double[101][101];
+	double ax[]=new double[101];
+	double ay[]=new double[101];
+	double dis[]=new double[101];
+	boolean used[]=new boolean[101];
+	int n,i,j;
+	n=in.nextInt();
+	for(i=0;i< n;i++){
+	    ax[i]=in.nextDouble();
+	    ay[i]=in.nextDouble();
+        }
+	for(i=0;i<n;i++)
+	    for(j=0;j<n;j++) 
+		p[i][j]=INF;
+	for(i=0;i< n;i++)
+	    for(j=i+1;j< n;j++){
+		double v=(ax[i]-ax[j])*(ax[i]-ax[j])+(ay[i]-ay[j])*(ay[i]-ay[j]);
+		v=Math.sqrt(v);
+		if(v< p[i][j])
+		    p[i][j]=p[j][i]=v;
+	    }
+	for(i=0;i< n;i++)
+	    dis[i]=p[0][i];
+	Arrays.fill(used,false);
+	dis[0]=0;
+	used[0]=true;
+	double ans=0;
+	for(i=0;i<n-1;i++){
+	    double min=INF;
+	    int tag=-1;
+	    for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]< min){
+		    min=dis[j];
+		    tag=j;
+		}
+	    }
+	    used[tag]=true;
+	    ans+=min;
+	    for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]>p[tag][j])
+		    dis[j]=p[tag][j];
+	    }
+	}
+	System.out.printf(""%.2f\n"",ans);
+    }"
+8,CONSTRUCTORDECLARATION,"prob21",,""
+9,VARIABLEDECLARATION,"this",,""
+10,COMPOUNDSTATEMENT,"",prob21.java(7:5-54:6),"{
+	Scanner in=new Scanner(System.in);
+  
+	double p[][]=new double[101][101];
+	double ax[]=new double[101];
+	double ay[]=new double[101];
+	double dis[]=new double[101];
+	boolean used[]=new boolean[101];
+	int n,i,j;
+	n=in.nextInt();
+	for(i=0;i< n;i++){
+	    ax[i]=in.nextDouble();
+	    ay[i]=in.nextDouble();
+        }
+	for(i=0;i<n;i++)
+	    for(j=0;j<n;j++) 
+		p[i][j]=INF;
+	for(i=0;i< n;i++)
+	    for(j=i+1;j< n;j++){
+		double v=(ax[i]-ax[j])*(ax[i]-ax[j])+(ay[i]-ay[j])*(ay[i]-ay[j]);
+		v=Math.sqrt(v);
+		if(v< p[i][j])
+		    p[i][j]=p[j][i]=v;
+	    }
+	for(i=0;i< n;i++)
+	    dis[i]=p[0][i];
+	Arrays.fill(used,false);
+	dis[0]=0;
+	used[0]=true;
+	double ans=0;
+	for(i=0;i<n-1;i++){
+	    double min=INF;
+	    int tag=-1;
+	    for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]< min){
+		    min=dis[j];
+		    tag=j;
+		}
+	    }
+	    used[tag]=true;
+	    ans+=min;
+	    for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]>p[tag][j])
+		    dis[j]=p[tag][j];
+	    }
+	}
+	System.out.printf(""%.2f\n"",ans);
+    }"
+11,PARAMVARIABLEDECLARATION,"args",prob21.java(6:29-6:42),"String args[]"
+12,DECLAREDREFERENCEEXPRESSION,"System",prob21.java(8:25-8:31),"System"
+13,RETURNSTATEMENT,"",,""
+14,DECLARATIONSTATEMENT,"",prob21.java(8:2-8:36),"Scanner in=new Scanner(System.in);"
+15,DECLARATIONSTATEMENT,"",prob21.java(10:2-10:36),"double p[][]=new double[101][101];"
+16,DECLARATIONSTATEMENT,"",prob21.java(11:2-11:30),"double ax[]=new double[101];"
+17,DECLARATIONSTATEMENT,"",prob21.java(12:2-12:30),"double ay[]=new double[101];"
+18,DECLARATIONSTATEMENT,"",prob21.java(13:2-13:31),"double dis[]=new double[101];"
+19,DECLARATIONSTATEMENT,"",prob21.java(14:2-14:34),"boolean used[]=new boolean[101];"
+20,DECLARATIONSTATEMENT,"",prob21.java(15:2-15:12),"int n,i,j;"
+21,BINARYOPERATOR,"=",prob21.java(16:2-16:17),"n=in.nextInt();"
+22,FORSTATEMENT,"",prob21.java(17:2-20:10),"for(i=0;i< n;i++){
+	    ax[i]=in.nextDouble();
+	    ay[i]=in.nextDouble();
+        }"
+23,FORSTATEMENT,"",prob21.java(21:2-23:15),"for(i=0;i<n;i++)
+	    for(j=0;j<n;j++) 
+		p[i][j]=INF;"
+24,FORSTATEMENT,"",prob21.java(24:2-30:7),"for(i=0;i< n;i++)
+	    for(j=i+1;j< n;j++){
+		double v=(ax[i]-ax[j])*(ax[i]-ax[j])+(ay[i]-ay[j])*(ay[i]-ay[j]);
+		v=Math.sqrt(v);
+		if(v< p[i][j])
+		    p[i][j]=p[j][i]=v;
+	    }"
+25,FORSTATEMENT,"",prob21.java(31:2-32:21),"for(i=0;i< n;i++)
+	    dis[i]=p[0][i];"
+26,STATICCALLEXPRESSION,"fill",prob21.java(33:2-33:26),"Arrays.fill(used,false);"
+27,BINARYOPERATOR,"=",prob21.java(34:2-34:11),"dis[0]=0;"
+28,BINARYOPERATOR,"=",prob21.java(35:2-35:15),"used[0]=true;"
+29,DECLARATIONSTATEMENT,"",prob21.java(36:2-36:15),"double ans=0;"
+30,FORSTATEMENT,"",prob21.java(37:2-52:3),"for(i=0;i<n-1;i++){
+	    double min=INF;
+	    int tag=-1;
+	    for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]< min){
+		    min=dis[j];
+		    tag=j;
+		}
+	    }
+	    used[tag]=true;
+	    ans+=min;
+	    for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]>p[tag][j])
+		    dis[j]=p[tag][j];
+	    }
+	}"
+31,MEMBERCALLEXPRESSION,"printf",prob21.java(53:2-53:34),"System.out.printf(""%.2f\n"",ans);"
+32,VARIABLEDECLARATION,"in",prob21.java(8:10-8:35),"in=new Scanner(System.in)"
+33,VARIABLEDECLARATION,"p",prob21.java(10:9-10:35),"p[][]=new double[101][101]"
+34,VARIABLEDECLARATION,"ax",prob21.java(11:9-11:29),"ax[]=new double[101]"
+35,VARIABLEDECLARATION,"ay",prob21.java(12:9-12:29),"ay[]=new double[101]"
+36,VARIABLEDECLARATION,"dis",prob21.java(13:9-13:30),"dis[]=new double[101]"
+37,VARIABLEDECLARATION,"used",prob21.java(14:10-14:33),"used[]=new boolean[101]"
+38,VARIABLEDECLARATION,"n",prob21.java(15:6-15:7),"n"
+39,VARIABLEDECLARATION,"i",prob21.java(15:8-15:9),"i"
+40,VARIABLEDECLARATION,"j",prob21.java(15:10-15:11),"j"
+41,VARIABLEDECLARATION,"ans",prob21.java(36:9-36:14),"ans=0"
+42,FORSTATEMENT,"",prob21.java(25:6-30:7),"for(j=i+1;j< n;j++){
+		double v=(ax[i]-ax[j])*(ax[i]-ax[j])+(ay[i]-ay[j])*(ay[i]-ay[j]);
+		v=Math.sqrt(v);
+		if(v< p[i][j])
+		    p[i][j]=p[j][i]=v;
+	    }"
+43,BINARYOPERATOR,"=",prob21.java(24:6-24:9),"i=0"
+44,BINARYOPERATOR,"<",prob21.java(24:10-24:14),"i< n"
+45,UNARYOPERATOR,"++",prob21.java(24:15-24:18),"i++"
+46,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(25:10-25:11),"j"
+47,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(31:6-31:7),"i"
+48,COMPOUNDSTATEMENT,"",prob21.java(25:25-30:7),"{
+		double v=(ax[i]-ax[j])*(ax[i]-ax[j])+(ay[i]-ay[j])*(ay[i]-ay[j]);
+		v=Math.sqrt(v);
+		if(v< p[i][j])
+		    p[i][j]=p[j][i]=v;
+	    }"
+49,BINARYOPERATOR,"=",prob21.java(25:10-25:15),"j=i+1"
+50,BINARYOPERATOR,"<",prob21.java(25:16-25:20),"j< n"
+51,UNARYOPERATOR,"++",prob21.java(25:21-25:24),"j++"
+52,DECLAREDREFERENCEEXPRESSION,"ax",prob21.java(26:13-26:15),"ax"
+53,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(24:15-24:16),"i"
+54,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(25:21-25:22),"j"
+55,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(25:16-25:17),"j"
+56,DECLAREDREFERENCEEXPRESSION,"n",prob21.java(25:19-25:20),"n"
+57,DECLARATIONSTATEMENT,"",prob21.java(26:3-26:68),"double v=(ax[i]-ax[j])*(ax[i]-ax[j])+(ay[i]-ay[j])*(ay[i]-ay[j]);"
+58,BINARYOPERATOR,"=",prob21.java(27:3-27:18),"v=Math.sqrt(v);"
+59,IFSTATEMENT,"",prob21.java(28:3-29:25),"if(v< p[i][j])
+		    p[i][j]=p[j][i]=v;"
+60,VARIABLEDECLARATION,"v",prob21.java(26:10-26:67),"v=(ax[i]-ax[j])*(ax[i]-ax[j])+(ay[i]-ay[j])*(ay[i]-ay[j])"
+61,BINARYOPERATOR,"=",prob21.java(29:7-29:25),"p[i][j]=p[j][i]=v;"
+62,DECLAREDREFERENCEEXPRESSION,"v",prob21.java(27:3-27:4),"v"
+63,STATICCALLEXPRESSION,"sqrt",prob21.java(27:5-27:17),"Math.sqrt(v)"
+64,DECLAREDREFERENCEEXPRESSION,"v",prob21.java(28:6-28:7),"v"
+65,DECLAREDREFERENCEEXPRESSION,"v",prob21.java(27:15-27:16),"v"
+66,BINARYOPERATOR,"+",prob21.java(26:12-26:67),"(ax[i]-ax[j])*(ax[i]-ax[j])+(ay[i]-ay[j])*(ay[i]-ay[j])"
+67,BINARYOPERATOR,"*",prob21.java(26:12-26:39),"(ax[i]-ax[j])*(ax[i]-ax[j])"
+68,BINARYOPERATOR,"*",prob21.java(26:40-26:67),"(ay[i]-ay[j])*(ay[i]-ay[j])"
+69,BINARYOPERATOR,"-",prob21.java(26:41-26:52),"ay[i]-ay[j]"
+70,BINARYOPERATOR,"-",prob21.java(26:55-26:66),"ay[i]-ay[j]"
+71,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(26:55-26:60),"ay[i]"
+72,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(26:61-26:66),"ay[j]"
+73,DECLAREDREFERENCEEXPRESSION,"ay",prob21.java(26:55-26:57),"ay"
+74,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(26:58-26:59),"i"
+75,DECLAREDREFERENCEEXPRESSION,"ay",prob21.java(26:61-26:63),"ay"
+76,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(26:64-26:65),"j"
+77,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(26:41-26:46),"ay[i]"
+78,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(26:47-26:52),"ay[j]"
+79,DECLAREDREFERENCEEXPRESSION,"ay",prob21.java(26:47-26:49),"ay"
+80,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(26:50-26:51),"j"
+81,DECLAREDREFERENCEEXPRESSION,"ay",prob21.java(26:41-26:43),"ay"
+82,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(26:44-26:45),"i"
+83,BINARYOPERATOR,"-",prob21.java(26:13-26:24),"ax[i]-ax[j]"
+84,BINARYOPERATOR,"-",prob21.java(26:27-26:38),"ax[i]-ax[j]"
+85,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(26:27-26:32),"ax[i]"
+86,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(26:33-26:38),"ax[j]"
+87,DECLAREDREFERENCEEXPRESSION,"ax",prob21.java(26:27-26:29),"ax"
+88,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(26:30-26:31),"i"
+89,DECLAREDREFERENCEEXPRESSION,"ax",prob21.java(26:33-26:35),"ax"
+90,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(26:36-26:37),"j"
+91,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(26:13-26:18),"ax[i]"
+92,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(26:19-26:24),"ax[j]"
+93,DECLAREDREFERENCEEXPRESSION,"ax",prob21.java(26:19-26:21),"ax"
+94,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(26:22-26:23),"j"
+95,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(26:16-26:17),"i"
+96,BINARYOPERATOR,"<",prob21.java(28:6-28:16),"v< p[i][j]"
+97,DECLAREDREFERENCEEXPRESSION,"p",prob21.java(29:7-29:8),"p"
+98,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(29:7-29:14),"p[i][j]"
+99,BINARYOPERATOR,"=",prob21.java(29:15-29:24),"p[j][i]=v"
+100,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(29:15-29:22),"p[j][i]"
+101,DECLAREDREFERENCEEXPRESSION,"v",prob21.java(29:23-29:24),"v"
+102,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(29:15-29:19),"p[j]"
+103,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(29:20-29:21),"i"
+104,DECLAREDREFERENCEEXPRESSION,"p",prob21.java(29:15-29:16),"p"
+105,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(29:17-29:18),"j"
+106,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(29:7-29:11),"p[i]"
+107,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(29:12-29:13),"j"
+108,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(29:9-29:10),"i"
+109,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(28:9-28:16),"p[i][j]"
+110,DECLAREDREFERENCEEXPRESSION,"p",prob21.java(28:9-28:10),"p"
+111,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(28:9-28:13),"p[i]"
+112,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(28:14-28:15),"j"
+113,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(28:11-28:12),"i"
+114,BINARYOPERATOR,"+",prob21.java(25:12-25:15),"i+1"
+115,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(25:12-25:13),"i"
+116,LITERAL,"",prob21.java(25:14-25:15),"1"
+117,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(24:10-24:11),"i"
+118,DECLAREDREFERENCEEXPRESSION,"n",prob21.java(24:13-24:14),"n"
+119,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(24:6-24:7),"i"
+120,LITERAL,"",prob21.java(24:8-24:9),"0"
+121,DECLAREDREFERENCEEXPRESSION,"n",prob21.java(16:2-16:3),"n"
+122,NEWEXPRESSION,"",prob21.java(8:13-8:35),"new Scanner(System.in)"
+123,CONSTRUCTEXPRESSION,"",prob21.java(8:13-8:35),"new Scanner(System.in)"
+124,MEMBEREXPRESSION,"in",prob21.java(8:25-8:34),"System.in"
+125,FORSTATEMENT,"",prob21.java(22:6-23:15),"for(j=0;j<n;j++) 
+		p[i][j]=INF;"
+126,BINARYOPERATOR,"=",prob21.java(21:6-21:9),"i=0"
+127,BINARYOPERATOR,"<",prob21.java(21:10-21:13),"i<n"
+128,UNARYOPERATOR,"++",prob21.java(21:14-21:17),"i++"
+129,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(22:10-22:11),"j"
+130,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(21:10-21:11),"i"
+131,DECLAREDREFERENCEEXPRESSION,"n",prob21.java(21:12-21:13),"n"
+132,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(21:6-21:7),"i"
+133,LITERAL,"",prob21.java(21:8-21:9),"0"
+134,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(21:14-21:15),"i"
+135,BINARYOPERATOR,"=",prob21.java(23:3-23:15),"p[i][j]=INF;"
+136,BINARYOPERATOR,"=",prob21.java(22:10-22:13),"j=0"
+137,BINARYOPERATOR,"<",prob21.java(22:14-22:17),"j<n"
+138,UNARYOPERATOR,"++",prob21.java(22:18-22:21),"j++"
+139,DECLAREDREFERENCEEXPRESSION,"p",prob21.java(23:3-23:4),"p"
+140,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(22:18-22:19),"j"
+141,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(22:14-22:15),"j"
+142,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(23:3-23:10),"p[i][j]"
+143,MEMBEREXPRESSION,"INF",prob21.java(23:11-23:14),"INF"
+144,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(23:3-23:7),"p[i]"
+145,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(23:8-23:9),"j"
+146,DECLAREDREFERENCEEXPRESSION,"prob21",prob21.java(23:11-23:14),"prob21"
+147,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(23:5-23:6),"i"
+148,LITERAL,"",prob21.java(22:12-22:13),"0"
+149,DECLAREDREFERENCEEXPRESSION,"n",prob21.java(22:16-22:17),"n"
+150,COMPOUNDSTATEMENT,"",prob21.java(37:20-52:3),"{
+	    double min=INF;
+	    int tag=-1;
+	    for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]< min){
+		    min=dis[j];
+		    tag=j;
+		}
+	    }
+	    used[tag]=true;
+	    ans+=min;
+	    for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]>p[tag][j])
+		    dis[j]=p[tag][j];
+	    }
+	}"
+151,BINARYOPERATOR,"=",prob21.java(37:6-37:9),"i=0"
+152,BINARYOPERATOR,"<",prob21.java(37:10-37:15),"i<n-1"
+153,UNARYOPERATOR,"++",prob21.java(37:16-37:19),"i++"
+154,DECLAREDREFERENCEEXPRESSION,"prob21",prob21.java(38:17-38:20),"prob21"
+155,DECLAREDREFERENCEEXPRESSION,"System",prob21.java(53:2-53:8),"System"
+156,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(37:16-37:17),"i"
+157,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(37:10-37:11),"i"
+158,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(37:6-37:7),"i"
+159,LITERAL,"",prob21.java(37:8-37:9),"0"
+160,BINARYOPERATOR,"-",prob21.java(37:12-37:15),"n-1"
+161,DECLAREDREFERENCEEXPRESSION,"n",prob21.java(37:12-37:13),"n"
+162,LITERAL,"",prob21.java(37:14-37:15),"1"
+163,DECLARATIONSTATEMENT,"",prob21.java(38:6-38:21),"double min=INF;"
+164,DECLARATIONSTATEMENT,"",prob21.java(39:6-39:17),"int tag=-1;"
+165,FORSTATEMENT,"",prob21.java(40:6-45:7),"for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]< min){
+		    min=dis[j];
+		    tag=j;
+		}
+	    }"
+166,BINARYOPERATOR,"=",prob21.java(46:6-46:21),"used[tag]=true;"
+167,BINARYOPERATOR,"+=",prob21.java(47:6-47:15),"ans+=min;"
+168,FORSTATEMENT,"",prob21.java(48:6-51:7),"for(j=1;j< n;j++){
+		if(!used[j]&&dis[j]>p[tag][j])
+		    dis[j]=p[tag][j];
+	    }"
+169,VARIABLEDECLARATION,"min",prob21.java(38:13-38:20),"min=INF"
+170,VARIABLEDECLARATION,"tag",prob21.java(39:10-39:16),"tag=-1"
+171,UNARYOPERATOR,"-",prob21.java(39:14-39:16),"-1"
+172,LITERAL,"",prob21.java(39:15-39:16),"1"
+173,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(40:10-40:11),"j"
+174,COMPOUNDSTATEMENT,"",prob21.java(40:23-45:7),"{
+		if(!used[j]&&dis[j]< min){
+		    min=dis[j];
+		    tag=j;
+		}
+	    }"
+175,BINARYOPERATOR,"=",prob21.java(40:10-40:13),"j=1"
+176,BINARYOPERATOR,"<",prob21.java(40:14-40:18),"j< n"
+177,UNARYOPERATOR,"++",prob21.java(40:19-40:22),"j++"
+178,DECLAREDREFERENCEEXPRESSION,"used",prob21.java(41:7-41:11),"used"
+179,DECLAREDREFERENCEEXPRESSION,"used",prob21.java(46:6-46:10),"used"
+180,LITERAL,"",prob21.java(40:12-40:13),"1"
+181,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(40:14-40:15),"j"
+182,DECLAREDREFERENCEEXPRESSION,"n",prob21.java(40:17-40:18),"n"
+183,IFSTATEMENT,"",prob21.java(41:3-44:4),"if(!used[j]&&dis[j]< min){
+		    min=dis[j];
+		    tag=j;
+		}"
+184,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(40:19-40:20),"j"
+185,COMPOUNDSTATEMENT,"",prob21.java(41:28-44:4),"{
+		    min=dis[j];
+		    tag=j;
+		}"
+186,BINARYOPERATOR,"&&",prob21.java(41:6-41:27),"!used[j]&&dis[j]< min"
+187,DECLAREDREFERENCEEXPRESSION,"min",prob21.java(42:7-42:10),"min"
+188,UNARYOPERATOR,"!",prob21.java(41:6-41:14),"!used[j]"
+189,BINARYOPERATOR,"<",prob21.java(41:16-41:27),"dis[j]< min"
+190,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(41:16-41:22),"dis[j]"
+191,DECLAREDREFERENCEEXPRESSION,"min",prob21.java(41:24-41:27),"min"
+192,DECLAREDREFERENCEEXPRESSION,"dis",prob21.java(41:16-41:19),"dis"
+193,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(41:20-41:21),"j"
+194,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(41:7-41:14),"used[j]"
+195,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(41:12-41:13),"j"
+196,BINARYOPERATOR,"=",prob21.java(42:7-42:18),"min=dis[j];"
+197,BINARYOPERATOR,"=",prob21.java(43:7-43:13),"tag=j;"
+198,DECLAREDREFERENCEEXPRESSION,"tag",prob21.java(43:7-43:10),"tag"
+199,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(43:11-43:12),"j"
+200,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(42:11-42:17),"dis[j]"
+201,DECLAREDREFERENCEEXPRESSION,"dis",prob21.java(42:11-42:14),"dis"
+202,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(42:15-42:16),"j"
+203,COMPOUNDSTATEMENT,"",prob21.java(48:23-51:7),"{
+		if(!used[j]&&dis[j]>p[tag][j])
+		    dis[j]=p[tag][j];
+	    }"
+204,BINARYOPERATOR,"=",prob21.java(48:10-48:13),"j=1"
+205,BINARYOPERATOR,"<",prob21.java(48:14-48:18),"j< n"
+206,UNARYOPERATOR,"++",prob21.java(48:19-48:22),"j++"
+207,DECLAREDREFERENCEEXPRESSION,"used",prob21.java(49:7-49:11),"used"
+208,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(48:19-48:20),"j"
+209,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(48:14-48:15),"j"
+210,IFSTATEMENT,"",prob21.java(49:3-50:24),"if(!used[j]&&dis[j]>p[tag][j])
+		    dis[j]=p[tag][j];"
+211,BINARYOPERATOR,"=",prob21.java(50:7-50:24),"dis[j]=p[tag][j];"
+212,BINARYOPERATOR,"&&",prob21.java(49:6-49:32),"!used[j]&&dis[j]>p[tag][j]"
+213,DECLAREDREFERENCEEXPRESSION,"dis",prob21.java(50:7-50:10),"dis"
+214,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(50:7-50:13),"dis[j]"
+215,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(50:14-50:23),"p[tag][j]"
+216,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(50:11-50:12),"j"
+217,DECLAREDREFERENCEEXPRESSION,"p",prob21.java(50:14-50:15),"p"
+218,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(50:14-50:20),"p[tag]"
+219,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(50:21-50:22),"j"
+220,DECLAREDREFERENCEEXPRESSION,"tag",prob21.java(50:16-50:19),"tag"
+221,UNARYOPERATOR,"!",prob21.java(49:6-49:14),"!used[j]"
+222,BINARYOPERATOR,">",prob21.java(49:16-49:32),"dis[j]>p[tag][j]"
+223,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(49:16-49:22),"dis[j]"
+224,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(49:23-49:32),"p[tag][j]"
+225,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(49:23-49:29),"p[tag]"
+226,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(49:30-49:31),"j"
+227,DECLAREDREFERENCEEXPRESSION,"p",prob21.java(49:23-49:24),"p"
+228,DECLAREDREFERENCEEXPRESSION,"tag",prob21.java(49:25-49:28),"tag"
+229,DECLAREDREFERENCEEXPRESSION,"dis",prob21.java(49:16-49:19),"dis"
+230,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(49:20-49:21),"j"
+231,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(49:7-49:14),"used[j]"
+232,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(49:12-49:13),"j"
+233,DECLAREDREFERENCEEXPRESSION,"j",prob21.java(48:10-48:11),"j"
+234,LITERAL,"",prob21.java(48:12-48:13),"1"
+235,DECLAREDREFERENCEEXPRESSION,"n",prob21.java(48:17-48:18),"n"
+236,MEMBEREXPRESSION,"INF",prob21.java(38:17-38:20),"INF"
+237,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(46:6-46:15),"used[tag]"
+238,LITERAL,"",prob21.java(46:16-46:20),"true"
+239,DECLAREDREFERENCEEXPRESSION,"ans",prob21.java(47:6-47:9),"ans"
+240,DECLAREDREFERENCEEXPRESSION,"tag",prob21.java(46:11-46:14),"tag"
+241,DECLAREDREFERENCEEXPRESSION,"min",prob21.java(47:11-47:14),"min"
+242,DECLAREDREFERENCEEXPRESSION,"printf",prob21.java(53:13-53:19),"printf"
+243,DECLAREDREFERENCEEXPRESSION,"ans",prob21.java(53:29-53:32),"ans"
+244,MEMBEREXPRESSION,"out",prob21.java(53:2-53:12),"System.out"
+245,LITERAL,"",prob21.java(53:20-53:28),"""%.2f\n"""
+246,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+247,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+248,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(35:2-35:9),"used[0]"
+249,LITERAL,"",prob21.java(35:10-35:14),"true"
+250,LITERAL,"",prob21.java(36:13-36:14),"0"
+251,DECLAREDREFERENCEEXPRESSION,"used",prob21.java(35:2-35:6),"used"
+252,LITERAL,"",prob21.java(35:7-35:8),"0"
+253,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(34:2-34:8),"dis[0]"
+254,LITERAL,"",prob21.java(34:9-34:10),"0"
+255,DECLAREDREFERENCEEXPRESSION,"dis",prob21.java(34:2-34:5),"dis"
+256,LITERAL,"",prob21.java(34:6-34:7),"0"
+257,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+258,ARRAYCREATIONEXPRESSION,"",prob21.java(11:14-11:29),"new double[101]"
+259,LITERAL,"",prob21.java(11:25-11:28),"101"
+260,ARRAYCREATIONEXPRESSION,"",prob21.java(12:14-12:29),"new double[101]"
+261,LITERAL,"",prob21.java(12:25-12:28),"101"
+262,LITERAL,"",prob21.java(33:19-33:24),"false"
+263,DECLAREDREFERENCEEXPRESSION,"used",prob21.java(33:14-33:18),"used"
+264,LITERAL,"",prob21.java(13:26-13:29),"101"
+265,LITERAL,"",prob21.java(14:29-14:32),"101"
+266,ARRAYCREATIONEXPRESSION,"",prob21.java(14:17-14:33),"new boolean[101]"
+267,COMPOUNDSTATEMENT,"",prob21.java(17:19-20:10),"{
+	    ax[i]=in.nextDouble();
+	    ay[i]=in.nextDouble();
+        }"
+268,BINARYOPERATOR,"=",prob21.java(17:6-17:9),"i=0"
+269,BINARYOPERATOR,"<",prob21.java(17:10-17:14),"i< n"
+270,UNARYOPERATOR,"++",prob21.java(17:15-17:18),"i++"
+271,DECLAREDREFERENCEEXPRESSION,"ax",prob21.java(18:6-18:8),"ax"
+272,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(17:10-17:11),"i"
+273,DECLAREDREFERENCEEXPRESSION,"n",prob21.java(17:13-17:14),"n"
+274,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(17:6-17:7),"i"
+275,LITERAL,"",prob21.java(17:8-17:9),"0"
+276,BINARYOPERATOR,"=",prob21.java(18:6-18:28),"ax[i]=in.nextDouble();"
+277,BINARYOPERATOR,"=",prob21.java(19:6-19:28),"ay[i]=in.nextDouble();"
+278,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(17:15-17:16),"i"
+279,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(18:6-18:11),"ax[i]"
+280,MEMBERCALLEXPRESSION,"nextDouble",prob21.java(18:12-18:27),"in.nextDouble()"
+281,DECLAREDREFERENCEEXPRESSION,"ay",prob21.java(19:6-19:8),"ay"
+282,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(18:9-18:10),"i"
+283,DECLAREDREFERENCEEXPRESSION,"in",prob21.java(18:12-18:14),"in"
+284,DECLAREDREFERENCEEXPRESSION,"nextDouble",prob21.java(18:15-18:25),"nextDouble"
+285,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(19:6-19:11),"ay[i]"
+286,MEMBERCALLEXPRESSION,"nextDouble",prob21.java(19:12-19:27),"in.nextDouble()"
+287,DECLAREDREFERENCEEXPRESSION,"nextDouble",prob21.java(19:15-19:25),"nextDouble"
+288,DECLAREDREFERENCEEXPRESSION,"in",prob21.java(19:12-19:14),"in"
+289,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(19:9-19:10),"i"
+290,ARRAYCREATIONEXPRESSION,"",prob21.java(10:15-10:35),"new double[101][101]"
+291,LITERAL,"",prob21.java(10:26-10:29),"101"
+292,LITERAL,"",prob21.java(10:31-10:34),"101"
+293,ARRAYCREATIONEXPRESSION,"",prob21.java(13:15-13:30),"new double[101]"
+294,MEMBERCALLEXPRESSION,"nextInt",prob21.java(16:4-16:16),"in.nextInt()"
+295,DECLAREDREFERENCEEXPRESSION,"nextInt",prob21.java(16:7-16:14),"nextInt"
+296,DECLAREDREFERENCEEXPRESSION,"in",prob21.java(16:4-16:6),"in"
+297,BINARYOPERATOR,"=",prob21.java(32:6-32:21),"dis[i]=p[0][i];"
+298,BINARYOPERATOR,"=",prob21.java(31:6-31:9),"i=0"
+299,BINARYOPERATOR,"<",prob21.java(31:10-31:14),"i< n"
+300,UNARYOPERATOR,"++",prob21.java(31:15-31:18),"i++"
+301,DECLAREDREFERENCEEXPRESSION,"dis",prob21.java(32:6-32:9),"dis"
+302,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(32:6-32:12),"dis[i]"
+303,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(32:13-32:20),"p[0][i]"
+304,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(31:15-31:16),"i"
+305,ARRAYSUBSCRIPTIONEXPRESSION,"",prob21.java(32:13-32:17),"p[0]"
+306,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(32:18-32:19),"i"
+307,DECLAREDREFERENCEEXPRESSION,"p",prob21.java(32:13-32:14),"p"
+308,LITERAL,"",prob21.java(32:15-32:16),"0"
+309,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(32:10-32:11),"i"
+310,DECLAREDREFERENCEEXPRESSION,"i",prob21.java(31:10-31:11),"i"
+311,LITERAL,"",prob21.java(31:8-31:9),"0"
+312,DECLAREDREFERENCEEXPRESSION,"n",prob21.java(31:13-31:14),"n"
+313,LITERAL,"",prob21.java(4:23-4:33),"99999999.0"

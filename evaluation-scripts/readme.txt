@@ -1,0 +1,1 @@
+This directory contains the R code for plotting results, executing statistical tests, and generating result tables. To use the code, the corresponding CSV files need to be put in the input directories.

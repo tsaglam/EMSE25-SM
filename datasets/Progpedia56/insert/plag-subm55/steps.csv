@@ -1,0 +1,32 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,48
+DAA21.java,insert line 13: `String[] messages;` on try 0,0.9935483870967742,1.0,48
+DAA21.java,insert line 32: `boolean debug = false;` on try 0,0.9871794871794872,1.0,48
+DAA21.java,insert line 27: `int index = 0;` on try 0,0.89171974522293,1.0,48
+DAA21.java,insert line 31: `int count = 0;` on try 0,0.8860759493670886,1.0,48
+DAA21.java,insert line 24: `double w;` on try 0,0.8176100628930818,1.0,48
+DAA21.java,insert line 37: `int count = 0;` on try 0,0.775,1.0,48
+DAA21.java,"insert line 17: `int x, y;` on try 0",0.6790123456790124,1.0,48
+DAA21.java,insert line 20: `int max;` on try 0,0.6380368098159509,1.0,48
+DAA21.java,"insert line 9: `String output = """";` on try 0",0.5853658536585366,1.0,48
+DAA21.java,insert line 56: `int min;` on try 0,0.5575757575757576,1.0,48
+DAA21.java,insert line 24: `int count = 0;` on try 0,0.40963855421686746,1.0,48
+DAA21.java,insert line 46: `int intInput;` on try 2,0.33532934131736525,1.0,48
+DAA21.java,insert line 20: `int max;` on try 1,0.3333333333333333,1.0,48
+DAA21.java,insert line 36: `boolean done = false;` on try 0,0.33136094674556216,1.0,48
+DAA21.java,"insert line 50: `int x, y;` on try 2",0.3157894736842105,1.0,48
+DAA21.java,insert line 24: `int index = 0;` on try 1,0.313953488372093,1.0,48
+DAA21.java,insert line 36: `boolean debug = false;` on try 1,0.31213872832369943,1.0,48
+DAA21.java,insert line 48: `boolean done = false;` on try 3,0.3103448275862069,1.0,48
+DAA21.java,"insert line 29: `int x, y;` on try 2",0.3068181818181818,1.0,48
+DAA21.java,insert line 57: `double w;` on try 1,0.2824858757062147,1.0,48
+DAA21.java,insert line 60: `int intInput;` on try 0,0.25842696629213485,1.0,48
+DAA21.java,insert line 65: `double w;` on try 1,0.1340782122905028,1.0,48
+DAA21.java,insert line 56: `done = true;` on try 3,0.13333333333333333,1.0,48
+DAA21.java,insert line 2: `import java.util.LinkedList;` on try 5,0.13259668508287292,0.9935483870967742,48
+DAA21.java,insert line 18: `boolean done = false;` on try 0,0.13186813186813187,0.9935483870967742,48
+DAA21.java,insert line 30: `int min;` on try 0,0.13114754098360656,0.9935483870967742,48
+DAA21.java,insert line 12: `int v;` on try 2,0.13043478260869565,0.9935483870967742,48
+DAA21.java,insert line 38: `int from;` on try 7,0.12972972972972974,0.9935483870967742,48
+DAA21.java,insert line 7: `int indexOfField;` on try 6,0.12903225806451613,0.9935483870967742,48
+DAA21.java,insert line 74: `double w;` on try 3,0.12834224598930483,0.9935483870967742,48

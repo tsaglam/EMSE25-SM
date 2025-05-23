@@ -1,0 +1,1012 @@
+id,type,token,location,code
+1,TRANSLATIONUNITDECLARATION,"/data/00000056/submissions/05073321_24_200900309/Freckles.java",,""
+2,RECORDDECLARATION,"Freckles",Freckles.java(8:1-166:2),"class Freckles{
+
+	static double matrix[][];
+
+	static boolean visited[][];
+	
+	static double dist[];
+
+	static int pred[];
+
+	static int q;
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in).useLocale(Locale.US);
+
+		int n = q = in.nextInt();
+
+		matrix = new double[n][n];
+
+		visited = new boolean[n][n];
+
+		dist = new double[n];
+
+		pred = new int[n];
+
+		double coordinates[][] = new double[n][2];
+
+
+		for(int i = 0; i<n; i++){
+			double x = in.nextDouble();
+			double y = in.nextDouble();
+			coordinates[i][0] = x;
+			coordinates[i][1] = y;
+		}
+
+		for(int i = 0; i<n; i++){
+			for (int j=i; j<n; j++) {
+				if(i!=j){
+					matrix[j][i]= matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1]);
+				}
+				
+			}
+		}
+		
+
+		prim(matrix, 0);
+
+
+		// print();
+
+		// System.out.println();
+		double sum=0;
+		for(int i=0; i<n; i++){
+			sum+=dist[i];
+			// System.out.println(sum);
+		}
+		System.out.printf(Locale.US, ""%.2f\n"", sum);
+	}
+
+	private static double calc(double xi, double xj, double yi, double yj){
+		return Math.sqrt((xi-xj)*(xi-xj) + (yi-yj)*(yi-yj));
+	}
+
+	private static void kruskall(){
+
+	}
+
+	//aplicaçao por matriz
+	private static void prim(double graph[][], int no){
+		int aux=q;
+		LinkedList<Integer> vertices = new LinkedList<Integer>();
+
+		for(int i=0; i<q; i++){
+			pred[i]=0;
+			dist[i]=Double.MAX_VALUE;
+			vertices.add(i);
+		}
+		dist[no]=0;
+		while(vertices.peekFirst()!=null){
+			int u = min(vertices);
+
+
+			// for(int i=0; i<q; i++){
+			// 	graph[u][i]=0;		
+			// }
+
+			// System.out.println();
+			// System.out.println(u + "" no extraido"");
+			for(int i=0; i<q; i++){
+				// System.out.println();
+
+				if(vertices.indexOf(new Integer(i))!=-1 && graph[u][i]<dist[i]){
+					pred[i]=u;
+					// System.out.println(""dentro do if "" + graph[u][i]);
+					dist[i]=graph[u][i];
+					// System.out.println(dist[i]+"" distancia"");
+				}
+			}
+
+
+			// print();
+			// aux--;
+		}
+
+	}
+
+	private static int min(LinkedList<Integer> graph){
+
+		// for(Integer i: graph){
+		// 	System.out.println();
+		// 	System.out.println(""graph ""+i);
+		// }
+
+
+		double min = Double.MAX_VALUE;
+		int index =0;
+
+		for(Integer i: graph){
+			
+				if(dist[i]<min){
+					index = i;
+					min = dist[i];
+					// System.out.println(min+"" min"");
+				}
+			
+			
+		}
+
+		
+
+		// System.out.println(""min ""+min+"" ""+index);
+		// graph[no][index]=0;
+		graph.remove(new Integer(index));
+		return index;
+	}
+
+	private static void print(){
+		// System.out.println();
+		// for(int i=0; i<q; i++){
+		// 	for(int j=0; j<q; j++){
+		// 		System.out.print(matrix[i][j]+"" "");
+		// 	}
+		// 	System.out.println();
+		// }
+		// System.out.println();
+
+
+		for(int i=0; i<q; i++){
+			System.out.print(dist[i]+"" "");
+		}
+		System.out.println();
+		
+		for(int i=0; i<q; i++){
+			System.out.print(pred[i]+"" "");
+		}
+	
+
+	}
+}"
+3,INCLUDEDECLARATION,"java.util",,""
+4,FIELDDECLARATION,"this",,""
+5,FIELDDECLARATION,"matrix",Freckles.java(10:2-10:27),"matrix"
+6,FIELDDECLARATION,"visited",Freckles.java(12:2-12:29),"visited"
+7,FIELDDECLARATION,"dist",Freckles.java(14:2-14:23),"dist"
+8,FIELDDECLARATION,"pred",Freckles.java(16:2-16:20),"pred"
+9,FIELDDECLARATION,"q",Freckles.java(18:2-18:15),"q"
+10,METHODDECLARATION,"main",Freckles.java(20:2-65:3),"public static void main(String[] args) {
+		Scanner in = new Scanner(System.in).useLocale(Locale.US);
+
+		int n = q = in.nextInt();
+
+		matrix = new double[n][n];
+
+		visited = new boolean[n][n];
+
+		dist = new double[n];
+
+		pred = new int[n];
+
+		double coordinates[][] = new double[n][2];
+
+
+		for(int i = 0; i<n; i++){
+			double x = in.nextDouble();
+			double y = in.nextDouble();
+			coordinates[i][0] = x;
+			coordinates[i][1] = y;
+		}
+
+		for(int i = 0; i<n; i++){
+			for (int j=i; j<n; j++) {
+				if(i!=j){
+					matrix[j][i]= matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1]);
+				}
+				
+			}
+		}
+		
+
+		prim(matrix, 0);
+
+
+		// print();
+
+		// System.out.println();
+		double sum=0;
+		for(int i=0; i<n; i++){
+			sum+=dist[i];
+			// System.out.println(sum);
+		}
+		System.out.printf(Locale.US, ""%.2f\n"", sum);
+	}"
+11,METHODDECLARATION,"calc",Freckles.java(67:2-69:3),"private static double calc(double xi, double xj, double yi, double yj){
+		return Math.sqrt((xi-xj)*(xi-xj) + (yi-yj)*(yi-yj));
+	}"
+12,METHODDECLARATION,"kruskall",Freckles.java(71:2-73:3),"private static void kruskall(){
+
+	}"
+13,METHODDECLARATION,"prim",Freckles.java(76:2-112:3),"private static void prim(double graph[][], int no){
+		int aux=q;
+		LinkedList<Integer> vertices = new LinkedList<Integer>();
+
+		for(int i=0; i<q; i++){
+			pred[i]=0;
+			dist[i]=Double.MAX_VALUE;
+			vertices.add(i);
+		}
+		dist[no]=0;
+		while(vertices.peekFirst()!=null){
+			int u = min(vertices);
+
+
+			// for(int i=0; i<q; i++){
+			// 	graph[u][i]=0;		
+			// }
+
+			// System.out.println();
+			// System.out.println(u + "" no extraido"");
+			for(int i=0; i<q; i++){
+				// System.out.println();
+
+				if(vertices.indexOf(new Integer(i))!=-1 && graph[u][i]<dist[i]){
+					pred[i]=u;
+					// System.out.println(""dentro do if "" + graph[u][i]);
+					dist[i]=graph[u][i];
+					// System.out.println(dist[i]+"" distancia"");
+				}
+			}
+
+
+			// print();
+			// aux--;
+		}
+
+	}"
+14,METHODDECLARATION,"min",Freckles.java(114:2-142:3),"private static int min(LinkedList<Integer> graph){
+
+		// for(Integer i: graph){
+		// 	System.out.println();
+		// 	System.out.println(""graph ""+i);
+		// }
+
+
+		double min = Double.MAX_VALUE;
+		int index =0;
+
+		for(Integer i: graph){
+			
+				if(dist[i]<min){
+					index = i;
+					min = dist[i];
+					// System.out.println(min+"" min"");
+				}
+			
+			
+		}
+
+		
+
+		// System.out.println(""min ""+min+"" ""+index);
+		// graph[no][index]=0;
+		graph.remove(new Integer(index));
+		return index;
+	}"
+15,METHODDECLARATION,"print",Freckles.java(144:2-165:3),"private static void print(){
+		// System.out.println();
+		// for(int i=0; i<q; i++){
+		// 	for(int j=0; j<q; j++){
+		// 		System.out.print(matrix[i][j]+"" "");
+		// 	}
+		// 	System.out.println();
+		// }
+		// System.out.println();
+
+
+		for(int i=0; i<q; i++){
+			System.out.print(dist[i]+"" "");
+		}
+		System.out.println();
+		
+		for(int i=0; i<q; i++){
+			System.out.print(pred[i]+"" "");
+		}
+	
+
+	}"
+16,CONSTRUCTORDECLARATION,"Freckles",,""
+17,VARIABLEDECLARATION,"this",,""
+18,COMPOUNDSTATEMENT,"",Freckles.java(76:52-112:3),"{
+		int aux=q;
+		LinkedList<Integer> vertices = new LinkedList<Integer>();
+
+		for(int i=0; i<q; i++){
+			pred[i]=0;
+			dist[i]=Double.MAX_VALUE;
+			vertices.add(i);
+		}
+		dist[no]=0;
+		while(vertices.peekFirst()!=null){
+			int u = min(vertices);
+
+
+			// for(int i=0; i<q; i++){
+			// 	graph[u][i]=0;		
+			// }
+
+			// System.out.println();
+			// System.out.println(u + "" no extraido"");
+			for(int i=0; i<q; i++){
+				// System.out.println();
+
+				if(vertices.indexOf(new Integer(i))!=-1 && graph[u][i]<dist[i]){
+					pred[i]=u;
+					// System.out.println(""dentro do if "" + graph[u][i]);
+					dist[i]=graph[u][i];
+					// System.out.println(dist[i]+"" distancia"");
+				}
+			}
+
+
+			// print();
+			// aux--;
+		}
+
+	}"
+19,PARAMVARIABLEDECLARATION,"graph",Freckles.java(76:27-76:43),"double graph[][]"
+20,PARAMVARIABLEDECLARATION,"no",Freckles.java(76:45-76:51),"int no"
+21,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(77:11-77:12),"Freckles"
+22,RETURNSTATEMENT,"",,""
+23,DECLARATIONSTATEMENT,"",Freckles.java(77:3-77:13),"int aux=q;"
+24,DECLARATIONSTATEMENT,"",Freckles.java(78:3-78:60),"LinkedList<Integer> vertices = new LinkedList<Integer>();"
+25,FORSTATEMENT,"",Freckles.java(80:3-84:4),"for(int i=0; i<q; i++){
+			pred[i]=0;
+			dist[i]=Double.MAX_VALUE;
+			vertices.add(i);
+		}"
+26,BINARYOPERATOR,"=",Freckles.java(85:3-85:14),"dist[no]=0;"
+27,WHILESTATEMENT,"",Freckles.java(86:3-110:4),"while(vertices.peekFirst()!=null){
+			int u = min(vertices);
+
+
+			// for(int i=0; i<q; i++){
+			// 	graph[u][i]=0;		
+			// }
+
+			// System.out.println();
+			// System.out.println(u + "" no extraido"");
+			for(int i=0; i<q; i++){
+				// System.out.println();
+
+				if(vertices.indexOf(new Integer(i))!=-1 && graph[u][i]<dist[i]){
+					pred[i]=u;
+					// System.out.println(""dentro do if "" + graph[u][i]);
+					dist[i]=graph[u][i];
+					// System.out.println(dist[i]+"" distancia"");
+				}
+			}
+
+
+			// print();
+			// aux--;
+		}"
+28,VARIABLEDECLARATION,"aux",Freckles.java(77:7-77:12),"aux=q"
+29,VARIABLEDECLARATION,"vertices",Freckles.java(78:23-78:59),"vertices = new LinkedList<Integer>()"
+30,CONSTRUCTEXPRESSION,"",Freckles.java(78:34-78:59),"new LinkedList<Integer>()"
+31,MEMBEREXPRESSION,"q",Freckles.java(77:11-77:12),"q"
+32,BINARYOPERATOR,"!=",Freckles.java(86:9-86:35),"vertices.peekFirst()!=null"
+33,COMPOUNDSTATEMENT,"",Freckles.java(86:36-110:4),"{
+			int u = min(vertices);
+
+
+			// for(int i=0; i<q; i++){
+			// 	graph[u][i]=0;		
+			// }
+
+			// System.out.println();
+			// System.out.println(u + "" no extraido"");
+			for(int i=0; i<q; i++){
+				// System.out.println();
+
+				if(vertices.indexOf(new Integer(i))!=-1 && graph[u][i]<dist[i]){
+					pred[i]=u;
+					// System.out.println(""dentro do if "" + graph[u][i]);
+					dist[i]=graph[u][i];
+					// System.out.println(dist[i]+"" distancia"");
+				}
+			}
+
+
+			// print();
+			// aux--;
+		}"
+34,DECLAREDREFERENCEEXPRESSION,"vertices",Freckles.java(87:16-87:24),"vertices"
+35,DECLARATIONSTATEMENT,"",Freckles.java(87:4-87:26),"int u = min(vertices);"
+36,FORSTATEMENT,"",Freckles.java(96:4-105:5),"for(int i=0; i<q; i++){
+				// System.out.println();
+
+				if(vertices.indexOf(new Integer(i))!=-1 && graph[u][i]<dist[i]){
+					pred[i]=u;
+					// System.out.println(""dentro do if "" + graph[u][i]);
+					dist[i]=graph[u][i];
+					// System.out.println(dist[i]+"" distancia"");
+				}
+			}"
+37,VARIABLEDECLARATION,"u",Freckles.java(87:8-87:25),"u = min(vertices)"
+38,DECLAREDREFERENCEEXPRESSION,"vertices",Freckles.java(86:9-86:17),"vertices"
+39,CALLEXPRESSION,"min",Freckles.java(87:12-87:25),"min(vertices)"
+40,METHODDECLARATION,"min",,""
+41,PARAMVARIABLEDECLARATION,"java.util.linkedlist0",,""
+42,COMPOUNDSTATEMENT,"",Freckles.java(96:26-105:5),"{
+				// System.out.println();
+
+				if(vertices.indexOf(new Integer(i))!=-1 && graph[u][i]<dist[i]){
+					pred[i]=u;
+					// System.out.println(""dentro do if "" + graph[u][i]);
+					dist[i]=graph[u][i];
+					// System.out.println(dist[i]+"" distancia"");
+				}
+			}"
+43,DECLARATIONSTATEMENT,"",Freckles.java(96:8-96:15),"int i=0"
+44,BINARYOPERATOR,"<",Freckles.java(96:17-96:20),"i<q"
+45,UNARYOPERATOR,"++",Freckles.java(96:22-96:25),"i++"
+46,VARIABLEDECLARATION,"i",Freckles.java(96:12-96:15),"i=0"
+47,DECLAREDREFERENCEEXPRESSION,"vertices",Freckles.java(99:8-99:16),"vertices"
+48,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(96:22-96:23),"i"
+49,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(96:17-96:18),"i"
+50,MEMBEREXPRESSION,"q",Freckles.java(96:19-96:20),"q"
+51,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(96:19-96:20),"Freckles"
+52,IFSTATEMENT,"",Freckles.java(99:5-104:6),"if(vertices.indexOf(new Integer(i))!=-1 && graph[u][i]<dist[i]){
+					pred[i]=u;
+					// System.out.println(""dentro do if "" + graph[u][i]);
+					dist[i]=graph[u][i];
+					// System.out.println(dist[i]+"" distancia"");
+				}"
+53,COMPOUNDSTATEMENT,"",Freckles.java(99:68-104:6),"{
+					pred[i]=u;
+					// System.out.println(""dentro do if "" + graph[u][i]);
+					dist[i]=graph[u][i];
+					// System.out.println(dist[i]+"" distancia"");
+				}"
+54,BINARYOPERATOR,"&&",Freckles.java(99:8-99:67),"vertices.indexOf(new Integer(i))!=-1 && graph[u][i]<dist[i]"
+55,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(100:6-100:10),"Freckles"
+56,BINARYOPERATOR,"!=",Freckles.java(99:8-99:44),"vertices.indexOf(new Integer(i))!=-1"
+57,BINARYOPERATOR,"<",Freckles.java(99:48-99:67),"graph[u][i]<dist[i]"
+58,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(99:48-99:59),"graph[u][i]"
+59,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(99:60-99:67),"dist[i]"
+60,MEMBEREXPRESSION,"dist",Freckles.java(99:60-99:64),"dist"
+61,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(99:65-99:66),"i"
+62,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(99:60-99:64),"Freckles"
+63,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(99:48-99:56),"graph[u]"
+64,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(99:57-99:58),"i"
+65,DECLAREDREFERENCEEXPRESSION,"graph",Freckles.java(99:48-99:53),"graph"
+66,DECLAREDREFERENCEEXPRESSION,"u",Freckles.java(99:54-99:55),"u"
+67,MEMBERCALLEXPRESSION,"indexOf",Freckles.java(99:8-99:40),"vertices.indexOf(new Integer(i))"
+68,UNARYOPERATOR,"-",Freckles.java(99:42-99:44),"-1"
+69,LITERAL,"",Freckles.java(99:43-99:44),"1"
+70,DECLAREDREFERENCEEXPRESSION,"indexOf",Freckles.java(99:17-99:24),"indexOf"
+71,NEWEXPRESSION,"",Freckles.java(99:25-99:39),"new Integer(i)"
+72,CONSTRUCTEXPRESSION,"",Freckles.java(99:25-99:39),"new Integer(i)"
+73,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(99:37-99:38),"i"
+74,BINARYOPERATOR,"=",Freckles.java(100:6-100:16),"pred[i]=u;"
+75,BINARYOPERATOR,"=",Freckles.java(102:6-102:26),"dist[i]=graph[u][i];"
+76,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(100:6-100:13),"pred[i]"
+77,DECLAREDREFERENCEEXPRESSION,"u",Freckles.java(100:14-100:15),"u"
+78,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(102:6-102:10),"Freckles"
+79,MEMBEREXPRESSION,"pred",Freckles.java(100:6-100:10),"pred"
+80,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(100:11-100:12),"i"
+81,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(102:6-102:13),"dist[i]"
+82,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(102:14-102:25),"graph[u][i]"
+83,MEMBEREXPRESSION,"dist",Freckles.java(102:6-102:10),"dist"
+84,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(102:11-102:12),"i"
+85,DECLAREDREFERENCEEXPRESSION,"graph",Freckles.java(102:14-102:19),"graph"
+86,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(102:14-102:22),"graph[u]"
+87,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(102:23-102:24),"i"
+88,DECLAREDREFERENCEEXPRESSION,"u",Freckles.java(102:20-102:21),"u"
+89,LITERAL,"",Freckles.java(96:14-96:15),"0"
+90,MEMBERCALLEXPRESSION,"peekFirst",Freckles.java(86:9-86:29),"vertices.peekFirst()"
+91,LITERAL,"",Freckles.java(86:31-86:35),"null"
+92,DECLAREDREFERENCEEXPRESSION,"peekFirst",Freckles.java(86:18-86:27),"peekFirst"
+93,NEWEXPRESSION,"",Freckles.java(78:34-78:59),"new LinkedList<Integer>()"
+94,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(85:3-85:11),"dist[no]"
+95,LITERAL,"",Freckles.java(85:12-85:13),"0"
+96,MEMBEREXPRESSION,"dist",Freckles.java(85:3-85:7),"dist"
+97,DECLAREDREFERENCEEXPRESSION,"no",Freckles.java(85:8-85:10),"no"
+98,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(85:3-85:7),"Freckles"
+99,COMPOUNDSTATEMENT,"",Freckles.java(80:25-84:4),"{
+			pred[i]=0;
+			dist[i]=Double.MAX_VALUE;
+			vertices.add(i);
+		}"
+100,DECLARATIONSTATEMENT,"",Freckles.java(80:7-80:14),"int i=0"
+101,BINARYOPERATOR,"<",Freckles.java(80:16-80:19),"i<q"
+102,UNARYOPERATOR,"++",Freckles.java(80:21-80:24),"i++"
+103,VARIABLEDECLARATION,"i",Freckles.java(80:11-80:14),"i=0"
+104,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(81:4-81:8),"Freckles"
+105,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(80:16-80:17),"i"
+106,MEMBEREXPRESSION,"q",Freckles.java(80:18-80:19),"q"
+107,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(80:18-80:19),"Freckles"
+108,BINARYOPERATOR,"=",Freckles.java(81:4-81:14),"pred[i]=0;"
+109,BINARYOPERATOR,"=",Freckles.java(82:4-82:29),"dist[i]=Double.MAX_VALUE;"
+110,MEMBERCALLEXPRESSION,"add",Freckles.java(83:4-83:20),"vertices.add(i);"
+111,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(80:21-80:22),"i"
+112,DECLAREDREFERENCEEXPRESSION,"add",Freckles.java(83:13-83:16),"add"
+113,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(83:17-83:18),"i"
+114,DECLAREDREFERENCEEXPRESSION,"vertices",Freckles.java(83:4-83:12),"vertices"
+115,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(82:4-82:11),"dist[i]"
+116,MEMBEREXPRESSION,"MAX_VALUE",Freckles.java(82:12-82:28),"Double.MAX_VALUE"
+117,DECLAREDREFERENCEEXPRESSION,"Double",Freckles.java(82:12-82:18),"Double"
+118,MEMBEREXPRESSION,"dist",Freckles.java(82:4-82:8),"dist"
+119,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(82:9-82:10),"i"
+120,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(82:4-82:8),"Freckles"
+121,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(81:4-81:11),"pred[i]"
+122,LITERAL,"",Freckles.java(81:12-81:13),"0"
+123,MEMBEREXPRESSION,"pred",Freckles.java(81:4-81:8),"pred"
+124,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(81:9-81:10),"i"
+125,LITERAL,"",Freckles.java(80:13-80:14),"0"
+126,VARIABLEDECLARATION,"this",,""
+127,COMPOUNDSTATEMENT,"",Freckles.java(67:72-69:3),"{
+		return Math.sqrt((xi-xj)*(xi-xj) + (yi-yj)*(yi-yj));
+	}"
+128,PARAMVARIABLEDECLARATION,"xi",Freckles.java(67:29-67:38),"double xi"
+129,PARAMVARIABLEDECLARATION,"xj",Freckles.java(67:40-67:49),"double xj"
+130,PARAMVARIABLEDECLARATION,"yi",Freckles.java(67:51-67:60),"double yi"
+131,PARAMVARIABLEDECLARATION,"yj",Freckles.java(67:62-67:71),"double yj"
+132,DECLAREDREFERENCEEXPRESSION,"xi",Freckles.java(68:21-68:23),"xi"
+133,RETURNSTATEMENT,"",Freckles.java(68:3-68:55),"return Math.sqrt((xi-xj)*(xi-xj) + (yi-yj)*(yi-yj));"
+134,STATICCALLEXPRESSION,"sqrt",Freckles.java(68:10-68:54),"Math.sqrt((xi-xj)*(xi-xj) + (yi-yj)*(yi-yj))"
+135,BINARYOPERATOR,"+",Freckles.java(68:20-68:53),"(xi-xj)*(xi-xj) + (yi-yj)*(yi-yj)"
+136,BINARYOPERATOR,"*",Freckles.java(68:20-68:35),"(xi-xj)*(xi-xj)"
+137,BINARYOPERATOR,"*",Freckles.java(68:38-68:53),"(yi-yj)*(yi-yj)"
+138,BINARYOPERATOR,"-",Freckles.java(68:39-68:44),"yi-yj"
+139,BINARYOPERATOR,"-",Freckles.java(68:47-68:52),"yi-yj"
+140,DECLAREDREFERENCEEXPRESSION,"yi",Freckles.java(68:47-68:49),"yi"
+141,DECLAREDREFERENCEEXPRESSION,"yj",Freckles.java(68:50-68:52),"yj"
+142,DECLAREDREFERENCEEXPRESSION,"yi",Freckles.java(68:39-68:41),"yi"
+143,DECLAREDREFERENCEEXPRESSION,"yj",Freckles.java(68:42-68:44),"yj"
+144,BINARYOPERATOR,"-",Freckles.java(68:21-68:26),"xi-xj"
+145,BINARYOPERATOR,"-",Freckles.java(68:29-68:34),"xi-xj"
+146,DECLAREDREFERENCEEXPRESSION,"xi",Freckles.java(68:29-68:31),"xi"
+147,DECLAREDREFERENCEEXPRESSION,"xj",Freckles.java(68:32-68:34),"xj"
+148,DECLAREDREFERENCEEXPRESSION,"xj",Freckles.java(68:24-68:26),"xj"
+149,VARIABLEDECLARATION,"this",,""
+150,COMPOUNDSTATEMENT,"",Freckles.java(71:32-73:3),"{
+
+	}"
+151,RETURNSTATEMENT,"",,""
+152,VARIABLEDECLARATION,"this",,""
+153,COMPOUNDSTATEMENT,"",Freckles.java(20:41-65:3),"{
+		Scanner in = new Scanner(System.in).useLocale(Locale.US);
+
+		int n = q = in.nextInt();
+
+		matrix = new double[n][n];
+
+		visited = new boolean[n][n];
+
+		dist = new double[n];
+
+		pred = new int[n];
+
+		double coordinates[][] = new double[n][2];
+
+
+		for(int i = 0; i<n; i++){
+			double x = in.nextDouble();
+			double y = in.nextDouble();
+			coordinates[i][0] = x;
+			coordinates[i][1] = y;
+		}
+
+		for(int i = 0; i<n; i++){
+			for (int j=i; j<n; j++) {
+				if(i!=j){
+					matrix[j][i]= matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1]);
+				}
+				
+			}
+		}
+		
+
+		prim(matrix, 0);
+
+
+		// print();
+
+		// System.out.println();
+		double sum=0;
+		for(int i=0; i<n; i++){
+			sum+=dist[i];
+			// System.out.println(sum);
+		}
+		System.out.printf(Locale.US, ""%.2f\n"", sum);
+	}"
+154,PARAMVARIABLEDECLARATION,"args",Freckles.java(20:26-20:39),"String[] args"
+155,DECLAREDREFERENCEEXPRESSION,"System",Freckles.java(21:28-21:34),"System"
+156,RETURNSTATEMENT,"",,""
+157,DECLARATIONSTATEMENT,"",Freckles.java(21:3-21:60),"Scanner in = new Scanner(System.in).useLocale(Locale.US);"
+158,DECLARATIONSTATEMENT,"",Freckles.java(23:3-23:28),"int n = q = in.nextInt();"
+159,BINARYOPERATOR,"=",Freckles.java(25:3-25:29),"matrix = new double[n][n];"
+160,BINARYOPERATOR,"=",Freckles.java(27:3-27:31),"visited = new boolean[n][n];"
+161,BINARYOPERATOR,"=",Freckles.java(29:3-29:24),"dist = new double[n];"
+162,BINARYOPERATOR,"=",Freckles.java(31:3-31:21),"pred = new int[n];"
+163,DECLARATIONSTATEMENT,"",Freckles.java(33:3-33:45),"double coordinates[][] = new double[n][2];"
+164,FORSTATEMENT,"",Freckles.java(36:3-41:4),"for(int i = 0; i<n; i++){
+			double x = in.nextDouble();
+			double y = in.nextDouble();
+			coordinates[i][0] = x;
+			coordinates[i][1] = y;
+		}"
+165,FORSTATEMENT,"",Freckles.java(43:3-50:4),"for(int i = 0; i<n; i++){
+			for (int j=i; j<n; j++) {
+				if(i!=j){
+					matrix[j][i]= matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1]);
+				}
+				
+			}
+		}"
+166,CALLEXPRESSION,"prim",Freckles.java(53:3-53:19),"prim(matrix, 0);"
+167,DECLARATIONSTATEMENT,"",Freckles.java(59:3-59:16),"double sum=0;"
+168,FORSTATEMENT,"",Freckles.java(60:3-63:4),"for(int i=0; i<n; i++){
+			sum+=dist[i];
+			// System.out.println(sum);
+		}"
+169,MEMBERCALLEXPRESSION,"printf",Freckles.java(64:3-64:47),"System.out.printf(Locale.US, ""%.2f\n"", sum);"
+170,VARIABLEDECLARATION,"in",Freckles.java(21:11-21:59),"in = new Scanner(System.in).useLocale(Locale.US)"
+171,VARIABLEDECLARATION,"n",Freckles.java(23:7-23:27),"n = q = in.nextInt()"
+172,VARIABLEDECLARATION,"coordinates",Freckles.java(33:10-33:44),"coordinates[][] = new double[n][2]"
+173,VARIABLEDECLARATION,"sum",Freckles.java(59:10-59:15),"sum=0"
+174,MEMBERCALLEXPRESSION,"useLocale",Freckles.java(21:16-21:59),"new Scanner(System.in).useLocale(Locale.US)"
+175,DECLAREDREFERENCEEXPRESSION,"useLocale",Freckles.java(21:39-21:48),"useLocale"
+176,MEMBEREXPRESSION,"US",Freckles.java(21:49-21:58),"Locale.US"
+177,NEWEXPRESSION,"",Freckles.java(21:16-21:38),"new Scanner(System.in)"
+178,CONSTRUCTEXPRESSION,"",Freckles.java(21:16-21:38),"new Scanner(System.in)"
+179,DECLAREDREFERENCEEXPRESSION,"Locale",Freckles.java(21:49-21:55),"Locale"
+180,MEMBEREXPRESSION,"in",Freckles.java(21:28-21:37),"System.in"
+181,LITERAL,"",Freckles.java(60:13-60:14),"0"
+182,COMPOUNDSTATEMENT,"",Freckles.java(43:27-50:4),"{
+			for (int j=i; j<n; j++) {
+				if(i!=j){
+					matrix[j][i]= matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1]);
+				}
+				
+			}
+		}"
+183,DECLARATIONSTATEMENT,"",Freckles.java(43:7-43:16),"int i = 0"
+184,BINARYOPERATOR,"<",Freckles.java(43:18-43:21),"i<n"
+185,UNARYOPERATOR,"++",Freckles.java(43:23-43:26),"i++"
+186,VARIABLEDECLARATION,"i",Freckles.java(43:11-43:16),"i = 0"
+187,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(44:15-44:16),"i"
+188,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(53:8-53:14),"Freckles"
+189,LITERAL,"",Freckles.java(43:15-43:16),"0"
+190,FORSTATEMENT,"",Freckles.java(44:4-49:5),"for (int j=i; j<n; j++) {
+				if(i!=j){
+					matrix[j][i]= matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1]);
+				}
+				
+			}"
+191,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(43:23-43:24),"i"
+192,COMPOUNDSTATEMENT,"",Freckles.java(44:28-49:5),"{
+				if(i!=j){
+					matrix[j][i]= matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1]);
+				}
+				
+			}"
+193,DECLARATIONSTATEMENT,"",Freckles.java(44:9-44:16),"int j=i"
+194,BINARYOPERATOR,"<",Freckles.java(44:18-44:21),"j<n"
+195,UNARYOPERATOR,"++",Freckles.java(44:23-44:26),"j++"
+196,VARIABLEDECLARATION,"j",Freckles.java(44:13-44:16),"j=i"
+197,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(45:8-45:9),"i"
+198,DECLAREDREFERENCEEXPRESSION,"j",Freckles.java(44:18-44:19),"j"
+199,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(44:20-44:21),"n"
+200,IFSTATEMENT,"",Freckles.java(45:5-47:6),"if(i!=j){
+					matrix[j][i]= matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1]);
+				}"
+201,DECLAREDREFERENCEEXPRESSION,"j",Freckles.java(44:23-44:24),"j"
+202,COMPOUNDSTATEMENT,"",Freckles.java(45:13-47:6),"{
+					matrix[j][i]= matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1]);
+				}"
+203,BINARYOPERATOR,"!=",Freckles.java(45:8-45:12),"i!=j"
+204,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(46:6-46:12),"Freckles"
+205,BINARYOPERATOR,"=",Freckles.java(46:6-46:116),"matrix[j][i]= matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1]);"
+206,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:6-46:18),"matrix[j][i]"
+207,BINARYOPERATOR,"=",Freckles.java(46:20-46:115),"matrix[i][j] = calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1])"
+208,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:6-46:15),"matrix[j]"
+209,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(46:16-46:17),"i"
+210,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(46:20-46:26),"Freckles"
+211,MEMBEREXPRESSION,"matrix",Freckles.java(46:6-46:12),"matrix"
+212,DECLAREDREFERENCEEXPRESSION,"j",Freckles.java(46:13-46:14),"j"
+213,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:20-46:32),"matrix[i][j]"
+214,CALLEXPRESSION,"calc",Freckles.java(46:35-46:115),"calc(coordinates[i][0], coordinates[j][0], coordinates[i][1], coordinates[j][1])"
+215,METHODDECLARATION,"calc",,""
+216,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:40-46:57),"coordinates[i][0]"
+217,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:59-46:76),"coordinates[j][0]"
+218,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:78-46:95),"coordinates[i][1]"
+219,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:97-46:114),"coordinates[j][1]"
+220,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:40-46:54),"coordinates[i]"
+221,LITERAL,"",Freckles.java(46:55-46:56),"0"
+222,PARAMVARIABLEDECLARATION,"double0",,""
+223,DECLAREDREFERENCEEXPRESSION,"coordinates",Freckles.java(46:59-46:70),"coordinates"
+224,DECLAREDREFERENCEEXPRESSION,"coordinates",Freckles.java(46:40-46:51),"coordinates"
+225,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(46:52-46:53),"i"
+226,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:78-46:92),"coordinates[i]"
+227,LITERAL,"",Freckles.java(46:93-46:94),"1"
+228,PARAMVARIABLEDECLARATION,"double2",,""
+229,DECLAREDREFERENCEEXPRESSION,"coordinates",Freckles.java(46:97-46:108),"coordinates"
+230,DECLAREDREFERENCEEXPRESSION,"coordinates",Freckles.java(46:78-46:89),"coordinates"
+231,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(46:90-46:91),"i"
+232,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:59-46:73),"coordinates[j]"
+233,LITERAL,"",Freckles.java(46:74-46:75),"0"
+234,PARAMVARIABLEDECLARATION,"double1",,""
+235,DECLAREDREFERENCEEXPRESSION,"j",Freckles.java(46:71-46:72),"j"
+236,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:97-46:111),"coordinates[j]"
+237,LITERAL,"",Freckles.java(46:112-46:113),"1"
+238,PARAMVARIABLEDECLARATION,"double3",,""
+239,DECLAREDREFERENCEEXPRESSION,"j",Freckles.java(46:109-46:110),"j"
+240,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(46:20-46:29),"matrix[i]"
+241,DECLAREDREFERENCEEXPRESSION,"j",Freckles.java(46:30-46:31),"j"
+242,MEMBEREXPRESSION,"matrix",Freckles.java(46:20-46:26),"matrix"
+243,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(46:27-46:28),"i"
+244,DECLAREDREFERENCEEXPRESSION,"j",Freckles.java(45:11-45:12),"j"
+245,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(43:18-43:19),"i"
+246,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(43:20-43:21),"n"
+247,BINARYOPERATOR,"=",Freckles.java(23:11-23:27),"q = in.nextInt()"
+248,MEMBEREXPRESSION,"q",Freckles.java(23:11-23:12),"q"
+249,MEMBERCALLEXPRESSION,"nextInt",Freckles.java(23:15-23:27),"in.nextInt()"
+250,DECLAREDREFERENCEEXPRESSION,"nextInt",Freckles.java(23:18-23:25),"nextInt"
+251,DECLAREDREFERENCEEXPRESSION,"in",Freckles.java(23:15-23:17),"in"
+252,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(23:11-23:12),"Freckles"
+253,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(25:3-25:9),"Freckles"
+254,LITERAL,"",Freckles.java(36:15-36:16),"0"
+255,ARRAYCREATIONEXPRESSION,"",Freckles.java(33:28-33:44),"new double[n][2]"
+256,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(33:39-33:40),"n"
+257,LITERAL,"",Freckles.java(33:42-33:43),"2"
+258,MEMBEREXPRESSION,"pred",Freckles.java(31:3-31:7),"pred"
+259,ARRAYCREATIONEXPRESSION,"",Freckles.java(31:10-31:20),"new int[n]"
+260,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(31:3-31:7),"Freckles"
+261,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(31:18-31:19),"n"
+262,MEMBEREXPRESSION,"dist",Freckles.java(29:3-29:7),"dist"
+263,ARRAYCREATIONEXPRESSION,"",Freckles.java(29:10-29:23),"new double[n]"
+264,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(29:3-29:7),"Freckles"
+265,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(29:21-29:22),"n"
+266,LITERAL,"",Freckles.java(59:14-59:15),"0"
+267,COMPOUNDSTATEMENT,"",Freckles.java(36:27-41:4),"{
+			double x = in.nextDouble();
+			double y = in.nextDouble();
+			coordinates[i][0] = x;
+			coordinates[i][1] = y;
+		}"
+268,DECLARATIONSTATEMENT,"",Freckles.java(36:7-36:16),"int i = 0"
+269,BINARYOPERATOR,"<",Freckles.java(36:18-36:21),"i<n"
+270,UNARYOPERATOR,"++",Freckles.java(36:23-36:26),"i++"
+271,VARIABLEDECLARATION,"i",Freckles.java(36:11-36:16),"i = 0"
+272,DECLAREDREFERENCEEXPRESSION,"in",Freckles.java(37:15-37:17),"in"
+273,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(36:18-36:19),"i"
+274,DECLARATIONSTATEMENT,"",Freckles.java(37:4-37:31),"double x = in.nextDouble();"
+275,DECLARATIONSTATEMENT,"",Freckles.java(38:4-38:31),"double y = in.nextDouble();"
+276,BINARYOPERATOR,"=",Freckles.java(39:4-39:26),"coordinates[i][0] = x;"
+277,BINARYOPERATOR,"=",Freckles.java(40:4-40:26),"coordinates[i][1] = y;"
+278,VARIABLEDECLARATION,"x",Freckles.java(37:11-37:30),"x = in.nextDouble()"
+279,VARIABLEDECLARATION,"y",Freckles.java(38:11-38:30),"y = in.nextDouble()"
+280,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(36:23-36:24),"i"
+281,MEMBERCALLEXPRESSION,"nextDouble",Freckles.java(37:15-37:30),"in.nextDouble()"
+282,DECLAREDREFERENCEEXPRESSION,"nextDouble",Freckles.java(37:18-37:28),"nextDouble"
+283,MEMBERCALLEXPRESSION,"nextDouble",Freckles.java(38:15-38:30),"in.nextDouble()"
+284,DECLAREDREFERENCEEXPRESSION,"nextDouble",Freckles.java(38:18-38:28),"nextDouble"
+285,DECLAREDREFERENCEEXPRESSION,"in",Freckles.java(38:15-38:17),"in"
+286,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(39:4-39:21),"coordinates[i][0]"
+287,DECLAREDREFERENCEEXPRESSION,"x",Freckles.java(39:24-39:25),"x"
+288,DECLAREDREFERENCEEXPRESSION,"coordinates",Freckles.java(40:4-40:15),"coordinates"
+289,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(39:4-39:18),"coordinates[i]"
+290,LITERAL,"",Freckles.java(39:19-39:20),"0"
+291,DECLAREDREFERENCEEXPRESSION,"coordinates",Freckles.java(39:4-39:15),"coordinates"
+292,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(39:16-39:17),"i"
+293,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(40:4-40:21),"coordinates[i][1]"
+294,DECLAREDREFERENCEEXPRESSION,"y",Freckles.java(40:24-40:25),"y"
+295,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(40:4-40:18),"coordinates[i]"
+296,LITERAL,"",Freckles.java(40:19-40:20),"1"
+297,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(40:16-40:17),"i"
+298,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(36:20-36:21),"n"
+299,METHODDECLARATION,"prim",,""
+300,MEMBEREXPRESSION,"matrix",Freckles.java(53:8-53:14),"matrix"
+301,LITERAL,"",Freckles.java(53:16-53:17),"0"
+302,PARAMVARIABLEDECLARATION,"int1",,""
+303,PARAMVARIABLEDECLARATION,"doublePtrPtr0",,""
+304,DECLAREDREFERENCEEXPRESSION,"printf",Freckles.java(64:14-64:20),"printf"
+305,DECLAREDREFERENCEEXPRESSION,"sum",Freckles.java(64:42-64:45),"sum"
+306,LITERAL,"",Freckles.java(64:32-64:40),"""%.2f\n"""
+307,MEMBEREXPRESSION,"US",Freckles.java(64:21-64:30),"Locale.US"
+308,MEMBEREXPRESSION,"out",Freckles.java(64:3-64:13),"System.out"
+309,DECLAREDREFERENCEEXPRESSION,"System",Freckles.java(64:3-64:9),"System"
+310,DECLAREDREFERENCEEXPRESSION,"Locale",Freckles.java(64:21-64:27),"Locale"
+311,MEMBEREXPRESSION,"matrix",Freckles.java(25:3-25:9),"matrix"
+312,ARRAYCREATIONEXPRESSION,"",Freckles.java(25:12-25:28),"new double[n][n]"
+313,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(27:3-27:10),"Freckles"
+314,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(25:23-25:24),"n"
+315,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(25:26-25:27),"n"
+316,COMPOUNDSTATEMENT,"",Freckles.java(60:25-63:4),"{
+			sum+=dist[i];
+			// System.out.println(sum);
+		}"
+317,DECLARATIONSTATEMENT,"",Freckles.java(60:7-60:14),"int i=0"
+318,BINARYOPERATOR,"<",Freckles.java(60:16-60:19),"i<n"
+319,UNARYOPERATOR,"++",Freckles.java(60:21-60:24),"i++"
+320,VARIABLEDECLARATION,"i",Freckles.java(60:11-60:14),"i=0"
+321,DECLAREDREFERENCEEXPRESSION,"sum",Freckles.java(61:4-61:7),"sum"
+322,BINARYOPERATOR,"+=",Freckles.java(61:4-61:17),"sum+=dist[i];"
+323,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(60:21-60:22),"i"
+324,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(61:9-61:16),"dist[i]"
+325,MEMBEREXPRESSION,"dist",Freckles.java(61:9-61:13),"dist"
+326,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(61:14-61:15),"i"
+327,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(61:9-61:13),"Freckles"
+328,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(60:16-60:17),"i"
+329,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(60:18-60:19),"n"
+330,MEMBEREXPRESSION,"visited",Freckles.java(27:3-27:10),"visited"
+331,ARRAYCREATIONEXPRESSION,"",Freckles.java(27:13-27:30),"new boolean[n][n]"
+332,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(27:25-27:26),"n"
+333,DECLAREDREFERENCEEXPRESSION,"n",Freckles.java(27:28-27:29),"n"
+334,VARIABLEDECLARATION,"this",,""
+335,COMPOUNDSTATEMENT,"",Freckles.java(114:51-142:3),"{
+
+		// for(Integer i: graph){
+		// 	System.out.println();
+		// 	System.out.println(""graph ""+i);
+		// }
+
+
+		double min = Double.MAX_VALUE;
+		int index =0;
+
+		for(Integer i: graph){
+			
+				if(dist[i]<min){
+					index = i;
+					min = dist[i];
+					// System.out.println(min+"" min"");
+				}
+			
+			
+		}
+
+		
+
+		// System.out.println(""min ""+min+"" ""+index);
+		// graph[no][index]=0;
+		graph.remove(new Integer(index));
+		return index;
+	}"
+336,PARAMVARIABLEDECLARATION,"graph",Freckles.java(114:25-114:50),"LinkedList<Integer> graph"
+337,DECLAREDREFERENCEEXPRESSION,"Double",Freckles.java(122:16-122:22),"Double"
+338,RETURNSTATEMENT,"",Freckles.java(141:3-141:16),"return index;"
+339,DECLARATIONSTATEMENT,"",Freckles.java(122:3-122:33),"double min = Double.MAX_VALUE;"
+340,DECLARATIONSTATEMENT,"",Freckles.java(123:3-123:16),"int index =0;"
+341,FOREACHSTATEMENT,"",Freckles.java(125:3-134:4),"for(Integer i: graph){
+			
+				if(dist[i]<min){
+					index = i;
+					min = dist[i];
+					// System.out.println(min+"" min"");
+				}
+			
+			
+		}"
+342,MEMBERCALLEXPRESSION,"remove",Freckles.java(140:3-140:36),"graph.remove(new Integer(index));"
+343,VARIABLEDECLARATION,"min",Freckles.java(122:10-122:32),"min = Double.MAX_VALUE"
+344,VARIABLEDECLARATION,"index",Freckles.java(123:7-123:15),"index =0"
+345,DECLAREDREFERENCEEXPRESSION,"index",Freckles.java(141:10-141:15),"index"
+346,LITERAL,"",Freckles.java(123:14-123:15),"0"
+347,DECLAREDREFERENCEEXPRESSION,"remove",Freckles.java(140:9-140:15),"remove"
+348,NEWEXPRESSION,"",Freckles.java(140:16-140:34),"new Integer(index)"
+349,CONSTRUCTEXPRESSION,"",Freckles.java(140:16-140:34),"new Integer(index)"
+350,DECLAREDREFERENCEEXPRESSION,"index",Freckles.java(140:28-140:33),"index"
+351,DECLAREDREFERENCEEXPRESSION,"graph",Freckles.java(140:3-140:8),"graph"
+352,MEMBEREXPRESSION,"MAX_VALUE",Freckles.java(122:16-122:32),"Double.MAX_VALUE"
+353,DECLARATIONSTATEMENT,"",Freckles.java(125:7-125:16),"Integer i"
+354,DECLAREDREFERENCEEXPRESSION,"graph",Freckles.java(125:18-125:23),"graph"
+355,COMPOUNDSTATEMENT,"",Freckles.java(125:24-134:4),"{
+			
+				if(dist[i]<min){
+					index = i;
+					min = dist[i];
+					// System.out.println(min+"" min"");
+				}
+			
+			
+		}"
+356,VARIABLEDECLARATION,"i",Freckles.java(125:15-125:16),"i"
+357,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(127:8-127:12),"Freckles"
+358,IFSTATEMENT,"",Freckles.java(127:5-131:6),"if(dist[i]<min){
+					index = i;
+					min = dist[i];
+					// System.out.println(min+"" min"");
+				}"
+359,COMPOUNDSTATEMENT,"",Freckles.java(127:20-131:6),"{
+					index = i;
+					min = dist[i];
+					// System.out.println(min+"" min"");
+				}"
+360,BINARYOPERATOR,"<",Freckles.java(127:8-127:19),"dist[i]<min"
+361,DECLAREDREFERENCEEXPRESSION,"index",Freckles.java(128:6-128:11),"index"
+362,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(127:8-127:15),"dist[i]"
+363,DECLAREDREFERENCEEXPRESSION,"min",Freckles.java(127:16-127:19),"min"
+364,MEMBEREXPRESSION,"dist",Freckles.java(127:8-127:12),"dist"
+365,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(127:13-127:14),"i"
+366,BINARYOPERATOR,"=",Freckles.java(128:6-128:16),"index = i;"
+367,BINARYOPERATOR,"=",Freckles.java(129:6-129:20),"min = dist[i];"
+368,DECLAREDREFERENCEEXPRESSION,"min",Freckles.java(129:6-129:9),"min"
+369,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(129:12-129:19),"dist[i]"
+370,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(129:12-129:16),"Freckles"
+371,MEMBEREXPRESSION,"dist",Freckles.java(129:12-129:16),"dist"
+372,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(129:17-129:18),"i"
+373,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(128:14-128:15),"i"
+374,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+375,VARIABLEDECLARATION,"this",,""
+376,COMPOUNDSTATEMENT,"",Freckles.java(144:29-165:3),"{
+		// System.out.println();
+		// for(int i=0; i<q; i++){
+		// 	for(int j=0; j<q; j++){
+		// 		System.out.print(matrix[i][j]+"" "");
+		// 	}
+		// 	System.out.println();
+		// }
+		// System.out.println();
+
+
+		for(int i=0; i<q; i++){
+			System.out.print(dist[i]+"" "");
+		}
+		System.out.println();
+		
+		for(int i=0; i<q; i++){
+			System.out.print(pred[i]+"" "");
+		}
+	
+
+	}"
+377,LITERAL,"",Freckles.java(155:13-155:14),"0"
+378,RETURNSTATEMENT,"",,""
+379,FORSTATEMENT,"",Freckles.java(155:3-157:4),"for(int i=0; i<q; i++){
+			System.out.print(dist[i]+"" "");
+		}"
+380,MEMBERCALLEXPRESSION,"println",Freckles.java(158:3-158:24),"System.out.println();"
+381,FORSTATEMENT,"",Freckles.java(160:3-162:4),"for(int i=0; i<q; i++){
+			System.out.print(pred[i]+"" "");
+		}"
+382,COMPOUNDSTATEMENT,"",Freckles.java(155:25-157:4),"{
+			System.out.print(dist[i]+"" "");
+		}"
+383,DECLARATIONSTATEMENT,"",Freckles.java(155:7-155:14),"int i=0"
+384,BINARYOPERATOR,"<",Freckles.java(155:16-155:19),"i<q"
+385,UNARYOPERATOR,"++",Freckles.java(155:21-155:24),"i++"
+386,VARIABLEDECLARATION,"i",Freckles.java(155:11-155:14),"i=0"
+387,DECLAREDREFERENCEEXPRESSION,"System",Freckles.java(156:4-156:10),"System"
+388,DECLAREDREFERENCEEXPRESSION,"System",Freckles.java(158:3-158:9),"System"
+389,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(155:16-155:17),"i"
+390,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(155:21-155:22),"i"
+391,MEMBERCALLEXPRESSION,"print",Freckles.java(156:4-156:34),"System.out.print(dist[i]+"" "");"
+392,DECLAREDREFERENCEEXPRESSION,"print",Freckles.java(156:15-156:20),"print"
+393,BINARYOPERATOR,"+",Freckles.java(156:21-156:32),"dist[i]+"" """
+394,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(156:21-156:28),"dist[i]"
+395,LITERAL,"",Freckles.java(156:29-156:32),""" """
+396,MEMBEREXPRESSION,"dist",Freckles.java(156:21-156:25),"dist"
+397,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(156:26-156:27),"i"
+398,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(156:21-156:25),"Freckles"
+399,MEMBEREXPRESSION,"out",Freckles.java(156:4-156:14),"System.out"
+400,MEMBEREXPRESSION,"q",Freckles.java(155:18-155:19),"q"
+401,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(155:18-155:19),"Freckles"
+402,COMPOUNDSTATEMENT,"",Freckles.java(160:25-162:4),"{
+			System.out.print(pred[i]+"" "");
+		}"
+403,DECLARATIONSTATEMENT,"",Freckles.java(160:7-160:14),"int i=0"
+404,BINARYOPERATOR,"<",Freckles.java(160:16-160:19),"i<q"
+405,UNARYOPERATOR,"++",Freckles.java(160:21-160:24),"i++"
+406,VARIABLEDECLARATION,"i",Freckles.java(160:11-160:14),"i=0"
+407,DECLAREDREFERENCEEXPRESSION,"System",Freckles.java(161:4-161:10),"System"
+408,LITERAL,"",Freckles.java(160:13-160:14),"0"
+409,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(160:16-160:17),"i"
+410,MEMBERCALLEXPRESSION,"print",Freckles.java(161:4-161:34),"System.out.print(pred[i]+"" "");"
+411,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(160:21-160:22),"i"
+412,DECLAREDREFERENCEEXPRESSION,"print",Freckles.java(161:15-161:20),"print"
+413,BINARYOPERATOR,"+",Freckles.java(161:21-161:32),"pred[i]+"" """
+414,MEMBEREXPRESSION,"out",Freckles.java(161:4-161:14),"System.out"
+415,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(161:21-161:25),"Freckles"
+416,ARRAYSUBSCRIPTIONEXPRESSION,"",Freckles.java(161:21-161:28),"pred[i]"
+417,LITERAL,"",Freckles.java(161:29-161:32),""" """
+418,MEMBEREXPRESSION,"pred",Freckles.java(161:21-161:25),"pred"
+419,DECLAREDREFERENCEEXPRESSION,"i",Freckles.java(161:26-161:27),"i"
+420,MEMBEREXPRESSION,"q",Freckles.java(160:18-160:19),"q"
+421,DECLAREDREFERENCEEXPRESSION,"Freckles",Freckles.java(160:18-160:19),"Freckles"
+422,DECLAREDREFERENCEEXPRESSION,"println",Freckles.java(158:14-158:21),"println"
+423,MEMBEREXPRESSION,"out",Freckles.java(158:3-158:13),"System.out"

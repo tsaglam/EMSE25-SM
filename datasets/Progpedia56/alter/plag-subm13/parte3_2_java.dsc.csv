@@ -1,0 +1,519 @@
+id,type,token,location,code
+1,TRANSLATIONUNITDECLARATION,"/data/00000056/submissions/07412973_21_201204649/Parte3_2.java",,""
+2,RECORDDECLARATION,"Parte3_2",Parte3_2.java(3:1-60:2),"class Parte3_2
+{
+    static PriorityQueue<Node> list = new PriorityQueue<Node>();
+    static LinkedList<Node>    aux  = new LinkedList<Node>();
+    
+    static float dist=0;
+    
+    public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	input.useLocale(Locale.US);
+	
+	int n = input.nextInt();
+	
+	for (int i=0;i<n;i++) {
+	    Node node = new Node(input.nextFloat(), input.nextFloat());
+	    list.add(node);
+	    aux.add(node);
+	}
+	prim();
+	
+	System.out.format(Locale.ENGLISH,""%.2f"",dist);
+	System.out.println();
+    }
+    
+    public static void prim() {
+	boolean first=true;
+	Node node = null;
+
+	while(list.size()>0) {
+	    
+	    node = list.remove();
+	    aux.remove(node);
+	    
+	    if (!first)
+		dist+=node.dist;
+	    else
+		first=false;
+
+	    for (Node adjNode : aux) {
+		float weight = returnWeight(node, adjNode);
+		
+		if (weight<adjNode.dist){
+		    list.remove(adjNode);
+		    
+		    adjNode.parent = node;
+		    adjNode.dist   = weight;
+		    
+		    list.add(adjNode);
+		}
+	    }
+	}
+    }
+    
+    public static float returnWeight(Node node1, Node node2) {
+	return (float) Math.sqrt((node1.x-node2.x)*(node1.x-node2.x) + (node1.y-node2.y)*(node1.y-node2.y));
+    }
+    
+}"
+3,RECORDDECLARATION,"Node",Parte3_2.java(62:1-82:2),"class Node implements Comparable<Node>{
+    float dist   = Float.MAX_VALUE;
+    Node  parent = null;
+    
+    public float x;
+    public float y;
+    
+    Node(float x, float y) {
+	this.x=x;
+	this.y=y;
+    }
+    
+    public int compareTo (Node n) {
+	if (dist < n.dist)
+	    return -1;
+	else if (dist > n.dist)
+	    return 1;
+	else
+	    return 0;
+    }
+}"
+4,INCLUDEDECLARATION,"java.util",,""
+5,FIELDDECLARATION,"this",,""
+6,FIELDDECLARATION,"list",Parte3_2.java(5:5-5:65),"list = new PriorityQueue<Node>()"
+7,FIELDDECLARATION,"aux",Parte3_2.java(6:5-6:62),"aux = new LinkedList<Node>()"
+8,FIELDDECLARATION,"dist",Parte3_2.java(8:5-8:25),"dist = 0"
+9,METHODDECLARATION,"main",Parte3_2.java(10:5-25:6),"public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	input.useLocale(Locale.US);
+	
+	int n = input.nextInt();
+	
+	for (int i=0;i<n;i++) {
+	    Node node = new Node(input.nextFloat(), input.nextFloat());
+	    list.add(node);
+	    aux.add(node);
+	}
+	prim();
+	
+	System.out.format(Locale.ENGLISH,""%.2f"",dist);
+	System.out.println();
+    }"
+10,METHODDECLARATION,"prim",Parte3_2.java(27:5-54:6),"public static void prim() {
+	boolean first=true;
+	Node node = null;
+
+	while(list.size()>0) {
+	    
+	    node = list.remove();
+	    aux.remove(node);
+	    
+	    if (!first)
+		dist+=node.dist;
+	    else
+		first=false;
+
+	    for (Node adjNode : aux) {
+		float weight = returnWeight(node, adjNode);
+		
+		if (weight<adjNode.dist){
+		    list.remove(adjNode);
+		    
+		    adjNode.parent = node;
+		    adjNode.dist   = weight;
+		    
+		    list.add(adjNode);
+		}
+	    }
+	}
+    }"
+11,METHODDECLARATION,"returnWeight",Parte3_2.java(56:5-58:6),"public static float returnWeight(Node node1, Node node2) {
+	return (float) Math.sqrt((node1.x-node2.x)*(node1.x-node2.x) + (node1.y-node2.y)*(node1.y-node2.y));
+    }"
+12,CONSTRUCTORDECLARATION,"Parte3_2",,""
+13,VARIABLEDECLARATION,"this",,""
+14,COMPOUNDSTATEMENT,"",Parte3_2.java(10:44-25:6),"{
+	Scanner input = new Scanner(System.in);
+	input.useLocale(Locale.US);
+	
+	int n = input.nextInt();
+	
+	for (int i=0;i<n;i++) {
+	    Node node = new Node(input.nextFloat(), input.nextFloat());
+	    list.add(node);
+	    aux.add(node);
+	}
+	prim();
+	
+	System.out.format(Locale.ENGLISH,""%.2f"",dist);
+	System.out.println();
+    }"
+15,PARAMVARIABLEDECLARATION,"args",Parte3_2.java(10:29-10:42),"String[] args"
+16,DECLAREDREFERENCEEXPRESSION,"System",Parte3_2.java(11:30-11:36),"System"
+17,RETURNSTATEMENT,"",,""
+18,DECLARATIONSTATEMENT,"",Parte3_2.java(11:2-11:41),"Scanner input = new Scanner(System.in);"
+19,MEMBERCALLEXPRESSION,"useLocale",Parte3_2.java(12:2-12:29),"input.useLocale(Locale.US);"
+20,DECLARATIONSTATEMENT,"",Parte3_2.java(14:2-14:26),"int n = input.nextInt();"
+21,FORSTATEMENT,"",Parte3_2.java(16:2-20:3),"for (int i=0;i<n;i++) {
+	    Node node = new Node(input.nextFloat(), input.nextFloat());
+	    list.add(node);
+	    aux.add(node);
+	}"
+22,CALLEXPRESSION,"prim",Parte3_2.java(21:2-21:9),"prim();"
+23,MEMBERCALLEXPRESSION,"format",Parte3_2.java(23:2-23:48),"System.out.format(Locale.ENGLISH,""%.2f"",dist);"
+24,MEMBERCALLEXPRESSION,"println",Parte3_2.java(24:2-24:23),"System.out.println();"
+25,VARIABLEDECLARATION,"input",Parte3_2.java(11:10-11:40),"input = new Scanner(System.in)"
+26,VARIABLEDECLARATION,"n",Parte3_2.java(14:6-14:25),"n = input.nextInt()"
+27,DECLAREDREFERENCEEXPRESSION,"useLocale",Parte3_2.java(12:8-12:17),"useLocale"
+28,DECLAREDREFERENCEEXPRESSION,"input",Parte3_2.java(14:10-14:15),"input"
+29,MEMBEREXPRESSION,"US",Parte3_2.java(12:18-12:27),"Locale.US"
+30,DECLAREDREFERENCEEXPRESSION,"input",Parte3_2.java(12:2-12:7),"input"
+31,DECLAREDREFERENCEEXPRESSION,"Locale",Parte3_2.java(12:18-12:24),"Locale"
+32,DECLAREDREFERENCEEXPRESSION,"println",Parte3_2.java(24:13-24:20),"println"
+33,MEMBEREXPRESSION,"out",Parte3_2.java(24:2-24:12),"System.out"
+34,DECLAREDREFERENCEEXPRESSION,"System",Parte3_2.java(24:2-24:8),"System"
+35,DECLAREDREFERENCEEXPRESSION,"System",Parte3_2.java(23:2-23:8),"System"
+36,NEWEXPRESSION,"",Parte3_2.java(11:18-11:40),"new Scanner(System.in)"
+37,CONSTRUCTEXPRESSION,"",Parte3_2.java(11:18-11:40),"new Scanner(System.in)"
+38,MEMBEREXPRESSION,"in",Parte3_2.java(11:30-11:39),"System.in"
+39,LITERAL,"",Parte3_2.java(16:13-16:14),"0"
+40,COMPOUNDSTATEMENT,"",Parte3_2.java(16:24-20:3),"{
+	    Node node = new Node(input.nextFloat(), input.nextFloat());
+	    list.add(node);
+	    aux.add(node);
+	}"
+41,DECLARATIONSTATEMENT,"",Parte3_2.java(16:7-16:14),"int i=0"
+42,BINARYOPERATOR,"<",Parte3_2.java(16:15-16:18),"i<n"
+43,UNARYOPERATOR,"++",Parte3_2.java(16:19-16:22),"i++"
+44,VARIABLEDECLARATION,"i",Parte3_2.java(16:11-16:14),"i=0"
+45,DECLAREDREFERENCEEXPRESSION,"input",Parte3_2.java(17:27-17:32),"input"
+46,DECLAREDREFERENCEEXPRESSION,"i",Parte3_2.java(16:15-16:16),"i"
+47,DECLAREDREFERENCEEXPRESSION,"n",Parte3_2.java(16:17-16:18),"n"
+48,DECLAREDREFERENCEEXPRESSION,"i",Parte3_2.java(16:19-16:20),"i"
+49,DECLARATIONSTATEMENT,"",Parte3_2.java(17:6-17:65),"Node node = new Node(input.nextFloat(), input.nextFloat());"
+50,MEMBERCALLEXPRESSION,"add",Parte3_2.java(18:6-18:21),"list.add(node);"
+51,MEMBERCALLEXPRESSION,"add",Parte3_2.java(19:6-19:20),"aux.add(node);"
+52,VARIABLEDECLARATION,"node",Parte3_2.java(17:11-17:64),"node = new Node(input.nextFloat(), input.nextFloat())"
+53,NEWEXPRESSION,"",Parte3_2.java(17:18-17:64),"new Node(input.nextFloat(), input.nextFloat())"
+54,CONSTRUCTEXPRESSION,"",Parte3_2.java(17:18-17:64),"new Node(input.nextFloat(), input.nextFloat())"
+55,CONSTRUCTORDECLARATION,"Node",,""
+56,MEMBERCALLEXPRESSION,"nextFloat",Parte3_2.java(17:46-17:63),"input.nextFloat()"
+57,DECLAREDREFERENCEEXPRESSION,"nextFloat",Parte3_2.java(17:52-17:61),"nextFloat"
+58,PARAMVARIABLEDECLARATION,"float1",,""
+59,DECLAREDREFERENCEEXPRESSION,"input",Parte3_2.java(17:46-17:51),"input"
+60,MEMBERCALLEXPRESSION,"nextFloat",Parte3_2.java(17:27-17:44),"input.nextFloat()"
+61,DECLAREDREFERENCEEXPRESSION,"nextFloat",Parte3_2.java(17:33-17:42),"nextFloat"
+62,PARAMVARIABLEDECLARATION,"float0",,""
+63,DECLAREDREFERENCEEXPRESSION,"add",Parte3_2.java(18:11-18:14),"add"
+64,DECLAREDREFERENCEEXPRESSION,"Parte3_2",Parte3_2.java(19:6-19:9),"Parte3_2"
+65,DECLAREDREFERENCEEXPRESSION,"node",Parte3_2.java(18:15-18:19),"node"
+66,MEMBEREXPRESSION,"list",Parte3_2.java(18:6-18:10),"list"
+67,DECLAREDREFERENCEEXPRESSION,"Parte3_2",Parte3_2.java(18:6-18:10),"Parte3_2"
+68,DECLAREDREFERENCEEXPRESSION,"add",Parte3_2.java(19:10-19:13),"add"
+69,DECLAREDREFERENCEEXPRESSION,"node",Parte3_2.java(19:14-19:18),"node"
+70,MEMBEREXPRESSION,"aux",Parte3_2.java(19:6-19:9),"aux"
+71,DECLAREDREFERENCEEXPRESSION,"format",Parte3_2.java(23:13-23:19),"format"
+72,MEMBEREXPRESSION,"dist",Parte3_2.java(23:42-23:46),"dist"
+73,DECLAREDREFERENCEEXPRESSION,"Parte3_2",Parte3_2.java(23:42-23:46),"Parte3_2"
+74,LITERAL,"",Parte3_2.java(23:35-23:41),"""%.2f"""
+75,MEMBEREXPRESSION,"out",Parte3_2.java(23:2-23:12),"System.out"
+76,DECLAREDREFERENCEEXPRESSION,"Locale",Parte3_2.java(23:20-23:26),"Locale"
+77,MEMBEREXPRESSION,"ENGLISH",Parte3_2.java(23:20-23:34),"Locale.ENGLISH"
+78,MEMBERCALLEXPRESSION,"nextInt",Parte3_2.java(14:10-14:25),"input.nextInt()"
+79,DECLAREDREFERENCEEXPRESSION,"nextInt",Parte3_2.java(14:16-14:23),"nextInt"
+80,NEWEXPRESSION,"",Parte3_2.java(5:39-5:64),"new PriorityQueue<Node>()"
+81,CONSTRUCTEXPRESSION,"",Parte3_2.java(5:39-5:64),"new PriorityQueue<Node>()"
+82,NEWEXPRESSION,"",Parte3_2.java(6:39-6:61),"new LinkedList<Node>()"
+83,CONSTRUCTEXPRESSION,"",Parte3_2.java(6:39-6:61),"new LinkedList<Node>()"
+84,VARIABLEDECLARATION,"this",,""
+85,COMPOUNDSTATEMENT,"",Parte3_2.java(27:31-54:6),"{
+	boolean first=true;
+	Node node = null;
+
+	while(list.size()>0) {
+	    
+	    node = list.remove();
+	    aux.remove(node);
+	    
+	    if (!first)
+		dist+=node.dist;
+	    else
+		first=false;
+
+	    for (Node adjNode : aux) {
+		float weight = returnWeight(node, adjNode);
+		
+		if (weight<adjNode.dist){
+		    list.remove(adjNode);
+		    
+		    adjNode.parent = node;
+		    adjNode.dist   = weight;
+		    
+		    list.add(adjNode);
+		}
+	    }
+	}
+    }"
+86,LITERAL,"",Parte3_2.java(28:16-28:20),"true"
+87,RETURNSTATEMENT,"",,""
+88,DECLARATIONSTATEMENT,"",Parte3_2.java(28:2-28:21),"boolean first=true;"
+89,DECLARATIONSTATEMENT,"",Parte3_2.java(29:2-29:19),"Node node = null;"
+90,WHILESTATEMENT,"",Parte3_2.java(31:2-53:3),"while(list.size()>0) {
+	    
+	    node = list.remove();
+	    aux.remove(node);
+	    
+	    if (!first)
+		dist+=node.dist;
+	    else
+		first=false;
+
+	    for (Node adjNode : aux) {
+		float weight = returnWeight(node, adjNode);
+		
+		if (weight<adjNode.dist){
+		    list.remove(adjNode);
+		    
+		    adjNode.parent = node;
+		    adjNode.dist   = weight;
+		    
+		    list.add(adjNode);
+		}
+	    }
+	}"
+91,VARIABLEDECLARATION,"first",Parte3_2.java(28:10-28:20),"first=true"
+92,VARIABLEDECLARATION,"node",Parte3_2.java(29:7-29:18),"node = null"
+93,LITERAL,"",Parte3_2.java(29:14-29:18),"null"
+94,BINARYOPERATOR,">",Parte3_2.java(31:8-31:21),"list.size()>0"
+95,COMPOUNDSTATEMENT,"",Parte3_2.java(31:23-53:3),"{
+	    
+	    node = list.remove();
+	    aux.remove(node);
+	    
+	    if (!first)
+		dist+=node.dist;
+	    else
+		first=false;
+
+	    for (Node adjNode : aux) {
+		float weight = returnWeight(node, adjNode);
+		
+		if (weight<adjNode.dist){
+		    list.remove(adjNode);
+		    
+		    adjNode.parent = node;
+		    adjNode.dist   = weight;
+		    
+		    list.add(adjNode);
+		}
+	    }
+	}"
+96,DECLAREDREFERENCEEXPRESSION,"node",Parte3_2.java(33:6-33:10),"node"
+97,BINARYOPERATOR,"=",Parte3_2.java(33:6-33:27),"node = list.remove();"
+98,MEMBERCALLEXPRESSION,"remove",Parte3_2.java(34:6-34:23),"aux.remove(node);"
+99,IFSTATEMENT,"",Parte3_2.java(36:6-39:15),"if (!first)
+		dist+=node.dist;
+	    else
+		first=false;"
+100,FOREACHSTATEMENT,"",Parte3_2.java(41:6-52:7),"for (Node adjNode : aux) {
+		float weight = returnWeight(node, adjNode);
+		
+		if (weight<adjNode.dist){
+		    list.remove(adjNode);
+		    
+		    adjNode.parent = node;
+		    adjNode.dist   = weight;
+		    
+		    list.add(adjNode);
+		}
+	    }"
+101,DECLAREDREFERENCEEXPRESSION,"Parte3_2",Parte3_2.java(31:8-31:12),"Parte3_2"
+102,DECLAREDREFERENCEEXPRESSION,"remove",Parte3_2.java(34:10-34:16),"remove"
+103,DECLAREDREFERENCEEXPRESSION,"first",Parte3_2.java(36:11-36:16),"first"
+104,DECLAREDREFERENCEEXPRESSION,"node",Parte3_2.java(34:17-34:21),"node"
+105,MEMBEREXPRESSION,"aux",Parte3_2.java(34:6-34:9),"aux"
+106,DECLAREDREFERENCEEXPRESSION,"Parte3_2",Parte3_2.java(34:6-34:9),"Parte3_2"
+107,DECLARATIONSTATEMENT,"",Parte3_2.java(41:11-41:23),"Node adjNode"
+108,MEMBEREXPRESSION,"aux",Parte3_2.java(41:26-41:29),"aux"
+109,COMPOUNDSTATEMENT,"",Parte3_2.java(41:31-52:7),"{
+		float weight = returnWeight(node, adjNode);
+		
+		if (weight<adjNode.dist){
+		    list.remove(adjNode);
+		    
+		    adjNode.parent = node;
+		    adjNode.dist   = weight;
+		    
+		    list.add(adjNode);
+		}
+	    }"
+110,VARIABLEDECLARATION,"adjNode",Parte3_2.java(41:16-41:23),"adjNode"
+111,DECLAREDREFERENCEEXPRESSION,"node",Parte3_2.java(42:31-42:35),"node"
+112,DECLAREDREFERENCEEXPRESSION,"Parte3_2",Parte3_2.java(41:26-41:29),"Parte3_2"
+113,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+114,BINARYOPERATOR,"+=",Parte3_2.java(37:3-37:19),"dist+=node.dist;"
+115,BINARYOPERATOR,"=",Parte3_2.java(39:3-39:15),"first=false;"
+116,DECLARATIONSTATEMENT,"",Parte3_2.java(42:3-42:46),"float weight = returnWeight(node, adjNode);"
+117,IFSTATEMENT,"",Parte3_2.java(44:3-51:4),"if (weight<adjNode.dist){
+		    list.remove(adjNode);
+		    
+		    adjNode.parent = node;
+		    adjNode.dist   = weight;
+		    
+		    list.add(adjNode);
+		}"
+118,VARIABLEDECLARATION,"weight",Parte3_2.java(42:9-42:45),"weight = returnWeight(node, adjNode)"
+119,COMPOUNDSTATEMENT,"",Parte3_2.java(44:27-51:4),"{
+		    list.remove(adjNode);
+		    
+		    adjNode.parent = node;
+		    adjNode.dist   = weight;
+		    
+		    list.add(adjNode);
+		}"
+120,BINARYOPERATOR,"<",Parte3_2.java(44:7-44:26),"weight<adjNode.dist"
+121,DECLAREDREFERENCEEXPRESSION,"Parte3_2",Parte3_2.java(45:7-45:11),"Parte3_2"
+122,MEMBERCALLEXPRESSION,"remove",Parte3_2.java(45:7-45:28),"list.remove(adjNode);"
+123,BINARYOPERATOR,"=",Parte3_2.java(47:7-47:29),"adjNode.parent = node;"
+124,BINARYOPERATOR,"=",Parte3_2.java(48:7-48:31),"adjNode.dist   = weight;"
+125,MEMBERCALLEXPRESSION,"add",Parte3_2.java(50:7-50:25),"list.add(adjNode);"
+126,MEMBEREXPRESSION,"dist",Parte3_2.java(48:7-48:19),"adjNode.dist"
+127,DECLAREDREFERENCEEXPRESSION,"weight",Parte3_2.java(48:24-48:30),"weight"
+128,DECLAREDREFERENCEEXPRESSION,"Parte3_2",Parte3_2.java(50:7-50:11),"Parte3_2"
+129,DECLAREDREFERENCEEXPRESSION,"adjNode",Parte3_2.java(48:7-48:14),"adjNode"
+130,DECLAREDREFERENCEEXPRESSION,"add",Parte3_2.java(50:12-50:15),"add"
+131,DECLAREDREFERENCEEXPRESSION,"adjNode",Parte3_2.java(50:16-50:23),"adjNode"
+132,MEMBEREXPRESSION,"list",Parte3_2.java(50:7-50:11),"list"
+133,MEMBEREXPRESSION,"parent",Parte3_2.java(47:7-47:21),"adjNode.parent"
+134,DECLAREDREFERENCEEXPRESSION,"node",Parte3_2.java(47:24-47:28),"node"
+135,DECLAREDREFERENCEEXPRESSION,"adjNode",Parte3_2.java(47:7-47:14),"adjNode"
+136,DECLAREDREFERENCEEXPRESSION,"remove",Parte3_2.java(45:12-45:18),"remove"
+137,DECLAREDREFERENCEEXPRESSION,"adjNode",Parte3_2.java(45:19-45:26),"adjNode"
+138,MEMBEREXPRESSION,"list",Parte3_2.java(45:7-45:11),"list"
+139,DECLAREDREFERENCEEXPRESSION,"weight",Parte3_2.java(44:7-44:13),"weight"
+140,MEMBEREXPRESSION,"dist",Parte3_2.java(44:14-44:26),"adjNode.dist"
+141,DECLAREDREFERENCEEXPRESSION,"adjNode",Parte3_2.java(44:14-44:21),"adjNode"
+142,CALLEXPRESSION,"returnWeight",Parte3_2.java(42:18-42:45),"returnWeight(node, adjNode)"
+143,DECLAREDREFERENCEEXPRESSION,"adjNode",Parte3_2.java(42:37-42:44),"adjNode"
+144,PARAMVARIABLEDECLARATION,"node1",Parte3_2.java(56:38-56:48),"Node node1"
+145,PARAMVARIABLEDECLARATION,"node2",Parte3_2.java(56:50-56:60),"Node node2"
+146,MEMBERCALLEXPRESSION,"remove",Parte3_2.java(33:13-33:26),"list.remove()"
+147,DECLAREDREFERENCEEXPRESSION,"Parte3_2",Parte3_2.java(33:13-33:17),"Parte3_2"
+148,DECLAREDREFERENCEEXPRESSION,"remove",Parte3_2.java(33:18-33:24),"remove"
+149,MEMBEREXPRESSION,"list",Parte3_2.java(33:13-33:17),"list"
+150,UNARYOPERATOR,"!",Parte3_2.java(36:10-36:16),"!first"
+151,DECLAREDREFERENCEEXPRESSION,"Parte3_2",Parte3_2.java(37:3-37:7),"Parte3_2"
+152,DECLAREDREFERENCEEXPRESSION,"first",Parte3_2.java(39:3-39:8),"first"
+153,LITERAL,"",Parte3_2.java(39:9-39:14),"false"
+154,MEMBEREXPRESSION,"dist",Parte3_2.java(37:3-37:7),"dist"
+155,MEMBEREXPRESSION,"dist",Parte3_2.java(37:9-37:18),"node.dist"
+156,DECLAREDREFERENCEEXPRESSION,"node",Parte3_2.java(37:9-37:13),"node"
+157,MEMBERCALLEXPRESSION,"size",Parte3_2.java(31:8-31:19),"list.size()"
+158,LITERAL,"",Parte3_2.java(31:20-31:21),"0"
+159,DECLAREDREFERENCEEXPRESSION,"size",Parte3_2.java(31:13-31:17),"size"
+160,MEMBEREXPRESSION,"list",Parte3_2.java(31:8-31:12),"list"
+161,LITERAL,"",Parte3_2.java(8:23-8:24),"0"
+162,VARIABLEDECLARATION,"this",,""
+163,COMPOUNDSTATEMENT,"",Parte3_2.java(56:62-58:6),"{
+	return (float) Math.sqrt((node1.x-node2.x)*(node1.x-node2.x) + (node1.y-node2.y)*(node1.y-node2.y));
+    }"
+164,DECLAREDREFERENCEEXPRESSION,"node1",Parte3_2.java(57:28-57:33),"node1"
+165,RETURNSTATEMENT,"",Parte3_2.java(57:2-57:102),"return (float) Math.sqrt((node1.x-node2.x)*(node1.x-node2.x) + (node1.y-node2.y)*(node1.y-node2.y));"
+166,CASTEXPRESSION,"static_cast",Parte3_2.java(57:9-57:101),"(float) Math.sqrt((node1.x-node2.x)*(node1.x-node2.x) + (node1.y-node2.y)*(node1.y-node2.y))"
+167,STATICCALLEXPRESSION,"sqrt",Parte3_2.java(57:17-57:101),"Math.sqrt((node1.x-node2.x)*(node1.x-node2.x) + (node1.y-node2.y)*(node1.y-node2.y))"
+168,BINARYOPERATOR,"+",Parte3_2.java(57:27-57:100),"(node1.x-node2.x)*(node1.x-node2.x) + (node1.y-node2.y)*(node1.y-node2.y)"
+169,BINARYOPERATOR,"*",Parte3_2.java(57:27-57:62),"(node1.x-node2.x)*(node1.x-node2.x)"
+170,BINARYOPERATOR,"*",Parte3_2.java(57:65-57:100),"(node1.y-node2.y)*(node1.y-node2.y)"
+171,BINARYOPERATOR,"-",Parte3_2.java(57:66-57:81),"node1.y-node2.y"
+172,BINARYOPERATOR,"-",Parte3_2.java(57:84-57:99),"node1.y-node2.y"
+173,MEMBEREXPRESSION,"y",Parte3_2.java(57:84-57:91),"node1.y"
+174,MEMBEREXPRESSION,"y",Parte3_2.java(57:92-57:99),"node2.y"
+175,DECLAREDREFERENCEEXPRESSION,"node2",Parte3_2.java(57:92-57:97),"node2"
+176,DECLAREDREFERENCEEXPRESSION,"node1",Parte3_2.java(57:84-57:89),"node1"
+177,MEMBEREXPRESSION,"y",Parte3_2.java(57:66-57:73),"node1.y"
+178,MEMBEREXPRESSION,"y",Parte3_2.java(57:74-57:81),"node2.y"
+179,DECLAREDREFERENCEEXPRESSION,"node1",Parte3_2.java(57:66-57:71),"node1"
+180,DECLAREDREFERENCEEXPRESSION,"node2",Parte3_2.java(57:74-57:79),"node2"
+181,BINARYOPERATOR,"-",Parte3_2.java(57:28-57:43),"node1.x-node2.x"
+182,BINARYOPERATOR,"-",Parte3_2.java(57:46-57:61),"node1.x-node2.x"
+183,MEMBEREXPRESSION,"x",Parte3_2.java(57:46-57:53),"node1.x"
+184,MEMBEREXPRESSION,"x",Parte3_2.java(57:54-57:61),"node2.x"
+185,DECLAREDREFERENCEEXPRESSION,"node1",Parte3_2.java(57:46-57:51),"node1"
+186,DECLAREDREFERENCEEXPRESSION,"node2",Parte3_2.java(57:54-57:59),"node2"
+187,MEMBEREXPRESSION,"x",Parte3_2.java(57:28-57:35),"node1.x"
+188,MEMBEREXPRESSION,"x",Parte3_2.java(57:36-57:43),"node2.x"
+189,DECLAREDREFERENCEEXPRESSION,"node2",Parte3_2.java(57:36-57:41),"node2"
+190,FIELDDECLARATION,"this",,""
+191,FIELDDECLARATION,"dist",Parte3_2.java(63:5-63:36),"dist = Float.MAX_VALUE"
+192,FIELDDECLARATION,"parent",Parte3_2.java(64:5-64:25),"parent = null"
+193,FIELDDECLARATION,"x",Parte3_2.java(66:5-66:20),"x"
+194,FIELDDECLARATION,"y",Parte3_2.java(67:5-67:20),"y"
+195,METHODDECLARATION,"compareTo",Parte3_2.java(74:5-81:6),"public int compareTo (Node n) {
+	if (dist < n.dist)
+	    return -1;
+	else if (dist > n.dist)
+	    return 1;
+	else
+	    return 0;
+    }"
+196,CONSTRUCTORDECLARATION,"Node",Parte3_2.java(69:5-72:6),"Node(float x, float y) {
+	this.x=x;
+	this.y=y;
+    }"
+197,MEMBEREXPRESSION,"MAX_VALUE",Parte3_2.java(63:20-63:35),"Float.MAX_VALUE"
+198,DECLAREDREFERENCEEXPRESSION,"Float",Parte3_2.java(63:20-63:25),"Float"
+199,COMPOUNDSTATEMENT,"",Parte3_2.java(69:28-72:6),"{
+	this.x=x;
+	this.y=y;
+    }"
+200,PARAMVARIABLEDECLARATION,"x",Parte3_2.java(69:10-69:17),"float x"
+201,PARAMVARIABLEDECLARATION,"y",Parte3_2.java(69:19-69:26),"float y"
+202,DECLAREDREFERENCEEXPRESSION,"this",Parte3_2.java(70:2-70:6),"this"
+203,RETURNSTATEMENT,"",,""
+204,BINARYOPERATOR,"=",Parte3_2.java(70:2-70:11),"this.x=x;"
+205,BINARYOPERATOR,"=",Parte3_2.java(71:2-71:11),"this.y=y;"
+206,MEMBEREXPRESSION,"y",Parte3_2.java(71:2-71:8),"this.y"
+207,DECLAREDREFERENCEEXPRESSION,"y",Parte3_2.java(71:9-71:10),"y"
+208,DECLAREDREFERENCEEXPRESSION,"this",Parte3_2.java(71:2-71:6),"this"
+209,MEMBEREXPRESSION,"x",Parte3_2.java(70:2-70:8),"this.x"
+210,DECLAREDREFERENCEEXPRESSION,"x",Parte3_2.java(70:9-70:10),"x"
+211,VARIABLEDECLARATION,"this",,""
+212,COMPOUNDSTATEMENT,"",Parte3_2.java(74:35-81:6),"{
+	if (dist < n.dist)
+	    return -1;
+	else if (dist > n.dist)
+	    return 1;
+	else
+	    return 0;
+    }"
+213,PARAMVARIABLEDECLARATION,"n",Parte3_2.java(74:27-74:33),"Node n"
+214,DECLAREDREFERENCEEXPRESSION,"this",Parte3_2.java(75:6-75:10),"this"
+215,RETURNSTATEMENT,"",,""
+216,IFSTATEMENT,"",Parte3_2.java(75:2-80:15),"if (dist < n.dist)
+	    return -1;
+	else if (dist > n.dist)
+	    return 1;
+	else
+	    return 0;"
+217,BINARYOPERATOR,"<",Parte3_2.java(75:6-75:19),"dist < n.dist"
+218,RETURNSTATEMENT,"",Parte3_2.java(76:6-76:16),"return -1;"
+219,IFSTATEMENT,"",Parte3_2.java(77:7-80:15),"if (dist > n.dist)
+	    return 1;
+	else
+	    return 0;"
+220,LITERAL,"",Parte3_2.java(76:14-76:15),"1"
+221,DECLAREDREFERENCEEXPRESSION,"this",Parte3_2.java(77:11-77:15),"this"
+222,UNARYOPERATOR,"-",Parte3_2.java(76:13-76:15),"-1"
+223,MEMBEREXPRESSION,"dist",Parte3_2.java(75:6-75:10),"dist"
+224,MEMBEREXPRESSION,"dist",Parte3_2.java(75:13-75:19),"n.dist"
+225,DECLAREDREFERENCEEXPRESSION,"n",Parte3_2.java(75:13-75:14),"n"
+226,BINARYOPERATOR,">",Parte3_2.java(77:11-77:24),"dist > n.dist"
+227,RETURNSTATEMENT,"",Parte3_2.java(78:6-78:15),"return 1;"
+228,RETURNSTATEMENT,"",Parte3_2.java(80:6-80:15),"return 0;"
+229,LITERAL,"",Parte3_2.java(78:13-78:14),"1"
+230,LITERAL,"",Parte3_2.java(80:13-80:14),"0"
+231,MEMBEREXPRESSION,"dist",Parte3_2.java(77:11-77:15),"dist"
+232,MEMBEREXPRESSION,"dist",Parte3_2.java(77:18-77:24),"n.dist"
+233,DECLAREDREFERENCEEXPRESSION,"n",Parte3_2.java(77:18-77:19),"n"
+234,LITERAL,"",Parte3_2.java(64:20-64:24),"null"

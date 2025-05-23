@@ -1,0 +1,25 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,40
+nopqueue.java,insert line 20: `boolean done = false;` on try 0,0.9927007299270073,1.0,40
+nopqueue.java,insert line 16: `boolean debug = false;` on try 0,0.9855072463768116,1.0,40
+nopqueue.java,insert line 26: `double x;` on try 0,0.8920863309352518,1.0,40
+nopqueue.java,insert line 25: `int j = 0;` on try 0,0.8857142857142857,1.0,40
+nopqueue.java,insert line 8: `int index = 0;` on try 0,0.8794326241134752,1.0,40
+nopqueue.java,insert line 34: `int i = 0;` on try 0,0.8732394366197183,1.0,40
+nopqueue.java,insert line 31: `int max;` on try 0,0.7412587412587412,1.0,40
+nopqueue.java,insert line 24: `int max;` on try 0,0.7361111111111112,1.0,40
+nopqueue.java,insert line 38: `String[] messages;` on try 0,0.7172413793103448,1.0,40
+nopqueue.java,"insert line 26: `String output = """";` on try 0",0.7123287671232876,1.0,40
+nopqueue.java,insert line 41: `int max;` on try 0,0.6938775510204082,1.0,40
+nopqueue.java,insert line 14: `int count = 0;` on try 2,0.6351351351351351,1.0,40
+nopqueue.java,insert line 51: `int index = 0;` on try 0,0.6040268456375839,1.0,40
+nopqueue.java,insert line 33: `int v;` on try 0,0.6,1.0,40
+nopqueue.java,insert line 51: `String[] messages;` on try 1,0.5827814569536424,1.0,40
+nopqueue.java,insert line 22: `String[] messages;` on try 3,0.4605263157894737,1.0,40
+nopqueue.java,insert line 39: `int indexOfField;` on try 1,0.45751633986928103,1.0,40
+nopqueue.java,insert line 51: `int max;` on try 0,0.42857142857142855,1.0,40
+nopqueue.java,insert line 1: `import java.util.*;` on try 1,0.4258064516129032,0.9927007299270073,40
+nopqueue.java,insert line 54: `int j = 0;` on try 2,0.4230769230769231,0.9927007299270073,40
+nopqueue.java,insert line 4: `import java.util.HashMap;` on try 7,0.42038216560509556,0.9855072463768116,40
+nopqueue.java,insert line 40: `String[] messages;` on try 2,0.4177215189873418,0.9855072463768116,40
+nopqueue.java,insert line 15: `int intInput;` on try 7,0.41509433962264153,0.9855072463768116,40

@@ -1,0 +1,62 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,102
+Sardas.java,insert line 45: `boolean done = false;` on try 0,0.9966555183946488,1.0,102
+Sardas.java,insert line 84: `int max;` on try 0,0.9933333333333333,1.0,102
+Sardas.java,insert line 57: `int index = 0;` on try 0,0.9900332225913622,1.0,102
+Sardas.java,insert line 100: `int max;` on try 0,0.9470198675496688,1.0,102
+Sardas.java,insert line 83: `boolean done = false;` on try 0,0.9108910891089109,1.0,102
+Sardas.java,insert line 85: `int index = 0;` on try 0,0.9078947368421053,1.0,102
+Sardas.java,insert line 19: `int min;` on try 0,0.9049180327868852,1.0,102
+Sardas.java,insert line 52: `int index = 0;` on try 0,0.8562091503267973,1.0,102
+Sardas.java,insert line 94: `int count = 0;` on try 1,0.8013029315960912,1.0,102
+Sardas.java,insert line 76: `boolean debug = false;` on try 1,0.7987012987012987,1.0,102
+Sardas.java,insert line 55: `int count = 0;` on try 0,0.7378640776699029,1.0,102
+Sardas.java,insert line 14: `boolean done = false;` on try 0,0.7032258064516129,1.0,102
+Sardas.java,insert line 95: `String[] messages;` on try 0,0.7009646302250804,1.0,102
+Sardas.java,insert line 81: `int max;` on try 0,0.6858974358974359,1.0,102
+Sardas.java,insert line 51: `int count = 0;` on try 0,0.6837060702875399,1.0,102
+Sardas.java,insert line 77: `int indexOfField;` on try 0,0.6687898089171974,1.0,102
+Sardas.java,"insert line 100: `String output = """";` on try 0",0.6666666666666666,1.0,102
+Sardas.java,insert line 24: `String[] messages;` on try 0,0.6455696202531646,1.0,102
+Sardas.java,insert line 4: `import java.util.*;` on try 1,0.6435331230283912,0.9966329966329966,102
+Sardas.java,insert line 109: `String[] messages;` on try 1,0.6037735849056604,0.9966329966329966,102
+Sardas.java,"insert line 58: `int x, y;` on try 0",0.6,0.9966329966329966,102
+Sardas.java,insert line 33: `int count = 0;` on try 0,0.5981308411214953,0.9966329966329966,102
+Sardas.java,insert line 109: `int min;` on try 0,0.5962732919254659,0.9966329966329966,102
+Sardas.java,insert line 18: `double w;` on try 0,0.5944272445820433,0.9966329966329966,102
+Sardas.java,insert line 29: `int index = 0;` on try 0,0.5246913580246914,0.9966329966329966,102
+Sardas.java,insert line 58: `int j = 0;` on try 0,0.5230769230769231,0.9966329966329966,102
+Sardas.java,insert line 127: `int i = 0;` on try 0,0.5214723926380368,0.9966329966329966,102
+Sardas.java,insert line 21: `int count = 0;` on try 1,0.5198776758409785,0.9966329966329966,102
+Sardas.java,insert line 26: `int j = 0;` on try 0,0.5182926829268293,0.9966329966329966,102
+Sardas.java,insert line 83: `boolean debug = false;` on try 0,0.49848024316109424,0.9966329966329966,102
+Sardas.java,insert line 76: `count++;` on try 1,0.4666666666666667,0.9966329966329966,102
+Sardas.java,insert line 100: `boolean debug = false;` on try 0,0.39274924471299094,0.9966329966329966,102
+Sardas.java,"insert line 119: `int x, y;` on try 0",0.39039039039039036,0.9966329966329966,102
+Sardas.java,insert line 131: `int index = 0;` on try 2,0.38922155688622756,0.9966329966329966,102
+Sardas.java,insert line 70: `String[] messages;` on try 1,0.3880597014925373,0.9966329966329966,102
+Sardas.java,insert line 103: `double w;` on try 1,0.3869047619047619,0.9966329966329966,102
+Sardas.java,insert line 69: `double w;` on try 0,0.3857566765578635,0.9966329966329966,102
+Sardas.java,insert line 95: `double w;` on try 0,0.38461538461538464,0.9966329966329966,102
+Sardas.java,insert line 120: `int index = 0;` on try 0,0.3834808259587021,0.9966329966329966,102
+Sardas.java,insert line 132: `int intInput;` on try 1,0.3058823529411765,0.9966329966329966,102
+Sardas.java,insert line 81: `int min;` on try 0,0.2404692082111437,0.9966329966329966,102
+Sardas.java,insert line 90: `String[] messages;` on try 3,0.23976608187134502,0.9966329966329966,102
+Sardas.java,insert line 17: `int index = 0;` on try 3,0.239067055393586,0.9966329966329966,102
+Sardas.java,insert line 131: `int index = 0;` on try 4,0.23837209302325582,0.9966329966329966,102
+Sardas.java,insert line 95: `int max;` on try 1,0.23768115942028986,0.9966329966329966,102
+Sardas.java,"insert line 21: `int x, y;` on try 2",0.23631123919308358,0.9966329966329966,102
+Sardas.java,insert line 87: `int i = 0;` on try 1,0.23563218390804597,0.9966329966329966,102
+Sardas.java,"insert line 146: `String output = """";` on try 0",0.2349570200573066,0.9966329966329966,102
+Sardas.java,insert line 86: `double w;` on try 2,0.2342857142857143,0.9966329966329966,102
+Sardas.java,insert line 139: `index++;` on try 2,0.2905982905982906,0.9966329966329966,102
+Sardas.java,insert line 27: `int intInput;` on try 0,0.2897727272727273,0.9966329966329966,102
+Sardas.java,insert line 107: `String[] messages;` on try 1,0.28895184135977336,0.9966329966329966,102
+Sardas.java,insert line 94: `int intInput;` on try 8,0.288135593220339,0.9966329966329966,102
+Sardas.java,insert line 80: `double w;` on try 4,0.28732394366197184,0.9966329966329966,102
+Sardas.java,insert line 1: `import java.util.HashMap;` on try 8,0.28651685393258425,0.9932885906040269,102
+Sardas.java,insert line 143: `done = true;` on try 9,0.2857142857142857,0.9932885906040269,102
+Sardas.java,insert line 151: `Double valor;` on try 6,0.2849162011173184,0.9932885906040269,102
+Sardas.java,"insert line 72: `String output = """";` on try 2",0.2841225626740947,0.9932885906040269,102
+Sardas.java,insert line 143: `done = true;` on try 5,0.2833333333333333,0.9932885906040269,102
+Sardas.java,insert line 81: `done = true;` on try 5,0.28254847645429365,0.9932885906040269,102

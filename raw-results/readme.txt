@@ -1,0 +1,1 @@
+This folder contains the raw results of the empirical evaluation. These files comprise over 4.1 million data points, each representing a pairwise comparison.

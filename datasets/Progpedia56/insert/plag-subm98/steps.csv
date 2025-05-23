@@ -1,0 +1,52 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,83
+prob21.java,"insert line 57: `int x, y;` on try 0",0.9923076923076923,1.0,83
+prob21.java,insert line 74: `int min;` on try 0,0.9885057471264368,1.0,83
+prob21.java,insert line 44: `int index = 0;` on try 0,0.9847328244274809,1.0,83
+prob21.java,insert line 39: `double w;` on try 0,0.9277566539923955,1.0,83
+prob21.java,insert line 80: `int max;` on try 0,0.9015151515151515,1.0,83
+prob21.java,insert line 22: `int count = 0;` on try 1,0.8981132075471698,1.0,83
+prob21.java,insert line 63: `int max;` on try 0,0.8796992481203008,1.0,83
+prob21.java,insert line 87: `int index = 0;` on try 1,0.8314606741573034,1.0,83
+prob21.java,insert line 34: `int count = 0;` on try 0,0.8283582089552238,1.0,83
+prob21.java,insert line 81: `boolean done = false;` on try 0,0.8252788104089219,1.0,83
+prob21.java,insert line 69: `int from;` on try 0,0.7925925925925926,1.0,83
+prob21.java,insert line 63: `double w;` on try 0,0.7896678966789668,1.0,83
+prob21.java,insert line 49: `boolean debug = false;` on try 0,0.7794117647058824,1.0,83
+prob21.java,insert line 25: `int j = 0;` on try 0,0.7472527472527473,1.0,83
+prob21.java,insert line 13: `int count = 0;` on try 0,0.7445255474452555,1.0,83
+prob21.java,insert line 29: `int min;` on try 0,0.7127272727272728,1.0,83
+prob21.java,insert line 32: `int i = 0;` on try 1,0.644927536231884,1.0,83
+prob21.java,insert line 98: `int min;` on try 0,0.6425992779783394,1.0,83
+prob21.java,insert line 72: `double w;` on try 2,0.6402877697841727,1.0,83
+prob21.java,insert line 85: `int index = 0;` on try 0,0.6093189964157706,1.0,83
+prob21.java,"insert line 9: `int x, y;` on try 0",0.5765124555160143,1.0,83
+prob21.java,insert line 60: `int j = 0;` on try 0,0.5319148936170213,1.0,83
+prob21.java,"insert line 37: `int x, y;` on try 0",0.528169014084507,1.0,83
+prob21.java,insert line 67: `int index = 0;` on try 0,0.5052631578947369,1.0,83
+prob21.java,insert line 44: `boolean done = false;` on try 0,0.4825174825174825,1.0,83
+prob21.java,insert line 12: `int count = 0;` on try 0,0.4808362369337979,1.0,83
+prob21.java,insert line 33: `int index = 0;` on try 0,0.4791666666666667,1.0,83
+prob21.java,"insert line 52: `int x, y;` on try 0",0.47586206896551725,1.0,83
+prob21.java,insert line 92: `boolean debug = false;` on try 0,0.46048109965635736,1.0,83
+prob21.java,"insert line 101: `int x, y;` on try 0",0.45733788395904434,1.0,83
+prob21.java,insert line 11: `int max;` on try 2,0.4557823129251701,1.0,83
+prob21.java,insert line 55: `int count = 0;` on try 0,0.4542372881355932,1.0,83
+prob21.java,insert line 28: `String[] messages;` on try 1,0.4527027027027027,1.0,83
+prob21.java,insert line 110: `double w;` on try 3,0.39057239057239057,1.0,83
+prob21.java,insert line 71: `boolean done = false;` on try 1,0.3288590604026846,1.0,83
+prob21.java,insert line 70: `int min;` on try 2,0.3277591973244147,1.0,83
+prob21.java,insert line 96: `boolean done = false;` on try 0,0.31333333333333335,1.0,83
+prob21.java,insert line 111: `int index = 0;` on try 2,0.3122923588039867,1.0,83
+prob21.java,insert line 93: `int intInput;` on try 4,0.2185430463576159,1.0,83
+prob21.java,insert line 103: `String[] messages;` on try 2,0.21782178217821782,1.0,83
+prob21.java,"insert line 96: `String output = """";` on try 1",0.21710526315789475,1.0,83
+prob21.java,insert line 43: `int index = 0;` on try 0,0.21639344262295082,1.0,83
+prob21.java,insert line 124: `int index = 0;` on try 1,0.21568627450980393,1.0,83
+prob21.java,insert line 40: `int max;` on try 0,0.21498371335504887,1.0,83
+prob21.java,insert line 8: `int index = 0;` on try 5,0.2077922077922078,1.0,83
+prob21.java,insert line 69: `String[] messages;` on try 1,0.20711974110032363,1.0,83
+prob21.java,insert line 82: `done = true;` on try 1,0.2064516129032258,1.0,83
+prob21.java,insert line 78: `int count = 0;` on try 2,0.2057877813504823,1.0,83
+prob21.java,insert line 80: `String[] messages;` on try 5,0.20512820512820512,1.0,83
+prob21.java,insert line 68: `int max;` on try 8,0.20447284345047922,1.0,83

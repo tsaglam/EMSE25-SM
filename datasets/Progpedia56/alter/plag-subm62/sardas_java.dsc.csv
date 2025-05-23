@@ -1,0 +1,862 @@
+id,type,token,location,code
+1,TRANSLATIONUNITDECLARATION,"/data/00000056/submissions/07519602_21_201105248/Sardas.java",,""
+2,RECORDDECLARATION,"Sardas",Sardas.java(5:1-125:2),"public class Sardas {
+
+	public static class Point{
+
+		double x;
+		double y;
+		double dist;
+		Point father;
+		HashMap<Integer, Double> weight;
+
+		public Point(double x, double y) {
+			this.x = x;
+			this.y = y;
+			dist = Double.MAX_VALUE;
+			weight = new HashMap<Integer, Double>();
+		}
+
+	}
+
+	static double finalDist = 0.00;
+
+	public static void main(String[] args) {
+
+		int n;
+		double a, b;
+		Scanner in = new Scanner(System.in);
+
+		HashMap<Integer, Point> board = new HashMap<Integer, Point>();
+
+		n = in.nextInt();
+
+		for(int i = 0; i < n; i++){
+
+			a = in.nextDouble();
+			b = in.nextDouble();
+
+			board.put(i, new Point(a,b));	
+
+			if(i==0)
+				board.get(i).dist = 0;
+		}
+
+		for(int i = 0; i < n; i++){
+			for(int j = i+1; j < n; j++){
+				Point p1 = board.get(i);
+				Point p2 = board.get(j);
+				double count = doDist(p1,p2);
+				p1.weight.put(j, count);
+				p2.weight.put(i, count);
+			}
+		}
+
+		HashMap<Integer, Point> boardCopy = new HashMap<Integer, Point>();
+		boardCopy.putAll(board);
+		doPrim(board,n);
+		doMinDist(boardCopy,n);
+		System.out.printf(""%.2f\n"", finalDist);
+	}
+
+	private static void doMinDist(HashMap<Integer, Point> boardCopy, int n) {
+
+		for(int i=0; i < n; i++){
+			finalDist += boardCopy.get(i).dist;
+		}
+
+	}
+
+	private static double doDist(Point p1, Point p2) {
+
+		double difx = Math.abs(p1.x - p2.x);
+		double dify = Math.abs(p1.y - p2.y);
+		double count = Math.sqrt(Math.pow(difx, 2) + Math.pow(dify, 2));
+
+		return count;
+	}
+
+	private static void doPrim(HashMap<Integer, Point> board, int n) {
+
+		while(!board.isEmpty()){
+
+			int p = extractMin(board, n);
+			Point point = board.remove(p);
+
+			for(int i = 1; i < n; i++){
+
+				if(board.containsKey(i)){
+
+					Point aux = board.get(i);
+
+					if(point.weight.get(i) < aux.dist){
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}
+				}
+
+			}
+		}
+
+	}
+
+	private static int extractMin(HashMap<Integer, Point> board, int n) {
+
+		double minDist = Double.MAX_VALUE;
+
+		int p = 0;
+
+		for(int i = 0; i < n; i++){
+			if(board.containsKey(i)){
+				Point aux = board.get(i);
+
+				if(aux.dist < minDist){
+					minDist = aux.dist;
+					p = i;
+				}
+			}
+		}
+		return p;
+	}
+
+
+}"
+3,INCLUDEDECLARATION,"java.util.HashMap",,""
+4,INCLUDEDECLARATION,"java.util.LinkedList",,""
+5,INCLUDEDECLARATION,"java.util.Scanner",,""
+6,FIELDDECLARATION,"this",,""
+7,FIELDDECLARATION,"finalDist",Sardas.java(24:2-24:33),"finalDist = 0.00"
+8,METHODDECLARATION,"main",Sardas.java(26:2-62:3),"public static void main(String[] args) {
+
+		int n;
+		double a, b;
+		Scanner in = new Scanner(System.in);
+
+		HashMap<Integer, Point> board = new HashMap<Integer, Point>();
+
+		n = in.nextInt();
+
+		for(int i = 0; i < n; i++){
+
+			a = in.nextDouble();
+			b = in.nextDouble();
+
+			board.put(i, new Point(a,b));	
+
+			if(i==0)
+				board.get(i).dist = 0;
+		}
+
+		for(int i = 0; i < n; i++){
+			for(int j = i+1; j < n; j++){
+				Point p1 = board.get(i);
+				Point p2 = board.get(j);
+				double count = doDist(p1,p2);
+				p1.weight.put(j, count);
+				p2.weight.put(i, count);
+			}
+		}
+
+		HashMap<Integer, Point> boardCopy = new HashMap<Integer, Point>();
+		boardCopy.putAll(board);
+		doPrim(board,n);
+		doMinDist(boardCopy,n);
+		System.out.printf(""%.2f\n"", finalDist);
+	}"
+9,METHODDECLARATION,"doMinDist",Sardas.java(64:2-70:3),"private static void doMinDist(HashMap<Integer, Point> boardCopy, int n) {
+
+		for(int i=0; i < n; i++){
+			finalDist += boardCopy.get(i).dist;
+		}
+
+	}"
+10,METHODDECLARATION,"doDist",Sardas.java(72:2-79:3),"private static double doDist(Point p1, Point p2) {
+
+		double difx = Math.abs(p1.x - p2.x);
+		double dify = Math.abs(p1.y - p2.y);
+		double count = Math.sqrt(Math.pow(difx, 2) + Math.pow(dify, 2));
+
+		return count;
+	}"
+11,METHODDECLARATION,"doPrim",Sardas.java(81:2-103:3),"private static void doPrim(HashMap<Integer, Point> board, int n) {
+
+		while(!board.isEmpty()){
+
+			int p = extractMin(board, n);
+			Point point = board.remove(p);
+
+			for(int i = 1; i < n; i++){
+
+				if(board.containsKey(i)){
+
+					Point aux = board.get(i);
+
+					if(point.weight.get(i) < aux.dist){
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}
+				}
+
+			}
+		}
+
+	}"
+12,METHODDECLARATION,"extractMin",Sardas.java(105:2-122:3),"private static int extractMin(HashMap<Integer, Point> board, int n) {
+
+		double minDist = Double.MAX_VALUE;
+
+		int p = 0;
+
+		for(int i = 0; i < n; i++){
+			if(board.containsKey(i)){
+				Point aux = board.get(i);
+
+				if(aux.dist < minDist){
+					minDist = aux.dist;
+					p = i;
+				}
+			}
+		}
+		return p;
+	}"
+13,CONSTRUCTORDECLARATION,"Sardas",,""
+14,RECORDDECLARATION,"Sardas.Point",Sardas.java(7:2-22:3),"public static class Point{
+
+		double x;
+		double y;
+		double dist;
+		Point father;
+		HashMap<Integer, Double> weight;
+
+		public Point(double x, double y) {
+			this.x = x;
+			this.y = y;
+			dist = Double.MAX_VALUE;
+			weight = new HashMap<Integer, Double>();
+		}
+
+	}"
+15,LITERAL,"",Sardas.java(24:28-24:32),"0.00"
+16,FIELDDECLARATION,"this",,""
+17,FIELDDECLARATION,"x",Sardas.java(9:3-9:12),"x"
+18,FIELDDECLARATION,"y",Sardas.java(10:3-10:12),"y"
+19,FIELDDECLARATION,"dist",Sardas.java(11:3-11:15),"dist"
+20,FIELDDECLARATION,"father",Sardas.java(12:3-12:16),"father"
+21,FIELDDECLARATION,"weight",Sardas.java(13:3-13:35),"weight"
+22,CONSTRUCTORDECLARATION,"Point",Sardas.java(15:3-20:4),"public Point(double x, double y) {
+			this.x = x;
+			this.y = y;
+			dist = Double.MAX_VALUE;
+			weight = new HashMap<Integer, Double>();
+		}"
+23,COMPOUNDSTATEMENT,"",Sardas.java(15:36-20:4),"{
+			this.x = x;
+			this.y = y;
+			dist = Double.MAX_VALUE;
+			weight = new HashMap<Integer, Double>();
+		}"
+24,PARAMVARIABLEDECLARATION,"x",Sardas.java(15:16-15:24),"double x"
+25,PARAMVARIABLEDECLARATION,"y",Sardas.java(15:26-15:34),"double y"
+26,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(16:4-16:8),"this"
+27,RETURNSTATEMENT,"",,""
+28,BINARYOPERATOR,"=",Sardas.java(16:4-16:15),"this.x = x;"
+29,BINARYOPERATOR,"=",Sardas.java(17:4-17:15),"this.y = y;"
+30,BINARYOPERATOR,"=",Sardas.java(18:4-18:28),"dist = Double.MAX_VALUE;"
+31,BINARYOPERATOR,"=",Sardas.java(19:4-19:44),"weight = new HashMap<Integer, Double>();"
+32,MEMBEREXPRESSION,"x",Sardas.java(16:4-16:10),"this.x"
+33,DECLAREDREFERENCEEXPRESSION,"x",Sardas.java(16:13-16:14),"x"
+34,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(17:4-17:8),"this"
+35,MEMBEREXPRESSION,"weight",Sardas.java(19:4-19:10),"weight"
+36,NEWEXPRESSION,"",Sardas.java(19:13-19:43),"new HashMap<Integer, Double>()"
+37,CONSTRUCTEXPRESSION,"",Sardas.java(19:13-19:43),"new HashMap<Integer, Double>()"
+38,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(19:4-19:10),"this"
+39,MEMBEREXPRESSION,"dist",Sardas.java(18:4-18:8),"dist"
+40,MEMBEREXPRESSION,"MAX_VALUE",Sardas.java(18:11-18:27),"Double.MAX_VALUE"
+41,DECLAREDREFERENCEEXPRESSION,"Double",Sardas.java(18:11-18:17),"Double"
+42,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(18:4-18:8),"this"
+43,MEMBEREXPRESSION,"y",Sardas.java(17:4-17:10),"this.y"
+44,DECLAREDREFERENCEEXPRESSION,"y",Sardas.java(17:13-17:14),"y"
+45,VARIABLEDECLARATION,"this",,""
+46,COMPOUNDSTATEMENT,"",Sardas.java(81:67-103:3),"{
+
+		while(!board.isEmpty()){
+
+			int p = extractMin(board, n);
+			Point point = board.remove(p);
+
+			for(int i = 1; i < n; i++){
+
+				if(board.containsKey(i)){
+
+					Point aux = board.get(i);
+
+					if(point.weight.get(i) < aux.dist){
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}
+				}
+
+			}
+		}
+
+	}"
+47,PARAMVARIABLEDECLARATION,"board",Sardas.java(81:29-81:58),"HashMap<Integer, Point> board"
+48,PARAMVARIABLEDECLARATION,"n",Sardas.java(81:60-81:65),"int n"
+49,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(83:10-83:15),"board"
+50,RETURNSTATEMENT,"",,""
+51,WHILESTATEMENT,"",Sardas.java(83:3-101:4),"while(!board.isEmpty()){
+
+			int p = extractMin(board, n);
+			Point point = board.remove(p);
+
+			for(int i = 1; i < n; i++){
+
+				if(board.containsKey(i)){
+
+					Point aux = board.get(i);
+
+					if(point.weight.get(i) < aux.dist){
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}
+				}
+
+			}
+		}"
+52,UNARYOPERATOR,"!",Sardas.java(83:9-83:25),"!board.isEmpty()"
+53,COMPOUNDSTATEMENT,"",Sardas.java(83:26-101:4),"{
+
+			int p = extractMin(board, n);
+			Point point = board.remove(p);
+
+			for(int i = 1; i < n; i++){
+
+				if(board.containsKey(i)){
+
+					Point aux = board.get(i);
+
+					if(point.weight.get(i) < aux.dist){
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}
+				}
+
+			}
+		}"
+54,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(85:23-85:28),"board"
+55,MEMBERCALLEXPRESSION,"isEmpty",Sardas.java(83:10-83:25),"board.isEmpty()"
+56,DECLAREDREFERENCEEXPRESSION,"isEmpty",Sardas.java(83:16-83:23),"isEmpty"
+57,DECLARATIONSTATEMENT,"",Sardas.java(85:4-85:33),"int p = extractMin(board, n);"
+58,DECLARATIONSTATEMENT,"",Sardas.java(86:4-86:34),"Point point = board.remove(p);"
+59,FORSTATEMENT,"",Sardas.java(88:4-100:5),"for(int i = 1; i < n; i++){
+
+				if(board.containsKey(i)){
+
+					Point aux = board.get(i);
+
+					if(point.weight.get(i) < aux.dist){
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}
+				}
+
+			}"
+60,VARIABLEDECLARATION,"p",Sardas.java(85:8-85:32),"p = extractMin(board, n)"
+61,VARIABLEDECLARATION,"point",Sardas.java(86:10-86:33),"point = board.remove(p)"
+62,CALLEXPRESSION,"extractMin",Sardas.java(85:12-85:32),"extractMin(board, n)"
+63,METHODDECLARATION,"extractMin",,""
+64,DECLAREDREFERENCEEXPRESSION,"n",Sardas.java(85:30-85:31),"n"
+65,PARAMVARIABLEDECLARATION,"int1",,""
+66,PARAMVARIABLEDECLARATION,"java.util.hashmap0",,""
+67,COMPOUNDSTATEMENT,"",Sardas.java(88:30-100:5),"{
+
+				if(board.containsKey(i)){
+
+					Point aux = board.get(i);
+
+					if(point.weight.get(i) < aux.dist){
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}
+				}
+
+			}"
+68,DECLARATIONSTATEMENT,"",Sardas.java(88:8-88:17),"int i = 1"
+69,BINARYOPERATOR,"<",Sardas.java(88:19-88:24),"i < n"
+70,UNARYOPERATOR,"++",Sardas.java(88:26-88:29),"i++"
+71,VARIABLEDECLARATION,"i",Sardas.java(88:12-88:17),"i = 1"
+72,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(90:8-90:13),"board"
+73,LITERAL,"",Sardas.java(88:16-88:17),"1"
+74,IFSTATEMENT,"",Sardas.java(90:5-98:6),"if(board.containsKey(i)){
+
+					Point aux = board.get(i);
+
+					if(point.weight.get(i) < aux.dist){
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}
+				}"
+75,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(88:26-88:27),"i"
+76,COMPOUNDSTATEMENT,"",Sardas.java(90:29-98:6),"{
+
+					Point aux = board.get(i);
+
+					if(point.weight.get(i) < aux.dist){
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}
+				}"
+77,MEMBERCALLEXPRESSION,"containsKey",Sardas.java(90:8-90:28),"board.containsKey(i)"
+78,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(92:18-92:23),"board"
+79,DECLAREDREFERENCEEXPRESSION,"containsKey",Sardas.java(90:14-90:25),"containsKey"
+80,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(90:26-90:27),"i"
+81,DECLARATIONSTATEMENT,"",Sardas.java(92:6-92:31),"Point aux = board.get(i);"
+82,IFSTATEMENT,"",Sardas.java(94:6-97:7),"if(point.weight.get(i) < aux.dist){
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}"
+83,VARIABLEDECLARATION,"aux",Sardas.java(92:12-92:30),"aux = board.get(i)"
+84,COMPOUNDSTATEMENT,"",Sardas.java(94:40-97:7),"{
+						aux.dist = point.weight.get(i);
+						aux.father = point;
+					}"
+85,MEMBERCALLEXPRESSION,"get",Sardas.java(92:18-92:30),"board.get(i)"
+86,DECLAREDREFERENCEEXPRESSION,"get",Sardas.java(92:24-92:27),"get"
+87,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(92:28-92:29),"i"
+88,DECLAREDREFERENCEEXPRESSION,"point",Sardas.java(94:9-94:14),"point"
+89,BINARYOPERATOR,"<",Sardas.java(94:9-94:39),"point.weight.get(i) < aux.dist"
+90,DECLAREDREFERENCEEXPRESSION,"aux",Sardas.java(95:7-95:10),"aux"
+91,MEMBERCALLEXPRESSION,"get",Sardas.java(94:9-94:28),"point.weight.get(i)"
+92,MEMBEREXPRESSION,"dist",Sardas.java(94:31-94:39),"aux.dist"
+93,DECLAREDREFERENCEEXPRESSION,"aux",Sardas.java(94:31-94:34),"aux"
+94,DECLAREDREFERENCEEXPRESSION,"get",Sardas.java(94:22-94:25),"get"
+95,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(94:26-94:27),"i"
+96,MEMBEREXPRESSION,"weight",Sardas.java(94:9-94:21),"point.weight"
+97,BINARYOPERATOR,"=",Sardas.java(95:7-95:38),"aux.dist = point.weight.get(i);"
+98,BINARYOPERATOR,"=",Sardas.java(96:7-96:26),"aux.father = point;"
+99,MEMBEREXPRESSION,"father",Sardas.java(96:7-96:17),"aux.father"
+100,DECLAREDREFERENCEEXPRESSION,"point",Sardas.java(96:20-96:25),"point"
+101,DECLAREDREFERENCEEXPRESSION,"aux",Sardas.java(96:7-96:10),"aux"
+102,MEMBEREXPRESSION,"dist",Sardas.java(95:7-95:15),"aux.dist"
+103,MEMBERCALLEXPRESSION,"get",Sardas.java(95:18-95:37),"point.weight.get(i)"
+104,DECLAREDREFERENCEEXPRESSION,"point",Sardas.java(95:18-95:23),"point"
+105,DECLAREDREFERENCEEXPRESSION,"get",Sardas.java(95:31-95:34),"get"
+106,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(95:35-95:36),"i"
+107,MEMBEREXPRESSION,"weight",Sardas.java(95:18-95:30),"point.weight"
+108,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(88:19-88:20),"i"
+109,DECLAREDREFERENCEEXPRESSION,"n",Sardas.java(88:23-88:24),"n"
+110,MEMBERCALLEXPRESSION,"remove",Sardas.java(86:18-86:33),"board.remove(p)"
+111,DECLAREDREFERENCEEXPRESSION,"remove",Sardas.java(86:24-86:30),"remove"
+112,DECLAREDREFERENCEEXPRESSION,"p",Sardas.java(86:31-86:32),"p"
+113,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(86:18-86:23),"board"
+114,VARIABLEDECLARATION,"this",,""
+115,COMPOUNDSTATEMENT,"",Sardas.java(72:51-79:3),"{
+
+		double difx = Math.abs(p1.x - p2.x);
+		double dify = Math.abs(p1.y - p2.y);
+		double count = Math.sqrt(Math.pow(difx, 2) + Math.pow(dify, 2));
+
+		return count;
+	}"
+116,PARAMVARIABLEDECLARATION,"p1",Sardas.java(72:31-72:39),"Point p1"
+117,PARAMVARIABLEDECLARATION,"p2",Sardas.java(72:41-72:49),"Point p2"
+118,DECLAREDREFERENCEEXPRESSION,"p1",Sardas.java(74:26-74:28),"p1"
+119,RETURNSTATEMENT,"",Sardas.java(78:3-78:16),"return count;"
+120,DECLARATIONSTATEMENT,"",Sardas.java(74:3-74:39),"double difx = Math.abs(p1.x - p2.x);"
+121,DECLARATIONSTATEMENT,"",Sardas.java(75:3-75:39),"double dify = Math.abs(p1.y - p2.y);"
+122,DECLARATIONSTATEMENT,"",Sardas.java(76:3-76:67),"double count = Math.sqrt(Math.pow(difx, 2) + Math.pow(dify, 2));"
+123,VARIABLEDECLARATION,"difx",Sardas.java(74:10-74:38),"difx = Math.abs(p1.x - p2.x)"
+124,VARIABLEDECLARATION,"dify",Sardas.java(75:10-75:38),"dify = Math.abs(p1.y - p2.y)"
+125,VARIABLEDECLARATION,"count",Sardas.java(76:10-76:66),"count = Math.sqrt(Math.pow(difx, 2) + Math.pow(dify, 2))"
+126,STATICCALLEXPRESSION,"abs",Sardas.java(75:17-75:38),"Math.abs(p1.y - p2.y)"
+127,BINARYOPERATOR,"-",Sardas.java(75:26-75:37),"p1.y - p2.y"
+128,MEMBEREXPRESSION,"y",Sardas.java(75:26-75:30),"p1.y"
+129,MEMBEREXPRESSION,"y",Sardas.java(75:33-75:37),"p2.y"
+130,DECLAREDREFERENCEEXPRESSION,"p1",Sardas.java(75:26-75:28),"p1"
+131,DECLAREDREFERENCEEXPRESSION,"p2",Sardas.java(75:33-75:35),"p2"
+132,DECLAREDREFERENCEEXPRESSION,"count",Sardas.java(78:10-78:15),"count"
+133,STATICCALLEXPRESSION,"abs",Sardas.java(74:17-74:38),"Math.abs(p1.x - p2.x)"
+134,BINARYOPERATOR,"-",Sardas.java(74:26-74:37),"p1.x - p2.x"
+135,MEMBEREXPRESSION,"x",Sardas.java(74:26-74:30),"p1.x"
+136,MEMBEREXPRESSION,"x",Sardas.java(74:33-74:37),"p2.x"
+137,DECLAREDREFERENCEEXPRESSION,"p2",Sardas.java(74:33-74:35),"p2"
+138,STATICCALLEXPRESSION,"sqrt",Sardas.java(76:18-76:66),"Math.sqrt(Math.pow(difx, 2) + Math.pow(dify, 2))"
+139,BINARYOPERATOR,"+",Sardas.java(76:28-76:65),"Math.pow(difx, 2) + Math.pow(dify, 2)"
+140,STATICCALLEXPRESSION,"pow",Sardas.java(76:28-76:45),"Math.pow(difx, 2)"
+141,STATICCALLEXPRESSION,"pow",Sardas.java(76:48-76:65),"Math.pow(dify, 2)"
+142,LITERAL,"",Sardas.java(76:63-76:64),"2"
+143,DECLAREDREFERENCEEXPRESSION,"dify",Sardas.java(76:57-76:61),"dify"
+144,LITERAL,"",Sardas.java(76:43-76:44),"2"
+145,DECLAREDREFERENCEEXPRESSION,"difx",Sardas.java(76:37-76:41),"difx"
+146,VARIABLEDECLARATION,"this",,""
+147,COMPOUNDSTATEMENT,"",Sardas.java(105:70-122:3),"{
+
+		double minDist = Double.MAX_VALUE;
+
+		int p = 0;
+
+		for(int i = 0; i < n; i++){
+			if(board.containsKey(i)){
+				Point aux = board.get(i);
+
+				if(aux.dist < minDist){
+					minDist = aux.dist;
+					p = i;
+				}
+			}
+		}
+		return p;
+	}"
+148,PARAMVARIABLEDECLARATION,"board",Sardas.java(105:32-105:61),"HashMap<Integer, Point> board"
+149,PARAMVARIABLEDECLARATION,"n",Sardas.java(105:63-105:68),"int n"
+150,DECLAREDREFERENCEEXPRESSION,"Double",Sardas.java(107:20-107:26),"Double"
+151,RETURNSTATEMENT,"",Sardas.java(121:3-121:12),"return p;"
+152,DECLARATIONSTATEMENT,"",Sardas.java(107:3-107:37),"double minDist = Double.MAX_VALUE;"
+153,DECLARATIONSTATEMENT,"",Sardas.java(109:3-109:13),"int p = 0;"
+154,FORSTATEMENT,"",Sardas.java(111:3-120:4),"for(int i = 0; i < n; i++){
+			if(board.containsKey(i)){
+				Point aux = board.get(i);
+
+				if(aux.dist < minDist){
+					minDist = aux.dist;
+					p = i;
+				}
+			}
+		}"
+155,VARIABLEDECLARATION,"minDist",Sardas.java(107:10-107:36),"minDist = Double.MAX_VALUE"
+156,VARIABLEDECLARATION,"p",Sardas.java(109:7-109:12),"p = 0"
+157,LITERAL,"",Sardas.java(109:11-109:12),"0"
+158,DECLAREDREFERENCEEXPRESSION,"p",Sardas.java(121:10-121:11),"p"
+159,COMPOUNDSTATEMENT,"",Sardas.java(111:29-120:4),"{
+			if(board.containsKey(i)){
+				Point aux = board.get(i);
+
+				if(aux.dist < minDist){
+					minDist = aux.dist;
+					p = i;
+				}
+			}
+		}"
+160,DECLARATIONSTATEMENT,"",Sardas.java(111:7-111:16),"int i = 0"
+161,BINARYOPERATOR,"<",Sardas.java(111:18-111:23),"i < n"
+162,UNARYOPERATOR,"++",Sardas.java(111:25-111:28),"i++"
+163,VARIABLEDECLARATION,"i",Sardas.java(111:11-111:16),"i = 0"
+164,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(112:7-112:12),"board"
+165,IFSTATEMENT,"",Sardas.java(112:4-119:5),"if(board.containsKey(i)){
+				Point aux = board.get(i);
+
+				if(aux.dist < minDist){
+					minDist = aux.dist;
+					p = i;
+				}
+			}"
+166,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(111:25-111:26),"i"
+167,COMPOUNDSTATEMENT,"",Sardas.java(112:28-119:5),"{
+				Point aux = board.get(i);
+
+				if(aux.dist < minDist){
+					minDist = aux.dist;
+					p = i;
+				}
+			}"
+168,MEMBERCALLEXPRESSION,"containsKey",Sardas.java(112:7-112:27),"board.containsKey(i)"
+169,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(113:17-113:22),"board"
+170,DECLAREDREFERENCEEXPRESSION,"containsKey",Sardas.java(112:13-112:24),"containsKey"
+171,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(112:25-112:26),"i"
+172,DECLARATIONSTATEMENT,"",Sardas.java(113:5-113:30),"Point aux = board.get(i);"
+173,IFSTATEMENT,"",Sardas.java(115:5-118:6),"if(aux.dist < minDist){
+					minDist = aux.dist;
+					p = i;
+				}"
+174,VARIABLEDECLARATION,"aux",Sardas.java(113:11-113:29),"aux = board.get(i)"
+175,COMPOUNDSTATEMENT,"",Sardas.java(115:27-118:6),"{
+					minDist = aux.dist;
+					p = i;
+				}"
+176,DECLAREDREFERENCEEXPRESSION,"aux",Sardas.java(115:8-115:11),"aux"
+177,MEMBERCALLEXPRESSION,"get",Sardas.java(113:17-113:29),"board.get(i)"
+178,DECLAREDREFERENCEEXPRESSION,"get",Sardas.java(113:23-113:26),"get"
+179,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(113:27-113:28),"i"
+180,BINARYOPERATOR,"<",Sardas.java(115:8-115:26),"aux.dist < minDist"
+181,DECLAREDREFERENCEEXPRESSION,"minDist",Sardas.java(116:6-116:13),"minDist"
+182,MEMBEREXPRESSION,"dist",Sardas.java(115:8-115:16),"aux.dist"
+183,DECLAREDREFERENCEEXPRESSION,"minDist",Sardas.java(115:19-115:26),"minDist"
+184,BINARYOPERATOR,"=",Sardas.java(116:6-116:25),"minDist = aux.dist;"
+185,BINARYOPERATOR,"=",Sardas.java(117:6-117:12),"p = i;"
+186,DECLAREDREFERENCEEXPRESSION,"p",Sardas.java(117:6-117:7),"p"
+187,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(117:10-117:11),"i"
+188,MEMBEREXPRESSION,"dist",Sardas.java(116:16-116:24),"aux.dist"
+189,DECLAREDREFERENCEEXPRESSION,"aux",Sardas.java(116:16-116:19),"aux"
+190,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(111:18-111:19),"i"
+191,DECLAREDREFERENCEEXPRESSION,"n",Sardas.java(111:22-111:23),"n"
+192,LITERAL,"",Sardas.java(111:15-111:16),"0"
+193,MEMBEREXPRESSION,"MAX_VALUE",Sardas.java(107:20-107:36),"Double.MAX_VALUE"
+194,VARIABLEDECLARATION,"this",,""
+195,COMPOUNDSTATEMENT,"",Sardas.java(26:41-62:3),"{
+
+		int n;
+		double a, b;
+		Scanner in = new Scanner(System.in);
+
+		HashMap<Integer, Point> board = new HashMap<Integer, Point>();
+
+		n = in.nextInt();
+
+		for(int i = 0; i < n; i++){
+
+			a = in.nextDouble();
+			b = in.nextDouble();
+
+			board.put(i, new Point(a,b));	
+
+			if(i==0)
+				board.get(i).dist = 0;
+		}
+
+		for(int i = 0; i < n; i++){
+			for(int j = i+1; j < n; j++){
+				Point p1 = board.get(i);
+				Point p2 = board.get(j);
+				double count = doDist(p1,p2);
+				p1.weight.put(j, count);
+				p2.weight.put(i, count);
+			}
+		}
+
+		HashMap<Integer, Point> boardCopy = new HashMap<Integer, Point>();
+		boardCopy.putAll(board);
+		doPrim(board,n);
+		doMinDist(boardCopy,n);
+		System.out.printf(""%.2f\n"", finalDist);
+	}"
+196,PARAMVARIABLEDECLARATION,"args",Sardas.java(26:26-26:39),"String[] args"
+197,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+198,RETURNSTATEMENT,"",,""
+199,DECLARATIONSTATEMENT,"",Sardas.java(28:3-28:9),"int n;"
+200,DECLARATIONSTATEMENT,"",Sardas.java(29:3-29:15),"double a, b;"
+201,DECLARATIONSTATEMENT,"",Sardas.java(30:3-30:39),"Scanner in = new Scanner(System.in);"
+202,DECLARATIONSTATEMENT,"",Sardas.java(32:3-32:65),"HashMap<Integer, Point> board = new HashMap<Integer, Point>();"
+203,BINARYOPERATOR,"=",Sardas.java(34:3-34:20),"n = in.nextInt();"
+204,FORSTATEMENT,"",Sardas.java(36:3-45:4),"for(int i = 0; i < n; i++){
+
+			a = in.nextDouble();
+			b = in.nextDouble();
+
+			board.put(i, new Point(a,b));	
+
+			if(i==0)
+				board.get(i).dist = 0;
+		}"
+205,FORSTATEMENT,"",Sardas.java(47:3-55:4),"for(int i = 0; i < n; i++){
+			for(int j = i+1; j < n; j++){
+				Point p1 = board.get(i);
+				Point p2 = board.get(j);
+				double count = doDist(p1,p2);
+				p1.weight.put(j, count);
+				p2.weight.put(i, count);
+			}
+		}"
+206,DECLARATIONSTATEMENT,"",Sardas.java(57:3-57:69),"HashMap<Integer, Point> boardCopy = new HashMap<Integer, Point>();"
+207,MEMBERCALLEXPRESSION,"putAll",Sardas.java(58:3-58:27),"boardCopy.putAll(board);"
+208,CALLEXPRESSION,"doPrim",Sardas.java(59:3-59:19),"doPrim(board,n);"
+209,CALLEXPRESSION,"doMinDist",Sardas.java(60:3-60:26),"doMinDist(boardCopy,n);"
+210,MEMBERCALLEXPRESSION,"printf",Sardas.java(61:3-61:42),"System.out.printf(""%.2f\n"", finalDist);"
+211,VARIABLEDECLARATION,"n",Sardas.java(28:7-28:8),"n"
+212,VARIABLEDECLARATION,"a",Sardas.java(29:10-29:11),"a"
+213,VARIABLEDECLARATION,"b",Sardas.java(29:13-29:14),"b"
+214,VARIABLEDECLARATION,"in",Sardas.java(30:11-30:38),"in = new Scanner(System.in)"
+215,VARIABLEDECLARATION,"board",Sardas.java(32:27-32:64),"board = new HashMap<Integer, Point>()"
+216,VARIABLEDECLARATION,"boardCopy",Sardas.java(57:27-57:68),"boardCopy = new HashMap<Integer, Point>()"
+217,DECLAREDREFERENCEEXPRESSION,"boardCopy",Sardas.java(58:3-58:12),"boardCopy"
+218,COMPOUNDSTATEMENT,"",Sardas.java(47:29-55:4),"{
+			for(int j = i+1; j < n; j++){
+				Point p1 = board.get(i);
+				Point p2 = board.get(j);
+				double count = doDist(p1,p2);
+				p1.weight.put(j, count);
+				p2.weight.put(i, count);
+			}
+		}"
+219,DECLARATIONSTATEMENT,"",Sardas.java(47:7-47:16),"int i = 0"
+220,BINARYOPERATOR,"<",Sardas.java(47:18-47:23),"i < n"
+221,UNARYOPERATOR,"++",Sardas.java(47:25-47:28),"i++"
+222,VARIABLEDECLARATION,"i",Sardas.java(47:11-47:16),"i = 0"
+223,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(48:16-48:17),"i"
+224,CONSTRUCTEXPRESSION,"",Sardas.java(57:39-57:68),"new HashMap<Integer, Point>()"
+225,FORSTATEMENT,"",Sardas.java(48:4-54:5),"for(int j = i+1; j < n; j++){
+				Point p1 = board.get(i);
+				Point p2 = board.get(j);
+				double count = doDist(p1,p2);
+				p1.weight.put(j, count);
+				p2.weight.put(i, count);
+			}"
+226,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(47:25-47:26),"i"
+227,COMPOUNDSTATEMENT,"",Sardas.java(48:32-54:5),"{
+				Point p1 = board.get(i);
+				Point p2 = board.get(j);
+				double count = doDist(p1,p2);
+				p1.weight.put(j, count);
+				p2.weight.put(i, count);
+			}"
+228,DECLARATIONSTATEMENT,"",Sardas.java(48:8-48:19),"int j = i+1"
+229,BINARYOPERATOR,"<",Sardas.java(48:21-48:26),"j < n"
+230,UNARYOPERATOR,"++",Sardas.java(48:28-48:31),"j++"
+231,VARIABLEDECLARATION,"j",Sardas.java(48:12-48:19),"j = i+1"
+232,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(49:16-49:21),"board"
+233,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(48:21-48:22),"j"
+234,DECLAREDREFERENCEEXPRESSION,"n",Sardas.java(48:25-48:26),"n"
+235,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(48:28-48:29),"j"
+236,DECLARATIONSTATEMENT,"",Sardas.java(49:5-49:29),"Point p1 = board.get(i);"
+237,DECLARATIONSTATEMENT,"",Sardas.java(50:5-50:29),"Point p2 = board.get(j);"
+238,DECLARATIONSTATEMENT,"",Sardas.java(51:5-51:34),"double count = doDist(p1,p2);"
+239,MEMBERCALLEXPRESSION,"put",Sardas.java(52:5-52:29),"p1.weight.put(j, count);"
+240,MEMBERCALLEXPRESSION,"put",Sardas.java(53:5-53:29),"p2.weight.put(i, count);"
+241,VARIABLEDECLARATION,"p1",Sardas.java(49:11-49:28),"p1 = board.get(i)"
+242,VARIABLEDECLARATION,"p2",Sardas.java(50:11-50:28),"p2 = board.get(j)"
+243,VARIABLEDECLARATION,"count",Sardas.java(51:12-51:33),"count = doDist(p1,p2)"
+244,DECLAREDREFERENCEEXPRESSION,"put",Sardas.java(52:15-52:18),"put"
+245,DECLAREDREFERENCEEXPRESSION,"p2",Sardas.java(53:5-53:7),"p2"
+246,DECLAREDREFERENCEEXPRESSION,"count",Sardas.java(52:22-52:27),"count"
+247,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(52:19-52:20),"j"
+248,MEMBEREXPRESSION,"weight",Sardas.java(52:5-52:14),"p1.weight"
+249,DECLAREDREFERENCEEXPRESSION,"p1",Sardas.java(52:5-52:7),"p1"
+250,DECLAREDREFERENCEEXPRESSION,"p1",Sardas.java(51:27-51:29),"p1"
+251,DECLAREDREFERENCEEXPRESSION,"put",Sardas.java(53:15-53:18),"put"
+252,DECLAREDREFERENCEEXPRESSION,"count",Sardas.java(53:22-53:27),"count"
+253,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(53:19-53:20),"i"
+254,MEMBEREXPRESSION,"weight",Sardas.java(53:5-53:14),"p2.weight"
+255,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(50:16-50:21),"board"
+256,CALLEXPRESSION,"doDist",Sardas.java(51:20-51:33),"doDist(p1,p2)"
+257,METHODDECLARATION,"doDist",,""
+258,DECLAREDREFERENCEEXPRESSION,"p2",Sardas.java(51:30-51:32),"p2"
+259,PARAMVARIABLEDECLARATION,"sardas.point1",,""
+260,PARAMVARIABLEDECLARATION,"sardas.point0",,""
+261,MEMBERCALLEXPRESSION,"get",Sardas.java(49:16-49:28),"board.get(i)"
+262,DECLAREDREFERENCEEXPRESSION,"get",Sardas.java(49:22-49:25),"get"
+263,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(49:26-49:27),"i"
+264,MEMBERCALLEXPRESSION,"get",Sardas.java(50:16-50:28),"board.get(j)"
+265,DECLAREDREFERENCEEXPRESSION,"get",Sardas.java(50:22-50:25),"get"
+266,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(50:26-50:27),"j"
+267,BINARYOPERATOR,"+",Sardas.java(48:16-48:19),"i+1"
+268,LITERAL,"",Sardas.java(48:18-48:19),"1"
+269,LITERAL,"",Sardas.java(47:15-47:16),"0"
+270,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(47:18-47:19),"i"
+271,DECLAREDREFERENCEEXPRESSION,"n",Sardas.java(47:22-47:23),"n"
+272,CONSTRUCTEXPRESSION,"",Sardas.java(32:35-32:64),"new HashMap<Integer, Point>()"
+273,NEWEXPRESSION,"",Sardas.java(30:16-30:38),"new Scanner(System.in)"
+274,CONSTRUCTEXPRESSION,"",Sardas.java(30:16-30:38),"new Scanner(System.in)"
+275,MEMBEREXPRESSION,"in",Sardas.java(30:28-30:37),"System.in"
+276,DECLAREDREFERENCEEXPRESSION,"System",Sardas.java(30:28-30:34),"System"
+277,DECLAREDREFERENCEEXPRESSION,"n",Sardas.java(34:3-34:4),"n"
+278,MEMBERCALLEXPRESSION,"nextInt",Sardas.java(34:7-34:19),"in.nextInt()"
+279,LITERAL,"",Sardas.java(36:15-36:16),"0"
+280,DECLAREDREFERENCEEXPRESSION,"nextInt",Sardas.java(34:10-34:17),"nextInt"
+281,DECLAREDREFERENCEEXPRESSION,"in",Sardas.java(34:7-34:9),"in"
+282,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+283,DECLAREDREFERENCEEXPRESSION,"putAll",Sardas.java(58:13-58:19),"putAll"
+284,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(59:10-59:15),"board"
+285,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(58:20-58:25),"board"
+286,NEWEXPRESSION,"",Sardas.java(32:35-32:64),"new HashMap<Integer, Point>()"
+287,COMPOUNDSTATEMENT,"",Sardas.java(36:29-45:4),"{
+
+			a = in.nextDouble();
+			b = in.nextDouble();
+
+			board.put(i, new Point(a,b));	
+
+			if(i==0)
+				board.get(i).dist = 0;
+		}"
+288,DECLARATIONSTATEMENT,"",Sardas.java(36:7-36:16),"int i = 0"
+289,BINARYOPERATOR,"<",Sardas.java(36:18-36:23),"i < n"
+290,UNARYOPERATOR,"++",Sardas.java(36:25-36:28),"i++"
+291,VARIABLEDECLARATION,"i",Sardas.java(36:11-36:16),"i = 0"
+292,DECLAREDREFERENCEEXPRESSION,"a",Sardas.java(38:4-38:5),"a"
+293,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(36:18-36:19),"i"
+294,DECLAREDREFERENCEEXPRESSION,"n",Sardas.java(36:22-36:23),"n"
+295,BINARYOPERATOR,"=",Sardas.java(38:4-38:24),"a = in.nextDouble();"
+296,BINARYOPERATOR,"=",Sardas.java(39:4-39:24),"b = in.nextDouble();"
+297,MEMBERCALLEXPRESSION,"put",Sardas.java(41:4-41:33),"board.put(i, new Point(a,b));"
+298,IFSTATEMENT,"",Sardas.java(43:4-44:27),"if(i==0)
+				board.get(i).dist = 0;"
+299,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(36:25-36:26),"i"
+300,BINARYOPERATOR,"=",Sardas.java(44:5-44:27),"board.get(i).dist = 0;"
+301,BINARYOPERATOR,"==",Sardas.java(43:7-43:11),"i==0"
+302,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(44:5-44:10),"board"
+303,MEMBEREXPRESSION,"dist",Sardas.java(44:5-44:22),"board.get(i).dist"
+304,LITERAL,"",Sardas.java(44:25-44:26),"0"
+305,MEMBERCALLEXPRESSION,"get",Sardas.java(44:5-44:17),"board.get(i)"
+306,DECLAREDREFERENCEEXPRESSION,"get",Sardas.java(44:11-44:14),"get"
+307,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(44:15-44:16),"i"
+308,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(43:7-43:8),"i"
+309,LITERAL,"",Sardas.java(43:10-43:11),"0"
+310,MEMBERCALLEXPRESSION,"nextDouble",Sardas.java(38:8-38:23),"in.nextDouble()"
+311,DECLAREDREFERENCEEXPRESSION,"b",Sardas.java(39:4-39:5),"b"
+312,DECLAREDREFERENCEEXPRESSION,"nextDouble",Sardas.java(38:11-38:21),"nextDouble"
+313,DECLAREDREFERENCEEXPRESSION,"in",Sardas.java(38:8-38:10),"in"
+314,MEMBERCALLEXPRESSION,"nextDouble",Sardas.java(39:8-39:23),"in.nextDouble()"
+315,DECLAREDREFERENCEEXPRESSION,"board",Sardas.java(41:4-41:9),"board"
+316,DECLAREDREFERENCEEXPRESSION,"in",Sardas.java(39:8-39:10),"in"
+317,DECLAREDREFERENCEEXPRESSION,"nextDouble",Sardas.java(39:11-39:21),"nextDouble"
+318,DECLAREDREFERENCEEXPRESSION,"put",Sardas.java(41:10-41:13),"put"
+319,NEWEXPRESSION,"",Sardas.java(41:17-41:31),"new Point(a,b)"
+320,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(41:14-41:15),"i"
+321,DECLAREDREFERENCEEXPRESSION,"a",Sardas.java(41:27-41:28),"a"
+322,CONSTRUCTEXPRESSION,"",Sardas.java(41:17-41:31),"new Point(a,b)"
+323,CONSTRUCTORDECLARATION,"Point",Sardas.java(13:3-16:4),"public Point(double x, double y) {
+			this.x = x;
+			this.y = y;
+		}"
+324,DECLAREDREFERENCEEXPRESSION,"b",Sardas.java(41:29-41:30),"b"
+325,PARAMVARIABLEDECLARATION,"y",Sardas.java(13:26-13:34),"double y"
+326,PARAMVARIABLEDECLARATION,"x",Sardas.java(13:16-13:24),"double x"
+327,NEWEXPRESSION,"",Sardas.java(57:39-57:68),"new HashMap<Integer, Point>()"
+328,METHODDECLARATION,"doMinDist",,""
+329,DECLAREDREFERENCEEXPRESSION,"boardCopy",Sardas.java(60:13-60:22),"boardCopy"
+330,DECLAREDREFERENCEEXPRESSION,"n",Sardas.java(60:23-60:24),"n"
+331,DECLAREDREFERENCEEXPRESSION,"System",Sardas.java(61:3-61:9),"System"
+332,PARAMVARIABLEDECLARATION,"int1",,""
+333,PARAMVARIABLEDECLARATION,"java.util.hashmap0",,""
+334,DECLAREDREFERENCEEXPRESSION,"printf",Sardas.java(61:14-61:20),"printf"
+335,MEMBEREXPRESSION,"finalDist",Sardas.java(61:31-61:40),"finalDist"
+336,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(61:31-61:40),"Sardas"
+337,LITERAL,"",Sardas.java(61:21-61:29),"""%.2f\n"""
+338,MEMBEREXPRESSION,"out",Sardas.java(61:3-61:13),"System.out"
+339,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+340,METHODDECLARATION,"doPrim",,""
+341,DECLAREDREFERENCEEXPRESSION,"n",Sardas.java(59:16-59:17),"n"
+342,PARAMVARIABLEDECLARATION,"java.util.hashmap0",,""
+343,PARAMVARIABLEDECLARATION,"int1",,""
+344,VARIABLEDECLARATION,"this",,""
+345,COMPOUNDSTATEMENT,"",Sardas.java(64:74-70:3),"{
+
+		for(int i=0; i < n; i++){
+			finalDist += boardCopy.get(i).dist;
+		}
+
+	}"
+346,PARAMVARIABLEDECLARATION,"boardCopy",Sardas.java(64:32-64:65),"HashMap<Integer, Point> boardCopy"
+347,PARAMVARIABLEDECLARATION,"n",Sardas.java(64:67-64:72),"int n"
+348,LITERAL,"",Sardas.java(66:13-66:14),"0"
+349,RETURNSTATEMENT,"",,""
+350,FORSTATEMENT,"",Sardas.java(66:3-68:4),"for(int i=0; i < n; i++){
+			finalDist += boardCopy.get(i).dist;
+		}"
+351,COMPOUNDSTATEMENT,"",Sardas.java(66:27-68:4),"{
+			finalDist += boardCopy.get(i).dist;
+		}"
+352,DECLARATIONSTATEMENT,"",Sardas.java(66:7-66:14),"int i=0"
+353,BINARYOPERATOR,"<",Sardas.java(66:16-66:21),"i < n"
+354,UNARYOPERATOR,"++",Sardas.java(66:23-66:26),"i++"
+355,VARIABLEDECLARATION,"i",Sardas.java(66:11-66:14),"i=0"
+356,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(67:4-67:13),"Sardas"
+357,BINARYOPERATOR,"+=",Sardas.java(67:4-67:39),"finalDist += boardCopy.get(i).dist;"
+358,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(66:23-66:24),"i"
+359,MEMBEREXPRESSION,"finalDist",Sardas.java(67:4-67:13),"finalDist"
+360,MEMBEREXPRESSION,"dist",Sardas.java(67:17-67:38),"boardCopy.get(i).dist"
+361,MEMBERCALLEXPRESSION,"get",Sardas.java(67:17-67:33),"boardCopy.get(i)"
+362,DECLAREDREFERENCEEXPRESSION,"get",Sardas.java(67:27-67:30),"get"
+363,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(67:31-67:32),"i"
+364,DECLAREDREFERENCEEXPRESSION,"boardCopy",Sardas.java(67:17-67:26),"boardCopy"
+365,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(66:16-66:17),"i"
+366,DECLAREDREFERENCEEXPRESSION,"n",Sardas.java(66:20-66:21),"n"

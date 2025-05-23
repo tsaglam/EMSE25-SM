@@ -1,0 +1,41 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,64
+problema21.java,insert line 22: `double w;` on try 0,0.9948186528497409,1.0,64
+problema21.java,insert line 13: `int min;` on try 0,0.9896907216494846,1.0,64
+problema21.java,insert line 30: `double w;` on try 0,0.9846153846153847,1.0,64
+problema21.java,insert line 11: `int min;` on try 0,0.9285714285714286,1.0,64
+problema21.java,insert line 49: `boolean debug = false;` on try 0,0.9238578680203046,1.0,64
+problema21.java,insert line 28: `int min;` on try 0,0.8282828282828283,1.0,64
+problema21.java,insert line 18: `int j = 0;` on try 0,0.7939698492462312,1.0,64
+problema21.java,insert line 69: `int min;` on try 0,0.75,1.0,64
+problema21.java,insert line 8: `int max;` on try 0,0.6865671641791045,1.0,64
+problema21.java,insert line 67: `int min;` on try 0,0.6237623762376238,1.0,64
+problema21.java,insert line 63: `int count = 0;` on try 1,0.6009852216748769,1.0,64
+problema21.java,insert line 23: `int count = 0;` on try 1,0.49019607843137253,1.0,64
+problema21.java,insert line 11: `int index = 0;` on try 0,0.4878048780487805,1.0,64
+problema21.java,insert line 46: `int index = 0;` on try 0,0.4854368932038835,1.0,64
+problema21.java,insert line 68: `int max;` on try 0,0.4830917874396135,1.0,64
+problema21.java,insert line 45: `boolean done = false;` on try 0,0.47115384615384615,1.0,64
+problema21.java,"insert line 30: `String output = """";` on try 0",0.4688995215311005,1.0,64
+problema21.java,insert line 26: `int index = 0;` on try 2,0.4666666666666667,1.0,64
+problema21.java,insert line 37: `int index = 0;` on try 2,0.46445497630331756,1.0,64
+problema21.java,insert line 43: `int max;` on try 1,0.3584905660377358,1.0,64
+problema21.java,insert line 69: `int i = 0;` on try 1,0.3192488262910798,1.0,64
+problema21.java,insert line 19: `int i = 0;` on try 0,0.3177570093457944,1.0,64
+problema21.java,insert line 15: `index++;` on try 1,0.31627906976744186,1.0,64
+problema21.java,"insert line 19: `int x, y;` on try 1",0.31336405529953915,1.0,64
+problema21.java,insert line 51: `int j = 0;` on try 3,0.3119266055045872,1.0,64
+problema21.java,insert line 81: `String[] messages;` on try 1,0.3105022831050228,1.0,64
+problema21.java,insert line 63: `int count = 0;` on try 1,0.3,1.0,64
+problema21.java,insert line 36: `boolean done = false;` on try 1,0.2986425339366516,1.0,64
+problema21.java,insert line 68: `int i = 0;` on try 1,0.2882882882882883,1.0,64
+problema21.java,insert line 31: `int max;` on try 1,0.28699551569506726,1.0,64
+problema21.java,insert line 46: `String[] messages;` on try 0,0.2857142857142857,1.0,64
+problema21.java,insert line 80: `int index = 0;` on try 1,0.28444444444444444,1.0,64
+problema21.java,insert line 51: `String[] messages;` on try 2,0.2831858407079646,1.0,64
+problema21.java,insert line 92: `int j = 0;` on try 4,0.28193832599118945,1.0,64
+problema21.java,insert line 54: `int i = 0;` on try 3,0.2807017543859649,1.0,64
+problema21.java,insert line 53: `boolean done = false;` on try 5,0.2794759825327511,1.0,64
+problema21.java,insert line 3: `import java.util.HashMap;` on try 6,0.2782608695652174,0.9948186528497409,64
+problema21.java,insert line 69: `boolean done = false;` on try 5,0.2683982683982684,0.9948186528497409,64
+problema21.java,insert line 11: `double w;` on try 1,0.2672413793103448,0.9948186528497409,64

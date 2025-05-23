@@ -1,0 +1,56 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,92
+Prob20.java,insert line 46: `String[] messages;` on try 0,0.9962825278810409,1.0,92
+Prob20.java,insert line 89: `String[] messages;` on try 0,0.9407407407407408,1.0,92
+Prob20.java,insert line 85: `boolean done = false;` on try 0,0.9003690036900369,1.0,92
+Prob20.java,"insert line 82: `int x, y;` on try 0",0.8424908424908425,1.0,92
+Prob20.java,insert line 54: `boolean debug = false;` on try 0,0.781021897810219,1.0,92
+Prob20.java,insert line 27: `int count = 0;` on try 0,0.7781818181818182,1.0,92
+Prob20.java,insert line 71: `int max;` on try 0,0.7753623188405797,1.0,92
+Prob20.java,insert line 59: `int count = 0;` on try 0,0.7436823104693141,1.0,92
+Prob20.java,insert line 32: `int j = 0;` on try 1,0.6906474820143885,1.0,92
+Prob20.java,insert line 21: `int max;` on try 0,0.6881720430107527,1.0,92
+Prob20.java,insert line 80: `int index = 0;` on try 0,0.6857142857142857,1.0,92
+Prob20.java,insert line 101: `int indexOfField;` on try 1,0.6832740213523132,1.0,92
+Prob20.java,insert line 43: `int index = 0;` on try 0,0.6382978723404256,1.0,92
+Prob20.java,insert line 48: `double w;` on try 0,0.6360424028268551,1.0,92
+Prob20.java,insert line 105: `int count = 0;` on try 0,0.6338028169014085,1.0,92
+Prob20.java,insert line 70: `int intInput;` on try 0,0.5824561403508772,1.0,92
+Prob20.java,insert line 73: `int intInput;` on try 0,0.5664335664335665,1.0,92
+Prob20.java,insert line 77: `double w;` on try 0,0.5017421602787456,1.0,92
+Prob20.java,insert line 57: `index++;` on try 0,0.5,1.0,92
+Prob20.java,insert line 38: `double w;` on try 0,0.41522491349480967,1.0,92
+Prob20.java,insert line 69: `int min;` on try 0,0.41379310344827586,1.0,92
+Prob20.java,insert line 7: `String[] messages;` on try 0,0.3711340206185567,1.0,92
+Prob20.java,"insert line 92: `String output = """";` on try 0",0.3356164383561644,1.0,92
+Prob20.java,insert line 9: `int count = 0;` on try 0,0.32764505119453924,1.0,92
+Prob20.java,insert line 44: `boolean done = false;` on try 0,0.32653061224489793,1.0,92
+Prob20.java,insert line 28: `double w;` on try 0,0.2576271186440678,1.0,92
+Prob20.java,insert line 71: `String[] messages;` on try 2,0.25675675675675674,1.0,92
+Prob20.java,insert line 110: `int count = 0;` on try 1,0.2558922558922559,1.0,92
+Prob20.java,insert line 64: `boolean done = false;` on try 0,0.2550335570469799,1.0,92
+Prob20.java,insert line 116: `count++;` on try 0,0.25418060200668896,1.0,92
+Prob20.java,insert line 11: `int index = 0;` on try 1,0.24666666666666667,1.0,92
+Prob20.java,insert line 61: `double w;` on try 1,0.24584717607973422,1.0,92
+Prob20.java,insert line 48: `int min;` on try 2,0.24503311258278146,1.0,92
+Prob20.java,insert line 31: `String[] messages;` on try 3,0.24422442244224424,1.0,92
+Prob20.java,insert line 78: `double w;` on try 1,0.24342105263157895,1.0,92
+Prob20.java,insert line 2: `import java.io.*;` on try 3,0.24262295081967214,0.9962825278810409,92
+Prob20.java,"insert line 105: `int x, y;` on try 0",0.23452768729641693,0.9962825278810409,92
+Prob20.java,insert line 98: `int min;` on try 0,0.16883116883116883,0.9962825278810409,92
+Prob20.java,insert line 47: `int count = 0;` on try 2,0.16828478964401294,0.9962825278810409,92
+Prob20.java,insert line 60: `int intInput;` on try 3,0.16774193548387098,0.9962825278810409,92
+Prob20.java,insert line 57: `boolean debug = false;` on try 0,0.16720257234726688,0.9962825278810409,92
+Prob20.java,insert line 86: `boolean done = false;` on try 2,0.16666666666666666,0.9962825278810409,92
+Prob20.java,insert line 69: `int count = 0;` on try 3,0.16613418530351437,0.9962825278810409,92
+Prob20.java,insert line 38: `int i = 0;` on try 2,0.16560509554140126,0.9962825278810409,92
+Prob20.java,insert line 109: `boolean done = false;` on try 1,0.16507936507936508,0.9962825278810409,92
+Prob20.java,insert line 47: `String[] messages;` on try 6,0.16455696202531644,0.9962825278810409,92
+Prob20.java,insert line 103: `boolean debug = false;` on try 4,0.1640378548895899,0.9962825278810409,92
+Prob20.java,insert line 120: `int index = 0;` on try 2,0.15723270440251572,0.9962825278810409,92
+Prob20.java,insert line 37: `int min;` on try 1,0.15673981191222572,0.9962825278810409,92
+Prob20.java,insert line 109: `String[] messages;` on try 3,0.15625,0.9962825278810409,92
+Prob20.java,"insert line 80: `String output = """";` on try 6",0.1557632398753894,0.9962825278810409,92
+Prob20.java,insert line 93: `double w;` on try 3,0.15527950310559005,0.9962825278810409,92
+Prob20.java,insert line 36: `boolean debug = false;` on try 7,0.15479876160990713,0.9962825278810409,92
+Prob20.java,insert line 60: `int min;` on try 3,0.15432098765432098,0.9962825278810409,92

@@ -1,0 +1,39 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,71
+prob21.java,insert line 47: `boolean done = false;` on try 0,0.9955947136563876,1.0,71
+prob21.java,insert line 65: `double w;` on try 0,0.9210526315789473,1.0,71
+prob21.java,insert line 69: `boolean debug = false;` on try 0,0.9170305676855895,1.0,71
+prob21.java,insert line 54: `int index = 0;` on try 0,0.9130434782608695,1.0,71
+prob21.java,insert line 10: `int count = 0;` on try 0,0.9090909090909091,1.0,71
+prob21.java,insert line 25: `boolean done = false;` on try 0,0.9051724137931034,1.0,71
+prob21.java,insert line 33: `int count = 0;` on try 0,0.9012875536480687,1.0,71
+prob21.java,insert line 39: `String[] messages;` on try 0,0.8974358974358975,1.0,71
+prob21.java,insert line 30: `boolean debug = false;` on try 0,0.7829787234042553,1.0,71
+prob21.java,insert line 15: `boolean done = false;` on try 0,0.7372881355932204,1.0,71
+prob21.java,insert line 80: `int count = 0;` on try 0,0.7341772151898734,1.0,71
+prob21.java,insert line 23: `int max;` on try 0,0.6974789915966386,1.0,71
+prob21.java,insert line 12: `boolean done = false;` on try 0,0.694560669456067,1.0,71
+prob21.java,insert line 76: `String[] messages;` on try 0,0.6916666666666667,1.0,71
+prob21.java,"insert line 50: `int x, y;` on try 1",0.6611570247933884,1.0,71
+prob21.java,insert line 46: `int count = 0;` on try 0,0.5761316872427984,1.0,71
+prob21.java,insert line 45: `int count = 0;` on try 0,0.5737704918032787,1.0,71
+prob21.java,insert line 14: `int index = 0;` on try 1,0.5714285714285714,1.0,71
+prob21.java,insert line 27: `int j = 0;` on try 0,0.5691056910569106,1.0,71
+prob21.java,insert line 72: `int max;` on try 1,0.5101214574898786,1.0,71
+prob21.java,insert line 77: `int count = 0;` on try 2,0.41935483870967744,1.0,71
+prob21.java,insert line 89: `int j = 0;` on try 0,0.41767068273092367,1.0,71
+prob21.java,insert line 74: `double w;` on try 2,0.416,1.0,71
+prob21.java,insert line 80: `int index = 0;` on try 0,0.41434262948207173,1.0,71
+prob21.java,insert line 44: `int min;` on try 3,0.3888888888888889,1.0,71
+prob21.java,insert line 43: `boolean done = false;` on try 1,0.3794466403162055,1.0,71
+prob21.java,insert line 84: `int j = 0;` on try 4,0.3779527559055118,1.0,71
+prob21.java,insert line 93: `String[] messages;` on try 0,0.3764705882352941,1.0,71
+prob21.java,insert line 78: `int v;` on try 2,0.375,1.0,71
+prob21.java,insert line 66: `int intInput;` on try 3,0.31906614785992216,1.0,71
+prob21.java,insert line 81: `int max;` on try 5,0.3178294573643411,1.0,71
+prob21.java,insert line 93: `done = true;` on try 4,0.3166023166023166,1.0,71
+prob21.java,"insert line 9: `int x, y;` on try 3",0.3065134099616858,1.0,71
+prob21.java,"insert line 38: `int x, y;` on try 0",0.23574144486692014,1.0,71
+prob21.java,insert line 75: `String[] messages;` on try 8,0.23484848484848486,1.0,71
+prob21.java,insert line 77: `int count = 0;` on try 9,0.2339622641509434,1.0,71
+prob21.java,insert line 67: `done = true;` on try 9,0.16541353383458646,1.0,71

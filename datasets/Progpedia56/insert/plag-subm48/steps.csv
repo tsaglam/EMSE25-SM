@@ -1,0 +1,29 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,52
+prob21.java,"insert line 32: `int x, y;` on try 0",0.989010989010989,1.0,52
+prob21.java,insert line 18: `boolean debug = false;` on try 0,0.9836065573770492,1.0,52
+prob21.java,insert line 17: `boolean debug = false;` on try 0,0.967391304347826,1.0,52
+prob21.java,insert line 39: `int index = 0;` on try 0,0.9081081081081082,1.0,52
+prob21.java,insert line 44: `int indexOfField;` on try 0,0.8279569892473119,1.0,52
+prob21.java,insert line 51: `int count = 0;` on try 0,0.6524064171122995,1.0,52
+prob21.java,insert line 47: `String[] messages;` on try 0,0.648936170212766,1.0,52
+prob21.java,insert line 33: `double w;` on try 0,0.6349206349206349,1.0,52
+prob21.java,insert line 52: `boolean done = false;` on try 0,0.631578947368421,1.0,52
+prob21.java,insert line 25: `int index = 0;` on try 1,0.6282722513089005,1.0,52
+prob21.java,"insert line 61: `String output = """";` on try 0",0.625,1.0,52
+prob21.java,insert line 33: `int max;` on try 3,0.6113989637305699,1.0,52
+prob21.java,insert line 61: `int min;` on try 0,0.6082474226804123,1.0,52
+prob21.java,insert line 60: `String[] messages;` on try 0,0.6051282051282051,1.0,52
+prob21.java,insert line 53: `index++;` on try 1,0.6020408163265306,1.0,52
+prob21.java,insert line 27: `int indexOfField;` on try 0,0.5989847715736041,1.0,52
+prob21.java,insert line 50: `boolean done = false;` on try 3,0.5959595959595959,1.0,52
+prob21.java,insert line 15: `int count = 0;` on try 0,0.5527638190954773,1.0,52
+prob21.java,insert line 43: `int choosen = -1;` on try 0,0.55,1.0,52
+prob21.java,insert line 64: `String[] messages;` on try 0,0.5472636815920398,1.0,52
+prob21.java,insert line 32: `double x;` on try 1,0.4158415841584158,1.0,52
+prob21.java,insert line 24: `int intInput;` on try 5,0.3448275862068966,1.0,52
+prob21.java,insert line 17: `boolean done = false;` on try 1,0.3431372549019608,1.0,52
+prob21.java,insert line 44: `double weight;` on try 7,0.34146341463414637,1.0,52
+prob21.java,insert line 32: `int count = 0;` on try 1,0.33980582524271846,1.0,52
+prob21.java,insert line 54: `int count = 0;` on try 5,0.33816425120772947,1.0,52
+prob21.java,insert line 52: `index++;` on try 4,0.33653846153846156,1.0,52

@@ -1,0 +1,44 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,59
+P24.java,insert line 36: `int count = 0;` on try 0,0.994535519125683,1.0,59
+P24.java,insert line 57: `boolean debug = false;` on try 0,0.9456521739130435,1.0,59
+P24.java,insert line 34: `boolean debug = false;` on try 0,0.918918918918919,1.0,59
+P24.java,insert line 22: `int j = 0;` on try 0,0.9139784946236559,1.0,59
+P24.java,insert line 61: `double min = 9999999;` on try 0,0.9090909090909091,1.0,59
+P24.java,insert line 56: `String[] messages;` on try 0,0.8723404255319149,1.0,59
+P24.java,insert line 19: `int min;` on try 0,0.7936507936507936,1.0,59
+P24.java,insert line 25: `double w;` on try 0,0.7684210526315789,1.0,59
+P24.java,insert line 30: `int count = 0;` on try 0,0.6910994764397905,1.0,59
+P24.java,insert line 10: `int max;` on try 0,0.6875,1.0,59
+P24.java,insert line 35: `String[] messages;` on try 0,0.6839378238341969,1.0,59
+P24.java,insert line 7: `int count = 0;` on try 0,0.6494845360824743,1.0,59
+P24.java,insert line 65: `boolean done = false;` on try 0,0.6461538461538462,1.0,59
+P24.java,insert line 23: `int count = 0;` on try 0,0.6428571428571429,1.0,59
+P24.java,insert line 62: `boolean debug = false;` on try 1,0.6294416243654822,1.0,59
+P24.java,insert line 58: `int max;` on try 1,0.5656565656565656,1.0,59
+P24.java,"insert line 61: `int x, y;` on try 3",0.56,1.0,59
+P24.java,"insert line 55: `int x, y;` on try 1",0.5247524752475248,1.0,59
+P24.java,"insert line 31: `int x, y;` on try 1",0.5196078431372549,1.0,59
+P24.java,insert line 17: `int max;` on try 1,0.4682926829268293,1.0,59
+P24.java,insert line 51: `int count = 0;` on try 2,0.44660194174757284,1.0,59
+P24.java,insert line 46: `boolean done = false;` on try 0,0.4444444444444444,1.0,59
+P24.java,insert line 34: `boolean debug = false;` on try 3,0.4423076923076923,1.0,59
+P24.java,insert line 9: `String[] messages;` on try 1,0.44019138755980863,1.0,59
+P24.java,insert line 14: `int index = 0;` on try 0,0.4380952380952381,1.0,59
+P24.java,insert line 76: `double w;` on try 2,0.43601895734597157,1.0,59
+P24.java,insert line 68: `int max;` on try 0,0.4339622641509434,1.0,59
+P24.java,insert line 11: `double min = 9999999;` on try 1,0.431924882629108,1.0,59
+P24.java,insert line 22: `int index = 0;` on try 0,0.34579439252336447,1.0,59
+P24.java,insert line 66: `String[] messages;` on try 1,0.34418604651162793,1.0,59
+P24.java,insert line 68: `boolean debug = false;` on try 0,0.3425925925925926,1.0,59
+P24.java,insert line 42: `int indexOfField;` on try 1,0.34101382488479265,1.0,59
+P24.java,insert line 61: `count++;` on try 3,0.2018348623853211,1.0,59
+P24.java,insert line 48: `double w;` on try 1,0.1735159817351598,1.0,59
+P24.java,insert line 2: `import java.util.Scanner;` on try 8,0.17272727272727273,0.994475138121547,59
+P24.java,insert line 45: `boolean done = false;` on try 7,0.17194570135746606,0.994475138121547,59
+P24.java,insert line 52: `boolean debug = false;` on try 3,0.17117117117117117,0.994475138121547,59
+P24.java,insert line 61: `int index = 0;` on try 5,0.17040358744394618,0.994475138121547,59
+P24.java,insert line 1: `import java.util.Scanner;` on try 8,0.16964285714285715,0.989010989010989,59
+P24.java,insert line 84: `int j = 0;` on try 6,0.1688888888888889,0.989010989010989,59
+P24.java,"insert line 66: `String output = """";` on try 7",0.168141592920354,0.989010989010989,59
+P24.java,insert line 50: `index++;` on try 7,0.16740088105726872,0.989010989010989,59

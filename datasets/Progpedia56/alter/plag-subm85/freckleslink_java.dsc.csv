@@ -1,0 +1,587 @@
+id,type,token,location,code
+1,TRANSLATIONUNITDECLARATION,"/data/00000056/submissions/07743744_24_201305163/frecklesLink.java",,""
+2,RECORDDECLARATION,"Point",frecklesLink.java(4:1-15:2),"class Point
+{
+	double x;
+	double y;
+	boolean check;
+	Point(double x,double y)
+	{
+		this.x = x;
+		this.y = y;
+		check = false;
+	}
+}"
+3,RECORDDECLARATION,"Link",frecklesLink.java(17:1-30:2),"class Link
+{
+	Point a;
+	Point b;
+	boolean check;
+	double distance;
+	Link(Point a,Point b)
+	{
+		this.a = a;
+		this.b = b;
+		this.distance = Math.sqrt((b.x-a.x)*(b.x-a.x) + (b.y-a.y)*(b.y-a.y));
+		this.check = false;
+	}
+}"
+4,RECORDDECLARATION,"frecklesLink",frecklesLink.java(31:1-92:2),"public class frecklesLink
+{
+	static Point points[];	// An array of points.
+	static int nPoints;		// Number of points we have.
+	static Link links[];		// An array of links.
+	static int linkCont;	// The counter of the links array.
+	static double cost;		// The cost we want to print.
+	public static void main(String args[])
+	{
+		Scanner input = new Scanner(System.in);		// Scanner.
+		nPoints = input.nextInt();					// Number of points we have.
+		points = new Point[nPoints];				// Defining array of points size.
+		for(int i=0;i<nPoints;i++)					// Reading data, creating points and placing them in the array.
+		{
+			double x = input.nextDouble();
+			double y = input.nextDouble();
+			points[i] = new Point(x,y);
+		}
+		int size = nPoints * (nPoints - 1);			// Max size of the links array.
+		linkCont = 0;								// Actual size of links array, starts at 0.
+		cost = 0;									// The cost we want to print.
+		links = new Link[size];						// Defining links array size.
+		linkPoints(points[0]);						// Calling linkPoints function on the first point.
+		System.out.println(String.format( ""%.2f"",cost));					// Printing.
+	}
+	// This function takes a point, sets check=true and adds to the links array all its un-added links that travel from that point to un-checked points.
+	static void addLinks(Point a)
+	{	
+		a.check = true;
+		for(int i=0;i<nPoints;i++)
+		{
+			if(points[i].check == false)
+			{
+				links[linkCont] = new Link(a,points[i]);
+				linkCont++;
+			}
+		}
+	}
+	static void linkPoints(Point a)
+	{
+		addLinks(a);
+		double minDist = 1000000;
+		int choosen = -1;
+		for(int i=0;i<linkCont;i++)
+		{
+			if(links[i].check == false && links[i].b.check == false)
+			{
+				if(links[i].distance < minDist)
+				{
+					minDist = links[i].distance;
+					choosen = i;
+				}
+			}
+		}
+		if(choosen != -1)
+		{
+			links[choosen].check = true;
+			cost += minDist;
+			linkPoints(links[choosen].b);
+		}		
+	}
+}"
+5,INCLUDEDECLARATION,"java.util",,""
+6,INCLUDEDECLARATION,"java.lang",,""
+7,FIELDDECLARATION,"this",,""
+8,FIELDDECLARATION,"points",frecklesLink.java(33:2-33:24),"points"
+9,FIELDDECLARATION,"nPoints",frecklesLink.java(34:2-34:21),"nPoints"
+10,FIELDDECLARATION,"links",frecklesLink.java(35:2-35:22),"links"
+11,FIELDDECLARATION,"linkCont",frecklesLink.java(36:2-36:22),"linkCont"
+12,FIELDDECLARATION,"cost",frecklesLink.java(37:2-37:21),"cost"
+13,METHODDECLARATION,"main",frecklesLink.java(38:2-55:3),"public static void main(String args[])
+	{
+		Scanner input = new Scanner(System.in);		// Scanner.
+		nPoints = input.nextInt();					// Number of points we have.
+		points = new Point[nPoints];				// Defining array of points size.
+		for(int i=0;i<nPoints;i++)					// Reading data, creating points and placing them in the array.
+		{
+			double x = input.nextDouble();
+			double y = input.nextDouble();
+			points[i] = new Point(x,y);
+		}
+		int size = nPoints * (nPoints - 1);			// Max size of the links array.
+		linkCont = 0;								// Actual size of links array, starts at 0.
+		cost = 0;									// The cost we want to print.
+		links = new Link[size];						// Defining links array size.
+		linkPoints(points[0]);						// Calling linkPoints function on the first point.
+		System.out.println(String.format( ""%.2f"",cost));					// Printing.
+	}"
+14,METHODDECLARATION,"addLinks",frecklesLink.java(57:2-68:3),"static void addLinks(Point a)
+	{	
+		a.check = true;
+		for(int i=0;i<nPoints;i++)
+		{
+			if(points[i].check == false)
+			{
+				links[linkCont] = new Link(a,points[i]);
+				linkCont++;
+			}
+		}
+	}"
+15,METHODDECLARATION,"linkPoints",frecklesLink.java(69:2-91:3),"static void linkPoints(Point a)
+	{
+		addLinks(a);
+		double minDist = 1000000;
+		int choosen = -1;
+		for(int i=0;i<linkCont;i++)
+		{
+			if(links[i].check == false && links[i].b.check == false)
+			{
+				if(links[i].distance < minDist)
+				{
+					minDist = links[i].distance;
+					choosen = i;
+				}
+			}
+		}
+		if(choosen != -1)
+		{
+			links[choosen].check = true;
+			cost += minDist;
+			linkPoints(links[choosen].b);
+		}		
+	}"
+16,CONSTRUCTORDECLARATION,"frecklesLink",,""
+17,VARIABLEDECLARATION,"this",,""
+18,COMPOUNDSTATEMENT,"",frecklesLink.java(58:2-68:3),"{	
+		a.check = true;
+		for(int i=0;i<nPoints;i++)
+		{
+			if(points[i].check == false)
+			{
+				links[linkCont] = new Link(a,points[i]);
+				linkCont++;
+			}
+		}
+	}"
+19,PARAMVARIABLEDECLARATION,"a",frecklesLink.java(57:23-57:30),"Point a"
+20,CALLEXPRESSION,"addLinks",frecklesLink.java(71:3-71:15),"addLinks(a);"
+21,DECLAREDREFERENCEEXPRESSION,"a",frecklesLink.java(59:3-59:4),"a"
+22,RETURNSTATEMENT,"",,""
+23,DECLAREDREFERENCEEXPRESSION,"a",frecklesLink.java(71:12-71:13),"a"
+24,BINARYOPERATOR,"=",frecklesLink.java(59:3-59:18),"a.check = true;"
+25,FORSTATEMENT,"",frecklesLink.java(60:3-67:4),"for(int i=0;i<nPoints;i++)
+		{
+			if(points[i].check == false)
+			{
+				links[linkCont] = new Link(a,points[i]);
+				linkCont++;
+			}
+		}"
+26,MEMBEREXPRESSION,"check",frecklesLink.java(59:3-59:10),"a.check"
+27,LITERAL,"",frecklesLink.java(59:13-59:17),"true"
+28,LITERAL,"",frecklesLink.java(60:13-60:14),"0"
+29,COMPOUNDSTATEMENT,"",frecklesLink.java(61:3-67:4),"{
+			if(points[i].check == false)
+			{
+				links[linkCont] = new Link(a,points[i]);
+				linkCont++;
+			}
+		}"
+30,DECLARATIONSTATEMENT,"",frecklesLink.java(60:7-60:14),"int i=0"
+31,BINARYOPERATOR,"<",frecklesLink.java(60:15-60:24),"i<nPoints"
+32,UNARYOPERATOR,"++",frecklesLink.java(60:25-60:28),"i++"
+33,VARIABLEDECLARATION,"i",frecklesLink.java(60:11-60:14),"i=0"
+34,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(62:7-62:13),"frecklesLink"
+35,IFSTATEMENT,"",frecklesLink.java(62:4-66:5),"if(points[i].check == false)
+			{
+				links[linkCont] = new Link(a,points[i]);
+				linkCont++;
+			}"
+36,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(60:25-60:26),"i"
+37,COMPOUNDSTATEMENT,"",frecklesLink.java(63:4-66:5),"{
+				links[linkCont] = new Link(a,points[i]);
+				linkCont++;
+			}"
+38,BINARYOPERATOR,"==",frecklesLink.java(62:7-62:31),"points[i].check == false"
+39,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(64:5-64:10),"frecklesLink"
+40,MEMBEREXPRESSION,"check",frecklesLink.java(62:7-62:22),"points[i].check"
+41,LITERAL,"",frecklesLink.java(62:26-62:31),"false"
+42,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(62:7-62:16),"points[i]"
+43,MEMBEREXPRESSION,"points",frecklesLink.java(62:7-62:13),"points"
+44,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(62:14-62:15),"i"
+45,BINARYOPERATOR,"=",frecklesLink.java(64:5-64:45),"links[linkCont] = new Link(a,points[i]);"
+46,UNARYOPERATOR,"++",frecklesLink.java(65:5-65:16),"linkCont++;"
+47,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(64:5-64:20),"links[linkCont]"
+48,NEWEXPRESSION,"",frecklesLink.java(64:23-64:44),"new Link(a,points[i])"
+49,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(65:5-65:13),"frecklesLink"
+50,CONSTRUCTEXPRESSION,"",frecklesLink.java(64:23-64:44),"new Link(a,points[i])"
+51,CONSTRUCTORDECLARATION,"Link",,""
+52,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(64:34-64:43),"points[i]"
+53,MEMBEREXPRESSION,"points",frecklesLink.java(64:34-64:40),"points"
+54,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(64:41-64:42),"i"
+55,PARAMVARIABLEDECLARATION,"point1",,""
+56,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(64:34-64:40),"frecklesLink"
+57,DECLAREDREFERENCEEXPRESSION,"a",frecklesLink.java(64:32-64:33),"a"
+58,PARAMVARIABLEDECLARATION,"point0",,""
+59,MEMBEREXPRESSION,"links",frecklesLink.java(64:5-64:10),"links"
+60,MEMBEREXPRESSION,"linkCont",frecklesLink.java(64:11-64:19),"linkCont"
+61,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(64:11-64:19),"frecklesLink"
+62,MEMBEREXPRESSION,"linkCont",frecklesLink.java(65:5-65:13),"linkCont"
+63,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(60:15-60:16),"i"
+64,MEMBEREXPRESSION,"nPoints",frecklesLink.java(60:17-60:24),"nPoints"
+65,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(60:17-60:24),"frecklesLink"
+66,VARIABLEDECLARATION,"this",,""
+67,COMPOUNDSTATEMENT,"",frecklesLink.java(39:2-55:3),"{
+		Scanner input = new Scanner(System.in);		// Scanner.
+		nPoints = input.nextInt();					// Number of points we have.
+		points = new Point[nPoints];				// Defining array of points size.
+		for(int i=0;i<nPoints;i++)					// Reading data, creating points and placing them in the array.
+		{
+			double x = input.nextDouble();
+			double y = input.nextDouble();
+			points[i] = new Point(x,y);
+		}
+		int size = nPoints * (nPoints - 1);			// Max size of the links array.
+		linkCont = 0;								// Actual size of links array, starts at 0.
+		cost = 0;									// The cost we want to print.
+		links = new Link[size];						// Defining links array size.
+		linkPoints(points[0]);						// Calling linkPoints function on the first point.
+		System.out.println(String.format( ""%.2f"",cost));					// Printing.
+	}"
+68,PARAMVARIABLEDECLARATION,"args",frecklesLink.java(38:26-38:39),"String args[]"
+69,DECLAREDREFERENCEEXPRESSION,"System",frecklesLink.java(40:31-40:37),"System"
+70,RETURNSTATEMENT,"",,""
+71,DECLARATIONSTATEMENT,"",frecklesLink.java(40:3-40:42),"Scanner input = new Scanner(System.in);"
+72,BINARYOPERATOR,"=",frecklesLink.java(41:3-41:29),"nPoints = input.nextInt();"
+73,BINARYOPERATOR,"=",frecklesLink.java(42:3-42:31),"points = new Point[nPoints];"
+74,FORSTATEMENT,"",frecklesLink.java(43:3-48:4),"for(int i=0;i<nPoints;i++)					// Reading data, creating points and placing them in the array.
+		{
+			double x = input.nextDouble();
+			double y = input.nextDouble();
+			points[i] = new Point(x,y);
+		}"
+75,DECLARATIONSTATEMENT,"",frecklesLink.java(49:3-49:38),"int size = nPoints * (nPoints - 1);"
+76,BINARYOPERATOR,"=",frecklesLink.java(50:3-50:16),"linkCont = 0;"
+77,BINARYOPERATOR,"=",frecklesLink.java(51:3-51:12),"cost = 0;"
+78,BINARYOPERATOR,"=",frecklesLink.java(52:3-52:26),"links = new Link[size];"
+79,CALLEXPRESSION,"linkPoints",frecklesLink.java(53:3-53:25),"linkPoints(points[0]);"
+80,MEMBERCALLEXPRESSION,"println",frecklesLink.java(54:3-54:51),"System.out.println(String.format( ""%.2f"",cost));"
+81,VARIABLEDECLARATION,"input",frecklesLink.java(40:11-40:41),"input = new Scanner(System.in)"
+82,VARIABLEDECLARATION,"size",frecklesLink.java(49:7-49:37),"size = nPoints * (nPoints - 1)"
+83,MEMBEREXPRESSION,"cost",frecklesLink.java(51:3-51:7),"cost"
+84,LITERAL,"",frecklesLink.java(51:10-51:11),"0"
+85,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(52:3-52:8),"frecklesLink"
+86,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(51:3-51:7),"frecklesLink"
+87,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(50:3-50:11),"frecklesLink"
+88,NEWEXPRESSION,"",frecklesLink.java(40:19-40:41),"new Scanner(System.in)"
+89,CONSTRUCTEXPRESSION,"",frecklesLink.java(40:19-40:41),"new Scanner(System.in)"
+90,MEMBEREXPRESSION,"in",frecklesLink.java(40:31-40:40),"System.in"
+91,MEMBEREXPRESSION,"points",frecklesLink.java(42:3-42:9),"points"
+92,ARRAYCREATIONEXPRESSION,"",frecklesLink.java(42:12-42:30),"new Point[nPoints]"
+93,LITERAL,"",frecklesLink.java(43:13-43:14),"0"
+94,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(42:3-42:9),"frecklesLink"
+95,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(42:22-42:29),"frecklesLink"
+96,MEMBEREXPRESSION,"nPoints",frecklesLink.java(42:22-42:29),"nPoints"
+97,MEMBEREXPRESSION,"linkCont",frecklesLink.java(50:3-50:11),"linkCont"
+98,LITERAL,"",frecklesLink.java(50:14-50:15),"0"
+99,MEMBEREXPRESSION,"nPoints",frecklesLink.java(41:3-41:10),"nPoints"
+100,MEMBERCALLEXPRESSION,"nextInt",frecklesLink.java(41:13-41:28),"input.nextInt()"
+101,DECLAREDREFERENCEEXPRESSION,"nextInt",frecklesLink.java(41:19-41:26),"nextInt"
+102,DECLAREDREFERENCEEXPRESSION,"input",frecklesLink.java(41:13-41:18),"input"
+103,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(41:3-41:10),"frecklesLink"
+104,MEMBEREXPRESSION,"links",frecklesLink.java(52:3-52:8),"links"
+105,ARRAYCREATIONEXPRESSION,"",frecklesLink.java(52:11-52:25),"new Link[size]"
+106,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(53:14-53:20),"frecklesLink"
+107,DECLAREDREFERENCEEXPRESSION,"size",frecklesLink.java(52:20-52:24),"size"
+108,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(53:14-53:23),"points[0]"
+109,DECLAREDREFERENCEEXPRESSION,"System",frecklesLink.java(54:3-54:9),"System"
+110,MEMBEREXPRESSION,"points",frecklesLink.java(53:14-53:20),"points"
+111,LITERAL,"",frecklesLink.java(53:21-53:22),"0"
+112,PARAMVARIABLEDECLARATION,"a",frecklesLink.java(69:25-69:32),"Point a"
+113,COMPOUNDSTATEMENT,"",frecklesLink.java(44:3-48:4),"{
+			double x = input.nextDouble();
+			double y = input.nextDouble();
+			points[i] = new Point(x,y);
+		}"
+114,DECLARATIONSTATEMENT,"",frecklesLink.java(43:7-43:14),"int i=0"
+115,BINARYOPERATOR,"<",frecklesLink.java(43:15-43:24),"i<nPoints"
+116,UNARYOPERATOR,"++",frecklesLink.java(43:25-43:28),"i++"
+117,VARIABLEDECLARATION,"i",frecklesLink.java(43:11-43:14),"i=0"
+118,DECLAREDREFERENCEEXPRESSION,"input",frecklesLink.java(45:15-45:20),"input"
+119,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(49:14-49:21),"frecklesLink"
+120,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(43:15-43:16),"i"
+121,MEMBEREXPRESSION,"nPoints",frecklesLink.java(43:17-43:24),"nPoints"
+122,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(43:17-43:24),"frecklesLink"
+123,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(43:25-43:26),"i"
+124,DECLARATIONSTATEMENT,"",frecklesLink.java(45:4-45:34),"double x = input.nextDouble();"
+125,DECLARATIONSTATEMENT,"",frecklesLink.java(46:4-46:34),"double y = input.nextDouble();"
+126,BINARYOPERATOR,"=",frecklesLink.java(47:4-47:31),"points[i] = new Point(x,y);"
+127,VARIABLEDECLARATION,"x",frecklesLink.java(45:11-45:33),"x = input.nextDouble()"
+128,VARIABLEDECLARATION,"y",frecklesLink.java(46:11-46:33),"y = input.nextDouble()"
+129,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(47:4-47:13),"points[i]"
+130,NEWEXPRESSION,"",frecklesLink.java(47:16-47:30),"new Point(x,y)"
+131,MEMBEREXPRESSION,"points",frecklesLink.java(47:4-47:10),"points"
+132,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(47:11-47:12),"i"
+133,DECLAREDREFERENCEEXPRESSION,"x",frecklesLink.java(47:26-47:27),"x"
+134,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(47:4-47:10),"frecklesLink"
+135,CONSTRUCTEXPRESSION,"",frecklesLink.java(47:16-47:30),"new Point(x,y)"
+136,CONSTRUCTORDECLARATION,"Point",,""
+137,DECLAREDREFERENCEEXPRESSION,"y",frecklesLink.java(47:28-47:29),"y"
+138,PARAMVARIABLEDECLARATION,"double1",,""
+139,PARAMVARIABLEDECLARATION,"double0",,""
+140,MEMBERCALLEXPRESSION,"nextDouble",frecklesLink.java(45:15-45:33),"input.nextDouble()"
+141,DECLAREDREFERENCEEXPRESSION,"nextDouble",frecklesLink.java(45:21-45:31),"nextDouble"
+142,MEMBERCALLEXPRESSION,"nextDouble",frecklesLink.java(46:15-46:33),"input.nextDouble()"
+143,DECLAREDREFERENCEEXPRESSION,"nextDouble",frecklesLink.java(46:21-46:31),"nextDouble"
+144,DECLAREDREFERENCEEXPRESSION,"input",frecklesLink.java(46:15-46:20),"input"
+145,BINARYOPERATOR,"*",frecklesLink.java(49:14-49:37),"nPoints * (nPoints - 1)"
+146,MEMBEREXPRESSION,"nPoints",frecklesLink.java(49:14-49:21),"nPoints"
+147,BINARYOPERATOR,"-",frecklesLink.java(49:25-49:36),"nPoints - 1"
+148,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(49:25-49:32),"frecklesLink"
+149,MEMBEREXPRESSION,"nPoints",frecklesLink.java(49:25-49:32),"nPoints"
+150,LITERAL,"",frecklesLink.java(49:35-49:36),"1"
+151,DECLAREDREFERENCEEXPRESSION,"println",frecklesLink.java(54:14-54:21),"println"
+152,STATICCALLEXPRESSION,"format",frecklesLink.java(54:22-54:49),"String.format( ""%.2f"",cost)"
+153,MEMBEREXPRESSION,"out",frecklesLink.java(54:3-54:13),"System.out"
+154,LITERAL,"",frecklesLink.java(54:37-54:43),"""%.2f"""
+155,MEMBEREXPRESSION,"cost",frecklesLink.java(54:44-54:48),"cost"
+156,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(54:44-54:48),"frecklesLink"
+157,VARIABLEDECLARATION,"this",,""
+158,COMPOUNDSTATEMENT,"",frecklesLink.java(70:2-91:3),"{
+		addLinks(a);
+		double minDist = 1000000;
+		int choosen = -1;
+		for(int i=0;i<linkCont;i++)
+		{
+			if(links[i].check == false && links[i].b.check == false)
+			{
+				if(links[i].distance < minDist)
+				{
+					minDist = links[i].distance;
+					choosen = i;
+				}
+			}
+		}
+		if(choosen != -1)
+		{
+			links[choosen].check = true;
+			cost += minDist;
+			linkPoints(links[choosen].b);
+		}		
+	}"
+159,CALLEXPRESSION,"linkPoints",frecklesLink.java(89:4-89:33),"linkPoints(links[choosen].b);"
+160,RETURNSTATEMENT,"",,""
+161,MEMBEREXPRESSION,"b",frecklesLink.java(89:15-89:31),"links[choosen].b"
+162,DECLARATIONSTATEMENT,"",frecklesLink.java(72:3-72:28),"double minDist = 1000000;"
+163,DECLARATIONSTATEMENT,"",frecklesLink.java(73:3-73:20),"int choosen = -1;"
+164,FORSTATEMENT,"",frecklesLink.java(74:3-84:4),"for(int i=0;i<linkCont;i++)
+		{
+			if(links[i].check == false && links[i].b.check == false)
+			{
+				if(links[i].distance < minDist)
+				{
+					minDist = links[i].distance;
+					choosen = i;
+				}
+			}
+		}"
+165,IFSTATEMENT,"",frecklesLink.java(85:3-90:4),"if(choosen != -1)
+		{
+			links[choosen].check = true;
+			cost += minDist;
+			linkPoints(links[choosen].b);
+		}"
+166,VARIABLEDECLARATION,"minDist",frecklesLink.java(72:10-72:27),"minDist = 1000000"
+167,VARIABLEDECLARATION,"choosen",frecklesLink.java(73:7-73:19),"choosen = -1"
+168,UNARYOPERATOR,"-",frecklesLink.java(73:17-73:19),"-1"
+169,LITERAL,"",frecklesLink.java(73:18-73:19),"1"
+170,LITERAL,"",frecklesLink.java(72:20-72:27),"1000000"
+171,LITERAL,"",frecklesLink.java(74:13-74:14),"0"
+172,COMPOUNDSTATEMENT,"",frecklesLink.java(75:3-84:4),"{
+			if(links[i].check == false && links[i].b.check == false)
+			{
+				if(links[i].distance < minDist)
+				{
+					minDist = links[i].distance;
+					choosen = i;
+				}
+			}
+		}"
+173,DECLARATIONSTATEMENT,"",frecklesLink.java(74:7-74:14),"int i=0"
+174,BINARYOPERATOR,"<",frecklesLink.java(74:15-74:25),"i<linkCont"
+175,UNARYOPERATOR,"++",frecklesLink.java(74:26-74:29),"i++"
+176,VARIABLEDECLARATION,"i",frecklesLink.java(74:11-74:14),"i=0"
+177,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(76:7-76:12),"frecklesLink"
+178,DECLAREDREFERENCEEXPRESSION,"choosen",frecklesLink.java(85:6-85:13),"choosen"
+179,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(74:26-74:27),"i"
+180,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(74:15-74:16),"i"
+181,MEMBEREXPRESSION,"linkCont",frecklesLink.java(74:17-74:25),"linkCont"
+182,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(74:17-74:25),"frecklesLink"
+183,IFSTATEMENT,"",frecklesLink.java(76:4-83:5),"if(links[i].check == false && links[i].b.check == false)
+			{
+				if(links[i].distance < minDist)
+				{
+					minDist = links[i].distance;
+					choosen = i;
+				}
+			}"
+184,COMPOUNDSTATEMENT,"",frecklesLink.java(77:4-83:5),"{
+				if(links[i].distance < minDist)
+				{
+					minDist = links[i].distance;
+					choosen = i;
+				}
+			}"
+185,BINARYOPERATOR,"&&",frecklesLink.java(76:7-76:59),"links[i].check == false && links[i].b.check == false"
+186,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(78:8-78:13),"frecklesLink"
+187,BINARYOPERATOR,"==",frecklesLink.java(76:7-76:30),"links[i].check == false"
+188,BINARYOPERATOR,"==",frecklesLink.java(76:34-76:59),"links[i].b.check == false"
+189,MEMBEREXPRESSION,"check",frecklesLink.java(76:34-76:50),"links[i].b.check"
+190,LITERAL,"",frecklesLink.java(76:54-76:59),"false"
+191,MEMBEREXPRESSION,"b",frecklesLink.java(76:34-76:44),"links[i].b"
+192,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(76:34-76:42),"links[i]"
+193,MEMBEREXPRESSION,"links",frecklesLink.java(76:34-76:39),"links"
+194,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(76:40-76:41),"i"
+195,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(76:34-76:39),"frecklesLink"
+196,MEMBEREXPRESSION,"check",frecklesLink.java(76:7-76:21),"links[i].check"
+197,LITERAL,"",frecklesLink.java(76:25-76:30),"false"
+198,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(76:7-76:15),"links[i]"
+199,MEMBEREXPRESSION,"links",frecklesLink.java(76:7-76:12),"links"
+200,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(76:13-76:14),"i"
+201,IFSTATEMENT,"",frecklesLink.java(78:5-82:6),"if(links[i].distance < minDist)
+				{
+					minDist = links[i].distance;
+					choosen = i;
+				}"
+202,COMPOUNDSTATEMENT,"",frecklesLink.java(79:5-82:6),"{
+					minDist = links[i].distance;
+					choosen = i;
+				}"
+203,BINARYOPERATOR,"<",frecklesLink.java(78:8-78:35),"links[i].distance < minDist"
+204,DECLAREDREFERENCEEXPRESSION,"minDist",frecklesLink.java(80:6-80:13),"minDist"
+205,MEMBEREXPRESSION,"distance",frecklesLink.java(78:8-78:25),"links[i].distance"
+206,DECLAREDREFERENCEEXPRESSION,"minDist",frecklesLink.java(78:28-78:35),"minDist"
+207,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(78:8-78:16),"links[i]"
+208,MEMBEREXPRESSION,"links",frecklesLink.java(78:8-78:13),"links"
+209,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(78:14-78:15),"i"
+210,BINARYOPERATOR,"=",frecklesLink.java(80:6-80:34),"minDist = links[i].distance;"
+211,BINARYOPERATOR,"=",frecklesLink.java(81:6-81:18),"choosen = i;"
+212,MEMBEREXPRESSION,"distance",frecklesLink.java(80:16-80:33),"links[i].distance"
+213,DECLAREDREFERENCEEXPRESSION,"choosen",frecklesLink.java(81:6-81:13),"choosen"
+214,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(80:16-80:21),"frecklesLink"
+215,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(80:16-80:24),"links[i]"
+216,MEMBEREXPRESSION,"links",frecklesLink.java(80:16-80:21),"links"
+217,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(80:22-80:23),"i"
+218,DECLAREDREFERENCEEXPRESSION,"i",frecklesLink.java(81:16-81:17),"i"
+219,BINARYOPERATOR,"!=",frecklesLink.java(85:6-85:19),"choosen != -1"
+220,COMPOUNDSTATEMENT,"",frecklesLink.java(86:3-90:4),"{
+			links[choosen].check = true;
+			cost += minDist;
+			linkPoints(links[choosen].b);
+		}"
+221,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(87:4-87:9),"frecklesLink"
+222,UNARYOPERATOR,"-",frecklesLink.java(85:17-85:19),"-1"
+223,LITERAL,"",frecklesLink.java(85:18-85:19),"1"
+224,BINARYOPERATOR,"=",frecklesLink.java(87:4-87:32),"links[choosen].check = true;"
+225,BINARYOPERATOR,"+=",frecklesLink.java(88:4-88:20),"cost += minDist;"
+226,MEMBEREXPRESSION,"cost",frecklesLink.java(88:4-88:8),"cost"
+227,DECLAREDREFERENCEEXPRESSION,"minDist",frecklesLink.java(88:12-88:19),"minDist"
+228,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(89:15-89:20),"frecklesLink"
+229,DECLAREDREFERENCEEXPRESSION,"frecklesLink",frecklesLink.java(88:4-88:8),"frecklesLink"
+230,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(89:15-89:29),"links[choosen]"
+231,MEMBEREXPRESSION,"links",frecklesLink.java(89:15-89:20),"links"
+232,DECLAREDREFERENCEEXPRESSION,"choosen",frecklesLink.java(89:21-89:28),"choosen"
+233,MEMBEREXPRESSION,"check",frecklesLink.java(87:4-87:24),"links[choosen].check"
+234,LITERAL,"",frecklesLink.java(87:27-87:31),"true"
+235,ARRAYSUBSCRIPTIONEXPRESSION,"",frecklesLink.java(87:4-87:18),"links[choosen]"
+236,MEMBEREXPRESSION,"links",frecklesLink.java(87:4-87:9),"links"
+237,DECLAREDREFERENCEEXPRESSION,"choosen",frecklesLink.java(87:10-87:17),"choosen"
+238,FIELDDECLARATION,"this",,""
+239,FIELDDECLARATION,"a",frecklesLink.java(19:2-19:10),"a"
+240,FIELDDECLARATION,"b",frecklesLink.java(20:2-20:10),"b"
+241,FIELDDECLARATION,"check",frecklesLink.java(21:2-21:16),"check"
+242,FIELDDECLARATION,"distance",frecklesLink.java(22:2-22:18),"distance"
+243,CONSTRUCTORDECLARATION,"Link",frecklesLink.java(23:2-29:3),"Link(Point a,Point b)
+	{
+		this.a = a;
+		this.b = b;
+		this.distance = Math.sqrt((b.x-a.x)*(b.x-a.x) + (b.y-a.y)*(b.y-a.y));
+		this.check = false;
+	}"
+244,COMPOUNDSTATEMENT,"",frecklesLink.java(24:2-29:3),"{
+		this.a = a;
+		this.b = b;
+		this.distance = Math.sqrt((b.x-a.x)*(b.x-a.x) + (b.y-a.y)*(b.y-a.y));
+		this.check = false;
+	}"
+245,PARAMVARIABLEDECLARATION,"a",frecklesLink.java(23:7-23:14),"Point a"
+246,PARAMVARIABLEDECLARATION,"b",frecklesLink.java(23:15-23:22),"Point b"
+247,DECLAREDREFERENCEEXPRESSION,"this",frecklesLink.java(25:3-25:7),"this"
+248,RETURNSTATEMENT,"",,""
+249,BINARYOPERATOR,"=",frecklesLink.java(25:3-25:14),"this.a = a;"
+250,BINARYOPERATOR,"=",frecklesLink.java(26:3-26:14),"this.b = b;"
+251,BINARYOPERATOR,"=",frecklesLink.java(27:3-27:72),"this.distance = Math.sqrt((b.x-a.x)*(b.x-a.x) + (b.y-a.y)*(b.y-a.y));"
+252,BINARYOPERATOR,"=",frecklesLink.java(28:3-28:22),"this.check = false;"
+253,MEMBEREXPRESSION,"b",frecklesLink.java(26:3-26:9),"this.b"
+254,DECLAREDREFERENCEEXPRESSION,"b",frecklesLink.java(26:12-26:13),"b"
+255,DECLAREDREFERENCEEXPRESSION,"this",frecklesLink.java(27:3-27:7),"this"
+256,DECLAREDREFERENCEEXPRESSION,"this",frecklesLink.java(26:3-26:7),"this"
+257,MEMBEREXPRESSION,"check",frecklesLink.java(28:3-28:13),"this.check"
+258,LITERAL,"",frecklesLink.java(28:16-28:21),"false"
+259,DECLAREDREFERENCEEXPRESSION,"this",frecklesLink.java(28:3-28:7),"this"
+260,MEMBEREXPRESSION,"a",frecklesLink.java(25:3-25:9),"this.a"
+261,DECLAREDREFERENCEEXPRESSION,"a",frecklesLink.java(25:12-25:13),"a"
+262,MEMBEREXPRESSION,"distance",frecklesLink.java(27:3-27:16),"this.distance"
+263,STATICCALLEXPRESSION,"sqrt",frecklesLink.java(27:19-27:71),"Math.sqrt((b.x-a.x)*(b.x-a.x) + (b.y-a.y)*(b.y-a.y))"
+264,DECLAREDREFERENCEEXPRESSION,"b",frecklesLink.java(27:30-27:31),"b"
+265,BINARYOPERATOR,"+",frecklesLink.java(27:29-27:70),"(b.x-a.x)*(b.x-a.x) + (b.y-a.y)*(b.y-a.y)"
+266,BINARYOPERATOR,"*",frecklesLink.java(27:29-27:48),"(b.x-a.x)*(b.x-a.x)"
+267,BINARYOPERATOR,"*",frecklesLink.java(27:51-27:70),"(b.y-a.y)*(b.y-a.y)"
+268,BINARYOPERATOR,"-",frecklesLink.java(27:30-27:37),"b.x-a.x"
+269,BINARYOPERATOR,"-",frecklesLink.java(27:40-27:47),"b.x-a.x"
+270,DECLAREDREFERENCEEXPRESSION,"b",frecklesLink.java(27:52-27:53),"b"
+271,MEMBEREXPRESSION,"x",frecklesLink.java(27:40-27:43),"b.x"
+272,MEMBEREXPRESSION,"x",frecklesLink.java(27:44-27:47),"a.x"
+273,DECLAREDREFERENCEEXPRESSION,"b",frecklesLink.java(27:40-27:41),"b"
+274,DECLAREDREFERENCEEXPRESSION,"a",frecklesLink.java(27:44-27:45),"a"
+275,MEMBEREXPRESSION,"x",frecklesLink.java(27:30-27:33),"b.x"
+276,MEMBEREXPRESSION,"x",frecklesLink.java(27:34-27:37),"a.x"
+277,DECLAREDREFERENCEEXPRESSION,"a",frecklesLink.java(27:34-27:35),"a"
+278,BINARYOPERATOR,"-",frecklesLink.java(27:52-27:59),"b.y-a.y"
+279,BINARYOPERATOR,"-",frecklesLink.java(27:62-27:69),"b.y-a.y"
+280,MEMBEREXPRESSION,"y",frecklesLink.java(27:62-27:65),"b.y"
+281,MEMBEREXPRESSION,"y",frecklesLink.java(27:66-27:69),"a.y"
+282,DECLAREDREFERENCEEXPRESSION,"b",frecklesLink.java(27:62-27:63),"b"
+283,DECLAREDREFERENCEEXPRESSION,"a",frecklesLink.java(27:66-27:67),"a"
+284,MEMBEREXPRESSION,"y",frecklesLink.java(27:52-27:55),"b.y"
+285,MEMBEREXPRESSION,"y",frecklesLink.java(27:56-27:59),"a.y"
+286,DECLAREDREFERENCEEXPRESSION,"a",frecklesLink.java(27:56-27:57),"a"
+287,FIELDDECLARATION,"this",,""
+288,FIELDDECLARATION,"x",frecklesLink.java(6:2-6:11),"x"
+289,FIELDDECLARATION,"y",frecklesLink.java(7:2-7:11),"y"
+290,FIELDDECLARATION,"check",frecklesLink.java(8:2-8:16),"check"
+291,CONSTRUCTORDECLARATION,"Point",frecklesLink.java(9:2-14:3),"Point(double x,double y)
+	{
+		this.x = x;
+		this.y = y;
+		check = false;
+	}"
+292,COMPOUNDSTATEMENT,"",frecklesLink.java(10:2-14:3),"{
+		this.x = x;
+		this.y = y;
+		check = false;
+	}"
+293,PARAMVARIABLEDECLARATION,"x",frecklesLink.java(9:8-9:16),"double x"
+294,PARAMVARIABLEDECLARATION,"y",frecklesLink.java(9:17-9:25),"double y"
+295,DECLAREDREFERENCEEXPRESSION,"this",frecklesLink.java(11:3-11:7),"this"
+296,RETURNSTATEMENT,"",,""
+297,BINARYOPERATOR,"=",frecklesLink.java(11:3-11:14),"this.x = x;"
+298,BINARYOPERATOR,"=",frecklesLink.java(12:3-12:14),"this.y = y;"
+299,BINARYOPERATOR,"=",frecklesLink.java(13:3-13:17),"check = false;"
+300,MEMBEREXPRESSION,"y",frecklesLink.java(12:3-12:9),"this.y"
+301,DECLAREDREFERENCEEXPRESSION,"y",frecklesLink.java(12:12-12:13),"y"
+302,DECLAREDREFERENCEEXPRESSION,"this",frecklesLink.java(13:3-13:8),"this"
+303,DECLAREDREFERENCEEXPRESSION,"this",frecklesLink.java(12:3-12:7),"this"
+304,MEMBEREXPRESSION,"check",frecklesLink.java(13:3-13:8),"check"
+305,LITERAL,"",frecklesLink.java(13:11-13:16),"false"
+306,MEMBEREXPRESSION,"x",frecklesLink.java(11:3-11:9),"this.x"
+307,DECLAREDREFERENCEEXPRESSION,"x",frecklesLink.java(11:12-11:13),"x"

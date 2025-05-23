@@ -1,0 +1,49 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,74
+frecklesLink.java,insert line 42: `int count = 0;` on try 0,0.9948717948717949,1.0,74
+frecklesLink.java,insert line 61: `boolean done = false;` on try 0,0.9897959183673469,1.0,74
+frecklesLink.java,insert line 21: `int count = 0;` on try 0,0.9847715736040609,1.0,74
+frecklesLink.java,insert line 50: `boolean debug = false;` on try 0,0.898989898989899,1.0,74
+frecklesLink.java,insert line 56: `String[] messages;` on try 0,0.8341708542713567,1.0,74
+frecklesLink.java,insert line 37: `int index = 0;` on try 0,0.75,1.0,74
+frecklesLink.java,insert line 24: `int min;` on try 0,0.7164179104477612,1.0,74
+frecklesLink.java,insert line 23: `boolean debug = false;` on try 1,0.7128712871287128,1.0,74
+frecklesLink.java,insert line 36: `int max;` on try 0,0.7192118226600985,1.0,74
+frecklesLink.java,insert line 63: `int j = 0;` on try 0,0.7156862745098039,1.0,74
+frecklesLink.java,insert line 72: `boolean debug = false;` on try 0,0.6536585365853659,1.0,74
+frecklesLink.java,insert line 43: `int min;` on try 0,0.5631067961165048,1.0,74
+frecklesLink.java,insert line 57: `double w;` on try 0,0.5603864734299517,1.0,74
+frecklesLink.java,insert line 76: `int j = 0;` on try 0,0.5480769230769231,1.0,74
+frecklesLink.java,insert line 78: `int index = 0;` on try 0,0.5358851674641149,1.0,74
+frecklesLink.java,insert line 61: `int intInput;` on try 0,0.5333333333333333,1.0,74
+frecklesLink.java,insert line 85: `int count = 0;` on try 0,0.4265402843601896,1.0,74
+frecklesLink.java,insert line 60: `int j = 0;` on try 0,0.42452830188679247,1.0,74
+frecklesLink.java,"insert line 85: `String output = """";` on try 0",0.4225352112676056,1.0,74
+frecklesLink.java,insert line 52: `int choosen = -1;` on try 0,0.3364485981308411,1.0,74
+frecklesLink.java,insert line 42: `boolean debug = false;` on try 0,0.33488372093023255,1.0,74
+frecklesLink.java,insert line 48: `int min;` on try 0,0.3333333333333333,1.0,74
+frecklesLink.java,insert line 11: `int intInput;` on try 0,0.3317972350230415,1.0,74
+frecklesLink.java,insert line 79: `int count = 0;` on try 0,0.3302752293577982,1.0,74
+frecklesLink.java,insert line 87: `index++;` on try 0,0.3287671232876712,1.0,74
+frecklesLink.java,insert line 97: `boolean debug = false;` on try 0,0.32727272727272727,1.0,74
+frecklesLink.java,insert line 9: `int j = 0;` on try 0,0.3076923076923077,1.0,74
+frecklesLink.java,insert line 40: `boolean done = false;` on try 1,0.3063063063063063,1.0,74
+frecklesLink.java,insert line 98: `boolean check;` on try 0,0.30493273542600896,1.0,74
+frecklesLink.java,insert line 11: `boolean debug = false;` on try 0,0.30357142857142855,1.0,74
+frecklesLink.java,insert line 22: `int max;` on try 1,0.28444444444444444,1.0,74
+frecklesLink.java,insert line 99: `int i = 0;` on try 0,0.2831858407079646,1.0,74
+frecklesLink.java,insert line 105: `boolean debug = false;` on try 1,0.28193832599118945,1.0,74
+frecklesLink.java,insert line 39: `int j = 0;` on try 0,0.2719298245614035,1.0,74
+frecklesLink.java,insert line 75: `int max;` on try 0,0.27074235807860264,1.0,74
+frecklesLink.java,insert line 95: `int max;` on try 0,0.26956521739130435,1.0,74
+frecklesLink.java,insert line 8: `int i = 0;` on try 1,0.2597402597402597,1.0,74
+frecklesLink.java,insert line 59: `double w;` on try 0,0.25862068965517243,1.0,74
+frecklesLink.java,"insert line 82: `int x, y;` on try 2",0.2564102564102564,1.0,74
+frecklesLink.java,insert line 100: `int intInput;` on try 0,0.2553191489361702,1.0,74
+frecklesLink.java,insert line 25: `double w;` on try 1,0.2542372881355932,1.0,74
+frecklesLink.java,insert line 71: `int indexOfField;` on try 2,0.25316455696202533,1.0,74
+frecklesLink.java,"insert line 55: `int x, y;` on try 4",0.2510460251046025,1.0,74
+frecklesLink.java,insert line 63: `int index = 0;` on try 5,0.25,1.0,74
+frecklesLink.java,insert line 1: `import java.util.HashMap;` on try 5,0.24896265560165975,0.9948717948717949,74
+frecklesLink.java,insert line 68: `String[] messages;` on try 1,0.24793388429752067,0.9948717948717949,74
+frecklesLink.java,insert line 55: `int count = 0;` on try 7,0.24691358024691357,0.9948717948717949,74

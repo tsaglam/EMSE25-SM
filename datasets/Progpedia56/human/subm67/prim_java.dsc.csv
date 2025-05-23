@@ -1,0 +1,695 @@
+id,type,token,location,code
+1,TRANSLATIONUNITDECLARATION,"/data/00000056/submissions/07564538_21_200908409/Prim.java",,""
+2,RECORDDECLARATION,"Aresta",Prim.java(7:1-15:2),"class Aresta{
+    int node;
+    double weight;
+ 
+    Aresta(int n, double w){
+	this.node = n;
+	this.weight = w;
+    }
+}"
+3,RECORDDECLARATION,"Node",Prim.java(16:1-27:2),"class Node {
+    public LinkedList<Aresta> adj; 
+    public boolean visited;         
+    public double x; public double y;
+    public double dist;
+ 
+    Node() {
+	adj = new LinkedList<Aresta>();
+	visited = false;
+	dist = 1500; 
+    }
+}"
+4,RECORDDECLARATION,"Graph",Prim.java(30:1-82:2),"class Graph {
+    int n;           // Numero de nos do grafo
+    Node nodes[];    // Array para conter os nos
+    
+ 
+    Graph(int n) {
+	this.n = n;
+	this.nodes  = new Node[n+1]; // +1 se os comecam em 1 ao inves de 0
+	for (int i=1; i<=n; i++)
+	    nodes[i] = new Node();
+    }
+ 
+    public double distance(Node a, Node b) {
+	return Math.sqrt(Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2));
+    }
+ 
+    public void addNode(int i, double a, double b) {
+	this.nodes[i].x=a;
+	this.nodes[i].y=b;
+	this.nodes[i].visited = false;
+     }
+
+    //comparar distancias e escolher a menor
+    public void Prim(int no){
+	nodes[no].dist = 0;
+
+	double cost = 0;
+	for(int i=1;i<=n;i++) {
+	    
+	    double min   = 1500;
+	    int min_node = 1500;
+	    for(int j=1;j<=n;j++) {
+		//System.out.println(j + "" "" + nodes[j].visited + "" "" + nodes[j].dist);
+		if (nodes[j].visited == false && nodes[j].dist < min) {
+		    min = nodes[j].dist;
+		    min_node = j;
+		}
+	    }
+
+	    //System.out.println(min_node + "" "" + min);
+	    
+
+	    cost += min;
+	    nodes[min_node].visited = true;
+	    for(Aresta a : nodes[min_node].adj)
+		if(!nodes[a.node].visited && a.weight < nodes[a.node].dist)
+		    nodes[a.node].dist = a.weight;
+	   
+	}
+
+	System.out.printf(""%1.2f\n"", cost);
+    }
+}"
+5,RECORDDECLARATION,"Prim",Prim.java(87:1-111:2),"public class Prim {
+ 
+    static Graph g;
+    public static void main(String args[]) {
+	Scanner in = new Scanner(System.in);
+     
+	int nos = in.nextInt();
+	g = new Graph(nos);
+       
+	//adicao dos nos
+	for (int i=1; i<=nos; i++){ 
+	    g.addNode(i, in.nextDouble(), in.nextDouble());
+	}
+	//adicionar ligacoes de todos os nos para todos os outros
+	for (int i=1; i<=nos; i++){
+	    for (int j=1; j<=nos; j++){
+		if (i!=j){
+		   g.nodes[i].adj.add(new Aresta(j, g.distance(g.nodes[i], g.nodes[j])));
+		}
+	    }
+	}
+	
+	g.Prim(1);
+    }
+}"
+6,INCLUDEDECLARATION,"java.io",,""
+7,INCLUDEDECLARATION,"java.util",,""
+8,FIELDDECLARATION,"this",,""
+9,FIELDDECLARATION,"node",Prim.java(8:5-8:14),"node"
+10,FIELDDECLARATION,"weight",Prim.java(9:5-9:19),"weight"
+11,CONSTRUCTORDECLARATION,"Aresta",Prim.java(11:5-14:6),"Aresta(int n, double w){
+	this.node = n;
+	this.weight = w;
+    }"
+12,COMPOUNDSTATEMENT,"",Prim.java(11:28-14:6),"{
+	this.node = n;
+	this.weight = w;
+    }"
+13,PARAMVARIABLEDECLARATION,"n",Prim.java(11:12-11:17),"int n"
+14,PARAMVARIABLEDECLARATION,"w",Prim.java(11:19-11:27),"double w"
+15,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(12:2-12:6),"this"
+16,RETURNSTATEMENT,"",,""
+17,BINARYOPERATOR,"=",Prim.java(12:2-12:16),"this.node = n;"
+18,BINARYOPERATOR,"=",Prim.java(13:2-13:18),"this.weight = w;"
+19,MEMBEREXPRESSION,"node",Prim.java(12:2-12:11),"this.node"
+20,DECLAREDREFERENCEEXPRESSION,"n",Prim.java(12:14-12:15),"n"
+21,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(13:2-13:6),"this"
+22,MEMBEREXPRESSION,"weight",Prim.java(13:2-13:13),"this.weight"
+23,DECLAREDREFERENCEEXPRESSION,"w",Prim.java(13:16-13:17),"w"
+24,FIELDDECLARATION,"this",,""
+25,FIELDDECLARATION,"adj",Prim.java(17:5-17:35),"adj"
+26,FIELDDECLARATION,"visited",Prim.java(18:5-18:28),"visited"
+27,FIELDDECLARATION,"x",Prim.java(19:5-19:21),"x"
+28,FIELDDECLARATION,"y",Prim.java(19:22-19:38),"y"
+29,FIELDDECLARATION,"dist",Prim.java(20:5-20:24),"dist"
+30,CONSTRUCTORDECLARATION,"Node",Prim.java(22:5-26:6),"Node() {
+	adj = new LinkedList<Aresta>();
+	visited = false;
+	dist = 1500; 
+    }"
+31,COMPOUNDSTATEMENT,"",Prim.java(22:12-26:6),"{
+	adj = new LinkedList<Aresta>();
+	visited = false;
+	dist = 1500; 
+    }"
+32,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(23:2-23:5),"this"
+33,RETURNSTATEMENT,"",,""
+34,BINARYOPERATOR,"=",Prim.java(23:2-23:33),"adj = new LinkedList<Aresta>();"
+35,BINARYOPERATOR,"=",Prim.java(24:2-24:18),"visited = false;"
+36,BINARYOPERATOR,"=",Prim.java(25:2-25:14),"dist = 1500;"
+37,MEMBEREXPRESSION,"dist",Prim.java(25:2-25:6),"dist"
+38,LITERAL,"",Prim.java(25:9-25:13),"1500"
+39,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(25:2-25:6),"this"
+40,MEMBEREXPRESSION,"adj",Prim.java(23:2-23:5),"adj"
+41,NEWEXPRESSION,"",Prim.java(23:8-23:32),"new LinkedList<Aresta>()"
+42,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(24:2-24:9),"this"
+43,CONSTRUCTEXPRESSION,"",Prim.java(23:8-23:32),"new LinkedList<Aresta>()"
+44,MEMBEREXPRESSION,"visited",Prim.java(24:2-24:9),"visited"
+45,LITERAL,"",Prim.java(24:12-24:17),"false"
+46,FIELDDECLARATION,"this",,""
+47,FIELDDECLARATION,"g",Prim.java(89:5-89:20),"g"
+48,METHODDECLARATION,"main",Prim.java(90:5-110:6),"public static void main(String args[]) {
+	Scanner in = new Scanner(System.in);
+     
+	int nos = in.nextInt();
+	g = new Graph(nos);
+       
+	//adicao dos nos
+	for (int i=1; i<=nos; i++){ 
+	    g.addNode(i, in.nextDouble(), in.nextDouble());
+	}
+	//adicionar ligacoes de todos os nos para todos os outros
+	for (int i=1; i<=nos; i++){
+	    for (int j=1; j<=nos; j++){
+		if (i!=j){
+		   g.nodes[i].adj.add(new Aresta(j, g.distance(g.nodes[i], g.nodes[j])));
+		}
+	    }
+	}
+	
+	g.Prim(1);
+    }"
+49,CONSTRUCTORDECLARATION,"Prim",,""
+50,VARIABLEDECLARATION,"this",,""
+51,COMPOUNDSTATEMENT,"",Prim.java(90:44-110:6),"{
+	Scanner in = new Scanner(System.in);
+     
+	int nos = in.nextInt();
+	g = new Graph(nos);
+       
+	//adicao dos nos
+	for (int i=1; i<=nos; i++){ 
+	    g.addNode(i, in.nextDouble(), in.nextDouble());
+	}
+	//adicionar ligacoes de todos os nos para todos os outros
+	for (int i=1; i<=nos; i++){
+	    for (int j=1; j<=nos; j++){
+		if (i!=j){
+		   g.nodes[i].adj.add(new Aresta(j, g.distance(g.nodes[i], g.nodes[j])));
+		}
+	    }
+	}
+	
+	g.Prim(1);
+    }"
+52,PARAMVARIABLEDECLARATION,"args",Prim.java(90:29-90:42),"String args[]"
+53,DECLAREDREFERENCEEXPRESSION,"System",Prim.java(91:27-91:33),"System"
+54,RETURNSTATEMENT,"",,""
+55,DECLARATIONSTATEMENT,"",Prim.java(91:2-91:38),"Scanner in = new Scanner(System.in);"
+56,DECLARATIONSTATEMENT,"",Prim.java(93:2-93:25),"int nos = in.nextInt();"
+57,BINARYOPERATOR,"=",Prim.java(94:2-94:21),"g = new Graph(nos);"
+58,FORSTATEMENT,"",Prim.java(97:2-99:3),"for (int i=1; i<=nos; i++){ 
+	    g.addNode(i, in.nextDouble(), in.nextDouble());
+	}"
+59,FORSTATEMENT,"",Prim.java(101:2-107:3),"for (int i=1; i<=nos; i++){
+	    for (int j=1; j<=nos; j++){
+		if (i!=j){
+		   g.nodes[i].adj.add(new Aresta(j, g.distance(g.nodes[i], g.nodes[j])));
+		}
+	    }
+	}"
+60,MEMBERCALLEXPRESSION,"Prim",Prim.java(109:2-109:12),"g.Prim(1);"
+61,VARIABLEDECLARATION,"in",Prim.java(91:10-91:37),"in = new Scanner(System.in)"
+62,VARIABLEDECLARATION,"nos",Prim.java(93:6-93:24),"nos = in.nextInt()"
+63,MEMBERCALLEXPRESSION,"nextInt",Prim.java(93:12-93:24),"in.nextInt()"
+64,DECLAREDREFERENCEEXPRESSION,"nextInt",Prim.java(93:15-93:22),"nextInt"
+65,DECLAREDREFERENCEEXPRESSION,"in",Prim.java(93:12-93:14),"in"
+66,MEMBEREXPRESSION,"g",Prim.java(94:2-94:3),"g"
+67,NEWEXPRESSION,"",Prim.java(94:6-94:20),"new Graph(nos)"
+68,LITERAL,"",Prim.java(97:13-97:14),"1"
+69,DECLAREDREFERENCEEXPRESSION,"Prim",Prim.java(94:2-94:3),"Prim"
+70,DECLAREDREFERENCEEXPRESSION,"nos",Prim.java(94:16-94:19),"nos"
+71,CONSTRUCTEXPRESSION,"",Prim.java(94:6-94:20),"new Graph(nos)"
+72,CONSTRUCTORDECLARATION,"Graph",Prob19.java(28:5-33:6),"Graph(int n) {
+	this.n = n;
+	nodes  = new Node[n+1]; // +1 se os comecam em 1 ao inves de 0
+	for (int i=1; i<=n; i++)
+	    nodes[i] = new Node();
+    }"
+73,PARAMVARIABLEDECLARATION,"n",Prob19.java(28:11-28:16),"int n"
+74,COMPOUNDSTATEMENT,"",Prim.java(97:28-99:3),"{ 
+	    g.addNode(i, in.nextDouble(), in.nextDouble());
+	}"
+75,DECLARATIONSTATEMENT,"",Prim.java(97:7-97:14),"int i=1"
+76,BINARYOPERATOR,"<=",Prim.java(97:16-97:22),"i<=nos"
+77,UNARYOPERATOR,"++",Prim.java(97:24-97:27),"i++"
+78,VARIABLEDECLARATION,"i",Prim.java(97:11-97:14),"i=1"
+79,DECLAREDREFERENCEEXPRESSION,"Prim",Prim.java(98:6-98:7),"Prim"
+80,LITERAL,"",Prim.java(101:13-101:14),"1"
+81,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(97:24-97:25),"i"
+82,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(97:16-97:17),"i"
+83,MEMBERCALLEXPRESSION,"addNode",Prim.java(98:6-98:53),"g.addNode(i, in.nextDouble(), in.nextDouble());"
+84,DECLAREDREFERENCEEXPRESSION,"addNode",Prim.java(98:8-98:15),"addNode"
+85,METHODDECLARATION,"addNode",,""
+86,MEMBERCALLEXPRESSION,"nextDouble",Prim.java(98:36-98:51),"in.nextDouble()"
+87,MEMBEREXPRESSION,"g",Prim.java(98:6-98:7),"g"
+88,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(98:16-98:17),"i"
+89,DECLAREDREFERENCEEXPRESSION,"nextDouble",Prim.java(98:39-98:49),"nextDouble"
+90,PARAMVARIABLEDECLARATION,"double2",,""
+91,DECLAREDREFERENCEEXPRESSION,"in",Prim.java(98:36-98:38),"in"
+92,MEMBERCALLEXPRESSION,"nextDouble",Prim.java(98:19-98:34),"in.nextDouble()"
+93,PARAMVARIABLEDECLARATION,"int0",,""
+94,DECLAREDREFERENCEEXPRESSION,"in",Prim.java(98:19-98:21),"in"
+95,DECLAREDREFERENCEEXPRESSION,"nextDouble",Prim.java(98:22-98:32),"nextDouble"
+96,PARAMVARIABLEDECLARATION,"double1",,""
+97,DECLAREDREFERENCEEXPRESSION,"nos",Prim.java(97:19-97:22),"nos"
+98,DECLAREDREFERENCEEXPRESSION,"Prim",Prim.java(109:4-109:8),"Prim"
+99,METHODDECLARATION,"Prim",,""
+100,LITERAL,"",Prim.java(109:9-109:10),"1"
+101,PARAMVARIABLEDECLARATION,"node0",,""
+102,MEMBEREXPRESSION,"g",Prim.java(109:2-109:3),"g"
+103,DECLAREDREFERENCEEXPRESSION,"Prim",Prim.java(109:2-109:3),"Prim"
+104,NEWEXPRESSION,"",Prim.java(91:15-91:37),"new Scanner(System.in)"
+105,CONSTRUCTEXPRESSION,"",Prim.java(91:15-91:37),"new Scanner(System.in)"
+106,MEMBEREXPRESSION,"in",Prim.java(91:27-91:36),"System.in"
+107,COMPOUNDSTATEMENT,"",Prim.java(101:28-107:3),"{
+	    for (int j=1; j<=nos; j++){
+		if (i!=j){
+		   g.nodes[i].adj.add(new Aresta(j, g.distance(g.nodes[i], g.nodes[j])));
+		}
+	    }
+	}"
+108,DECLARATIONSTATEMENT,"",Prim.java(101:7-101:14),"int i=1"
+109,BINARYOPERATOR,"<=",Prim.java(101:16-101:22),"i<=nos"
+110,UNARYOPERATOR,"++",Prim.java(101:24-101:27),"i++"
+111,VARIABLEDECLARATION,"i",Prim.java(101:11-101:14),"i=1"
+112,LITERAL,"",Prim.java(102:17-102:18),"1"
+113,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(101:16-101:17),"i"
+114,DECLAREDREFERENCEEXPRESSION,"nos",Prim.java(101:19-101:22),"nos"
+115,FORSTATEMENT,"",Prim.java(102:6-106:7),"for (int j=1; j<=nos; j++){
+		if (i!=j){
+		   g.nodes[i].adj.add(new Aresta(j, g.distance(g.nodes[i], g.nodes[j])));
+		}
+	    }"
+116,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(101:24-101:25),"i"
+117,COMPOUNDSTATEMENT,"",Prim.java(102:32-106:7),"{
+		if (i!=j){
+		   g.nodes[i].adj.add(new Aresta(j, g.distance(g.nodes[i], g.nodes[j])));
+		}
+	    }"
+118,DECLARATIONSTATEMENT,"",Prim.java(102:11-102:18),"int j=1"
+119,BINARYOPERATOR,"<=",Prim.java(102:20-102:26),"j<=nos"
+120,UNARYOPERATOR,"++",Prim.java(102:28-102:31),"j++"
+121,VARIABLEDECLARATION,"j",Prim.java(102:15-102:18),"j=1"
+122,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(103:7-103:8),"i"
+123,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(102:28-102:29),"j"
+124,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(102:20-102:21),"j"
+125,DECLAREDREFERENCEEXPRESSION,"nos",Prim.java(102:23-102:26),"nos"
+126,IFSTATEMENT,"",Prim.java(103:3-105:4),"if (i!=j){
+		   g.nodes[i].adj.add(new Aresta(j, g.distance(g.nodes[i], g.nodes[j])));
+		}"
+127,COMPOUNDSTATEMENT,"",Prim.java(103:12-105:4),"{
+		   g.nodes[i].adj.add(new Aresta(j, g.distance(g.nodes[i], g.nodes[j])));
+		}"
+128,BINARYOPERATOR,"!=",Prim.java(103:7-103:11),"i!=j"
+129,DECLAREDREFERENCEEXPRESSION,"g",Prim.java(104:6-104:7),"g"
+130,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(103:10-103:11),"j"
+131,MEMBERCALLEXPRESSION,"add",Prim.java(104:6-104:76),"g.nodes[i].adj.add(new Aresta(j, g.distance(g.nodes[i], g.nodes[j])));"
+132,DECLAREDREFERENCEEXPRESSION,"add",Prim.java(104:21-104:24),"add"
+133,NEWEXPRESSION,"",Prim.java(104:25-104:74),"new Aresta(j, g.distance(g.nodes[i], g.nodes[j]))"
+134,CONSTRUCTEXPRESSION,"",Prim.java(104:25-104:74),"new Aresta(j, g.distance(g.nodes[i], g.nodes[j]))"
+135,CONSTRUCTORDECLARATION,"Aresta",,""
+136,MEMBERCALLEXPRESSION,"distance",Prim.java(104:39-104:73),"g.distance(g.nodes[i], g.nodes[j])"
+137,DECLAREDREFERENCEEXPRESSION,"distance",Prim.java(104:41-104:49),"distance"
+138,METHODDECLARATION,"distance",,""
+139,PARAMVARIABLEDECLARATION,"double1",,""
+140,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(104:62-104:72),"g.nodes[j]"
+141,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(104:50-104:60),"g.nodes[i]"
+142,MEMBEREXPRESSION,"nodes",Prim.java(104:50-104:57),"g.nodes"
+143,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(104:58-104:59),"i"
+144,PARAMVARIABLEDECLARATION,"node0",,""
+145,DECLAREDREFERENCEEXPRESSION,"g",Prim.java(104:62-104:63),"g"
+146,DECLAREDREFERENCEEXPRESSION,"g",Prim.java(104:50-104:51),"g"
+147,MEMBEREXPRESSION,"g",Prim.java(104:39-104:40),"g"
+148,DECLAREDREFERENCEEXPRESSION,"Prim",Prim.java(104:39-104:40),"Prim"
+149,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(104:36-104:37),"j"
+150,MEMBEREXPRESSION,"nodes",Prim.java(104:62-104:69),"g.nodes"
+151,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(104:70-104:71),"j"
+152,PARAMVARIABLEDECLARATION,"node1",,""
+153,PARAMVARIABLEDECLARATION,"int0",,""
+154,MEMBEREXPRESSION,"adj",Prim.java(104:6-104:20),"g.nodes[i].adj"
+155,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(104:6-104:16),"g.nodes[i]"
+156,MEMBEREXPRESSION,"nodes",Prim.java(104:6-104:13),"g.nodes"
+157,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(104:14-104:15),"i"
+158,FIELDDECLARATION,"this",,""
+159,FIELDDECLARATION,"n",Prim.java(31:5-31:11),"n"
+160,FIELDDECLARATION,"nodes",Prim.java(32:5-32:18),"nodes"
+161,METHODDECLARATION,"distance",Prim.java(42:5-44:6),"public double distance(Node a, Node b) {
+	return Math.sqrt(Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2));
+    }"
+162,METHODDECLARATION,"addNode",Prim.java(46:5-50:7),"public void addNode(int i, double a, double b) {
+	this.nodes[i].x=a;
+	this.nodes[i].y=b;
+	this.nodes[i].visited = false;
+     }"
+163,METHODDECLARATION,"Prim",Prim.java(53:5-81:6),"public void Prim(int no){
+	nodes[no].dist = 0;
+
+	double cost = 0;
+	for(int i=1;i<=n;i++) {
+	    
+	    double min   = 1500;
+	    int min_node = 1500;
+	    for(int j=1;j<=n;j++) {
+		//System.out.println(j + "" "" + nodes[j].visited + "" "" + nodes[j].dist);
+		if (nodes[j].visited == false && nodes[j].dist < min) {
+		    min = nodes[j].dist;
+		    min_node = j;
+		}
+	    }
+
+	    //System.out.println(min_node + "" "" + min);
+	    
+
+	    cost += min;
+	    nodes[min_node].visited = true;
+	    for(Aresta a : nodes[min_node].adj)
+		if(!nodes[a.node].visited && a.weight < nodes[a.node].dist)
+		    nodes[a.node].dist = a.weight;
+	   
+	}
+
+	System.out.printf(""%1.2f\n"", cost);
+    }"
+164,CONSTRUCTORDECLARATION,"Graph",Prim.java(35:5-40:6),"Graph(int n) {
+	this.n = n;
+	this.nodes  = new Node[n+1]; // +1 se os comecam em 1 ao inves de 0
+	for (int i=1; i<=n; i++)
+	    nodes[i] = new Node();
+    }"
+165,VARIABLEDECLARATION,"this",,""
+166,COMPOUNDSTATEMENT,"",Prim.java(46:52-50:7),"{
+	this.nodes[i].x=a;
+	this.nodes[i].y=b;
+	this.nodes[i].visited = false;
+     }"
+167,PARAMVARIABLEDECLARATION,"i",Prim.java(46:25-46:30),"int i"
+168,PARAMVARIABLEDECLARATION,"a",Prim.java(46:32-46:40),"double a"
+169,PARAMVARIABLEDECLARATION,"b",Prim.java(46:42-46:50),"double b"
+170,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(47:2-47:6),"this"
+171,RETURNSTATEMENT,"",,""
+172,BINARYOPERATOR,"=",Prim.java(47:2-47:20),"this.nodes[i].x=a;"
+173,BINARYOPERATOR,"=",Prim.java(48:2-48:20),"this.nodes[i].y=b;"
+174,BINARYOPERATOR,"=",Prim.java(49:2-49:32),"this.nodes[i].visited = false;"
+175,MEMBEREXPRESSION,"y",Prim.java(48:2-48:17),"this.nodes[i].y"
+176,DECLAREDREFERENCEEXPRESSION,"b",Prim.java(48:18-48:19),"b"
+177,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(49:2-49:6),"this"
+178,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(48:2-48:15),"this.nodes[i]"
+179,MEMBEREXPRESSION,"nodes",Prim.java(48:2-48:12),"this.nodes"
+180,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(48:13-48:14),"i"
+181,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(48:2-48:6),"this"
+182,MEMBEREXPRESSION,"x",Prim.java(47:2-47:17),"this.nodes[i].x"
+183,DECLAREDREFERENCEEXPRESSION,"a",Prim.java(47:18-47:19),"a"
+184,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(47:2-47:15),"this.nodes[i]"
+185,MEMBEREXPRESSION,"nodes",Prim.java(47:2-47:12),"this.nodes"
+186,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(47:13-47:14),"i"
+187,MEMBEREXPRESSION,"visited",Prim.java(49:2-49:23),"this.nodes[i].visited"
+188,LITERAL,"",Prim.java(49:26-49:31),"false"
+189,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(49:2-49:15),"this.nodes[i]"
+190,MEMBEREXPRESSION,"nodes",Prim.java(49:2-49:12),"this.nodes"
+191,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(49:13-49:14),"i"
+192,VARIABLEDECLARATION,"this",,""
+193,COMPOUNDSTATEMENT,"",Prim.java(42:44-44:6),"{
+	return Math.sqrt(Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2));
+    }"
+194,PARAMVARIABLEDECLARATION,"a",Prim.java(42:28-42:34),"Node a"
+195,PARAMVARIABLEDECLARATION,"b",Prim.java(42:36-42:42),"Node b"
+196,DECLAREDREFERENCEEXPRESSION,"a",Prim.java(43:28-43:29),"a"
+197,RETURNSTATEMENT,"",Prim.java(43:2-43:60),"return Math.sqrt(Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2));"
+198,STATICCALLEXPRESSION,"sqrt",Prim.java(43:9-43:59),"Math.sqrt(Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2))"
+199,BINARYOPERATOR,"+",Prim.java(43:19-43:58),"Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2)"
+200,STATICCALLEXPRESSION,"pow",Prim.java(43:19-43:38),"Math.pow(a.x-b.x,2)"
+201,STATICCALLEXPRESSION,"pow",Prim.java(43:39-43:58),"Math.pow(a.y-b.y,2)"
+202,LITERAL,"",Prim.java(43:56-43:57),"2"
+203,BINARYOPERATOR,"-",Prim.java(43:48-43:55),"a.y-b.y"
+204,MEMBEREXPRESSION,"y",Prim.java(43:48-43:51),"a.y"
+205,MEMBEREXPRESSION,"y",Prim.java(43:52-43:55),"b.y"
+206,DECLAREDREFERENCEEXPRESSION,"a",Prim.java(43:48-43:49),"a"
+207,DECLAREDREFERENCEEXPRESSION,"b",Prim.java(43:52-43:53),"b"
+208,LITERAL,"",Prim.java(43:36-43:37),"2"
+209,BINARYOPERATOR,"-",Prim.java(43:28-43:35),"a.x-b.x"
+210,MEMBEREXPRESSION,"x",Prim.java(43:28-43:31),"a.x"
+211,MEMBEREXPRESSION,"x",Prim.java(43:32-43:35),"b.x"
+212,DECLAREDREFERENCEEXPRESSION,"b",Prim.java(43:32-43:33),"b"
+213,COMPOUNDSTATEMENT,"",Prim.java(35:18-40:6),"{
+	this.n = n;
+	this.nodes  = new Node[n+1]; // +1 se os comecam em 1 ao inves de 0
+	for (int i=1; i<=n; i++)
+	    nodes[i] = new Node();
+    }"
+214,PARAMVARIABLEDECLARATION,"n",Prim.java(35:11-35:16),"int n"
+215,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(36:2-36:6),"this"
+216,RETURNSTATEMENT,"",,""
+217,BINARYOPERATOR,"=",Prim.java(36:2-36:13),"this.n = n;"
+218,BINARYOPERATOR,"=",Prim.java(37:2-37:30),"this.nodes  = new Node[n+1];"
+219,FORSTATEMENT,"",Prim.java(38:2-39:28),"for (int i=1; i<=n; i++)
+	    nodes[i] = new Node();"
+220,MEMBEREXPRESSION,"n",Prim.java(36:2-36:8),"this.n"
+221,DECLAREDREFERENCEEXPRESSION,"n",Prim.java(36:11-36:12),"n"
+222,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(37:2-37:6),"this"
+223,MEMBEREXPRESSION,"nodes",Prim.java(37:2-37:12),"this.nodes"
+224,ARRAYCREATIONEXPRESSION,"",Prim.java(37:16-37:29),"new Node[n+1]"
+225,LITERAL,"",Prim.java(38:13-38:14),"1"
+226,BINARYOPERATOR,"+",Prim.java(37:25-37:28),"n+1"
+227,DECLAREDREFERENCEEXPRESSION,"n",Prim.java(37:25-37:26),"n"
+228,LITERAL,"",Prim.java(37:27-37:28),"1"
+229,BINARYOPERATOR,"=",Prim.java(39:6-39:28),"nodes[i] = new Node();"
+230,DECLARATIONSTATEMENT,"",Prim.java(38:7-38:14),"int i=1"
+231,BINARYOPERATOR,"<=",Prim.java(38:16-38:20),"i<=n"
+232,UNARYOPERATOR,"++",Prim.java(38:22-38:25),"i++"
+233,VARIABLEDECLARATION,"i",Prim.java(38:11-38:14),"i=1"
+234,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(39:6-39:11),"this"
+235,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(38:16-38:17),"i"
+236,DECLAREDREFERENCEEXPRESSION,"n",Prim.java(38:19-38:20),"n"
+237,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(39:6-39:14),"nodes[i]"
+238,NEWEXPRESSION,"",Prim.java(39:17-39:27),"new Node()"
+239,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(38:22-38:23),"i"
+240,MEMBEREXPRESSION,"nodes",Prim.java(39:6-39:11),"nodes"
+241,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(39:12-39:13),"i"
+242,CONSTRUCTEXPRESSION,"",Prim.java(39:17-39:27),"new Node()"
+243,CONSTRUCTORDECLARATION,"Node",Prob19.java(10:5-16:6),"Node() {
+	adj = new LinkedList<Integer>();
+	visited = false;
+	distance = -1;
+	excentricidade = -1;
+	
+    }"
+244,VARIABLEDECLARATION,"this",,""
+245,COMPOUNDSTATEMENT,"",Prim.java(53:29-81:6),"{
+	nodes[no].dist = 0;
+
+	double cost = 0;
+	for(int i=1;i<=n;i++) {
+	    
+	    double min   = 1500;
+	    int min_node = 1500;
+	    for(int j=1;j<=n;j++) {
+		//System.out.println(j + "" "" + nodes[j].visited + "" "" + nodes[j].dist);
+		if (nodes[j].visited == false && nodes[j].dist < min) {
+		    min = nodes[j].dist;
+		    min_node = j;
+		}
+	    }
+
+	    //System.out.println(min_node + "" "" + min);
+	    
+
+	    cost += min;
+	    nodes[min_node].visited = true;
+	    for(Aresta a : nodes[min_node].adj)
+		if(!nodes[a.node].visited && a.weight < nodes[a.node].dist)
+		    nodes[a.node].dist = a.weight;
+	   
+	}
+
+	System.out.printf(""%1.2f\n"", cost);
+    }"
+246,PARAMVARIABLEDECLARATION,"no",Prim.java(53:22-53:28),"int no"
+247,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(54:2-54:7),"this"
+248,RETURNSTATEMENT,"",,""
+249,BINARYOPERATOR,"=",Prim.java(54:2-54:21),"nodes[no].dist = 0;"
+250,DECLARATIONSTATEMENT,"",Prim.java(56:2-56:18),"double cost = 0;"
+251,FORSTATEMENT,"",Prim.java(57:2-78:3),"for(int i=1;i<=n;i++) {
+	    
+	    double min   = 1500;
+	    int min_node = 1500;
+	    for(int j=1;j<=n;j++) {
+		//System.out.println(j + "" "" + nodes[j].visited + "" "" + nodes[j].dist);
+		if (nodes[j].visited == false && nodes[j].dist < min) {
+		    min = nodes[j].dist;
+		    min_node = j;
+		}
+	    }
+
+	    //System.out.println(min_node + "" "" + min);
+	    
+
+	    cost += min;
+	    nodes[min_node].visited = true;
+	    for(Aresta a : nodes[min_node].adj)
+		if(!nodes[a.node].visited && a.weight < nodes[a.node].dist)
+		    nodes[a.node].dist = a.weight;
+	   
+	}"
+252,MEMBERCALLEXPRESSION,"printf",Prim.java(80:2-80:37),"System.out.printf(""%1.2f\n"", cost);"
+253,VARIABLEDECLARATION,"cost",Prim.java(56:9-56:17),"cost = 0"
+254,LITERAL,"",Prim.java(56:16-56:17),"0"
+255,COMPOUNDSTATEMENT,"",Prim.java(57:24-78:3),"{
+	    
+	    double min   = 1500;
+	    int min_node = 1500;
+	    for(int j=1;j<=n;j++) {
+		//System.out.println(j + "" "" + nodes[j].visited + "" "" + nodes[j].dist);
+		if (nodes[j].visited == false && nodes[j].dist < min) {
+		    min = nodes[j].dist;
+		    min_node = j;
+		}
+	    }
+
+	    //System.out.println(min_node + "" "" + min);
+	    
+
+	    cost += min;
+	    nodes[min_node].visited = true;
+	    for(Aresta a : nodes[min_node].adj)
+		if(!nodes[a.node].visited && a.weight < nodes[a.node].dist)
+		    nodes[a.node].dist = a.weight;
+	   
+	}"
+256,DECLARATIONSTATEMENT,"",Prim.java(57:6-57:13),"int i=1"
+257,BINARYOPERATOR,"<=",Prim.java(57:14-57:18),"i<=n"
+258,UNARYOPERATOR,"++",Prim.java(57:19-57:22),"i++"
+259,VARIABLEDECLARATION,"i",Prim.java(57:10-57:13),"i=1"
+260,LITERAL,"",Prim.java(59:21-59:25),"1500"
+261,DECLAREDREFERENCEEXPRESSION,"System",Prim.java(80:2-80:8),"System"
+262,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(57:14-57:15),"i"
+263,DECLARATIONSTATEMENT,"",Prim.java(59:6-59:26),"double min   = 1500;"
+264,DECLARATIONSTATEMENT,"",Prim.java(60:6-60:26),"int min_node = 1500;"
+265,FORSTATEMENT,"",Prim.java(61:6-67:7),"for(int j=1;j<=n;j++) {
+		//System.out.println(j + "" "" + nodes[j].visited + "" "" + nodes[j].dist);
+		if (nodes[j].visited == false && nodes[j].dist < min) {
+		    min = nodes[j].dist;
+		    min_node = j;
+		}
+	    }"
+266,BINARYOPERATOR,"+=",Prim.java(72:6-72:18),"cost += min;"
+267,BINARYOPERATOR,"=",Prim.java(73:6-73:37),"nodes[min_node].visited = true;"
+268,FOREACHSTATEMENT,"",Prim.java(74:6-76:37),"for(Aresta a : nodes[min_node].adj)
+		if(!nodes[a.node].visited && a.weight < nodes[a.node].dist)
+		    nodes[a.node].dist = a.weight;"
+269,VARIABLEDECLARATION,"min",Prim.java(59:13-59:25),"min   = 1500"
+270,VARIABLEDECLARATION,"min_node",Prim.java(60:10-60:25),"min_node = 1500"
+271,DECLAREDREFERENCEEXPRESSION,"i",Prim.java(57:19-57:20),"i"
+272,DECLAREDREFERENCEEXPRESSION,"cost",Prim.java(72:6-72:10),"cost"
+273,DECLAREDREFERENCEEXPRESSION,"min",Prim.java(72:14-72:17),"min"
+274,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(73:6-73:11),"this"
+275,DECLARATIONSTATEMENT,"",Prim.java(74:10-74:18),"Aresta a"
+276,MEMBEREXPRESSION,"adj",Prim.java(74:21-74:40),"nodes[min_node].adj"
+277,IFSTATEMENT,"",Prim.java(75:3-76:37),"if(!nodes[a.node].visited && a.weight < nodes[a.node].dist)
+		    nodes[a.node].dist = a.weight;"
+278,VARIABLEDECLARATION,"a",Prim.java(74:17-74:18),"a"
+279,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(75:7-75:12),"this"
+280,UNINITIALIZEDVALUE,"Uninitialized Value",,""
+281,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(74:21-74:36),"nodes[min_node]"
+282,MEMBEREXPRESSION,"nodes",Prim.java(74:21-74:26),"nodes"
+283,DECLAREDREFERENCEEXPRESSION,"min_node",Prim.java(74:27-74:35),"min_node"
+284,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(74:21-74:26),"this"
+285,BINARYOPERATOR,"=",Prim.java(76:7-76:37),"nodes[a.node].dist = a.weight;"
+286,BINARYOPERATOR,"&&",Prim.java(75:6-75:61),"!nodes[a.node].visited && a.weight < nodes[a.node].dist"
+287,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(76:7-76:12),"this"
+288,UNARYOPERATOR,"!",Prim.java(75:6-75:28),"!nodes[a.node].visited"
+289,BINARYOPERATOR,"<",Prim.java(75:32-75:61),"a.weight < nodes[a.node].dist"
+290,MEMBEREXPRESSION,"visited",Prim.java(75:7-75:28),"nodes[a.node].visited"
+291,DECLAREDREFERENCEEXPRESSION,"a",Prim.java(75:32-75:33),"a"
+292,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(75:7-75:20),"nodes[a.node]"
+293,MEMBEREXPRESSION,"nodes",Prim.java(75:7-75:12),"nodes"
+294,MEMBEREXPRESSION,"node",Prim.java(75:13-75:19),"a.node"
+295,DECLAREDREFERENCEEXPRESSION,"a",Prim.java(75:13-75:14),"a"
+296,MEMBEREXPRESSION,"weight",Prim.java(75:32-75:40),"a.weight"
+297,MEMBEREXPRESSION,"dist",Prim.java(75:43-75:61),"nodes[a.node].dist"
+298,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(75:43-75:48),"this"
+299,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(75:43-75:56),"nodes[a.node]"
+300,MEMBEREXPRESSION,"nodes",Prim.java(75:43-75:48),"nodes"
+301,MEMBEREXPRESSION,"node",Prim.java(75:49-75:55),"a.node"
+302,DECLAREDREFERENCEEXPRESSION,"a",Prim.java(75:49-75:50),"a"
+303,MEMBEREXPRESSION,"dist",Prim.java(76:7-76:25),"nodes[a.node].dist"
+304,MEMBEREXPRESSION,"weight",Prim.java(76:28-76:36),"a.weight"
+305,DECLAREDREFERENCEEXPRESSION,"a",Prim.java(76:28-76:29),"a"
+306,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(76:7-76:20),"nodes[a.node]"
+307,MEMBEREXPRESSION,"nodes",Prim.java(76:7-76:12),"nodes"
+308,MEMBEREXPRESSION,"node",Prim.java(76:13-76:19),"a.node"
+309,DECLAREDREFERENCEEXPRESSION,"a",Prim.java(76:13-76:14),"a"
+310,LITERAL,"",Prim.java(60:21-60:25),"1500"
+311,LITERAL,"",Prim.java(61:16-61:17),"1"
+312,COMPOUNDSTATEMENT,"",Prim.java(61:28-67:7),"{
+		//System.out.println(j + "" "" + nodes[j].visited + "" "" + nodes[j].dist);
+		if (nodes[j].visited == false && nodes[j].dist < min) {
+		    min = nodes[j].dist;
+		    min_node = j;
+		}
+	    }"
+313,DECLARATIONSTATEMENT,"",Prim.java(61:10-61:17),"int j=1"
+314,BINARYOPERATOR,"<=",Prim.java(61:18-61:22),"j<=n"
+315,UNARYOPERATOR,"++",Prim.java(61:23-61:26),"j++"
+316,VARIABLEDECLARATION,"j",Prim.java(61:14-61:17),"j=1"
+317,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(63:7-63:12),"this"
+318,IFSTATEMENT,"",Prim.java(63:3-66:4),"if (nodes[j].visited == false && nodes[j].dist < min) {
+		    min = nodes[j].dist;
+		    min_node = j;
+		}"
+319,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(61:23-61:24),"j"
+320,COMPOUNDSTATEMENT,"",Prim.java(63:57-66:4),"{
+		    min = nodes[j].dist;
+		    min_node = j;
+		}"
+321,BINARYOPERATOR,"&&",Prim.java(63:7-63:55),"nodes[j].visited == false && nodes[j].dist < min"
+322,DECLAREDREFERENCEEXPRESSION,"min",Prim.java(64:7-64:10),"min"
+323,BINARYOPERATOR,"==",Prim.java(63:7-63:32),"nodes[j].visited == false"
+324,BINARYOPERATOR,"<",Prim.java(63:36-63:55),"nodes[j].dist < min"
+325,MEMBEREXPRESSION,"dist",Prim.java(63:36-63:49),"nodes[j].dist"
+326,DECLAREDREFERENCEEXPRESSION,"min",Prim.java(63:52-63:55),"min"
+327,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(63:36-63:44),"nodes[j]"
+328,MEMBEREXPRESSION,"nodes",Prim.java(63:36-63:41),"nodes"
+329,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(63:42-63:43),"j"
+330,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(63:36-63:41),"this"
+331,MEMBEREXPRESSION,"visited",Prim.java(63:7-63:23),"nodes[j].visited"
+332,LITERAL,"",Prim.java(63:27-63:32),"false"
+333,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(63:7-63:15),"nodes[j]"
+334,MEMBEREXPRESSION,"nodes",Prim.java(63:7-63:12),"nodes"
+335,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(63:13-63:14),"j"
+336,BINARYOPERATOR,"=",Prim.java(64:7-64:27),"min = nodes[j].dist;"
+337,BINARYOPERATOR,"=",Prim.java(65:7-65:20),"min_node = j;"
+338,MEMBEREXPRESSION,"dist",Prim.java(64:13-64:26),"nodes[j].dist"
+339,DECLAREDREFERENCEEXPRESSION,"min_node",Prim.java(65:7-65:15),"min_node"
+340,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(64:13-64:21),"nodes[j]"
+341,MEMBEREXPRESSION,"nodes",Prim.java(64:13-64:18),"nodes"
+342,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(64:19-64:20),"j"
+343,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(64:13-64:18),"this"
+344,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(65:18-65:19),"j"
+345,DECLAREDREFERENCEEXPRESSION,"j",Prim.java(61:18-61:19),"j"
+346,MEMBEREXPRESSION,"n",Prim.java(61:21-61:22),"n"
+347,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(61:21-61:22),"this"
+348,MEMBEREXPRESSION,"visited",Prim.java(73:6-73:29),"nodes[min_node].visited"
+349,LITERAL,"",Prim.java(73:32-73:36),"true"
+350,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(73:6-73:21),"nodes[min_node]"
+351,MEMBEREXPRESSION,"nodes",Prim.java(73:6-73:11),"nodes"
+352,DECLAREDREFERENCEEXPRESSION,"min_node",Prim.java(73:12-73:20),"min_node"
+353,MEMBEREXPRESSION,"n",Prim.java(57:17-57:18),"n"
+354,DECLAREDREFERENCEEXPRESSION,"this",Prim.java(57:17-57:18),"this"
+355,LITERAL,"",Prim.java(57:12-57:13),"1"
+356,DECLAREDREFERENCEEXPRESSION,"printf",Prim.java(80:13-80:19),"printf"
+357,DECLAREDREFERENCEEXPRESSION,"cost",Prim.java(80:31-80:35),"cost"
+358,LITERAL,"",Prim.java(80:20-80:29),"""%1.2f\n"""
+359,MEMBEREXPRESSION,"out",Prim.java(80:2-80:12),"System.out"
+360,MEMBEREXPRESSION,"dist",Prim.java(54:2-54:16),"nodes[no].dist"
+361,LITERAL,"",Prim.java(54:19-54:20),"0"
+362,ARRAYSUBSCRIPTIONEXPRESSION,"",Prim.java(54:2-54:11),"nodes[no]"
+363,MEMBEREXPRESSION,"nodes",Prim.java(54:2-54:7),"nodes"
+364,DECLAREDREFERENCEEXPRESSION,"no",Prim.java(54:8-54:10),"no"

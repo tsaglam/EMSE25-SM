@@ -1,0 +1,939 @@
+id,type,token,location,code
+1,TRANSLATIONUNITDECLARATION,"/data/00000056/submissions/07503094_21_201402963/Sardas.java",,""
+2,RECORDDECLARATION,"Node",Sardas.java(5:1-35:2),"class Node implements Comparable<Node>{
+    int number;
+    boolean visited;
+    float distance;
+    Node parent;
+    int chosen;
+    float chosenValue;
+    float posx;
+    float posy;
+
+    Node(boolean visited, int number, float distance, Node parent, int chosen, float chosenValue, float posx, float posy){
+	this.number = number;
+	this.visited = visited;
+	this.distance = distance;
+	this.parent = parent;
+	this.chosen = chosen;
+	this.chosenValue = chosenValue;
+	this.posx = posx;
+	this.posy = posy;
+    }
+    @Override
+	public int compareTo(Node x){
+	if(this.distance<x.distance) return -1;
+	else if(this.distance>x.distance) return 1;
+	else{
+	    if(this.number<x.number) return -1;
+	    else if(this.number>x.number) return 1;
+	    else return 0;
+	}
+    }
+}"
+3,RECORDDECLARATION,"Sardas",Sardas.java(37:1-116:2),"class Sardas{
+
+
+    static Node[] array;
+    static float[][] connected;
+    static LinkedList<Node> list;
+    static int Nnodes;
+    static double total;
+
+
+    public static void prim(Node nod){
+	total = 0;
+	int flag=0;
+	for(int i=0; i<Nnodes; i++){
+	    array[i].distance = 999999;
+	    array[i].parent = null;
+	}
+	nod.distance=0;
+	PriorityQueue<Node> heap = new PriorityQueue<Node>();
+	for(int i=0; i<Nnodes; i++){
+	    heap.add(array[i]);
+	}
+	while(!heap.isEmpty()){
+	    Node u = heap.remove();
+	    if(flag==1){
+
+		total = total + u.chosenValue;
+	    }
+		flag =1;
+	    for(int j=0; j<Nnodes; j++){
+		if(connected[u.number-1][j]!=0){
+		    if(heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance){
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }
+		}
+	    }
+	}
+    }
+
+
+
+    public static void main(String[] args){
+	Scanner hello = new Scanner(System.in);
+	Nnodes = hello.nextInt();
+
+	connected = new float[Nnodes][Nnodes];
+	array = new Node[Nnodes];
+
+	for(int i=0; i<Nnodes; i++){
+	    array[i] = new Node(false, i+1, 9999999, null, 0, 0, 0, 0);
+	}
+
+	for(int i=0; i<Nnodes; i++){
+	    float x = hello.nextFloat();
+	    float y = hello.nextFloat();
+	    array[i].posx = x;
+	    array[i].posy =y;
+	}
+
+	for(int i=0; i<Nnodes; i++){ 
+	    float x1 = array[i].posx;
+	    float y1 = array[i].posy;
+	    for(int j=0;j<Nnodes; j++){
+		float x2 = array[j].posx;
+		float y2 = array[j].posy;
+		connected[i][j] = (float)Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2));
+	    }
+	}
+
+
+
+	prim(array[0]);
+	System.out.printf(""%.2f\n"",total);
+    }
+}"
+4,INCLUDEDECLARATION,"java.util",,""
+5,INCLUDEDECLARATION,"java.io",,""
+6,INCLUDEDECLARATION,"java.lang.Math",,""
+7,FIELDDECLARATION,"this",,""
+8,FIELDDECLARATION,"array",Sardas.java(40:5-40:25),"array"
+9,FIELDDECLARATION,"connected",Sardas.java(41:5-41:32),"connected"
+10,FIELDDECLARATION,"list",Sardas.java(42:5-42:34),"list"
+11,FIELDDECLARATION,"Nnodes",Sardas.java(43:5-43:23),"Nnodes"
+12,FIELDDECLARATION,"total",Sardas.java(44:5-44:25),"total"
+13,METHODDECLARATION,"prim",Sardas.java(47:5-79:6),"public static void prim(Node nod){
+	total = 0;
+	int flag=0;
+	for(int i=0; i<Nnodes; i++){
+	    array[i].distance = 999999;
+	    array[i].parent = null;
+	}
+	nod.distance=0;
+	PriorityQueue<Node> heap = new PriorityQueue<Node>();
+	for(int i=0; i<Nnodes; i++){
+	    heap.add(array[i]);
+	}
+	while(!heap.isEmpty()){
+	    Node u = heap.remove();
+	    if(flag==1){
+
+		total = total + u.chosenValue;
+	    }
+		flag =1;
+	    for(int j=0; j<Nnodes; j++){
+		if(connected[u.number-1][j]!=0){
+		    if(heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance){
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }
+		}
+	    }
+	}
+    }"
+14,METHODDECLARATION,"main",Sardas.java(83:5-115:6),"public static void main(String[] args){
+	Scanner hello = new Scanner(System.in);
+	Nnodes = hello.nextInt();
+
+	connected = new float[Nnodes][Nnodes];
+	array = new Node[Nnodes];
+
+	for(int i=0; i<Nnodes; i++){
+	    array[i] = new Node(false, i+1, 9999999, null, 0, 0, 0, 0);
+	}
+
+	for(int i=0; i<Nnodes; i++){
+	    float x = hello.nextFloat();
+	    float y = hello.nextFloat();
+	    array[i].posx = x;
+	    array[i].posy =y;
+	}
+
+	for(int i=0; i<Nnodes; i++){ 
+	    float x1 = array[i].posx;
+	    float y1 = array[i].posy;
+	    for(int j=0;j<Nnodes; j++){
+		float x2 = array[j].posx;
+		float y2 = array[j].posy;
+		connected[i][j] = (float)Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2));
+	    }
+	}
+
+
+
+	prim(array[0]);
+	System.out.printf(""%.2f\n"",total);
+    }"
+15,CONSTRUCTORDECLARATION,"Sardas",,""
+16,VARIABLEDECLARATION,"this",,""
+17,COMPOUNDSTATEMENT,"",Sardas.java(47:38-79:6),"{
+	total = 0;
+	int flag=0;
+	for(int i=0; i<Nnodes; i++){
+	    array[i].distance = 999999;
+	    array[i].parent = null;
+	}
+	nod.distance=0;
+	PriorityQueue<Node> heap = new PriorityQueue<Node>();
+	for(int i=0; i<Nnodes; i++){
+	    heap.add(array[i]);
+	}
+	while(!heap.isEmpty()){
+	    Node u = heap.remove();
+	    if(flag==1){
+
+		total = total + u.chosenValue;
+	    }
+		flag =1;
+	    for(int j=0; j<Nnodes; j++){
+		if(connected[u.number-1][j]!=0){
+		    if(heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance){
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }
+		}
+	    }
+	}
+    }"
+18,PARAMVARIABLEDECLARATION,"nod",Sardas.java(47:29-47:37),"Node nod"
+19,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(48:2-48:7),"Sardas"
+20,RETURNSTATEMENT,"",,""
+21,BINARYOPERATOR,"=",Sardas.java(48:2-48:12),"total = 0;"
+22,DECLARATIONSTATEMENT,"",Sardas.java(49:2-49:13),"int flag=0;"
+23,FORSTATEMENT,"",Sardas.java(50:2-53:3),"for(int i=0; i<Nnodes; i++){
+	    array[i].distance = 999999;
+	    array[i].parent = null;
+	}"
+24,BINARYOPERATOR,"=",Sardas.java(54:2-54:17),"nod.distance=0;"
+25,DECLARATIONSTATEMENT,"",Sardas.java(55:2-55:55),"PriorityQueue<Node> heap = new PriorityQueue<Node>();"
+26,FORSTATEMENT,"",Sardas.java(56:2-58:3),"for(int i=0; i<Nnodes; i++){
+	    heap.add(array[i]);
+	}"
+27,WHILESTATEMENT,"",Sardas.java(59:2-78:3),"while(!heap.isEmpty()){
+	    Node u = heap.remove();
+	    if(flag==1){
+
+		total = total + u.chosenValue;
+	    }
+		flag =1;
+	    for(int j=0; j<Nnodes; j++){
+		if(connected[u.number-1][j]!=0){
+		    if(heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance){
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }
+		}
+	    }
+	}"
+28,VARIABLEDECLARATION,"flag",Sardas.java(49:6-49:12),"flag=0"
+29,VARIABLEDECLARATION,"heap",Sardas.java(55:22-55:54),"heap = new PriorityQueue<Node>()"
+30,MEMBEREXPRESSION,"total",Sardas.java(48:2-48:7),"total"
+31,LITERAL,"",Sardas.java(48:10-48:11),"0"
+32,LITERAL,"",Sardas.java(49:11-49:12),"0"
+33,LITERAL,"",Sardas.java(50:12-50:13),"0"
+34,COMPOUNDSTATEMENT,"",Sardas.java(50:29-53:3),"{
+	    array[i].distance = 999999;
+	    array[i].parent = null;
+	}"
+35,DECLARATIONSTATEMENT,"",Sardas.java(50:6-50:13),"int i=0"
+36,BINARYOPERATOR,"<",Sardas.java(50:15-50:23),"i<Nnodes"
+37,UNARYOPERATOR,"++",Sardas.java(50:25-50:28),"i++"
+38,VARIABLEDECLARATION,"i",Sardas.java(50:10-50:13),"i=0"
+39,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(51:6-51:11),"Sardas"
+40,DECLAREDREFERENCEEXPRESSION,"nod",Sardas.java(54:2-54:5),"nod"
+41,BINARYOPERATOR,"=",Sardas.java(51:6-51:33),"array[i].distance = 999999;"
+42,BINARYOPERATOR,"=",Sardas.java(52:6-52:29),"array[i].parent = null;"
+43,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(50:25-50:26),"i"
+44,MEMBEREXPRESSION,"parent",Sardas.java(52:6-52:21),"array[i].parent"
+45,LITERAL,"",Sardas.java(52:24-52:28),"null"
+46,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(52:6-52:14),"array[i]"
+47,MEMBEREXPRESSION,"array",Sardas.java(52:6-52:11),"array"
+48,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(52:12-52:13),"i"
+49,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(52:6-52:11),"Sardas"
+50,MEMBEREXPRESSION,"distance",Sardas.java(51:6-51:23),"array[i].distance"
+51,LITERAL,"",Sardas.java(51:26-51:32),"999999"
+52,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(51:6-51:14),"array[i]"
+53,MEMBEREXPRESSION,"array",Sardas.java(51:6-51:11),"array"
+54,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(51:12-51:13),"i"
+55,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(50:15-50:16),"i"
+56,MEMBEREXPRESSION,"Nnodes",Sardas.java(50:17-50:23),"Nnodes"
+57,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(50:17-50:23),"Sardas"
+58,LITERAL,"",Sardas.java(56:12-56:13),"0"
+59,NEWEXPRESSION,"",Sardas.java(55:29-55:54),"new PriorityQueue<Node>()"
+60,CONSTRUCTEXPRESSION,"",Sardas.java(55:29-55:54),"new PriorityQueue<Node>()"
+61,COMPOUNDSTATEMENT,"",Sardas.java(56:29-58:3),"{
+	    heap.add(array[i]);
+	}"
+62,DECLARATIONSTATEMENT,"",Sardas.java(56:6-56:13),"int i=0"
+63,BINARYOPERATOR,"<",Sardas.java(56:15-56:23),"i<Nnodes"
+64,UNARYOPERATOR,"++",Sardas.java(56:25-56:28),"i++"
+65,VARIABLEDECLARATION,"i",Sardas.java(56:10-56:13),"i=0"
+66,DECLAREDREFERENCEEXPRESSION,"heap",Sardas.java(57:6-57:10),"heap"
+67,DECLAREDREFERENCEEXPRESSION,"heap",Sardas.java(59:9-59:13),"heap"
+68,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(56:15-56:16),"i"
+69,MEMBEREXPRESSION,"Nnodes",Sardas.java(56:17-56:23),"Nnodes"
+70,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(56:17-56:23),"Sardas"
+71,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(56:25-56:26),"i"
+72,MEMBERCALLEXPRESSION,"add",Sardas.java(57:6-57:25),"heap.add(array[i]);"
+73,DECLAREDREFERENCEEXPRESSION,"add",Sardas.java(57:11-57:14),"add"
+74,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(57:15-57:23),"array[i]"
+75,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(57:15-57:20),"Sardas"
+76,MEMBEREXPRESSION,"array",Sardas.java(57:15-57:20),"array"
+77,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(57:21-57:22),"i"
+78,UNARYOPERATOR,"!",Sardas.java(59:8-59:23),"!heap.isEmpty()"
+79,COMPOUNDSTATEMENT,"",Sardas.java(59:24-78:3),"{
+	    Node u = heap.remove();
+	    if(flag==1){
+
+		total = total + u.chosenValue;
+	    }
+		flag =1;
+	    for(int j=0; j<Nnodes; j++){
+		if(connected[u.number-1][j]!=0){
+		    if(heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance){
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }
+		}
+	    }
+	}"
+80,DECLAREDREFERENCEEXPRESSION,"heap",Sardas.java(60:15-60:19),"heap"
+81,DECLARATIONSTATEMENT,"",Sardas.java(60:6-60:29),"Node u = heap.remove();"
+82,IFSTATEMENT,"",Sardas.java(61:6-64:7),"if(flag==1){
+
+		total = total + u.chosenValue;
+	    }"
+83,BINARYOPERATOR,"=",Sardas.java(65:3-65:11),"flag =1;"
+84,FORSTATEMENT,"",Sardas.java(66:6-77:7),"for(int j=0; j<Nnodes; j++){
+		if(connected[u.number-1][j]!=0){
+		    if(heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance){
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }
+		}
+	    }"
+85,VARIABLEDECLARATION,"u",Sardas.java(60:11-60:28),"u = heap.remove()"
+86,DECLAREDREFERENCEEXPRESSION,"flag",Sardas.java(61:9-61:13),"flag"
+87,COMPOUNDSTATEMENT,"",Sardas.java(66:33-77:7),"{
+		if(connected[u.number-1][j]!=0){
+		    if(heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance){
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }
+		}
+	    }"
+88,DECLARATIONSTATEMENT,"",Sardas.java(66:10-66:17),"int j=0"
+89,BINARYOPERATOR,"<",Sardas.java(66:19-66:27),"j<Nnodes"
+90,UNARYOPERATOR,"++",Sardas.java(66:29-66:32),"j++"
+91,VARIABLEDECLARATION,"j",Sardas.java(66:14-66:17),"j=0"
+92,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(67:6-67:15),"Sardas"
+93,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(66:29-66:30),"j"
+94,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(66:19-66:20),"j"
+95,LITERAL,"",Sardas.java(66:16-66:17),"0"
+96,MEMBEREXPRESSION,"Nnodes",Sardas.java(66:21-66:27),"Nnodes"
+97,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(66:21-66:27),"Sardas"
+98,IFSTATEMENT,"",Sardas.java(67:3-76:4),"if(connected[u.number-1][j]!=0){
+		    if(heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance){
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }
+		}"
+99,COMPOUNDSTATEMENT,"",Sardas.java(67:34-76:4),"{
+		    if(heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance){
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }
+		}"
+100,BINARYOPERATOR,"!=",Sardas.java(67:6-67:33),"connected[u.number-1][j]!=0"
+101,DECLAREDREFERENCEEXPRESSION,"heap",Sardas.java(68:10-68:14),"heap"
+102,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(67:6-67:30),"connected[u.number-1][j]"
+103,LITERAL,"",Sardas.java(67:32-67:33),"0"
+104,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(67:6-67:27),"connected[u.number-1]"
+105,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(67:28-67:29),"j"
+106,MEMBEREXPRESSION,"connected",Sardas.java(67:6-67:15),"connected"
+107,BINARYOPERATOR,"-",Sardas.java(67:16-67:26),"u.number-1"
+108,MEMBEREXPRESSION,"number",Sardas.java(67:16-67:24),"u.number"
+109,LITERAL,"",Sardas.java(67:25-67:26),"1"
+110,DECLAREDREFERENCEEXPRESSION,"u",Sardas.java(67:16-67:17),"u"
+111,IFSTATEMENT,"",Sardas.java(68:7-75:8),"if(heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance){
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }"
+112,COMPOUNDSTATEMENT,"",Sardas.java(68:86-75:8),"{
+			array[j].parent = array[u.number-1];
+			array[j].distance = connected[u.number-1][j];
+			heap.remove(array[j]);
+			heap.add(array[j]);
+			array[j].chosen = u.number;
+			array[j].chosenValue = connected[u.number-1][j];
+		    }"
+113,BINARYOPERATOR,"&&",Sardas.java(68:10-68:85),"heap.contains(array[j])==true && connected[u.number-1][j]<array[j].distance"
+114,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(69:4-69:9),"Sardas"
+115,BINARYOPERATOR,"==",Sardas.java(68:10-68:39),"heap.contains(array[j])==true"
+116,BINARYOPERATOR,"<",Sardas.java(68:43-68:85),"connected[u.number-1][j]<array[j].distance"
+117,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(68:43-68:67),"connected[u.number-1][j]"
+118,MEMBEREXPRESSION,"distance",Sardas.java(68:68-68:85),"array[j].distance"
+119,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(68:43-68:64),"connected[u.number-1]"
+120,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(68:65-68:66),"j"
+121,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(68:68-68:73),"Sardas"
+122,MEMBEREXPRESSION,"connected",Sardas.java(68:43-68:52),"connected"
+123,BINARYOPERATOR,"-",Sardas.java(68:53-68:63),"u.number-1"
+124,MEMBEREXPRESSION,"number",Sardas.java(68:53-68:61),"u.number"
+125,LITERAL,"",Sardas.java(68:62-68:63),"1"
+126,DECLAREDREFERENCEEXPRESSION,"u",Sardas.java(68:53-68:54),"u"
+127,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(68:43-68:52),"Sardas"
+128,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(68:68-68:76),"array[j]"
+129,MEMBEREXPRESSION,"array",Sardas.java(68:68-68:73),"array"
+130,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(68:74-68:75),"j"
+131,MEMBERCALLEXPRESSION,"contains",Sardas.java(68:10-68:33),"heap.contains(array[j])"
+132,LITERAL,"",Sardas.java(68:35-68:39),"true"
+133,DECLAREDREFERENCEEXPRESSION,"contains",Sardas.java(68:15-68:23),"contains"
+134,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(68:24-68:32),"array[j]"
+135,MEMBEREXPRESSION,"array",Sardas.java(68:24-68:29),"array"
+136,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(68:30-68:31),"j"
+137,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(68:24-68:29),"Sardas"
+138,BINARYOPERATOR,"=",Sardas.java(69:4-69:40),"array[j].parent = array[u.number-1];"
+139,BINARYOPERATOR,"=",Sardas.java(70:4-70:49),"array[j].distance = connected[u.number-1][j];"
+140,MEMBERCALLEXPRESSION,"remove",Sardas.java(71:4-71:26),"heap.remove(array[j]);"
+141,MEMBERCALLEXPRESSION,"add",Sardas.java(72:4-72:23),"heap.add(array[j]);"
+142,BINARYOPERATOR,"=",Sardas.java(73:4-73:31),"array[j].chosen = u.number;"
+143,BINARYOPERATOR,"=",Sardas.java(74:4-74:52),"array[j].chosenValue = connected[u.number-1][j];"
+144,MEMBEREXPRESSION,"parent",Sardas.java(69:4-69:19),"array[j].parent"
+145,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(69:22-69:39),"array[u.number-1]"
+146,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(70:4-70:9),"Sardas"
+147,MEMBEREXPRESSION,"array",Sardas.java(69:22-69:27),"array"
+148,BINARYOPERATOR,"-",Sardas.java(69:28-69:38),"u.number-1"
+149,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(69:22-69:27),"Sardas"
+150,DECLAREDREFERENCEEXPRESSION,"u",Sardas.java(69:28-69:29),"u"
+151,MEMBEREXPRESSION,"number",Sardas.java(69:28-69:36),"u.number"
+152,LITERAL,"",Sardas.java(69:37-69:38),"1"
+153,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(69:4-69:12),"array[j]"
+154,MEMBEREXPRESSION,"array",Sardas.java(69:4-69:9),"array"
+155,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(69:10-69:11),"j"
+156,MEMBEREXPRESSION,"distance",Sardas.java(70:4-70:21),"array[j].distance"
+157,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(70:24-70:48),"connected[u.number-1][j]"
+158,DECLAREDREFERENCEEXPRESSION,"heap",Sardas.java(71:4-71:8),"heap"
+159,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(70:24-70:45),"connected[u.number-1]"
+160,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(70:46-70:47),"j"
+161,MEMBEREXPRESSION,"connected",Sardas.java(70:24-70:33),"connected"
+162,BINARYOPERATOR,"-",Sardas.java(70:34-70:44),"u.number-1"
+163,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(70:24-70:33),"Sardas"
+164,DECLAREDREFERENCEEXPRESSION,"u",Sardas.java(70:34-70:35),"u"
+165,MEMBEREXPRESSION,"number",Sardas.java(70:34-70:42),"u.number"
+166,LITERAL,"",Sardas.java(70:43-70:44),"1"
+167,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(70:4-70:12),"array[j]"
+168,MEMBEREXPRESSION,"array",Sardas.java(70:4-70:9),"array"
+169,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(70:10-70:11),"j"
+170,DECLAREDREFERENCEEXPRESSION,"add",Sardas.java(72:9-72:12),"add"
+171,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(73:4-73:9),"Sardas"
+172,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(72:13-72:21),"array[j]"
+173,DECLAREDREFERENCEEXPRESSION,"heap",Sardas.java(72:4-72:8),"heap"
+174,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(72:13-72:18),"Sardas"
+175,MEMBEREXPRESSION,"array",Sardas.java(72:13-72:18),"array"
+176,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(72:19-72:20),"j"
+177,MEMBEREXPRESSION,"chosen",Sardas.java(73:4-73:19),"array[j].chosen"
+178,MEMBEREXPRESSION,"number",Sardas.java(73:22-73:30),"u.number"
+179,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(74:4-74:9),"Sardas"
+180,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(73:4-73:12),"array[j]"
+181,DECLAREDREFERENCEEXPRESSION,"u",Sardas.java(73:22-73:23),"u"
+182,MEMBEREXPRESSION,"array",Sardas.java(73:4-73:9),"array"
+183,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(73:10-73:11),"j"
+184,MEMBEREXPRESSION,"chosenValue",Sardas.java(74:4-74:24),"array[j].chosenValue"
+185,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(74:27-74:51),"connected[u.number-1][j]"
+186,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(74:4-74:12),"array[j]"
+187,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(74:27-74:36),"Sardas"
+188,MEMBEREXPRESSION,"array",Sardas.java(74:4-74:9),"array"
+189,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(74:10-74:11),"j"
+190,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(74:27-74:48),"connected[u.number-1]"
+191,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(74:49-74:50),"j"
+192,MEMBEREXPRESSION,"connected",Sardas.java(74:27-74:36),"connected"
+193,BINARYOPERATOR,"-",Sardas.java(74:37-74:47),"u.number-1"
+194,MEMBEREXPRESSION,"number",Sardas.java(74:37-74:45),"u.number"
+195,LITERAL,"",Sardas.java(74:46-74:47),"1"
+196,DECLAREDREFERENCEEXPRESSION,"u",Sardas.java(74:37-74:38),"u"
+197,DECLAREDREFERENCEEXPRESSION,"remove",Sardas.java(71:9-71:15),"remove"
+198,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(71:16-71:24),"array[j]"
+199,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(71:16-71:21),"Sardas"
+200,MEMBEREXPRESSION,"array",Sardas.java(71:16-71:21),"array"
+201,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(71:22-71:23),"j"
+202,BINARYOPERATOR,"==",Sardas.java(61:9-61:16),"flag==1"
+203,COMPOUNDSTATEMENT,"",Sardas.java(61:17-64:7),"{
+
+		total = total + u.chosenValue;
+	    }"
+204,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(63:3-63:8),"Sardas"
+205,DECLAREDREFERENCEEXPRESSION,"flag",Sardas.java(65:3-65:7),"flag"
+206,LITERAL,"",Sardas.java(61:15-61:16),"1"
+207,BINARYOPERATOR,"=",Sardas.java(63:3-63:33),"total = total + u.chosenValue;"
+208,MEMBEREXPRESSION,"total",Sardas.java(63:3-63:8),"total"
+209,BINARYOPERATOR,"+",Sardas.java(63:11-63:32),"total + u.chosenValue"
+210,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(63:11-63:16),"Sardas"
+211,MEMBEREXPRESSION,"total",Sardas.java(63:11-63:16),"total"
+212,MEMBEREXPRESSION,"chosenValue",Sardas.java(63:19-63:32),"u.chosenValue"
+213,DECLAREDREFERENCEEXPRESSION,"u",Sardas.java(63:19-63:20),"u"
+214,MEMBERCALLEXPRESSION,"remove",Sardas.java(60:15-60:28),"heap.remove()"
+215,DECLAREDREFERENCEEXPRESSION,"remove",Sardas.java(60:20-60:26),"remove"
+216,LITERAL,"",Sardas.java(65:9-65:10),"1"
+217,MEMBERCALLEXPRESSION,"isEmpty",Sardas.java(59:9-59:23),"heap.isEmpty()"
+218,DECLAREDREFERENCEEXPRESSION,"isEmpty",Sardas.java(59:14-59:21),"isEmpty"
+219,MEMBEREXPRESSION,"distance",Sardas.java(54:2-54:14),"nod.distance"
+220,LITERAL,"",Sardas.java(54:15-54:16),"0"
+221,VARIABLEDECLARATION,"this",,""
+222,COMPOUNDSTATEMENT,"",Sardas.java(83:43-115:6),"{
+	Scanner hello = new Scanner(System.in);
+	Nnodes = hello.nextInt();
+
+	connected = new float[Nnodes][Nnodes];
+	array = new Node[Nnodes];
+
+	for(int i=0; i<Nnodes; i++){
+	    array[i] = new Node(false, i+1, 9999999, null, 0, 0, 0, 0);
+	}
+
+	for(int i=0; i<Nnodes; i++){
+	    float x = hello.nextFloat();
+	    float y = hello.nextFloat();
+	    array[i].posx = x;
+	    array[i].posy =y;
+	}
+
+	for(int i=0; i<Nnodes; i++){ 
+	    float x1 = array[i].posx;
+	    float y1 = array[i].posy;
+	    for(int j=0;j<Nnodes; j++){
+		float x2 = array[j].posx;
+		float y2 = array[j].posy;
+		connected[i][j] = (float)Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2));
+	    }
+	}
+
+
+
+	prim(array[0]);
+	System.out.printf(""%.2f\n"",total);
+    }"
+223,PARAMVARIABLEDECLARATION,"args",Sardas.java(83:29-83:42),"String[] args"
+224,DECLAREDREFERENCEEXPRESSION,"System",Sardas.java(84:30-84:36),"System"
+225,RETURNSTATEMENT,"",,""
+226,DECLARATIONSTATEMENT,"",Sardas.java(84:2-84:41),"Scanner hello = new Scanner(System.in);"
+227,BINARYOPERATOR,"=",Sardas.java(85:2-85:27),"Nnodes = hello.nextInt();"
+228,BINARYOPERATOR,"=",Sardas.java(87:2-87:40),"connected = new float[Nnodes][Nnodes];"
+229,BINARYOPERATOR,"=",Sardas.java(88:2-88:27),"array = new Node[Nnodes];"
+230,FORSTATEMENT,"",Sardas.java(90:2-92:3),"for(int i=0; i<Nnodes; i++){
+	    array[i] = new Node(false, i+1, 9999999, null, 0, 0, 0, 0);
+	}"
+231,FORSTATEMENT,"",Sardas.java(94:2-99:3),"for(int i=0; i<Nnodes; i++){
+	    float x = hello.nextFloat();
+	    float y = hello.nextFloat();
+	    array[i].posx = x;
+	    array[i].posy =y;
+	}"
+232,FORSTATEMENT,"",Sardas.java(101:2-109:3),"for(int i=0; i<Nnodes; i++){ 
+	    float x1 = array[i].posx;
+	    float y1 = array[i].posy;
+	    for(int j=0;j<Nnodes; j++){
+		float x2 = array[j].posx;
+		float y2 = array[j].posy;
+		connected[i][j] = (float)Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2));
+	    }
+	}"
+233,CALLEXPRESSION,"prim",Sardas.java(113:2-113:17),"prim(array[0]);"
+234,MEMBERCALLEXPRESSION,"printf",Sardas.java(114:2-114:36),"System.out.printf(""%.2f\n"",total);"
+235,VARIABLEDECLARATION,"hello",Sardas.java(84:10-84:40),"hello = new Scanner(System.in)"
+236,METHODDECLARATION,"prim",,""
+237,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(113:7-113:15),"array[0]"
+238,DECLAREDREFERENCEEXPRESSION,"System",Sardas.java(114:2-114:8),"System"
+239,MEMBEREXPRESSION,"array",Sardas.java(113:7-113:12),"array"
+240,LITERAL,"",Sardas.java(113:13-113:14),"0"
+241,PARAMVARIABLEDECLARATION,"node0",,""
+242,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(113:7-113:12),"Sardas"
+243,DECLAREDREFERENCEEXPRESSION,"printf",Sardas.java(114:13-114:19),"printf"
+244,MEMBEREXPRESSION,"total",Sardas.java(114:29-114:34),"total"
+245,LITERAL,"",Sardas.java(114:20-114:28),"""%.2f\n"""
+246,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(114:29-114:34),"Sardas"
+247,MEMBEREXPRESSION,"out",Sardas.java(114:2-114:12),"System.out"
+248,MEMBEREXPRESSION,"Nnodes",Sardas.java(85:2-85:8),"Nnodes"
+249,MEMBERCALLEXPRESSION,"nextInt",Sardas.java(85:11-85:26),"hello.nextInt()"
+250,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(87:2-87:11),"Sardas"
+251,DECLAREDREFERENCEEXPRESSION,"nextInt",Sardas.java(85:17-85:24),"nextInt"
+252,DECLAREDREFERENCEEXPRESSION,"hello",Sardas.java(85:11-85:16),"hello"
+253,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(85:2-85:8),"Sardas"
+254,MEMBEREXPRESSION,"array",Sardas.java(88:2-88:7),"array"
+255,ARRAYCREATIONEXPRESSION,"",Sardas.java(88:10-88:26),"new Node[Nnodes]"
+256,LITERAL,"",Sardas.java(90:12-90:13),"0"
+257,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(88:2-88:7),"Sardas"
+258,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(88:19-88:25),"Sardas"
+259,MEMBEREXPRESSION,"Nnodes",Sardas.java(88:19-88:25),"Nnodes"
+260,COMPOUNDSTATEMENT,"",Sardas.java(90:29-92:3),"{
+	    array[i] = new Node(false, i+1, 9999999, null, 0, 0, 0, 0);
+	}"
+261,DECLARATIONSTATEMENT,"",Sardas.java(90:6-90:13),"int i=0"
+262,BINARYOPERATOR,"<",Sardas.java(90:15-90:23),"i<Nnodes"
+263,UNARYOPERATOR,"++",Sardas.java(90:25-90:28),"i++"
+264,VARIABLEDECLARATION,"i",Sardas.java(90:10-90:13),"i=0"
+265,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(91:6-91:11),"Sardas"
+266,LITERAL,"",Sardas.java(94:12-94:13),"0"
+267,BINARYOPERATOR,"=",Sardas.java(91:6-91:65),"array[i] = new Node(false, i+1, 9999999, null, 0, 0, 0, 0);"
+268,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(90:25-90:26),"i"
+269,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(91:6-91:14),"array[i]"
+270,NEWEXPRESSION,"",Sardas.java(91:17-91:64),"new Node(false, i+1, 9999999, null, 0, 0, 0, 0)"
+271,CONSTRUCTEXPRESSION,"",Sardas.java(91:17-91:64),"new Node(false, i+1, 9999999, null, 0, 0, 0, 0)"
+272,CONSTRUCTORDECLARATION,"Node",,""
+273,LITERAL,"",Sardas.java(91:62-91:63),"0"
+274,PARAMVARIABLEDECLARATION,"int7",,""
+275,LITERAL,"",Sardas.java(91:59-91:60),"0"
+276,LITERAL,"",Sardas.java(91:38-91:45),"9999999"
+277,PARAMVARIABLEDECLARATION,"int2",,""
+278,LITERAL,"",Sardas.java(91:47-91:51),"null"
+279,BINARYOPERATOR,"+",Sardas.java(91:33-91:36),"i+1"
+280,LITERAL,"",Sardas.java(91:53-91:54),"0"
+281,PARAMVARIABLEDECLARATION,"int4",,""
+282,LITERAL,"",Sardas.java(91:56-91:57),"0"
+283,LITERAL,"",Sardas.java(91:26-91:31),"false"
+284,PARAMVARIABLEDECLARATION,"boolean0",,""
+285,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(91:33-91:34),"i"
+286,LITERAL,"",Sardas.java(91:35-91:36),"1"
+287,PARAMVARIABLEDECLARATION,"unknown1",,""
+288,PARAMVARIABLEDECLARATION,"int6",,""
+289,PARAMVARIABLEDECLARATION,"null3",,""
+290,PARAMVARIABLEDECLARATION,"int5",,""
+291,MEMBEREXPRESSION,"array",Sardas.java(91:6-91:11),"array"
+292,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(91:12-91:13),"i"
+293,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(90:15-90:16),"i"
+294,MEMBEREXPRESSION,"Nnodes",Sardas.java(90:17-90:23),"Nnodes"
+295,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(90:17-90:23),"Sardas"
+296,MEMBEREXPRESSION,"connected",Sardas.java(87:2-87:11),"connected"
+297,ARRAYCREATIONEXPRESSION,"",Sardas.java(87:14-87:39),"new float[Nnodes][Nnodes]"
+298,MEMBEREXPRESSION,"Nnodes",Sardas.java(87:24-87:30),"Nnodes"
+299,MEMBEREXPRESSION,"Nnodes",Sardas.java(87:32-87:38),"Nnodes"
+300,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(87:32-87:38),"Sardas"
+301,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(87:24-87:30),"Sardas"
+302,NEWEXPRESSION,"",Sardas.java(84:18-84:40),"new Scanner(System.in)"
+303,CONSTRUCTEXPRESSION,"",Sardas.java(84:18-84:40),"new Scanner(System.in)"
+304,MEMBEREXPRESSION,"in",Sardas.java(84:30-84:39),"System.in"
+305,COMPOUNDSTATEMENT,"",Sardas.java(94:29-99:3),"{
+	    float x = hello.nextFloat();
+	    float y = hello.nextFloat();
+	    array[i].posx = x;
+	    array[i].posy =y;
+	}"
+306,DECLARATIONSTATEMENT,"",Sardas.java(94:6-94:13),"int i=0"
+307,BINARYOPERATOR,"<",Sardas.java(94:15-94:23),"i<Nnodes"
+308,UNARYOPERATOR,"++",Sardas.java(94:25-94:28),"i++"
+309,VARIABLEDECLARATION,"i",Sardas.java(94:10-94:13),"i=0"
+310,DECLAREDREFERENCEEXPRESSION,"hello",Sardas.java(95:16-95:21),"hello"
+311,LITERAL,"",Sardas.java(101:12-101:13),"0"
+312,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(94:25-94:26),"i"
+313,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(94:15-94:16),"i"
+314,MEMBEREXPRESSION,"Nnodes",Sardas.java(94:17-94:23),"Nnodes"
+315,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(94:17-94:23),"Sardas"
+316,DECLARATIONSTATEMENT,"",Sardas.java(95:6-95:34),"float x = hello.nextFloat();"
+317,DECLARATIONSTATEMENT,"",Sardas.java(96:6-96:34),"float y = hello.nextFloat();"
+318,BINARYOPERATOR,"=",Sardas.java(97:6-97:24),"array[i].posx = x;"
+319,BINARYOPERATOR,"=",Sardas.java(98:6-98:23),"array[i].posy =y;"
+320,VARIABLEDECLARATION,"x",Sardas.java(95:12-95:33),"x = hello.nextFloat()"
+321,VARIABLEDECLARATION,"y",Sardas.java(96:12-96:33),"y = hello.nextFloat()"
+322,DECLAREDREFERENCEEXPRESSION,"hello",Sardas.java(96:16-96:21),"hello"
+323,MEMBERCALLEXPRESSION,"nextFloat",Sardas.java(95:16-95:33),"hello.nextFloat()"
+324,DECLAREDREFERENCEEXPRESSION,"nextFloat",Sardas.java(95:22-95:31),"nextFloat"
+325,MEMBERCALLEXPRESSION,"nextFloat",Sardas.java(96:16-96:33),"hello.nextFloat()"
+326,DECLAREDREFERENCEEXPRESSION,"nextFloat",Sardas.java(96:22-96:31),"nextFloat"
+327,MEMBEREXPRESSION,"posy",Sardas.java(98:6-98:19),"array[i].posy"
+328,DECLAREDREFERENCEEXPRESSION,"y",Sardas.java(98:21-98:22),"y"
+329,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(98:6-98:14),"array[i]"
+330,MEMBEREXPRESSION,"array",Sardas.java(98:6-98:11),"array"
+331,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(98:12-98:13),"i"
+332,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(98:6-98:11),"Sardas"
+333,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(97:6-97:11),"Sardas"
+334,MEMBEREXPRESSION,"posx",Sardas.java(97:6-97:19),"array[i].posx"
+335,DECLAREDREFERENCEEXPRESSION,"x",Sardas.java(97:22-97:23),"x"
+336,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(97:6-97:14),"array[i]"
+337,MEMBEREXPRESSION,"array",Sardas.java(97:6-97:11),"array"
+338,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(97:12-97:13),"i"
+339,COMPOUNDSTATEMENT,"",Sardas.java(101:29-109:3),"{ 
+	    float x1 = array[i].posx;
+	    float y1 = array[i].posy;
+	    for(int j=0;j<Nnodes; j++){
+		float x2 = array[j].posx;
+		float y2 = array[j].posy;
+		connected[i][j] = (float)Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2));
+	    }
+	}"
+340,DECLARATIONSTATEMENT,"",Sardas.java(101:6-101:13),"int i=0"
+341,BINARYOPERATOR,"<",Sardas.java(101:15-101:23),"i<Nnodes"
+342,UNARYOPERATOR,"++",Sardas.java(101:25-101:28),"i++"
+343,VARIABLEDECLARATION,"i",Sardas.java(101:10-101:13),"i=0"
+344,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(102:17-102:22),"Sardas"
+345,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(101:15-101:16),"i"
+346,DECLARATIONSTATEMENT,"",Sardas.java(102:6-102:31),"float x1 = array[i].posx;"
+347,DECLARATIONSTATEMENT,"",Sardas.java(103:6-103:31),"float y1 = array[i].posy;"
+348,FORSTATEMENT,"",Sardas.java(104:6-108:7),"for(int j=0;j<Nnodes; j++){
+		float x2 = array[j].posx;
+		float y2 = array[j].posy;
+		connected[i][j] = (float)Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2));
+	    }"
+349,VARIABLEDECLARATION,"x1",Sardas.java(102:12-102:30),"x1 = array[i].posx"
+350,VARIABLEDECLARATION,"y1",Sardas.java(103:12-103:30),"y1 = array[i].posy"
+351,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(101:25-101:26),"i"
+352,LITERAL,"",Sardas.java(104:16-104:17),"0"
+353,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(103:17-103:22),"Sardas"
+354,MEMBEREXPRESSION,"posx",Sardas.java(102:17-102:30),"array[i].posx"
+355,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(102:17-102:25),"array[i]"
+356,MEMBEREXPRESSION,"array",Sardas.java(102:17-102:22),"array"
+357,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(102:23-102:24),"i"
+358,MEMBEREXPRESSION,"posy",Sardas.java(103:17-103:30),"array[i].posy"
+359,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(103:17-103:25),"array[i]"
+360,MEMBEREXPRESSION,"array",Sardas.java(103:17-103:22),"array"
+361,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(103:23-103:24),"i"
+362,COMPOUNDSTATEMENT,"",Sardas.java(104:32-108:7),"{
+		float x2 = array[j].posx;
+		float y2 = array[j].posy;
+		connected[i][j] = (float)Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2));
+	    }"
+363,DECLARATIONSTATEMENT,"",Sardas.java(104:10-104:17),"int j=0"
+364,BINARYOPERATOR,"<",Sardas.java(104:18-104:26),"j<Nnodes"
+365,UNARYOPERATOR,"++",Sardas.java(104:28-104:31),"j++"
+366,VARIABLEDECLARATION,"j",Sardas.java(104:14-104:17),"j=0"
+367,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(105:14-105:19),"Sardas"
+368,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(104:18-104:19),"j"
+369,MEMBEREXPRESSION,"Nnodes",Sardas.java(104:20-104:26),"Nnodes"
+370,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(104:20-104:26),"Sardas"
+371,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(104:28-104:29),"j"
+372,DECLARATIONSTATEMENT,"",Sardas.java(105:3-105:28),"float x2 = array[j].posx;"
+373,DECLARATIONSTATEMENT,"",Sardas.java(106:3-106:28),"float y2 = array[j].posy;"
+374,BINARYOPERATOR,"=",Sardas.java(107:3-107:99),"connected[i][j] = (float)Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2));"
+375,VARIABLEDECLARATION,"x2",Sardas.java(105:9-105:27),"x2 = array[j].posx"
+376,VARIABLEDECLARATION,"y2",Sardas.java(106:9-106:27),"y2 = array[j].posy"
+377,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(107:3-107:18),"connected[i][j]"
+378,CASTEXPRESSION,"static_cast",Sardas.java(107:21-107:98),"(float)Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2))"
+379,STATICCALLEXPRESSION,"sqrt",Sardas.java(107:28-107:98),"Math.sqrt(Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2))"
+380,BINARYOPERATOR,"+",Sardas.java(107:38-107:97),"Math.pow(Math.abs(x1 - x2),2) + Math.pow(Math.abs(y1-y2),2)"
+381,STATICCALLEXPRESSION,"pow",Sardas.java(107:38-107:67),"Math.pow(Math.abs(x1 - x2),2)"
+382,STATICCALLEXPRESSION,"pow",Sardas.java(107:70-107:97),"Math.pow(Math.abs(y1-y2),2)"
+383,LITERAL,"",Sardas.java(107:95-107:96),"2"
+384,STATICCALLEXPRESSION,"abs",Sardas.java(107:79-107:94),"Math.abs(y1-y2)"
+385,BINARYOPERATOR,"-",Sardas.java(107:88-107:93),"y1-y2"
+386,DECLAREDREFERENCEEXPRESSION,"y1",Sardas.java(107:88-107:90),"y1"
+387,DECLAREDREFERENCEEXPRESSION,"y2",Sardas.java(107:91-107:93),"y2"
+388,LITERAL,"",Sardas.java(107:65-107:66),"2"
+389,STATICCALLEXPRESSION,"abs",Sardas.java(107:47-107:64),"Math.abs(x1 - x2)"
+390,BINARYOPERATOR,"-",Sardas.java(107:56-107:63),"x1 - x2"
+391,DECLAREDREFERENCEEXPRESSION,"x1",Sardas.java(107:56-107:58),"x1"
+392,DECLAREDREFERENCEEXPRESSION,"x2",Sardas.java(107:61-107:63),"x2"
+393,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(107:3-107:15),"connected[i]"
+394,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(107:16-107:17),"j"
+395,MEMBEREXPRESSION,"connected",Sardas.java(107:3-107:12),"connected"
+396,DECLAREDREFERENCEEXPRESSION,"i",Sardas.java(107:13-107:14),"i"
+397,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(107:3-107:12),"Sardas"
+398,MEMBEREXPRESSION,"posx",Sardas.java(105:14-105:27),"array[j].posx"
+399,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(105:14-105:22),"array[j]"
+400,MEMBEREXPRESSION,"array",Sardas.java(105:14-105:19),"array"
+401,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(105:20-105:21),"j"
+402,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(106:14-106:19),"Sardas"
+403,MEMBEREXPRESSION,"posy",Sardas.java(106:14-106:27),"array[j].posy"
+404,ARRAYSUBSCRIPTIONEXPRESSION,"",Sardas.java(106:14-106:22),"array[j]"
+405,MEMBEREXPRESSION,"array",Sardas.java(106:14-106:19),"array"
+406,DECLAREDREFERENCEEXPRESSION,"j",Sardas.java(106:20-106:21),"j"
+407,MEMBEREXPRESSION,"Nnodes",Sardas.java(101:17-101:23),"Nnodes"
+408,DECLAREDREFERENCEEXPRESSION,"Sardas",Sardas.java(101:17-101:23),"Sardas"
+409,FIELDDECLARATION,"this",,""
+410,FIELDDECLARATION,"number",Sardas.java(6:5-6:16),"number"
+411,FIELDDECLARATION,"visited",Sardas.java(7:5-7:21),"visited"
+412,FIELDDECLARATION,"distance",Sardas.java(8:5-8:20),"distance"
+413,FIELDDECLARATION,"parent",Sardas.java(9:5-9:17),"parent"
+414,FIELDDECLARATION,"chosen",Sardas.java(10:5-10:16),"chosen"
+415,FIELDDECLARATION,"chosenValue",Sardas.java(11:5-11:23),"chosenValue"
+416,FIELDDECLARATION,"posx",Sardas.java(12:5-12:16),"posx"
+417,FIELDDECLARATION,"posy",Sardas.java(13:5-13:16),"posy"
+418,METHODDECLARATION,"compareTo",Sardas.java(25:5-34:6),"@Override
+	public int compareTo(Node x){
+	if(this.distance<x.distance) return -1;
+	else if(this.distance>x.distance) return 1;
+	else{
+	    if(this.number<x.number) return -1;
+	    else if(this.number>x.number) return 1;
+	    else return 0;
+	}
+    }"
+419,CONSTRUCTORDECLARATION,"Node",Sardas.java(15:5-24:6),"Node(boolean visited, int number, float distance, Node parent, int chosen, float chosenValue, float posx, float posy){
+	this.number = number;
+	this.visited = visited;
+	this.distance = distance;
+	this.parent = parent;
+	this.chosen = chosen;
+	this.chosenValue = chosenValue;
+	this.posx = posx;
+	this.posy = posy;
+    }"
+420,VARIABLEDECLARATION,"this",,""
+421,COMPOUNDSTATEMENT,"",Sardas.java(26:30-34:6),"{
+	if(this.distance<x.distance) return -1;
+	else if(this.distance>x.distance) return 1;
+	else{
+	    if(this.number<x.number) return -1;
+	    else if(this.number>x.number) return 1;
+	    else return 0;
+	}
+    }"
+422,PARAMVARIABLEDECLARATION,"x",Sardas.java(26:23-26:29),"Node x"
+423,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(27:5-27:9),"this"
+424,RETURNSTATEMENT,"",,""
+425,IFSTATEMENT,"",Sardas.java(27:2-33:3),"if(this.distance<x.distance) return -1;
+	else if(this.distance>x.distance) return 1;
+	else{
+	    if(this.number<x.number) return -1;
+	    else if(this.number>x.number) return 1;
+	    else return 0;
+	}"
+426,BINARYOPERATOR,"<",Sardas.java(27:5-27:29),"this.distance<x.distance"
+427,RETURNSTATEMENT,"",Sardas.java(27:31-27:41),"return -1;"
+428,IFSTATEMENT,"",Sardas.java(28:7-33:3),"if(this.distance>x.distance) return 1;
+	else{
+	    if(this.number<x.number) return -1;
+	    else if(this.number>x.number) return 1;
+	    else return 0;
+	}"
+429,LITERAL,"",Sardas.java(27:39-27:40),"1"
+430,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(28:10-28:14),"this"
+431,BINARYOPERATOR,">",Sardas.java(28:10-28:34),"this.distance>x.distance"
+432,RETURNSTATEMENT,"",Sardas.java(28:36-28:45),"return 1;"
+433,COMPOUNDSTATEMENT,"",Sardas.java(29:6-33:3),"{
+	    if(this.number<x.number) return -1;
+	    else if(this.number>x.number) return 1;
+	    else return 0;
+	}"
+434,LITERAL,"",Sardas.java(28:43-28:44),"1"
+435,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(30:9-30:13),"this"
+436,MEMBEREXPRESSION,"distance",Sardas.java(28:10-28:23),"this.distance"
+437,MEMBEREXPRESSION,"distance",Sardas.java(28:24-28:34),"x.distance"
+438,DECLAREDREFERENCEEXPRESSION,"x",Sardas.java(28:24-28:25),"x"
+439,IFSTATEMENT,"",Sardas.java(30:6-32:20),"if(this.number<x.number) return -1;
+	    else if(this.number>x.number) return 1;
+	    else return 0;"
+440,BINARYOPERATOR,"<",Sardas.java(30:9-30:29),"this.number<x.number"
+441,RETURNSTATEMENT,"",Sardas.java(30:31-30:41),"return -1;"
+442,IFSTATEMENT,"",Sardas.java(31:11-32:20),"if(this.number>x.number) return 1;
+	    else return 0;"
+443,LITERAL,"",Sardas.java(30:39-30:40),"1"
+444,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(31:14-31:18),"this"
+445,MEMBEREXPRESSION,"number",Sardas.java(30:9-30:20),"this.number"
+446,MEMBEREXPRESSION,"number",Sardas.java(30:21-30:29),"x.number"
+447,DECLAREDREFERENCEEXPRESSION,"x",Sardas.java(30:21-30:22),"x"
+448,BINARYOPERATOR,">",Sardas.java(31:14-31:34),"this.number>x.number"
+449,RETURNSTATEMENT,"",Sardas.java(31:36-31:45),"return 1;"
+450,RETURNSTATEMENT,"",Sardas.java(32:11-32:20),"return 0;"
+451,LITERAL,"",Sardas.java(31:43-31:44),"1"
+452,LITERAL,"",Sardas.java(32:18-32:19),"0"
+453,MEMBEREXPRESSION,"number",Sardas.java(31:14-31:25),"this.number"
+454,MEMBEREXPRESSION,"number",Sardas.java(31:26-31:34),"x.number"
+455,DECLAREDREFERENCEEXPRESSION,"x",Sardas.java(31:26-31:27),"x"
+456,UNARYOPERATOR,"-",Sardas.java(30:38-30:40),"-1"
+457,MEMBEREXPRESSION,"distance",Sardas.java(27:5-27:18),"this.distance"
+458,MEMBEREXPRESSION,"distance",Sardas.java(27:19-27:29),"x.distance"
+459,DECLAREDREFERENCEEXPRESSION,"x",Sardas.java(27:19-27:20),"x"
+460,UNARYOPERATOR,"-",Sardas.java(27:38-27:40),"-1"
+461,COMPOUNDSTATEMENT,"",Sardas.java(15:122-24:6),"{
+	this.number = number;
+	this.visited = visited;
+	this.distance = distance;
+	this.parent = parent;
+	this.chosen = chosen;
+	this.chosenValue = chosenValue;
+	this.posx = posx;
+	this.posy = posy;
+    }"
+462,PARAMVARIABLEDECLARATION,"visited",Sardas.java(15:10-15:25),"boolean visited"
+463,PARAMVARIABLEDECLARATION,"number",Sardas.java(15:27-15:37),"int number"
+464,PARAMVARIABLEDECLARATION,"distance",Sardas.java(15:39-15:53),"float distance"
+465,PARAMVARIABLEDECLARATION,"parent",Sardas.java(15:55-15:66),"Node parent"
+466,PARAMVARIABLEDECLARATION,"chosen",Sardas.java(15:68-15:78),"int chosen"
+467,PARAMVARIABLEDECLARATION,"chosenValue",Sardas.java(15:80-15:97),"float chosenValue"
+468,PARAMVARIABLEDECLARATION,"posx",Sardas.java(15:99-15:109),"float posx"
+469,PARAMVARIABLEDECLARATION,"posy",Sardas.java(15:111-15:121),"float posy"
+470,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(16:2-16:6),"this"
+471,RETURNSTATEMENT,"",,""
+472,BINARYOPERATOR,"=",Sardas.java(16:2-16:23),"this.number = number;"
+473,BINARYOPERATOR,"=",Sardas.java(17:2-17:25),"this.visited = visited;"
+474,BINARYOPERATOR,"=",Sardas.java(18:2-18:27),"this.distance = distance;"
+475,BINARYOPERATOR,"=",Sardas.java(19:2-19:23),"this.parent = parent;"
+476,BINARYOPERATOR,"=",Sardas.java(20:2-20:23),"this.chosen = chosen;"
+477,BINARYOPERATOR,"=",Sardas.java(21:2-21:33),"this.chosenValue = chosenValue;"
+478,BINARYOPERATOR,"=",Sardas.java(22:2-22:19),"this.posx = posx;"
+479,BINARYOPERATOR,"=",Sardas.java(23:2-23:19),"this.posy = posy;"
+480,MEMBEREXPRESSION,"chosen",Sardas.java(20:2-20:13),"this.chosen"
+481,DECLAREDREFERENCEEXPRESSION,"chosen",Sardas.java(20:16-20:22),"chosen"
+482,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(21:2-21:6),"this"
+483,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(20:2-20:6),"this"
+484,MEMBEREXPRESSION,"parent",Sardas.java(19:2-19:13),"this.parent"
+485,DECLAREDREFERENCEEXPRESSION,"parent",Sardas.java(19:16-19:22),"parent"
+486,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(19:2-19:6),"this"
+487,MEMBEREXPRESSION,"distance",Sardas.java(18:2-18:15),"this.distance"
+488,DECLAREDREFERENCEEXPRESSION,"distance",Sardas.java(18:18-18:26),"distance"
+489,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(18:2-18:6),"this"
+490,MEMBEREXPRESSION,"chosenValue",Sardas.java(21:2-21:18),"this.chosenValue"
+491,DECLAREDREFERENCEEXPRESSION,"chosenValue",Sardas.java(21:21-21:32),"chosenValue"
+492,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(22:2-22:6),"this"
+493,MEMBEREXPRESSION,"posx",Sardas.java(22:2-22:11),"this.posx"
+494,DECLAREDREFERENCEEXPRESSION,"posx",Sardas.java(22:14-22:18),"posx"
+495,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(23:2-23:6),"this"
+496,MEMBEREXPRESSION,"posy",Sardas.java(23:2-23:11),"this.posy"
+497,DECLAREDREFERENCEEXPRESSION,"posy",Sardas.java(23:14-23:18),"posy"
+498,MEMBEREXPRESSION,"number",Sardas.java(16:2-16:13),"this.number"
+499,DECLAREDREFERENCEEXPRESSION,"number",Sardas.java(16:16-16:22),"number"
+500,DECLAREDREFERENCEEXPRESSION,"this",Sardas.java(17:2-17:6),"this"
+501,MEMBEREXPRESSION,"visited",Sardas.java(17:2-17:14),"this.visited"
+502,DECLAREDREFERENCEEXPRESSION,"visited",Sardas.java(17:17-17:24),"visited"

@@ -1,0 +1,35 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,61
+Parte3_2.java,"insert line 24: `String output = """";` on try 0",0.9942196531791907,1.0,61
+Parte3_2.java,insert line 18: `int index = 0;` on try 0,0.896551724137931,1.0,61
+Parte3_2.java,insert line 17: `double w;` on try 0,0.88,1.0,61
+Parte3_2.java,insert line 16: `int j = 0;` on try 0,0.8636363636363636,1.0,61
+Parte3_2.java,insert line 58: `int indexOfField;` on try 0,0.8587570621468926,1.0,61
+Parte3_2.java,insert line 40: `int count = 0;` on try 0,0.8539325842696629,1.0,61
+Parte3_2.java,insert line 33: `int max;` on try 0,0.770949720670391,1.0,61
+Parte3_2.java,insert line 11: `boolean debug = false;` on try 1,0.6888888888888889,1.0,61
+Parte3_2.java,insert line 16: `int min;` on try 1,0.6850828729281768,1.0,61
+Parte3_2.java,insert line 47: `int min;` on try 1,0.6483516483516484,1.0,61
+Parte3_2.java,insert line 25: `double w;` on try 0,0.644808743169399,1.0,61
+Parte3_2.java,insert line 47: `int count = 0;` on try 0,0.6413043478260869,1.0,61
+Parte3_2.java,insert line 41: `int i = 0;` on try 0,0.5405405405405406,1.0,61
+Parte3_2.java,"insert line 43: `int x, y;` on try 0",0.5347593582887701,1.0,61
+Parte3_2.java,insert line 9: `boolean done = false;` on try 1,0.4787234042553192,1.0,61
+Parte3_2.java,insert line 64: `int i = 0;` on try 0,0.43386243386243384,1.0,61
+Parte3_2.java,insert line 67: `int index = 0;` on try 1,0.43157894736842106,1.0,61
+Parte3_2.java,insert line 33: `boolean debug = false;` on try 0,0.4293193717277487,1.0,61
+Parte3_2.java,insert line 11: `int max;` on try 2,0.4270833333333333,1.0,61
+Parte3_2.java,insert line 43: `String[] messages;` on try 1,0.42487046632124353,1.0,61
+Parte3_2.java,insert line 58: `boolean debug = false;` on try 0,0.4020618556701031,1.0,61
+Parte3_2.java,insert line 70: `boolean debug = false;` on try 1,0.4,1.0,61
+Parte3_2.java,insert line 17: `int min;` on try 0,0.3979591836734694,1.0,61
+Parte3_2.java,insert line 31: `int index = 0;` on try 2,0.39593908629441626,1.0,61
+Parte3_2.java,insert line 43: `boolean done = false;` on try 1,0.3939393939393939,1.0,61
+Parte3_2.java,insert line 55: `index++;` on try 1,0.39195979899497485,1.0,61
+Parte3_2.java,insert line 52: `int intInput;` on try 4,0.39,1.0,61
+Parte3_2.java,insert line 16: `double w;` on try 2,0.3880597014925373,1.0,61
+Parte3_2.java,insert line 2: `import java.util.LinkedList;` on try 7,0.38613861386138615,0.9942196531791907,61
+Parte3_2.java,insert line 9: `String[] messages;` on try 4,0.3645320197044335,0.9942196531791907,61
+Parte3_2.java,insert line 48: `int j = 0;` on try 4,0.3627450980392157,0.9942196531791907,61
+Parte3_2.java,insert line 17: `int count = 0;` on try 5,0.36097560975609755,0.9942196531791907,61
+Parte3_2.java,insert line 37: `int min;` on try 7,0.3592233009708738,0.9942196531791907,61

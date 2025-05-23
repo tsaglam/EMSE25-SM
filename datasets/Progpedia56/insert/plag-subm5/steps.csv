@@ -1,0 +1,29 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,61
+Prob21.java,insert line 25: `boolean debug = false;` on try 0,0.9954337899543378,1.0,61
+Prob21.java,insert line 46: `String[] messages;` on try 0,0.990909090909091,1.0,61
+Prob21.java,insert line 6: `boolean done = false;` on try 0,0.9230769230769231,1.0,61
+Prob21.java,insert line 31: `int max;` on try 0,0.8468468468468469,1.0,61
+Prob21.java,insert line 60: `int j = 0;` on try 0,0.7713004484304933,1.0,61
+Prob21.java,insert line 29: `double w;` on try 0,0.7678571428571429,1.0,61
+Prob21.java,insert line 35: `int index = 0;` on try 0,0.7466666666666667,1.0,61
+Prob21.java,insert line 66: `boolean done = false;` on try 0,0.7433628318584071,1.0,61
+Prob21.java,"insert line 59: `int x, y;` on try 0",0.6842105263157895,1.0,61
+Prob21.java,insert line 28: `boolean done = false;` on try 0,0.6812227074235808,1.0,61
+Prob21.java,"insert line 50: `String output = """";` on try 0",0.6695652173913044,1.0,61
+Prob21.java,insert line 15: `int index = 0;` on try 0,0.6666666666666666,1.0,61
+Prob21.java,insert line 55: `int count = 0;` on try 2,0.646551724137931,1.0,61
+Prob21.java,insert line 43: `int index = 0;` on try 0,0.6437768240343348,1.0,61
+Prob21.java,insert line 74: `double min = 9999999;` on try 0,0.6410256410256411,1.0,61
+Prob21.java,insert line 70: `int max;` on try 0,0.6382978723404256,1.0,61
+Prob21.java,insert line 5: `String[] messages;` on try 0,0.635593220338983,1.0,61
+Prob21.java,insert line 20: `int j = 0;` on try 1,0.6075949367088608,1.0,61
+Prob21.java,insert line 19: `String[] messages;` on try 1,0.6050420168067226,1.0,61
+Prob21.java,insert line 48: `String[] messages;` on try 2,0.5774058577405857,1.0,61
+Prob21.java,"insert line 11: `int x, y;` on try 1",0.5311203319502075,1.0,61
+Prob21.java,insert line 56: `double w;` on try 3,0.4380165289256198,1.0,61
+Prob21.java,insert line 67: `boolean debug = false;` on try 0,0.43621399176954734,1.0,61
+Prob21.java,insert line 79: `int index = 0;` on try 1,0.4344262295081967,1.0,61
+Prob21.java,insert line 19: `double w;` on try 2,0.4326530612244898,1.0,61
+Prob21.java,insert line 45: `String[] messages;` on try 2,0.34146341463414637,1.0,61
+Prob21.java,insert line 4: `int min;` on try 1,0.340080971659919,1.0,61

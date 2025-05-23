@@ -1,0 +1,33 @@
+filename,operation,off score,on score,line count
+None,None,1.0,1.0,57
+sarda.java,insert line 20: `double w;` on try 0,0.9941520467836257,1.0,57
+sarda.java,insert line 27: `int max;` on try 0,0.9883720930232558,1.0,57
+sarda.java,insert line 13: `int count = 0;` on try 0,0.9826589595375722,1.0,57
+sarda.java,insert line 55: `boolean done = false;` on try 0,0.9080459770114943,1.0,57
+sarda.java,insert line 39: `int max;` on try 0,0.9028571428571428,1.0,57
+sarda.java,insert line 11: `String[] messages;` on try 0,0.8636363636363636,1.0,57
+sarda.java,insert line 27: `int count = 0;` on try 0,0.7909604519774012,1.0,57
+sarda.java,"insert line 49: `String output = """";` on try 1",0.7865168539325843,1.0,57
+sarda.java,"insert line 64: `int x, y;` on try 0",0.7777777777777778,1.0,57
+sarda.java,insert line 45: `int index = 0;` on try 0,0.6408839779005525,1.0,57
+sarda.java,insert line 57: `boolean debug = false;` on try 0,0.5384615384615384,1.0,57
+sarda.java,insert line 9: `int max;` on try 1,0.5136612021857924,1.0,57
+sarda.java,insert line 44: `String[] messages;` on try 0,0.5108695652173914,1.0,57
+sarda.java,insert line 11: `int min;` on try 1,0.5081081081081081,1.0,57
+sarda.java,insert line 27: `int max;` on try 0,0.40860215053763443,1.0,57
+sarda.java,insert line 64: `count++;` on try 1,0.40641711229946526,1.0,57
+sarda.java,insert line 29: `int index = 0;` on try 0,0.40425531914893614,1.0,57
+sarda.java,insert line 59: `index++;` on try 1,0.4021164021164021,1.0,57
+sarda.java,"insert line 57: `int x, y;` on try 2",0.39790575916230364,1.0,57
+sarda.java,insert line 37: `int max;` on try 0,0.23958333333333334,1.0,57
+sarda.java,insert line 55: `int intInput;` on try 2,0.23834196891191708,1.0,57
+sarda.java,insert line 36: `int intInput;` on try 1,0.23711340206185566,1.0,57
+sarda.java,insert line 15: `int j = 0;` on try 1,0.2358974358974359,1.0,57
+sarda.java,insert line 3: `import java.io.*;` on try 1,0.23469387755102042,0.9940119760479041,57
+sarda.java,insert line 35: `int index = 0;` on try 1,0.233502538071066,0.9940119760479041,57
+sarda.java,insert line 79: `boolean done = false;` on try 3,0.23232323232323232,0.9940119760479041,57
+sarda.java,insert line 58: `boolean done = false;` on try 3,0.23115577889447236,0.9940119760479041,57
+sarda.java,"insert line 73: `int x, y;` on try 5",0.22885572139303484,0.9940119760479041,57
+sarda.java,insert line 69: `int index = 0;` on try 8,0.22772277227722773,0.9940119760479041,57
+sarda.java,insert line 81: `done = true;` on try 3,0.22660098522167488,0.9940119760479041,57
+sarda.java,"insert line 66: `String output = """";` on try 3",0.22549019607843138,0.9940119760479041,57
